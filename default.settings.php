@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL & ~E_NOTICE);
-date_default_timezone_set("Asia/Shanghai");
+date_default_timezone_set('Asia/Shanghai');
 
 define('DB_NAME', 'xiaoyou');
 define('DB_USER', 'root');
