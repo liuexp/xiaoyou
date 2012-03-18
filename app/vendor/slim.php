@@ -12,8 +12,8 @@ require_once($slim_root . 'Http/Response.php');
 require_once($slim_root . 'Http/Uri.php');
 
 require_once($slim_root . 'Session/Flash.php');
-require_once($slim_root . 'Session/Handler/Cookies.php');
 require_once($slim_root . 'Session/Handler.php');
+require_once($slim_root . 'Session/Handler/Cookies.php');
 
 require_once($slim_root . 'Log.php');
 require_once($slim_root . 'Logger.php');
