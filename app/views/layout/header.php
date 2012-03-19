@@ -17,7 +17,9 @@
       <div class="container">
         <span class="userinfo">
           <?php if (fAuthorization::checkLoggedIn()): ?>
-            当前用户：<?php echo UserHelper::getDisplayName(); ?> |
+            Hi, <?php echo UserHelper::getDisplayName(); ?> |
+            <a href="<?php echo SITE_BASE; ?>/invite">邀请同学</a> |
+            <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo $_SERVER['REQUEST_URI']; ?>">登出</a>
           <?php else: ?>
             <a href="<?php echo SITE_BASE; ?>/register">注册</a> |
