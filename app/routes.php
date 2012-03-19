@@ -20,6 +20,11 @@ $app->get('/article/:id', function ($id) {
   $controller->show($id);
 });
 
+$app->get('/schedule', function () {
+  $controller = new ArticleController();
+  $controller->showSchedule();
+});
+
 // profiles do not need creation because
 // profiles are created while registering
 $app->get('/profiles', function () {

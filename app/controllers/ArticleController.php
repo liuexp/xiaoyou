@@ -9,6 +9,10 @@ class ArticleController extends ApplicationController
   {
   }
   
+  public function showSchedule()
+  {
+  }
+  
   public function create()
   {
   }
