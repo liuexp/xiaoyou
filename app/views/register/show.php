@@ -49,7 +49,13 @@ include(__DIR__ . '/../layout/header.php');
   </form>
 </section>
 <aside>
-  <!-- TODO -->
+  <h2>填写说明</h2>
+  <ul>
+    <li>鹅鹅鹅</li>
+    <li>鹅鹅鹅</li>
+    <li>鹅鹅鹅</li>
+    <li>鹅鹅鹅</li>
+  </ul>
 </aside>
 <?php
 include(__DIR__ . '/../layout/footer.php');
