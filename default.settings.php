@@ -18,3 +18,10 @@ define('UDB_HOST', 'localhost');
 define('HOST_URL', 'http://localhost');
 define('SITE_BASE', '/xiaoyou');
 define('TITLE_SUFFIX', ' | ACM班校友录');
+
+/**
+ * Interval of sending invitations.
+ *   15m means 15 minutes
+ *   1h means 1 hour
+ */
+define('INVITE_INTERVAL', '15m');
