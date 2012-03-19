@@ -106,3 +106,10 @@ article table.versions td:first-child { font-size: 22px; line-height: 22px; }
 body.topics.whos-using-redis ul:first-of-type { text-align: center; list-style-type: none; margin: 15px; }
 body.topics.whos-using-redis ul:first-of-type li { margin: 10px 10px; padding: 0; display: inline-block; vertical-align: middle; }
 body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; max-width: 200px; max-height: 76px; }
+
+#buzz { text-align: right; }
+#buzz h2, #buzz ul { text-align: left; }
+#buzz ul { margin: 7px 0; }
+#buzz li { margin: 0 0 8px 0; padding-left: 34px; position: relative; min-height: 26px; }
+#buzz li a:first-child { -webkit-box-shadow: #bbbbbb, 0px, 0px, 3px; -moz-box-shadow: #bbbbbb, 0px, 0px, 3px; box-shadow: #bbbbbb, 0px, 0px, 3px; display: block; height: 26px; left: 0; position: absolute; top: 3px; width: 26px; }
+#buzz li a:first-child img { height: 26px; width: 26px; }
