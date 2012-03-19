@@ -8,14 +8,11 @@ $app->get('/', function () {
   $controller->index();
 });
 
+// article list page contains popup window
+// for creating new articles
 $app->get('/articles', function () {
   $controller = new ArticleController();
   $controller->index();
-});
-
-$app->post('/articles', function () {
-  $controller = new ArticleController();
-  $controller->create();
 });
 
 $app->get('/article/:id', function ($id) {
@@ -23,14 +20,11 @@ $app->get('/article/:id', function ($id) {
   $controller->show($id);
 });
 
+// profiles do not need creation because
+// profiles are created while registering
 $app->get('/profiles', function () {
   $controller = new ProfileController();
   $controller->index();
-});
-
-$app->post('/profiles', function () {
-  $controller = new ProfileController();
-  $controller->create();
 });
 
 $app->get('/profile/:id', function ($id) {
@@ -39,6 +33,11 @@ $app->get('/profile/:id', function ($id) {
 });
 
 // The following routes are accessed via AJAX
+
+$app->post('/articles', function () {
+  $controller = new ArticleController();
+  $controller->create();
+});
 
 $app->put('/article/:id', function ($id) {
   $controller = new ArticleController();
