@@ -1,35 +1,33 @@
 <?php
 $title = '花名册';
+$no_sidebar = true;
+$stylesheets = array('profiles');
 include(__DIR__ . '/../layout/header.php');
 ?>
-<section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div class='columns'>
-    <section>
-      <h2>Lorem ipsum</h2>
-      <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </section>
-    <section>
-      <h2>Lorem ipsum</h2>
-      <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </section>
-  </div>
-</section>
-<aside>
-  <section data-limit='5' id='buzz'>
-    <h2>Lorem ipsum</h2>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-      <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+<h1>花名册</h1>
+<?php foreach ($this->start_years as $start_year): ?>
+  <section class="grade">
+    <h2><?php echo $start_year; ?>级（<?php echo $this->class_number_map[$start_year]; ?>）</h2>
+    <ul class="registered">
+      <?php foreach ($this->students_map[$start_year] as $student): ?>
+        <?php if (UserHelper::isRegistered($student)): ?>
+          <li>
+            <a href="<?php echo SITE_BASE; ?>/profile/:id"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
+            <a href="<?php echo SITE_BASE; ?>/profile/:id"><?php echo $student->getRealname(); ?></a>
+          </li>
+        <?php endif; ?>
+      <?php endforeach; ?>
     </ul>
+    <p class="clear"></p>
+    <ul class="unregistered">
+      <?php foreach ($this->students_map[$start_year] as $student): ?>
+        <?php if (!UserHelper::isRegistered($student)): ?>
+          <li><?php echo $student->getRealname(); ?></li>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </ul>
+    <p class="clear"></p>
   </section>
-</aside>
+<?php endforeach; ?>
 <?php
 include(__DIR__ . '/../layout/footer.php');

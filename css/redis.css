@@ -79,6 +79,7 @@ body > footer .sponsor img { display: block; margin-top: 15px; }
 .columns.sidebar > aside { width: 29.5%; min-height: 400px; }
 .columns.sidebar .columns { margin-left: 0 !important; margin-right: 0 !important; }
 .columns.nosidebar > section { width: 100%; border: none; }
+.columns.nosidebar > *:last-child > * { margin-left: 0; }
 
 .home section p:first-child { font-size: 20px; line-height: 26px; font-weight: 300; margin-top: 0; }
 .home section p:first-child strong { font-weight: 450; }

@@ -24,4 +24,10 @@ class UserHelper
     $token = fAuthorization::getUserToken();
     return $token['display_name'];
   }
+  
+  public static function isRegistered($student)
+  {
+    // TODO
+    return (0 + $student->getStudentNumber()) % 2 == 0;
+  }
 }
