@@ -4,6 +4,7 @@ $flourish_root = __DIR__ . '/flourish/';
 // Load the exceptions in their inheritance order
 require_once($flourish_root . 'fException.php');
 require_once($flourish_root . 'fExpectedException.php');
+require_once($flourish_root . 'fAuthorizationException.php');
 require_once($flourish_root . 'fEmptySetException.php');
 require_once($flourish_root . 'fNoRemainingException.php');
 require_once($flourish_root . 'fNoRowsException.php');
