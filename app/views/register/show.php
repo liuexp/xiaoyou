@@ -43,7 +43,7 @@ include(__DIR__ . '/../layout/header.php');
         <label for="sure">我确认上述信息完全正确</label>
       </div>
       <div class="action">
-        <input type="submit" name="submit" value="创建我的帐户"/> <!-- TODO use a GitHub style green button -->
+        <input class="submit" type="submit" name="submit" value="创建我的帐户"/> <!-- TODO use a GitHub style green button -->
       </div>
     </fieldset>
   </form>

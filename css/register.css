@@ -3,7 +3,7 @@
 #register .field { margin: 10px 0; }
 #register .action { margin: 20px 10px 10px 10px; }
 #register .action * { margin-left: 10px; padding: 5px; }
-#register label { display: inline-block; width: 150px; text-align: right; }
-#register .textfield { width: 150px; }
+#register label { display: inline-block; width: 150px; text-align: right; font-size: 15px; line-height: 30px; }
+#register .textfield { width: 300px; height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #register .sure { padding-left: 20px; }
 #register .sure label { width: 300px; text-align: left; }
