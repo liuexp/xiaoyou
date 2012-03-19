@@ -11,7 +11,7 @@ include(__DIR__ . '/../layout/header.php');
       <div class="field">
         <label for="start_year">入学年份：</label>
         <select id="start_year" name="start_year">
-          <option value="0"></option>
+          <option></option>
           <?php for ($i = 2002; $i <= date('Y'); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
@@ -62,6 +62,6 @@ include(__DIR__ . '/../layout/header.php');
     <li>鹅鹅鹅</li>
   </ul>
 </aside>
-<script language="javascript" type="text/javascript" src="<?php echo SITE_BASE; ?>/datepicker/WdatePicker.js"></script>
 <?php
+$javascripts = array('datepicker/WdatePicker');
 include(__DIR__ . '/../layout/footer.php');

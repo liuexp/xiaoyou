@@ -1,1 +1,6 @@
 .profile .gender { width: 20px; height: 20px; }
+.popup h2 { display: block; border-bottom: 1px solid #ccc; }
+.popup form .field { margin: 5px 10px 5px 0; }
+.popup form label { display: inline-block; width: 100px; text-align: right; }
+.popup form input[type=text] { width: 200px; }
+.popup form .action { float: right; }

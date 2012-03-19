@@ -59,6 +59,7 @@ class ProfileController extends ApplicationController
   {
     try {
       $this->profile = new Profile($id);
+      $this->editable = UserHelper::getProfileId() == $this->profile->getId();
       $this->render('profile/show');
     } catch (fNotFoundException $e) {
       Slim::getInstance()->notFound();
