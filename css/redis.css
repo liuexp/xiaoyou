@@ -41,12 +41,12 @@ body > header nav { float: left; border-left: 1px solid #930000; padding: 0 0 0 
 body > header nav a { color: #fff; display: block; float: left; font-family: "Helvetica Neue", sans-serif; font-size: 20px; font-weight: normal; line-height: 80px; margin: 0 10px; text-decoration: none; text-shadow: #550000, 0px, 1px, 1px; }
 body > header nav a:first-child { margin-left: 0; }
 body > header nav a:hover { color: #ffff00; text-decoration: none; }
-body > footer { background: url(../images/small-logo.png) no-repeat left top; padding: 10px 10px 10px 50px; max-width: 840px; margin: 20px auto; color: #777777; position: relative; font-size: 11px; }
+body > footer { background: url(../images/small-logo.png) no-repeat left top; padding: 10px 10px 10px 70px; max-width: 820px; margin: 20px auto; color: #777777; position: relative; font-size: 11px; }
 body > footer a { color: #444444; }
 body > footer .sponsor { position: absolute; top: 0; right: 0; }
 body > footer .sponsor img { display: block; }
 
-.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 30px auto; max-width: 840px; padding: 30px; }
+.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 30px auto 20px auto; max-width: 840px; padding: 30px; }
 .text a { color: #0066aa; text-shadow: #f0f0f0, 1px, 1px, 0px; }
 .text a:hover { color: #0099ff; }
 .text p { margin: 5px 0; }
