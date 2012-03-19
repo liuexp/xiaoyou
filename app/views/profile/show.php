@@ -4,23 +4,42 @@ $stylesheets = array('profile');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div class='columns'>
-    <section>
-      <h2>Lorem ipsum</h2>
-      <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </section>
-    <section>
-      <h2>Lorem ipsum</h2>
-      <p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </section>
-  </div>
+  <section>
+    <h2>经历</h2>
+    <ul>
+      <?php foreach ($this->profile->getExperiences() as $experience): ?>
+        <li>
+          <?php echo $experience->getFormattedTimePeriod(); ?>.
+          <?php echo $experience->getLocation(); ?>,
+          <?php echo $experience->getDescription(); ?>.
+        </lii>
+      <?php endforeach; ?>
+    </ul>
+  </section>
+  <section>
+    <h2>论文</h2>
+    <ul>
+      <?php foreach ($this->profile->getPapers() as $paper): ?>
+        <li>
+          <?php echo $paper->getPublishYear(); ?>.
+          <?php echo $paper->getAuthors(); ?>.
+          <?php echo $paper->getTitle(); ?>.
+          <?php echo $paper->getPublishPlace(); ?>.
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </section>
+  <section>
+    <h2>荣誉</h2>
+    <ul>
+      <?php foreach ($this->profile->getHonors() as $honor): ?>
+        <li>
+          <?php echo $honor->getFormattedDate(); ?>.
+          <?php echo $honor->getDescription(); ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </section>
 </section>
 <aside class="profile">
   <h1>
@@ -38,6 +57,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
     <li>现居住地：<?php echo $this->profile->getLocation(); ?></li>
     <li>家乡：<?php echo $this->profile->getHometown(); ?></li>
     <li>自我描述：<?php echo $this->profile->getDescription(); ?></li>
+    <!-- TODO list contacts here -->
   </ul>
 </aside>
 <?php
