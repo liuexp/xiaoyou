@@ -4,98 +4,115 @@ $app = new Slim();
 // The following routes are accessed directly via browser
 
 $app->get('/', function () {
-  // TODO front page
-  echo 'home';
+  $controller = new HomeController();
+  $controller->index();
 });
 
 $app->get('/articles', function () {
-  // TODO list articles
-  echo 'articles';
+  $controller = new ArticleController();
+  $controller->index();
 });
 
 $app->post('/articles', function () {
-  // TODO create article
+  $controller = new ArticleController();
+  $controller->create();
 });
 
 $app->get('/article/:id', function ($id) {
-  // TODO show article (including edit)
-  echo 'article '.$id;
-});
-
-$app->delete('/article/:id', function ($id) {
-  // TODO delete article
+  $controller = new ArticleController();
+  $controller->show($id);
 });
 
 $app->get('/profiles', function () {
-  // TODO list profiles
-  echo 'profiles';
+  $controller = new ProfileController();
+  $controller->index();
 });
 
 $app->post('/profiles', function () {
-  // TODO create profile
+  $controller = new ProfileController();
+  $controller->create();
 });
 
 $app->get('/profile/:id', function ($id) {
-  // TODO show profile (including edit)
-  echo 'profile '.$id;
+  $controller = new ProfileController();
+  $controller->show($id);
 });
 
 // The following routes are accessed via AJAX
 
 $app->put('/article/:id', function ($id) {
-  // TODO update/save article
+  $controller = new ArticleController();
+  $controller->update($id);
+});
+
+$app->delete('/article/:id', function ($id) {
+  $controller = new ArticleController();
+  $controller->delete($id);
 });
 
 $app->put('/profile/:id', function ($id) {
-  // TODO update/save profile
+  $controller = new ProfileController();
+  $controller->update($id);
 });
 
 $app->post('/contacts', function () {
-  // TODO create contact
+  $controller = new ContactController();
+  $controller->create();
 });
 
 $app->put('/contact/:id', function ($id) {
-  // TODO update/save contact
+  $controller = new ContactController();
+  $controller->update($id);
 });
 
 $app->delete('/contact/:id', function ($id) {
-  // TODO delete contact
+  $controller = new ContactController();
+  $controller->delete($id);
 });
 
 $app->post('/experiences', function () {
-  // TODO create experience
+  $controller = new ExperienceController();
+  $controller->create();
 });
 
 $app->put('/experience/:id', function ($id) {
-  // TODO update/save experience
+  $controller = new ExperienceController();
+  $controller->update($id);
 });
 
 $app->delete('/experience/:id', function ($id) {
-  // TODO delete experience
+  $controller = new ExperienceController();
+  $controller->delete($id);
 });
 
 $app->post('/honors', function () {
-  // TODO create honor
+  $controller = new HonorController();
+  $controller->create();
 });
 
 $app->put('/honor/:id', function ($id) {
-  // TODO update/save honor
+  $controller = new HonorController();
+  $controller->update($id);
 });
 
 $app->delete('/honor/:id', function ($id) {
-  // TODO delete honor
+  $controller = new HonorController();
+  $controller->delete($id);
 });
 
 $app->post('/papers', function () {
-  // TODO create paper
+  $controller = new PaperController();
+  $controller->create();
 });
 
 $app->put('/paper/:id', function ($id) {
-  // TODO update/save paper
+  $controller = new PaperController();
+  $controller->update($id);
 });
 
 $app->delete('/paper/:id', function ($id) {
-  // TODO delete paper
+  $controller = new PaperController();
+  $controller->delete($id);
 });
 
 // TODO add routes for invitations

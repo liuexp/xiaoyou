@@ -13,6 +13,11 @@ require_once('models/Invitation.php');
 
 require_once('controllers/ApplicationController.php');
 require_once('controllers/ArticleController.php');
+require_once('controllers/ContactController.php');
+require_once('controllers/ExperienceController.php');
+require_once('controllers/HomeController.php');
+require_once('controllers/HonorController.php');
+require_once('controllers/PaperController.php');
 require_once('controllers/ProfileController.php');
 
 require_once('routes.php');
