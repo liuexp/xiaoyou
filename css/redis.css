@@ -125,3 +125,110 @@ body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; m
 .userinfo a { color: #fff; }
 .userinfo a:hover {}
 .userinfo a:active {}
+
+/** github buttons **/
+button.classy,button.classy:disabled,button.classy.disabled,a.button.classy:disabled,a.button.classy.disabled,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy.disabled:hover:disabled,a.button.classy.disabled:hover,a.button.classy,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy:disabled:hover,a.button.classy.disabled:disabled:hover,a.button.classy.disabled:hover{
+display:inline-block;
+padding:8px 15px;
+line-height:normal;
+position:relative;
+font-family:Helvetica,arial,freesans,clean,sans-serif;
+font-size:12px;
+font-weight:bold;
+color:#666;
+text-shadow:0 1px rgba(255,255,255,0.9);
+background:#f5f5f5;
+background:-moz-linear-gradient(#f5f5f5,#e5e5e5);
+background:-webkit-linear-gradient(#f5f5f5,#e5e5e5);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5',endColorstr='#e5e5e5')";
+border-radius:3px;
+border:1px solid #ddd;
+border-bottom-color:#bbb;
+box-shadow:0 1px 3px rgba(0,0,0,0.1);
+cursor:pointer;
+user-select:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+}
+button.classy.primary,button.primary.classy:disabled,button.primary.classy.disabled,a.primary.button.classy:disabled,a.primary.button.classy.disabled,button.primary.classy:disabled:hover,button.primary.classy.disabled:disabled:hover,a.primary.button.classy.disabled:hover:disabled,a.primary.button.classy.disabled:hover,a.button.classy.primary,button.classy:disabled:hover.primary,button.classy.disabled:disabled:hover.primary,a.button.classy:disabled:hover.primary,a.button.classy.disabled:disabled:hover.primary,a.button.classy.disabled:hover.primary{
+color:#fff;
+text-shadow:0 -1px 0 rgba(0,0,0,0.4);
+border-color:#74bb5a;
+border-bottom-color:#509338;
+background:#8add6d;
+background:-moz-linear-gradient(#8add6d,#60b044);
+background:-webkit-linear-gradient(#8add6d,#60b044);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#8add6d',endColorstr='#60b044')";
+box-shadow:0 1px 4px rgba(0,0,0,0.2);
+}
+button.classy.primary:hover,button.primary.classy:hover:disabled,button.primary.classy.disabled:hover,a.primary.button.classy:hover:disabled,a.primary.button.classy.disabled:hover,button.primary.classy.disabled:hover:disabled,a.primary.button.classy.disabled:hover:disabled,a.button.classy.primary:hover,button.classy:disabled:hover.primary:hover,button.classy.disabled:disabled:hover.primary:hover,a.button.classy:disabled:hover.primary:hover,a.button.classy.disabled:disabled:hover.primary:hover,a.button.classy.disabled:hover.primary:hover{
+background:#69d344;
+background:-moz-linear-gradient(#69d344,#4c8b36);
+background:-webkit-linear-gradient(#69d344,#4c8b36);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#69d344',endColorstr='#4c8b36')";
+border-color:#4a993e;
+color:#fff;
+}
+button.classy.danger,button.danger.classy:disabled,button.danger.classy.disabled,a.danger.button.classy:disabled,a.danger.button.classy.disabled,button.danger.classy:disabled:hover,button.danger.classy.disabled:disabled:hover,a.danger.button.classy.disabled:hover:disabled,a.danger.button.classy.disabled:hover,a.button.classy.danger,button.classy:disabled:hover.danger,button.classy.disabled:disabled:hover.danger,a.button.classy:disabled:hover.danger,a.button.classy.disabled:disabled:hover.danger,a.button.classy.disabled:hover.danger{
+color:#900;
+}
+button.classy.danger:hover,button.danger.classy:hover:disabled,button.danger.classy.disabled:hover,a.danger.button.classy:hover:disabled,a.danger.button.classy.disabled:hover,button.danger.classy.disabled:hover:disabled,a.danger.button.classy.disabled:hover:disabled,a.button.classy.danger:hover,button.classy:disabled:hover.danger:hover,button.classy.disabled:disabled:hover.danger:hover,a.button.classy:disabled:hover.danger:hover,a.button.classy.disabled:disabled:hover.danger:hover,a.button.classy.disabled:hover.danger:hover{
+color:#fff;
+text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
+border-bottom-color:#cd504a;
+background:#dc5f59;
+background:-moz-linear-gradient(#dc5f59,#b33630);
+background:-webkit-linear-gradient(#dc5f59,#b33630);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#dc5f59',endColorstr='#b33630')";
+}
+button.danger.classy:disabled,button.danger.classy.disabled:disabled,a.danger.button.classy:disabled,a.danger.button.classy.disabled:disabled,button.danger.classy:disabled:hover,button.danger.classy.disabled:disabled:hover,a.danger.button.classy.disabled:disabled:hover,button.danger.disabled.classy:disabled,button.danger.disabled.classy,a.danger.disabled.button.classy:disabled,a.danger.disabled.button.classy,button.danger.disabled.classy:disabled:hover,a.danger.disabled.button.classy:hover:disabled,a.danger.disabled.button.classy:hover,a.button.classy.danger:disabled,a.button.classy.danger.disabled,button.classy:disabled:hover.danger:disabled,button.classy.disabled:disabled:hover.danger:disabled,a.button.classy:disabled:hover.danger:disabled,a.button.classy.disabled:disabled:hover.danger:disabled,button.classy:disabled:hover.danger.disabled,a.button.classy:disabled:hover.danger.disabled,a.button.classy.disabled:hover.danger:disabled,a.button.classy.disabled:hover.danger.disabled{
+color:#900;
+text-shadow:1px 1px 0 #fff;
+border-bottom:1px solid #ebebeb;
+background:white;
+background:-moz-linear-gradient(white,#e1e1e1);
+background:-webkit-linear-gradient(white,#e1e1e1);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='white',endColorstr='#e1e1e1')";
+}
+button.classy.danger.mousedown,button.classy.danger.primary.mousedown,button.danger.primary.mousedown.classy:disabled,button.danger.primary.mousedown.classy.disabled,a.danger.primary.mousedown.button.classy:disabled,a.danger.primary.mousedown.button.classy.disabled,button.danger.primary.mousedown.classy:disabled:hover,button.danger.primary.mousedown.classy.disabled:disabled:hover,a.danger.primary.mousedown.button.classy.disabled:hover:disabled,a.danger.primary.mousedown.button.classy.disabled:hover,a.classy.danger.button.primary.mousedown,a.danger.primary.mousedown.button.classy:disabled:hover,button.danger.mousedown.classy:disabled,button.danger.mousedown.classy.disabled,a.danger.mousedown.button.classy:disabled,a.danger.mousedown.button.classy.disabled,button.danger.mousedown.classy:disabled:hover,button.danger.mousedown.classy.disabled:disabled:hover,a.danger.mousedown.button.classy.disabled:hover:disabled,a.danger.mousedown.button.classy.disabled:hover,a.button.classy.danger.mousedown,button.primary.mousedown.classy:disabled:hover.danger,button.primary.mousedown.classy.disabled:disabled:hover.danger,a.primary.mousedown.button.classy:disabled:hover.danger,a.primary.mousedown.button.classy.disabled:disabled:hover.danger,button.classy:disabled:hover.danger.mousedown,button.classy.disabled:disabled:hover.danger.mousedown,a.button.classy:disabled:hover.danger.mousedown,a.button.classy.disabled:disabled:hover.danger.mousedown,a.button.classy.disabled:hover.danger.mousedown{
+border-bottom-color:#dc5f59;
+background:#b33630;
+background:-moz-linear-gradient(#b33630,#dc5f59);
+background:-webkit-linear-gradient(#b33630,#dc5f59);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#b33630',endColorstr='#dc5f59')";
+}
+button.classy:hover,button.classy:hover:disabled,button.classy.disabled:hover,a.button.classy:hover:disabled,a.button.classy.disabled:hover,button.classy.disabled:hover:disabled,a.button.classy.disabled:hover:disabled,a.button.classy:hover,button.classy:disabled:hover:hover,button.classy.disabled:disabled:hover:hover,a.button.classy:disabled:hover:hover,a.button.classy.disabled:disabled:hover:hover,a.button.classy.disabled:hover:hover{
+color:#337797;
+text-decoration:none;
+background:#f0f7fa;
+background:-moz-linear-gradient(#f0f7fa,#d8eaf2);
+background:-webkit-linear-gradient(#f0f7fa,#d8eaf2);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f7fa',endColorstr='#d8eaf2')";
+border-color:#cbe3ee;
+border-bottom-color:#97c7dd;
+}
+button.classy:disabled,button.classy.disabled:disabled,a.button.classy:disabled,a.button.classy.disabled:disabled,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy.disabled:disabled:hover,button.disabled.classy:disabled,button.disabled.classy,a.disabled.button.classy:disabled,a.disabled.button.classy,button.disabled.classy:disabled:hover,a.disabled.button.classy:hover:disabled,a.disabled.button.classy:hover,a.button.classy:disabled,a.button.classy.disabled,button.classy:disabled:hover:disabled,button.classy.disabled:disabled:hover:disabled,a.button.classy:disabled:hover:disabled,a.button.classy.disabled:disabled:hover:disabled,button.classy:disabled:hover.disabled,a.button.classy:disabled:hover.disabled,a.button.classy.disabled:hover:disabled,a.button.classy.disabled:hover.disabled{
+opacity:.5;
+}
+button.classy.mousedown,button.classy.primary.mousedown,button.primary.mousedown.classy:disabled,button.primary.mousedown.classy.disabled,a.primary.mousedown.button.classy:disabled,a.primary.mousedown.button.classy.disabled,button.primary.mousedown.classy:disabled:hover,button.primary.mousedown.classy.disabled:disabled:hover,a.primary.mousedown.button.classy.disabled:hover:disabled,a.primary.mousedown.button.classy.disabled:hover,a.classy.button.primary.mousedown,a.primary.mousedown.button.classy:disabled:hover,button.mousedown.classy:disabled,button.mousedown.classy.disabled,a.mousedown.button.classy:disabled,a.mousedown.button.classy.disabled,button.mousedown.classy:disabled:hover,button.mousedown.classy.disabled:disabled:hover,a.mousedown.button.classy.disabled:hover:disabled,a.mousedown.button.classy.disabled:hover,a.button.classy.mousedown,button.primary.mousedown.classy:disabled:hover,button.primary.mousedown.classy.disabled:disabled:hover,a.primary.mousedown.button.classy:disabled:hover,a.primary.mousedown.button.classy.disabled:disabled:hover,button.classy:disabled:hover.mousedown,button.classy.disabled:disabled:hover.mousedown,a.button.classy:disabled:hover.mousedown,a.button.classy.disabled:disabled:hover.mousedown,a.button.classy.disabled:hover.mousedown{
+color:#fff;
+text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
+border-color:#2a65a0;
+border-bottom-color:#0770a0;
+background:#0770a0;
+background:-moz-linear-gradient(#0770a0,#0ca6dd);
+background:-webkit-linear-gradient(#0770a0,#0ca6dd);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#0770a0',endColorstr='#0ca6dd')";
+}
+button.classy::-moz-focus-inner,button.classy:disabled::-moz-focus-inner,button.classy.disabled::-moz-focus-inner,a.button.classy:disabled::-moz-focus-inner,a.button.classy.disabled::-moz-focus-inner,button.classy:hover:disabled::-moz-focus-inner,button.classy.disabled:hover:disabled::-moz-focus-inner,a.button.classy.disabled:disabled:hover::-moz-focus-inner,a.button.classy.disabled:hover::-moz-focus-inner{
+margin:-1px -3px;
+}
+a.button.classy{
+display:inline-block;
+}
+button.classy img,button.classy:disabled img,button.classy.disabled img,a.button.classy:disabled img,a.button.classy.disabled img,button.classy:disabled:hover img,button.classy.disabled:disabled:hover img,a.button.classy.disabled:hover:disabled img,a.button.classy.disabled:hover img,a.button.classy img{
+position:relative;
+top:-1px;
+margin-right:3px;
+vertical-align:middle;
+}

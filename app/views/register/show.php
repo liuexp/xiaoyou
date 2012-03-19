@@ -36,16 +36,11 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="password" id="confirm" name="confirm" maxlength="80"/>
       </div>
     </fieldset>
-    <fieldset>
-      <legend>完成注册</legend>
-      <div class="field sure">
-        <input type="checkbox" id="sure" name="sure"/>
-        <label for="sure">我确认上述信息完全正确</label>
-      </div>
-      <div class="action">
-        <input class="submit" type="submit" name="submit" value="创建我的帐户"/> <!-- TODO use a GitHub style green button -->
-      </div>
-    </fieldset>
+    <div class="action">
+      <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
+        <span>创建我的帐户</span>
+      </button>
+    </div>
   </form>
 </section>
 <aside>
