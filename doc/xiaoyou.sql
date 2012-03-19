@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2012 at 01:10 AM
+-- Generation Time: Mar 19, 2012 at 12:23 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -114,6 +114,31 @@ CREATE TABLE IF NOT EXISTS `honors` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `invitations`
+--
+
+CREATE TABLE IF NOT EXISTS `invitations` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(500) NOT NULL,
+  `invitecode` varchar(100) NOT NULL,
+  `realname` varchar(20) DEFAULT NULL,
+  `is_mail_sent` tinyint(1) NOT NULL,
+  `user_registered` tinyint(1) NOT NULL,
+  `inviter_profile_id` bigint(20) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `inviter_profile_id` (`inviter_profile_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `invitations`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `papers`
 --
 
@@ -187,6 +212,12 @@ ALTER TABLE `experiences`
 --
 ALTER TABLE `honors`
   ADD CONSTRAINT `honors_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `invitations`
+--
+ALTER TABLE `invitations`
+  ADD CONSTRAINT `invitations_ibfk_1` FOREIGN KEY (`inviter_profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `papers`
