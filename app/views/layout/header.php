@@ -15,6 +15,10 @@
   <body>
     <header>
       <div class="container">
+        <span class="userinfo">
+          <a href="<?php echo SITE_BASE; ?>/login/">登录</a> |
+          <a href="<?php echo SITE_BASE; ?>/register">注册</a>
+        </span>
         <a href="<?php echo SITE_BASE; ?>/">
           <img alt="上海交通大学ACM班" src="<?php echo SITE_BASE; ?>/images/head-logo.png"/>
         </a>

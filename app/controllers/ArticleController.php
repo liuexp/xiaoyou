@@ -3,10 +3,7 @@ class ArticleController extends ApplicationController
 {
   public function index()
   {
-  }
-  
-  public function show($id)
-  {
+    // send all articles along with their contents
   }
   
   public function showSchedule()

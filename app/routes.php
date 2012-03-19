@@ -13,19 +13,9 @@ $app->get('/register', function () {
   $controller->show();
 });
 
-$app->post('/register', function () {
-  $controller = new RegisterController();
-  $controller->submit();
-});
-
 $app->get('/invite', function () {
   $controller = new InviteController();
   $controller->show();
-});
-
-$app->post('/invite', function () {
-  $controller = new InviteController();
-  $controller->submit();
 });
 
 // article list page contains popup window
@@ -33,11 +23,6 @@ $app->post('/invite', function () {
 $app->get('/articles', function () {
   $controller = new ArticleController();
   $controller->index();
-});
-
-$app->get('/article/:id', function ($id) {
-  $controller = new ArticleController();
-  $controller->show($id);
 });
 
 $app->get('/schedule', function () {
@@ -58,6 +43,16 @@ $app->get('/profile/:id', function ($id) {
 });
 
 // The following routes are accessed via AJAX
+
+$app->post('/register', function () {
+  $controller = new RegisterController();
+  $controller->submit();
+});
+
+$app->post('/invite', function () {
+  $controller = new InviteController();
+  $controller->submit();
+});
 
 $app->post('/articles', function () {
   $controller = new ArticleController();
