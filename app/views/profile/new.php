@@ -42,7 +42,7 @@ include(__DIR__ . '/../layout/header.php');
     <fieldset>
       <legend>自我描述</legend>
       <div class="field">
-        <textarea class="monofont" rows="3" cols="45"></textarea>
+        <textarea name="description" class="monofont" rows="3" cols="45"></textarea>
       </div>
     </fieldset>
     <div class="action">

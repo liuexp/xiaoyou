@@ -23,6 +23,36 @@ class ProfileController extends ApplicationController
   
   public function create()
   {
+    try {
+      $db = fORMDatabase::retrieve();
+      $db->query('BEGIN');
+      
+      $profile = new Profile();
+      $profile->setLoginName(UserHelper::getName());
+      $profile->setDisplayName(UserHelper::getDisplayName());
+      $profile->setStudentNumber(trim(fRequest::get('student_number')));
+      $profile->setStartYear(fRequest::get('start_year'));
+      $profile->setBirthday(fRequest::get('birthday'));
+      $profile->setGender(fRequest::get('gender'));
+      $profile->setLocation(trim(fRequest::get('location')));
+      $profile->setHometown(trim(fRequest::get('hometown')));
+      $profile->setDescription(fRequest::get('description'));
+      $profile->setCreatedAt(Util::currentTime());
+      $profile->store();
+      
+      $contact = new Contact();
+      $contact->setProfileId($profile->getId());
+      $contact->setType('email');
+      $contact->setContent(UserHelper::getEmail());
+      $contact->setCreatedAt(Util::currentTime());
+      $contact->store();
+      
+      $db->query('COMMIT');
+      $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
+    } catch (fException $e) {
+      $db->query('ROLLBACK');
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
   
   public function show($id)

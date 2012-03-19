@@ -14,6 +14,7 @@ $app->get('/register', function () {
 });
 
 $app->get('/invite', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new InviteController();
   $controller->show();
 });
@@ -36,11 +37,13 @@ $app->get('/profiles', function () {
 });
 
 $app->get('/profiles/new', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->newProfile();
 });
 
 $app->get('/profile/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->show($id);
 });
@@ -53,91 +56,109 @@ $app->post('/register', function () {
 });
 
 $app->post('/invite', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new InviteController();
   $controller->submit();
 });
 
 $app->post('/articles', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->create();
 });
 
 $app->put('/article/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->update($id);
 });
 
 $app->delete('/article/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->delete($id);
 });
 
 $app->post('/profiles', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->create();
 });
 
 $app->put('/profile/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->update($id);
 });
 
 $app->post('/contacts', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new ContactController();
   $controller->create();
 });
 
 $app->put('/contact/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ContactController();
   $controller->update($id);
 });
 
 $app->delete('/contact/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ContactController();
   $controller->delete($id);
 });
 
 $app->post('/experiences', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new ExperienceController();
   $controller->create();
 });
 
 $app->put('/experience/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ExperienceController();
   $controller->update($id);
 });
 
 $app->delete('/experience/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ExperienceController();
   $controller->delete($id);
 });
 
 $app->post('/honors', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new HonorController();
   $controller->create();
 });
 
 $app->put('/honor/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new HonorController();
   $controller->update($id);
 });
 
 $app->delete('/honor/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new HonorController();
   $controller->delete($id);
 });
 
 $app->post('/papers', function () {
+  fAuthorization::requireLoggedIn();
   $controller = new PaperController();
   $controller->create();
 });
 
 $app->put('/paper/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new PaperController();
   $controller->update($id);
 });
 
 $app->delete('/paper/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new PaperController();
   $controller->delete($id);
 });

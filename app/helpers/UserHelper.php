@@ -1,7 +1,7 @@
 <?php
 class UserHelper
 {
-  public static function getID()
+  public static function getId()
   {
     $token = fAuthorization::getUserToken();
     return $token['id'];
