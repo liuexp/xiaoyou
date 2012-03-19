@@ -8,6 +8,26 @@ $app->get('/', function () {
   $controller->index();
 });
 
+$app->get('/register', function () {
+  $controller = new RegisterController();
+  $controller->show();
+});
+
+$app->post('/register', function () {
+  $controller = new RegisterController();
+  $controller->submit();
+});
+
+$app->get('/invite', function () {
+  $controller = new InviteController();
+  $controller->show();
+});
+
+$app->post('/invite', function () {
+  $controller = new InviteController();
+  $controller->submit();
+});
+
 // article list page contains popup window
 // for creating new articles
 $app->get('/articles', function () {
@@ -119,7 +139,6 @@ $app->delete('/paper/:id', function ($id) {
   $controller->delete($id);
 });
 
-// TODO add routes for invitations
 // TODO add routes for uploading avatars
 
 $app->run();
