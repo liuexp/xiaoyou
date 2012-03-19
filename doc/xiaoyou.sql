@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2012 at 08:48 AM
+-- Generation Time: Mar 19, 2012 at 09:02 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -145,9 +145,14 @@ CREATE TABLE IF NOT EXISTS `invitations` (
 CREATE TABLE IF NOT EXISTS `names` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `start_year` year(4) NOT NULL,
+  `class_number` varchar(100) NOT NULL,
+  `student_number` varchar(100) NOT NULL,
   `realname` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `start_year` (`start_year`,`realname`)
+  UNIQUE KEY `student_number` (`student_number`),
+  KEY `start_year` (`start_year`),
+  KEY `class_number` (`class_number`),
+  KEY `realname` (`realname`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
