@@ -126,6 +126,8 @@ body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; m
 .userinfo a:hover {}
 .userinfo a:active {}
 
+.clear { clear: both; }
+
 /** github buttons **/
 button.classy,button.classy:disabled,button.classy.disabled,a.button.classy:disabled,a.button.classy.disabled,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy.disabled:hover:disabled,a.button.classy.disabled:hover,a.button.classy,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy:disabled:hover,a.button.classy.disabled:disabled:hover,a.button.classy.disabled:hover{
 display:inline-block;

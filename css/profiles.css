@@ -3,4 +3,3 @@
 .grade .registered li a { display: block; width: 60px; text-align: center; }
 .grade .unregistered { margin: 0; }
 .grade .unregistered li { float: left; width: 60px; margin: 10px; text-align: center; }
-.clear { clear: both; }

@@ -30,11 +30,14 @@ $app->get('/schedule', function () {
   $controller->showSchedule();
 });
 
-// profiles do not need creation because
-// profiles are created while registering
 $app->get('/profiles', function () {
   $controller = new ProfileController();
   $controller->index();
+});
+
+$app->get('/profiles/new', function () {
+  $controller = new ProfileController();
+  $controller->newProfile();
 });
 
 $app->get('/profile/:id', function ($id) {
@@ -67,6 +70,11 @@ $app->put('/article/:id', function ($id) {
 $app->delete('/article/:id', function ($id) {
   $controller = new ArticleController();
   $controller->delete($id);
+});
+
+$app->post('/profiles', function () {
+  $controller = new ProfileController();
+  $controller->create();
 });
 
 $app->put('/profile/:id', function ($id) {

@@ -17,6 +17,7 @@ include(__DIR__ . '/../layout/header.php');
       <button type="submit" class="classy primary" data-afterclick="正在提交邀请⋯⋯">
         <span>发送邀请邮件</span>
       </button>
+      <p class="clear"></p>
     </div>
   </form>
 </section>

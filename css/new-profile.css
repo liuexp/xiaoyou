@@ -1,0 +1,11 @@
+#new-profile fieldset { margin: 15px 0; padding: 5px; background: #eee; border: 1px solid #ccc; border-radius: 3px; }
+#new-profile legend { padding: 0.2em 0.5em; background: #fff; border: 1px solid #ccc; color: #333; font-size: 16px; text-align: left; border-radius: 3px; }
+#new-profile .field { margin: 10px 0; }
+#new-profile .action { float: right; }
+#new-profile label { display: inline-block; width: 150px; text-align: right; font-size: 15px; line-height: 30px; }
+#new-profile label.radio { width: 30px; text-align: left; margin-left: 5px; }
+#new-profile select { width: 100px ;height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
+#new-profile .textfield { width: 300px; height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
+#new-profile .textfield:hover { background-color: #FEF5F1; }
+#new-profile .textfield:focus { background-color: #CCFF99; }
+#new-profile textarea { font-size: 20px; line-height: 30px; margin: 0 10px; padding: 10px; }

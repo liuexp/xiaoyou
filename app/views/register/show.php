@@ -40,6 +40,7 @@ include(__DIR__ . '/../layout/header.php');
       <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
         <span>创建我的帐户</span>
       </button>
+      <p class="clear"></p>
     </div>
   </form>
 </section>

@@ -16,6 +16,15 @@ class ProfileController extends ApplicationController
     $this->render('profile/index');
   }
   
+  public function newProfile()
+  {
+    $this->render('profile/new');
+  }
+  
+  public function create()
+  {
+  }
+  
   public function show($id)
   {
   }
