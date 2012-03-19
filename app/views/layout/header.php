@@ -8,6 +8,9 @@
       <?php echo $title . TITLE_SUFFIX; ?>
     </title>
     <link href="<?php echo SITE_BASE; ?>/css/redis.css" rel="stylesheet" type="text/css"/>
+    <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
+    <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
+    <?php endforeach; ?>
   </head>
   <body>
     <header>

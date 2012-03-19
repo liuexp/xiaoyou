@@ -113,3 +113,8 @@ body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; m
 #buzz li { margin: 0 0 8px 0; padding-left: 34px; position: relative; min-height: 26px; }
 #buzz li a:first-child { -webkit-box-shadow: #bbbbbb, 0px, 0px, 3px; -moz-box-shadow: #bbbbbb, 0px, 0px, 3px; box-shadow: #bbbbbb, 0px, 0px, 3px; display: block; height: 26px; left: 0; position: absolute; top: 3px; width: 26px; }
 #buzz li a:first-child img { height: 26px; width: 26px; }
+
+/** my own styles **/
+.success { color: #234600; background-color: #F8FFF0; border: 1px solid #BE7; padding: 10px; margin-bottom: 15px; }
+.failure { color: #8C2E0B; background-color: #FEF5F1; border: 1px solid #ED541D; padding: 10px; margin-bottom: 15px; }
+.monofont { font-family: Consolas,Monaco,"Lucida Console","Liberation Mono","DejaVu Sans Mono","Bitstream Vera Sans Mono","Courier New",monospace; }
