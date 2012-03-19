@@ -33,12 +33,12 @@ a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 body { background-color: #f0f0f0; color: #333333; padding: 45px 0 10px 0; margin: 0; }
-body > header { -webkit-box-shadow: #999999, 0px, 4px, 8px; -moz-box-shadow: #999999, 0px, 4px, 8px; box-shadow: #999999, 0px, 4px, 8px; background-color: #333333; overflow: hidden; *zoom: 1; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #930000), color-stop(100%, #550000)); background: -webkit-linear-gradient(#930000, #550000); background: -moz-linear-gradient(#930000, #550000); background: -o-linear-gradient(#930000, #550000); background: -ms-linear-gradient(#930000, #550000); background: linear-gradient(#930000, #550000); border-top: 1px solid black; height: 80px; left: 0; padding: 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+body > header { -webkit-box-shadow: #999999, 0px, 4px, 8px; -moz-box-shadow: #999999, 0px, 4px, 8px; box-shadow: #999999, 0px, 4px, 8px; background-color: #333333; overflow: hidden; *zoom: 1; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #930000), color-stop(100%, #550000)); background: -webkit-linear-gradient(#930000, #550000); background: -moz-linear-gradient(#930000, #550000); background: -o-linear-gradient(#930000, #550000); background: -ms-linear-gradient(#930000, #550000); background: linear-gradient(#930000, #550000); border-top: 1px solid black; height: 60px; left: 0; padding: 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
 body > header > .container { margin: 0 auto; max-width: 900px; }
 body > header > .container > a { float: left; border-right: 1px solid black; padding: 7.5px 20px 7.5px 0; }
-body > header > .container > a img { display: block; margin-top: 5px; height: 53px; }
+body > header > .container > a img { display: block; height: 45px; }
 body > header nav { float: left; border-left: 1px solid #930000; padding: 0 0 0 20px; }
-body > header nav a { color: #fff; display: block; float: left; font-family: "Helvetica Neue", sans-serif; font-size: 20px; font-weight: normal; line-height: 80px; margin: 0 10px; text-decoration: none; text-shadow: #550000, 0px, 1px, 1px; }
+body > header nav a { color: #fff; display: block; float: left; font-family: "Helvetica Neue", sans-serif; font-size: 20px; font-weight: normal; line-height: 60px; margin: 0 10px; text-decoration: none; text-shadow: #550000, 0px, 1px, 1px; }
 body > header nav a:first-child { margin-left: 0; }
 body > header nav a:hover { color: #ffff00; text-decoration: none; }
 body > footer { background: url(../images/small-logo.png) no-repeat left top; padding: 10px 10px 10px 70px; max-width: 820px; margin: 20px auto; color: #777777; position: relative; font-size: 11px; }
@@ -46,7 +46,7 @@ body > footer a { color: #444444; }
 body > footer .sponsor { position: absolute; top: 0; right: 0; }
 body > footer .sponsor img { display: block; margin-top: 15px; }
 
-.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 30px auto 20px auto; max-width: 840px; padding: 30px; }
+.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 10px auto 20px auto; max-width: 840px; padding: 30px; }
 .text a { color: #0066aa; text-shadow: #f0f0f0, 1px, 1px, 0px; }
 .text a:hover { color: #0099ff; }
 .text p { margin: 5px 0; }
