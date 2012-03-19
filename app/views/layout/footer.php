@@ -1,14 +1,12 @@
   </div>
   <footer>
     <p>
-      This website is
-      <a href="https://github.com/antirez/redis-io">open source software</a>
-      developed by <a href="http://citrusbyte.com">Citrusbyte</a>.
-      <br> The Redis logo was designed by <a href="http://www.carlosprioglio.com/">Carlos Prioglio</a>. See more <a href="http://redis.io/topics/sponsors">credits</a>.
+      Copyright &copy; 2012. All rights reserved.
     </p>
     <div class="sponsor">
-      Sponsored by
-      <img alt="VMWare" height="19" src="/images/vmware.png" width="121"/>
+      <a href="http://www.sjtu.edu.cn/">
+        <img alt="上海交通大学" height="19" src="../images/sjtu.png" width="121"/>
+      </a>
     </div>
   </footer>
 </body>
