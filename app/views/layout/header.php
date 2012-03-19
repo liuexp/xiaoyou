@@ -37,4 +37,4 @@
         </nav>
       </div>
     </header>
-    <div class="text columns home sidebar">
+    <div class="text columns home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">

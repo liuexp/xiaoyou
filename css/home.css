@@ -1,0 +1,4 @@
+.slogan { background: url('../images/paperbg.png'); width: 900px !important; height: 260px; margin: -25px 0 0 -30px; /*position: absolute; left: 0; top: 60px; right: 0;*/ }
+.slogan .special-logo { height: 240px; margin: 10px 80px; }
+.slogan .chinese { height: 240px; margin: 10px 80px; }
+.main { margin-top: 30px; /*margin-top: 260px;*/ }
