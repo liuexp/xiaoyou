@@ -22,7 +22,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
     </fieldset>
     <fieldset>
-      <legend>帐号信息</legend>
+      <legend>登录信息</legend>
       <div class="field">
         <label for="username">用户名：</label>
         <input class="textfield monofont" type="text" id="username" name="username" maxlength="80"/>
