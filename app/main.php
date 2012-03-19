@@ -9,6 +9,7 @@ require_once('models/Experience.php');
 require_once('models/Honor.php');
 require_once('models/Paper.php');
 require_once('models/Profile.php');
+require_once('models/Invitation.php');
 
 require_once('controllers/ApplicationController.php');
 require_once('controllers/ArticleController.php');
