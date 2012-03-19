@@ -3,6 +3,6 @@ class HomeController extends ApplicationController
 {
   public function index()
   {
-    echo 'home';
+    $this->render('home/index');
   }
 }
