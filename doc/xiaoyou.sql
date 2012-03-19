@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2012 at 12:23 AM
+-- Generation Time: Mar 19, 2012 at 08:48 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -139,6 +139,25 @@ CREATE TABLE IF NOT EXISTS `invitations` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `names`
+--
+
+CREATE TABLE IF NOT EXISTS `names` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `start_year` year(4) NOT NULL,
+  `realname` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `start_year` (`start_year`,`realname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `names`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `papers`
 --
 
@@ -212,12 +231,6 @@ ALTER TABLE `experiences`
 --
 ALTER TABLE `honors`
   ADD CONSTRAINT `honors_ibfk_1` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `invitations`
---
-ALTER TABLE `invitations`
-  ADD CONSTRAINT `invitations_ibfk_1` FOREIGN KEY (`inviter_profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `papers`

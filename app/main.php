@@ -9,9 +9,10 @@ require_once(__DIR__ . '/models/Article.php');
 require_once(__DIR__ . '/models/Contact.php');
 require_once(__DIR__ . '/models/Experience.php');
 require_once(__DIR__ . '/models/Honor.php');
+require_once(__DIR__ . '/models/Invitation.php');
+require_once(__DIR__ . '/models/Name.php');
 require_once(__DIR__ . '/models/Paper.php');
 require_once(__DIR__ . '/models/Profile.php');
-require_once(__DIR__ . '/models/Invitation.php');
 
 require_once(__DIR__ . '/controllers/ApplicationController.php');
 require_once(__DIR__ . '/controllers/ArticleController.php');
