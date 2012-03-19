@@ -17,7 +17,14 @@
       <div class="container">
         <span class="userinfo">
           <?php if (fAuthorization::checkLoggedIn()): ?>
-            Hi, <?php echo UserHelper::getDisplayName(); ?> |
+            <?php
+              if (UserHelper::hasProfile()) {
+                $profile_link = SITE_BASE . '/profile/' . UserHelper::getProfileId();
+              } else {
+                $profile_link = SITE_BASE . '/profiles/new';
+              }
+            ?>
+            Hi, <a href="<?php echo $profile_link; ?>"><?php echo UserHelper::getDisplayName(); ?></a> |
             <a href="<?php echo SITE_BASE; ?>/invite">邀请同学</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo $_SERVER['REQUEST_URI']; ?>">登出</a>

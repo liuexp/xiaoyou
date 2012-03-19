@@ -12,8 +12,9 @@ include(__DIR__ . '/../layout/header.php');
       <?php foreach ($this->students_map[$start_year] as $student): ?>
         <?php if (UserHelper::isRegistered($student)): ?>
           <li>
-            <a href="<?php echo SITE_BASE; ?>/profile/:id"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
-            <a href="<?php echo SITE_BASE; ?>/profile/:id"><?php echo $student->getRealname(); ?></a>
+            <?php $profileId = UserHelper::getStudentProfileId($student); ?>
+            <a href="<?php echo SITE_BASE; ?>/profile/<?php $profileId; ?>"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
+            <a href="<?php echo SITE_BASE; ?>/profile/<?php $profileId; ?>"><?php echo $student->getRealname(); ?></a>
           </li>
         <?php endif; ?>
       <?php endforeach; ?>
