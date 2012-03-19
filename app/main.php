@@ -24,4 +24,6 @@ require_once(__DIR__ . '/controllers/PaperController.php');
 require_once(__DIR__ . '/controllers/ProfileController.php');
 require_once(__DIR__ . '/controllers/RegisterController.php');
 
+require_once(__DIR__ . '/helpers/UserHelper.php');
+
 require_once(__DIR__ . '/routes.php');

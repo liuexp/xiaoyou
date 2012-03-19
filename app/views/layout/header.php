@@ -9,15 +9,20 @@
     </title>
     <link href="<?php echo SITE_BASE; ?>/css/redis.css" rel="stylesheet" type="text/css"/>
     <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
-    <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
+      <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
     <?php endforeach; ?>
   </head>
   <body>
     <header>
       <div class="container">
         <span class="userinfo">
-          <a href="<?php echo SITE_BASE; ?>/login/">登录</a> |
-          <a href="<?php echo SITE_BASE; ?>/register">注册</a>
+          <?php if (fAuthorization::checkLoggedIn()): ?>
+            当前用户：<?php echo UserHelper::getDisplayName(); ?> |
+            <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo $_SERVER['REQUEST_URI']; ?>">登出</a>
+          <?php else: ?>
+            <a href="<?php echo SITE_BASE; ?>/register">注册</a> |
+            <a href="<?php echo SITE_BASE; ?>/login/">登录</a>
+          <?php endif; ?>
         </span>
         <a href="<?php echo SITE_BASE; ?>/">
           <img alt="上海交通大学ACM班" src="<?php echo SITE_BASE; ?>/images/head-logo.png"/>
