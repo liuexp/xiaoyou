@@ -8,12 +8,6 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');
 
-// User information database
-define('UDB_NAME', 'users');
-define('UDB_USER', 'usermanager');
-define('UDB_PASS', '');
-define('UDB_HOST', 'localhost');
-
 // Misc.
 define('HOST_URL', 'http://localhost');
 define('SITE_BASE', '/xiaoyou');
