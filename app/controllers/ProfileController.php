@@ -57,6 +57,12 @@ class ProfileController extends ApplicationController
   
   public function show($id)
   {
+    try {
+      $this->profile = new Profile($id);
+      $this->render('profile/show');
+    } catch (fNotFoundException $e) {
+      Slim::getInstance()->notFound();
+    }
   }
   
   public function update($id)
