@@ -164,12 +164,12 @@ include(__DIR__ . '/../layout/header.php');
     <form method="POST" action="<?php echo SITE_BASE; ?>/honors">
       <div class="field">
         <label>获得荣誉年月：</label>
-        <select name="start_year">
+        <select name="year">
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>年
-        <select name="start_month">
+        <select name="month">
           <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
