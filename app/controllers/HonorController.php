@@ -8,7 +8,7 @@ class HonorController extends ApplicationController
       $honor->setProfileId(UserHelper::getProfileId());
       $honor->setYear(fRequest::get('year'));
       $honor->setMonth(fRequest::get('month'));
-      $honor->setDescription(fRequest::get('description'));
+      $honor->setDescription(trim(fRequest::get('description')));
       $honor->setCreatedAt(Util::currentTime());
       $honor->store();
       $this->ajaxReturn(array('result' => 'success', 'honor_id' => $honor->getId()));
@@ -23,5 +23,15 @@ class HonorController extends ApplicationController
   
   public function delete($id)
   {
+    try {
+      $honor = new Honor($id);
+      if (UserHelper::getProfileId() != $honor->getProfileId()) {
+        throw new fValidationException('not allowed');
+      }
+      $honor->delete();
+      $this->ajaxReturn(array('result' => 'success'));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
 }

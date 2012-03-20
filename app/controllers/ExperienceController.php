@@ -10,8 +10,8 @@ class ExperienceController extends ApplicationController
       $experience->setStartMonth(fRequest::get('start_month'));
       $experience->setEndYear(fRequest::get('end_year'));
       $experience->setEndMonth(fRequest::get('end_month'));
-      $experience->setLocation(fRequest::get('location'));
-      $experience->setDescription(fRequest::get('description'));
+      $experience->setLocation(trim(fRequest::get('location')));
+      $experience->setDescription(trim(fRequest::get('description')));
       $experience->setCreatedAt(Util::currentTime());
       $experience->store();
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
@@ -26,5 +26,15 @@ class ExperienceController extends ApplicationController
   
   public function delete($id)
   {
+    try {
+      $experience = new Experience($id);
+      if (UserHelper::getProfileId() != $experience->getProfileId()) {
+        throw new fValidationException('not allowed');
+      }
+      $experience->delete();
+      $this->ajaxReturn(array('result' => 'success'));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
 }

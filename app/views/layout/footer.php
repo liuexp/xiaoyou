@@ -15,6 +15,7 @@
       </a>
     </div>
   </footer>
+  <script type="text/javascript">window.siteBase = '<?php echo SITE_BASE; ?>';</script>
 <?php if (isset($javascripts)) foreach ($javascripts as $javascript): ?>
   <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/<?php echo $javascript; ?>.js"></script>
 <?php endforeach; ?>
