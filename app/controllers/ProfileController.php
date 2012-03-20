@@ -24,8 +24,8 @@ class ProfileController extends ApplicationController
   public function create()
   {
     try {
-      $db = fORMDatabase::retrieve();
-      $db->query('BEGIN');
+      $this->db = fORMDatabase::retrieve();
+      $this->db->query('BEGIN');
       
       $profile = new Profile();
       $profile->setLoginName(UserHelper::getName());
@@ -47,10 +47,10 @@ class ProfileController extends ApplicationController
       $contact->setCreatedAt(Util::currentTime());
       $contact->store();
       
-      $db->query('COMMIT');
+      $this->db->query('COMMIT');
       $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
     } catch (fException $e) {
-      $db->query('ROLLBACK');
+      if (isset($this->db)) $this->db->query('ROLLBACK');
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
   }

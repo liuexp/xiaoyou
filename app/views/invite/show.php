@@ -12,7 +12,9 @@ include(__DIR__ . '/../layout/header.php');
         <label for="emails">请填入您要邀请的同学的邮件地址（每行一个）</label>
         <textarea class="monofont" tabindex="1" id="emails" name="emails" rows="10" cols="45"></textarea>
       </div>
-    </fieldset>  
+    </fieldset>
+    <div class="success" style="display:none"></div>
+    <div class="failure" style="display:none"></div>
     <div class="action">
       <button type="submit" class="classy primary" data-afterclick="正在提交邀请⋯⋯">
         <span>发送邀请邮件</span>
@@ -31,4 +33,5 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <?php
+$javascripts = array('jquery-1.7.1.min', 'invite/show');
 include(__DIR__ . '/../layout/footer.php');

@@ -20,6 +20,8 @@ class RegisterController extends ApplicationController
       
       if (empty($email))
         throw new fValidationException('Email address cannot be blank.');
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        throw new fValidationException('Email address is not valid.');
       if (empty($invitecode))
         throw new fValidationException('Invite code cannot be blank.');
       if (empty($realname))

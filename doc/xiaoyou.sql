@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `honors` (
 
 CREATE TABLE IF NOT EXISTS `invitations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `email` varchar(500) NOT NULL,
+  `email` varchar(200) NOT NULL,
   `invitecode` varchar(100) NOT NULL,
   `is_mail_sent` tinyint(1) NOT NULL,
   `user_registered` tinyint(1) NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `invitations` (
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `invitecode` (`invitecode`),
+  UNIQUE KEY `email` (`email`),
   KEY `inviter_profile_id` (`inviter_profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

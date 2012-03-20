@@ -60,4 +60,14 @@ class UserHelper
     // TODO
     return true;
   }
+  
+  public static function isInvited($email)
+  {
+    try {
+      new Invitation(array('email' => $email));
+      return true;
+    } catch (fNotFoundException $e) {
+      return false;
+    }
+  }
 }
