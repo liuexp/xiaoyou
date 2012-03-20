@@ -96,7 +96,7 @@ include(__DIR__ . '/../layout/header.php');
 <div style="display:none">
   <div id="add-experience" class="popup">
     <h2>添加经历</h2>
-    <form method="POST" action="<?php echo SITE_BASE; ?>/experiences">
+    <form id="add-experience-form" method="POST" action="<?php echo SITE_BASE; ?>/experiences">
       <div class="field">
         <label>开始年月：</label>
         <select name="start_year">
@@ -134,6 +134,7 @@ include(__DIR__ . '/../layout/header.php');
         <label>描述：</label>
         <input type="text" name="description" maxlength="200"/>
       </div>
+      <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
           <span>提交</span>
@@ -144,7 +145,7 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-paper" class="popup">
     <h2>添加论文</h2>
-    <form method="POST" action="<?php echo SITE_BASE; ?>/papers">
+    <form id="add-paper-form" method="POST" action="<?php echo SITE_BASE; ?>/papers">
       <div class="field">
         <label>标题：</label>
         <input type="text" name="title" maxlength="200"/>
@@ -169,6 +170,7 @@ include(__DIR__ . '/../layout/header.php');
           <?php endfor; ?>
         </select>
       </div>
+      <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
           <span>提交</span>
@@ -179,7 +181,7 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-honor" class="popup">
     <h2>添加荣誉</h2>
-    <form method="POST" action="<?php echo SITE_BASE; ?>/honors">
+    <form id="add-honor-form" method="POST" action="<?php echo SITE_BASE; ?>/honors">
       <div class="field">
         <label>获得荣誉年月：</label>
         <select name="year">
@@ -198,6 +200,7 @@ include(__DIR__ . '/../layout/header.php');
         <label>描述：</label>
         <input type="text" name="description" maxlength="200"/>
       </div>
+      <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
           <span>提交</span>

@@ -1,5 +1,86 @@
 $(function(){
   $('.add').fancybox({'hideOnOverlayClick': false});
+  $('#add-experience-form').submit(function(){
+    $('#add-experience-form .failure').hide();
+    // TODO validation
+    // TODO lock screen
+    $.ajax({
+      type: 'POST',
+      url: window.siteBase + '/experiences',
+      data: $('#add-experience-form').serialize(),
+      dataType: 'json',
+      success: function(data, textStatus, jqXHR){
+        if (data.result === 'success') {
+          window.location.reload();
+        } else if (data.message) {
+          $('#add-experience-form .failure').html(data.message).show();
+        } else {
+          $('#add-experience-form .failure').html('Unknown: ' + textStatus).show();
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        $('#add-experience-form .failure').html('Error: ' + textStatus).show();
+      },
+      complete: function(){
+        // TODO unlock screen
+      }
+    });
+    return false;
+  });
+  $('#add-paper-form').submit(function(){
+    $('#add-paper-form .failure').hide();
+    // TODO validation
+    // TODO lock screen
+    $.ajax({
+      type: 'POST',
+      url: window.siteBase + '/papers',
+      data: $('#add-paper-form').serialize(),
+      dataType: 'json',
+      success: function(data, textStatus, jqXHR){
+        if (data.result === 'success') {
+          window.location.reload();
+        } else if (data.message) {
+          $('#add-paper-form .failure').html(data.message).show();
+        } else {
+          $('#add-paper-form .failure').html('Unknown: ' + textStatus).show();
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        $('#add-paper-form .failure').html('Error: ' + textStatus).show();
+      },
+      complete: function(){
+        // TODO unlock screen
+      }
+    });
+    return false;
+  });
+  $('#add-honor-form').submit(function(){
+    $('#add-honor-form .failure').hide();
+    // TODO validation
+    // TODO lock screen
+    $.ajax({
+      type: 'POST',
+      url: window.siteBase + '/honors',
+      data: $('#add-honor-form').serialize(),
+      dataType: 'json',
+      success: function(data, textStatus, jqXHR){
+        if (data.result === 'success') {
+          window.location.reload();
+        } else if (data.message) {
+          $('#add-honor-form .failure').html(data.message).show();
+        } else {
+          $('#add-honor-form .failure').html('Unknown: ' + textStatus).show();
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        $('#add-honor-form .failure').html('Error: ' + textStatus).show();
+      },
+      complete: function(){
+        // TODO unlock screen
+      }
+    });
+    return false;
+  });
   // TODO edit experience
   // TODO edit paper
   // TODO edit honor
