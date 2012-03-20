@@ -31,3 +31,9 @@ define('INVITE_INTERVAL', '15m');
  * Separate names using the pipe sign (|).
  */
 define('EDITOR_IDS', '|root|xjia|');
+
+/**
+ * Put the ID of the article of schedule here.
+ * If no schedule is published, put -1.
+ */
+define('SCHEDULE_ARTICLE_ID', 2);

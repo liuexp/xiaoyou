@@ -10,6 +10,12 @@ class ArticleController extends ApplicationController
   
   public function showSchedule()
   {
+    try {
+      $this->article = new Article(SCHEDULE_ARTICLE_ID);
+      $this->render('article/show');
+    } catch (fNotFoundException $e) {
+      Slim::getInstance()->notFound();
+    }
   }
   
   public function create()

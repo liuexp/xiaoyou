@@ -33,7 +33,7 @@ include(__DIR__ . '/../layout/header.php');
   <?php foreach ($this->articles as $article): ?>
     <article id="article-<?php echo $article->getId(); ?>" class="popup">
       <h1><?php echo $article->getTitle(); ?></h1>
-      <section><?php echo $article->getContent(); ?></section>
+      <section><?php echo Markdown($article->getContent()); ?></section>
     </article>
   <?php endforeach; ?>
   <div id="new-article">
