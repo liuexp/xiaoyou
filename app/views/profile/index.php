@@ -10,11 +10,11 @@ include(__DIR__ . '/../layout/header.php');
     <h2><?php echo $start_year; ?>级（<?php echo $this->class_number_map[$start_year]; ?>）</h2>
     <ul class="registered">
       <?php foreach ($this->students_map[$start_year] as $student): ?>
-        <?php if (UserHelper::isRegistered($student)): ?>
+        <?php if (UserHelper::isRegistered($this->all_profiles, $student)): ?>
           <li>
-            <?php $profileId = UserHelper::getStudentProfileId($student); ?>
-            <a href="<?php echo SITE_BASE; ?>/profile/<?php $profileId; ?>"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
-            <a href="<?php echo SITE_BASE; ?>/profile/<?php $profileId; ?>"><?php echo $student->getRealname(); ?></a>
+            <?php $profileId = UserHelper::getStudentProfileId($this->all_profiles, $student); ?>
+            <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
+            <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><?php echo $student->getRealname(); ?></a>
           </li>
         <?php endif; ?>
       <?php endforeach; ?>
@@ -22,7 +22,7 @@ include(__DIR__ . '/../layout/header.php');
     <p class="clear"></p>
     <ul class="unregistered">
       <?php foreach ($this->students_map[$start_year] as $student): ?>
-        <?php if (!UserHelper::isRegistered($student)): ?>
+        <?php if (!UserHelper::isRegistered($this->all_profiles, $student)): ?>
           <li><?php echo $student->getRealname(); ?></li>
         <?php endif; ?>
       <?php endforeach; ?>

@@ -6,7 +6,8 @@ class ProfileController extends ApplicationController
   public $students_map = array();
   
   public function index()
-  {
+  {  
+    $this->all_profiles = fRecordSet::build('Profile');
     $all_names = fRecordSet::build('Name');
     $this->start_years = NameHelper::getAllStartYears($all_names);
     foreach ($this->start_years as $start_year) {

@@ -11,7 +11,7 @@ $(function(){
       dataType: 'json',
       success: function(data, textStatus, jqXHR){
         if (data.result === 'success') {
-          $('#invite .success').html('邀请成功！我们会定期给他们发送邀请邮件，提醒他们加入进来。谢谢您的支持！').show();
+          $('#invite .success').html('邀请成功！我们会定时给他们发送邀请邮件，提醒他们加入进来。谢谢您的支持！').show();
         } else if (data.message) {
           $('#invite .failure').html(data.message).show();
         } else {

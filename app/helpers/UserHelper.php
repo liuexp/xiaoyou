@@ -25,19 +25,19 @@ class UserHelper
     return $token['display_name'];
   }
   
-  public static function isRegistered($student)
+  public static function isRegistered($profiles, $student)
   {
-    // XXX this method is too slow
-    $records = fRecordSet::build('Profile', array(
-      'display_name=' => $student->getRealname(),
-      'start_year=' => $student->getStartYear()
-    ));
-    return $records->count() > 0;
+    foreach ($profiles as $profile)
+      if ($profile->getDisplayName() == $student->getRealname() && $profile->getStartYear() == $student->getStartYear())
+        return true;
+    return false;
   }
   
-  public static function getStudentProfileId($student)
+  public static function getStudentProfileId($profiles, $student)
   {
-    // TODO
+    foreach ($profiles as $profile)
+      if ($profile->getDisplayName() == $student->getRealname() && $profile->getStartYear() == $student->getStartYear())
+        return $profile->getId();
     return 0;
   }
   
