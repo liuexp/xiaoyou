@@ -1,0 +1,8 @@
+.text h1:first-child { border-right: 0; }
+.articles { display: block; clear: both; margin: 20px; }
+article.popup { min-width: 600px; min-height: 360px; }
+form .field { margin: 10px; }
+form .field label { display: inline-block; margin: 0; padding: 0; width: 50px; text-align: right; }
+form .field .textfield { display: inline-block; margin: 0; padding: 0; width: 515px; font-size: 18px; line-height: 30px; }
+form .field textarea { margin: 0; padding: 10px; width: 560px; font-size: 14px; line-height: 24px; }
+form .action { float: right; }

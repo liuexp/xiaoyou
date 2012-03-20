@@ -3,7 +3,8 @@ class ArticleController extends ApplicationController
 {
   public function index()
   {
-    // send all articles along with their contents
+    $this->articles = fRecordSet::build('Article');
+    $this->editable = true; // TODO
     $this->render('article/index');
   }
   

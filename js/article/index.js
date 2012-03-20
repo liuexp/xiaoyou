@@ -1,0 +1,3 @@
+$(function(){
+  $('.fancy-link').fancybox();
+});
