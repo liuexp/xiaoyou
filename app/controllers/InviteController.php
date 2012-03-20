@@ -25,7 +25,11 @@ class InviteController extends ApplicationController
         $invitecodes[] = substr(md5(md5($email . time()) . rand()), 0, 10);
       $this->db = fORMDatabase::retrieve();
       $this->db->query('BEGIN');
-      $inviter_profile_id = UserHelper::getProfileId();
+      try {
+        $inviter_profile_id = UserHelper::getProfileId();
+      } catch (fNotFoundException $e) {
+        throw new fValidationException('邀请同学之前必须填写好个人信息（<a href="'.SITE_BASE.'/profiles/new">点击这里</a>）');
+      }
       foreach ($emails as $i => $email) {
         $invitation = new Invitation();
         $invitation->setEmail($email);
