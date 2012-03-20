@@ -19,8 +19,8 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $experience->getDescription(); ?>.
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-experience" href="#edit-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
-              <a class="delete delete-experience" href="#delete-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+              <a class="edit edit-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
         </lii>
@@ -43,8 +43,8 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $paper->getPublishPlace(); ?>.
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-paper" href="#edit-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
-              <a class="delete delete-paper" href="#delete-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+              <a class="edit edit-paper" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-paper" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
         </li>
@@ -65,8 +65,8 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $honor->getDescription(); ?>
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-honor" href="#edit-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
-              <a class="delete delete-honor" href="#delete-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+              <a class="edit edit-honor" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-honor" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
         </li>
