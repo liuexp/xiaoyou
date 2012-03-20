@@ -1,5 +1,8 @@
 $(function(){
   $('.add').fancybox({'hideOnOverlayClick': false});
+  // TODO edit experience
+  // TODO edit paper
+  // TODO edit honor
   $('.delete-experience').click(function(){
     if (confirm('确定要删除这条经历吗？')) {
       // TODO lock screen
