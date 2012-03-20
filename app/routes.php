@@ -27,6 +27,7 @@ $app->get('/articles', function () {
 });
 
 $app->get('/article/:id/edit', function ($id) {
+  fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->edit($id);
 });
@@ -51,6 +52,24 @@ $app->get('/profile/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->show($id);
+});
+
+$app->get('/experience/:id/edit', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new ExperienceController();
+  $controller->edit($id);
+});
+
+$app->get('/paper/:id/edit', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new PaperController();
+  $controller->edit($id);
+});
+
+$app->get('/honor/:id/edit', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new HonorController();
+  $controller->edit($id);
 });
 
 // The following routes are accessed via AJAX
@@ -121,7 +140,8 @@ $app->post('/experiences', function () {
   $controller->create();
 });
 
-$app->put('/experience/:id', function ($id) {
+// fuck slim reads php://input before flourish
+$app->post('/experience/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ExperienceController();
   $controller->update($id);
@@ -139,7 +159,8 @@ $app->post('/honors', function () {
   $controller->create();
 });
 
-$app->put('/honor/:id', function ($id) {
+// fuck slim reads php://input before flourish
+$app->post('/honor/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new HonorController();
   $controller->update($id);
@@ -157,7 +178,8 @@ $app->post('/papers', function () {
   $controller->create();
 });
 
-$app->put('/paper/:id', function ($id) {
+// fuck slim reads php://input before flourish
+$app->post('/paper/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new PaperController();
   $controller->update($id);

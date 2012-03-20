@@ -1,5 +1,6 @@
 $(function(){
   $('.add').fancybox({'hideOnOverlayClick': false});
+  $('.edit').fancybox({'hideOnOverlayClick': false});
   $('#add-experience-form').submit(function(){
     $('#add-experience-form .failure').hide();
     // TODO validation
@@ -81,9 +82,6 @@ $(function(){
     });
     return false;
   });
-  // TODO edit experience
-  // TODO edit paper
-  // TODO edit honor
   $('.delete-experience').click(function(){
     if (confirm('确定要删除这条经历吗？')) {
       // TODO lock screen

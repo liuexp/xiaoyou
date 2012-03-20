@@ -17,8 +17,27 @@ class HonorController extends ApplicationController
     }
   }
   
+  public function edit($id)
+  {
+    $this->honor = new Honor($id);
+    $this->render('honor/edit');
+  }
+  
   public function update($id)
   {
+    try {
+      $honor = new Honor($id);
+      if (UserHelper::getProfileId() != $honor->getProfileId()) {
+        throw new fValidationException('not allowed');
+      }
+      $honor->setYear(fRequest::get('year'));
+      $honor->setMonth(fRequest::get('month'));
+      $honor->setDescription(trim(fRequest::get('description')));
+      $honor->store();
+      $this->ajaxReturn(array('result' => 'success', 'honor_id' => $honor->getId()));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
   
   public function delete($id)

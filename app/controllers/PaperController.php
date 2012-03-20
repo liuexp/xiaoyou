@@ -19,8 +19,29 @@ class PaperController extends ApplicationController
     }
   }
   
+  public function edit($id)
+  {
+    $this->paper = new Paper($id);
+    $this->render('paper/edit');
+  }
+  
   public function update($id)
   {
+    try {
+      $paper = new Paper($id);
+      if (UserHelper::getProfileId() != $paper->getProfileId()) {
+        throw new fValidationException('not allowed');
+      }
+      $paper->setTitle(trim(fRequest::get('title')));
+      $paper->setAuthors(trim(fRequest::get('authors')));
+      $paper->setPublishPlace(trim(fRequest::get('publish_place')));
+      $paper->setPublishYear(fRequest::get('publish_year'));
+      $paper->setIsFirstAuthor(fRequest::get('is_first_author', 'boolean'));
+      $paper->store();
+      $this->ajaxReturn(array('result' => 'success', 'paper_id' => $paper->getId()));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
   
   public function delete($id)

@@ -1,24 +1,24 @@
 $(function(){
-  $('#edit-article-form').submit(function(){
-    $('#edit-article-form .failure').hide();
+  $('#edit-experience-form').submit(function(){
+    $('#edit-experience-form .failure').hide();
     // TODO validation
     // TODO lock screen
     $.ajax({
       type: 'POST', // fuck slim cannot use PUT
-      url: window.siteBase + '/article/' + window.articleId,
-      data: $('#edit-article-form').serialize(),
+      url: window.siteBase + '/experience/' + window.experienceId,
+      data: $('#edit-experience-form').serialize(),
       dataType: 'json',
       success: function(data, textStatus, jqXHR){
         if (data.result === 'success') {
           window.location.reload();
         } else if (data.message) {
-          $('#edit-article-form .failure').html(data.message).show();
+          $('#edit-experience-form .failure').html(data.message).show();
         } else {
-          $('#edit-article-form .failure').html('Unknown: ' + textStatus).show();
+          $('#edit-experience-form .failure').html('Unknown: ' + textStatus).show();
         }
       },
       error: function(jqXHR, textStatus, errorThrown){
-        $('#edit-article-form .failure').html('Error: ' + textStatus).show();
+        $('#edit-experience-form .failure').html('Error: ' + textStatus).show();
       },
       complete: function(){
         // TODO unlock screen

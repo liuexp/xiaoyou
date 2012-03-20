@@ -19,7 +19,9 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $experience->getDescription(); ?>.
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="edit edit-experience" href="<?php echo SITE_BASE; ?>/experience/<?php echo $experience->getId(); ?>/edit">
+                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
+              </a>
               <a class="delete delete-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
@@ -43,7 +45,9 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $paper->getPublishPlace(); ?>.
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-paper" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="edit edit-paper" href="<?php echo SITE_BASE; ?>/paper/<?php echo $paper->getId(); ?>/edit">
+                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
+              </a>
               <a class="delete delete-paper" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
@@ -65,7 +69,9 @@ include(__DIR__ . '/../layout/header.php');
           <?php echo $honor->getDescription(); ?>
           <?php if ($this->editable): ?>
             <div class="tools">
-              <a class="edit edit-honor" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="edit edit-honor" href="<?php echo SITE_BASE; ?>/honor/<?php echo $honor->getId(); ?>/edit">
+                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
+              </a>
               <a class="delete delete-honor" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
