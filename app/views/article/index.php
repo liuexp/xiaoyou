@@ -15,7 +15,7 @@ include(__DIR__ . '/../layout/header.php');
 <ul class="articles">
   <?php foreach ($this->articles as $article): ?>
     <li>
-      <a class="fancy-link" href="#article-<?php echo $article->getId(); ?>">
+      <a class="article-link" href="#article-<?php echo $article->getId(); ?>">
         <?php echo $article->getTitle(); ?>
       </a>
     </li>
