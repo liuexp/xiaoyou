@@ -19,31 +19,31 @@ class RegisterController extends ApplicationController
       $confirm = fRequest::get('confirm');
       
       if (empty($email))
-        throw new fValidationException('Email address cannot be blank.');
+        throw new fValidationException('请填入Email地址');
       if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-        throw new fValidationException('Email address is not valid.');
+        throw new fValidationException('请填入合法的Email地址');
       if (empty($invitecode))
-        throw new fValidationException('Invite code cannot be blank.');
+        throw new fValidationException('请填入邀请码');
       if (empty($realname))
-        throw new fValidationException('Real name cannot be blank.');
+        throw new fValidationException('请填入真实姓名');
       if (empty($username))
-        throw new fValidationException('Login name cannot be blank.');
+        throw new fValidationException('请填入用户名');
       if (empty($password))
-        throw new fValidationException('Password cannot be blank.');
+        throw new fValidationException('请填入密码');
       if (empty($confirm))
-        throw new fValidationException('Password confirmation cannot be blank.');
+        throw new fValidationException('请确认密码');
       if ($password != $confirm)
-        throw new fValidationException('Passwords do not match. Please check it and confirm again.');
+        throw new fValidationException('两次输入的密码不一致');
       if (strlen($password) < 8)
-        throw new fValidationException('Your password is too short.');
+        throw new fValidationException('密码太短（至少为8个字符）');
       if (strlen($username) < 4)
-        throw new fValidationException('Your login name is too short (minimum 4 characters).');
+        throw new fValidationException('用户名太短（至少为4个字符）');
       if (strlen($username) > 80)
-        throw new fValidationException('Your login name is too long (maximum 80 characters).');
+        throw new fValidationException('用户名太长（最多80个字符）');
       if (!preg_match('/^[a-z0-9]+$/', $username))
-        throw new fValidationException('Only characters a-z and 0-9 are allowed in your login name.');
+        throw new fValidationException('用户名中只允许出现小写字母和数字');
       if (!Invitation::isValid($email, $invitecode, $realname))
-        throw new fValidationException('Invalid invitation information.');
+        throw new fValidationException('无效的邀请信息');
       
       $h = acm_userpass_hash($password);
       $udb = new fDatabase('mysql', UDB_NAME, UDB_USER, UDB_PASS, UDB_HOST);

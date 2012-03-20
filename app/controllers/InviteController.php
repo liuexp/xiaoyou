@@ -12,11 +12,11 @@ class InviteController extends ApplicationController
       $emails = array_unique(array_filter(array_map('trim', explode("\n", fRequest::get('emails'))), 'strlen'));
       foreach ($emails as $email)
         if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-          throw new fValidationException($email . ' is not a valid email address.');
+          throw new fValidationException($email . '不是一个合法的Email地址');
       // all emails are valid now
       foreach ($emails as $email)
         if (UserHelper::isInvited($email))
-          throw new fValidationException($email . ' has already been invited.');
+          throw new fValidationException($email . '已经呗邀请过了');
       // all emails are not invited
       // note that registered users still have invitation left in the table
       // so this checking guarantees no duplicate emails
