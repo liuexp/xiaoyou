@@ -26,6 +26,11 @@ $app->get('/articles', function () {
   $controller->index();
 });
 
+$app->get('/article/:id/edit', function ($id) {
+  $controller = new ArticleController();
+  $controller->edit($id);
+});
+
 $app->get('/schedule', function () {
   $controller = new ArticleController();
   $controller->showSchedule();
@@ -67,7 +72,8 @@ $app->post('/articles', function () {
   $controller->create();
 });
 
-$app->put('/article/:id', function ($id) {
+// fuck slim reads php://input before flourish
+$app->post('/article/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->update($id);

@@ -26,8 +26,26 @@ class ArticleController extends ApplicationController
     }
   }
   
+  public function edit($id)
+  {
+    $this->article = new Article($id);
+    $this->render('article/edit');
+  }
+  
   public function update($id)
   {
+    try {
+      $article = new Article($id);
+      if (!UserHelper::isEditor()) {
+        throw new fValidationException('not allowed');
+      }
+      $article->setTitle(fRequest::get('title'));
+      $article->setContent(fRequest::get('content'));
+      $article->store();
+      $this->ajaxReturn(array('result' => 'success', 'article_id' => $article->getId()));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
   
   public function delete($id)

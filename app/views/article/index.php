@@ -20,7 +20,9 @@ include(__DIR__ . '/../layout/header.php');
       </a>
       <?php if ($this->editable): ?>
         <div class="tools">
-          <a class="edit edit-article" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/page_edit.png"/></a>
+          <a class="edit edit-article" href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>/edit">
+            <img src="<?php echo SITE_BASE; ?>/images/icons/page_edit.png"/>
+          </a>
           <a class="delete delete-article" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/page_delete.png"/></a>
         </div>
       <?php endif; ?>

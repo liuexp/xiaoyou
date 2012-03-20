@@ -1,6 +1,7 @@
 $(function(){
   $('.article-link').fancybox({'centerOnScroll': true});
   $('.fancy-link').fancybox({'hideOnOverlayClick': false});
+  $('.edit').fancybox({'hideOnOverlayClick': false});
   $('#new-article-form').submit(function(){
     $('#new-article-form .failure').hide();
     // TODO validation
