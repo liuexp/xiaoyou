@@ -87,7 +87,7 @@ include(__DIR__ . '/../layout/header.php');
           <?php endfor; ?>
         </select>年
         <select name="start_month">
-          <option></option>
+          <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
@@ -96,13 +96,13 @@ include(__DIR__ . '/../layout/header.php');
       <div class="field">
         <label>结束年月：</label>
         <select name="end_year">
-          <option>至今</option>
+          <option value="">至今</option>
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>年
         <select name="end_month">
-          <option></option>
+          <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
@@ -170,7 +170,7 @@ include(__DIR__ . '/../layout/header.php');
           <?php endfor; ?>
         </select>年
         <select name="start_month">
-          <option></option>
+          <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
