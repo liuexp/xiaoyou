@@ -10,11 +10,11 @@ class RegisterController extends ApplicationController
   {
     try {
       // invitation information
-      $email = fRequest::get('email');
-      $invitecode = fRequest::get('invitecode');
-      $realname = fRequest::get('realname');
+      $email = trim(fRequest::get('email'));
+      $invitecode = trim(fRequest::get('invitecode'));
+      $realname = trim(fRequest::get('realname'));
       // account information
-      $username = fRequest::get('username');
+      $username = trim(fRequest::get('username'));
       $password = fRequest::get('password');
       $confirm = fRequest::get('confirm');
       
@@ -46,17 +46,21 @@ class RegisterController extends ApplicationController
         throw new fValidationException('无效的邀请信息');
       
       $h = acm_userpass_hash($password);
-      $udb = new fDatabase('mysql', UDB_NAME, UDB_USER, UDB_PASS, UDB_HOST);
-      $udb->translatedQuery(
-        'INSERT INTO users(name,pass,salt,iter,status,email,display_name,created_at,updated_at)' .
-        'VALUES(%s,%s,%s,%i,2,%s,%s,now(),now())',
-        /**                 ^
-         * Note that here we give them status=2 so they cannot log into other services such as giti.me
-         * The login module of this application is also changed so we do not check whether status=1
-         * So the users created here can only use this site
-         */
-        $username, $h['pass'], $h['salt'], $h['iter'], $email, $realname
-      );
+      try {
+        $udb = new fDatabase('mysql', UDB_NAME, UDB_USER, UDB_PASS, UDB_HOST);
+        $udb->translatedQuery(
+          'INSERT INTO users(name,pass,salt,iter,status,email,display_name,created_at,updated_at)' .
+          'VALUES(%s,%s,%s,%i,2,%s,%s,now(),now())',
+          /**                 ^
+           * Note that here we give them status=2 so they cannot log into other services such as giti.me
+           * The login module of this application is also changed so we do not check whether status=1
+           * So the users created here can only use this site
+           */
+          $username, $h['pass'], $h['salt'], $h['iter'], $email, $realname
+        );
+      } catch (fException $e) {
+        throw new fValidationException('用户名已存在，或该邮件地址已经注册过');
+      }
       Invitation::markRegistered($email, $invitecode);
       $this->ajaxReturn(array('result' => 'success'));
     } catch (fException $e) {
