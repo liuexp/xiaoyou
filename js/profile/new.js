@@ -1,24 +1,24 @@
 $(function(){
-  $('#register').submit(function(){
-    $('#register .failure').hide();
+  $('#new-profile').submit(function(){
+    $('#new-profile .failure').hide();
     // TODO client-side validaton
     // TODO lock screen
     $.ajax({
       type: 'POST',
-      url: window.siteBase + '/register',
-      data: $('#register').serialize(),
+      url: window.siteBase + '/profiles',
+      data: $('#new-profile').serialize(),
       dataType: 'json',
       success: function(data, textStatus, jqXHR){
         if (data.result === 'success') {
-          window.location = window.siteBase + '/profiles/new';
+          window.location = window.siteBase + '/profile/' + data.profile_id;
         } else if (data.message) {
-          $('#register .failure').html(data.message).show();
+          $('#new-profile .failure').html(data.message).show();
         } else {
-          $('#register .failure').html('Unknown: ' + textStatus).show();
+          $('#new-profile .failure').html('Unknown: ' + textStatus).show();
         }
       },
       error: function(jqXHR, textStatus, errorThrown){
-        $('#register .failure').html('Error: ' + textStatus).show();
+        $('#new-profile .failure').html('Error: ' + textStatus).show();
       },
       complete: function(){
         // TODO unlock screen

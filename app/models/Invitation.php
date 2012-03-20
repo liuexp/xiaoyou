@@ -8,7 +8,7 @@ class Invitation extends fActiveRecord
   public static function isValid($email, $invitecode, $realname)
   {
     // TODO
-    return false;
+    return true;
   }
   
   public static function markRegistered($email, $invitecode)

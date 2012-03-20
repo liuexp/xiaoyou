@@ -45,6 +45,7 @@ include(__DIR__ . '/../layout/header.php');
         <textarea name="description" class="monofont" rows="3" cols="45"></textarea>
       </div>
     </fieldset>
+    <div class="failure" style="display:none"></div>
     <div class="action">
       <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
         <span>提交我的个人信息</span>
@@ -63,5 +64,5 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <?php
-$javascripts = array('datepicker/WdatePicker');
+$javascripts = array('datepicker/WdatePicker', 'jquery-1.7.1.min', 'profile/new');
 include(__DIR__ . '/../layout/footer.php');
