@@ -4,3 +4,6 @@
 .popup form label { display: inline-block; width: 100px; text-align: right; }
 .popup form input[type=text] { width: 200px; }
 .popup form .action { float: right; }
+.relation-list li { line-height: 30px; }
+.relation-list li .tools { display: none; }
+.relation-list li:hover .tools { display: inline; }

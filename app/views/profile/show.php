@@ -11,12 +11,18 @@ include(__DIR__ . '/../layout/header.php');
         <a class="add" href="#add-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
       <?php endif; ?>
     </h2>
-    <ul>
+    <ul class="relation-list">
       <?php foreach ($this->profile->getExperiences() as $experience): ?>
-        <li>
+        <li data-experience-id="<?php echo $experience->getId(); ?>">
           <?php echo $experience->getFormattedTimePeriod(); ?>.
           <?php echo $experience->getLocation(); ?>,
           <?php echo $experience->getDescription(); ?>.
+          <?php if ($this->editable): ?>
+            <div class="tools">
+              <a class="edit edit-experience" href="#edit-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-experience" href="#delete-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+            </div>
+          <?php endif; ?>
         </lii>
       <?php endforeach; ?>
     </ul>
@@ -28,13 +34,19 @@ include(__DIR__ . '/../layout/header.php');
         <a class="add" href="#add-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
       <?php endif; ?>
     </h2>
-    <ul>
+    <ul class="relation-list">
       <?php foreach ($this->profile->getPapers() as $paper): ?>
-        <li>
+        <li data-paper-id="<?php echo $paper->getId(); ?>">
           <?php echo $paper->getPublishYear(); ?>.
           <?php echo $paper->getAuthors(); ?>.
           <?php echo $paper->getTitle(); ?>.
           <?php echo $paper->getPublishPlace(); ?>.
+          <?php if ($this->editable): ?>
+            <div class="tools">
+              <a class="edit edit-paper" href="#edit-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-paper" href="#delete-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+            </div>
+          <?php endif; ?>
         </li>
       <?php endforeach; ?>
     </ul>
@@ -46,11 +58,17 @@ include(__DIR__ . '/../layout/header.php');
         <a class="add" href="#add-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
       <?php endif; ?>
     </h2>
-    <ul>
+    <ul class="relation-list">
       <?php foreach ($this->profile->getHonors() as $honor): ?>
-        <li>
+        <li data-honor-id="<?php echo $honor->getId(); ?>">
           <?php echo $honor->getFormattedDate(); ?>.
           <?php echo $honor->getDescription(); ?>
+          <?php if ($this->editable): ?>
+            <div class="tools">
+              <a class="edit edit-honor" href="#edit-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a>
+              <a class="delete delete-honor" href="#delete-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
+            </div>
+          <?php endif; ?>
         </li>
       <?php endforeach; ?>
     </ul>
