@@ -4,7 +4,7 @@ class ArticleController extends ApplicationController
   public function index()
   {
     $this->articles = fRecordSet::build('Article');
-    $this->editable = true; // TODO
+    $this->editable = UserHelper::isEditor();
     $this->render('article/index');
   }
   
@@ -32,5 +32,15 @@ class ArticleController extends ApplicationController
   
   public function delete($id)
   {
+    try {
+      $article = new Article($id);
+      if (!UserHelper::isEditor()) {
+        throw new fValidationException('not allowed');
+      }
+      $article->delete();
+      $this->ajaxReturn(array('result' => 'success'));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
 }

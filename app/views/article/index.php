@@ -14,10 +14,16 @@ include(__DIR__ . '/../layout/header.php');
 </h1>
 <ul class="articles">
   <?php foreach ($this->articles as $article): ?>
-    <li>
+    <li data-article-id="<?php echo $article->getId(); ?>">
       <a class="article-link" href="#article-<?php echo $article->getId(); ?>">
         <?php echo $article->getTitle(); ?>
       </a>
+      <?php if ($this->editable): ?>
+        <div class="tools">
+          <a class="edit edit-article" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/page_edit.png"/></a>
+          <a class="delete delete-article" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/page_delete.png"/></a>
+        </div>
+      <?php endif; ?>
     </li>
   <?php endforeach; ?>
 </ul>

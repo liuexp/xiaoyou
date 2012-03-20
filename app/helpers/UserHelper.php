@@ -54,4 +54,10 @@ class UserHelper
     $profile = new Profile(array('login_name' => $name));
     return $profile->getId();
   }
+  
+  public static function isEditor()
+  {
+    // TODO
+    return true;
+  }
 }

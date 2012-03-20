@@ -1,5 +1,8 @@
 .text h1:first-child { border-right: 0; }
 .articles { display: block; clear: both; margin: 20px; }
+.articles li { line-height: 30px; }
+.articles li .tools { display: none; }
+.articles li:hover .tools { display: inline; }
 article.popup { min-width: 600px; min-height: 360px; }
 form .field { margin: 10px; }
 form .field label { display: inline-block; margin: 0; padding: 0; width: 50px; text-align: right; }
