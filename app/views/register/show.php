@@ -36,8 +36,9 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="password" id="confirm" name="confirm" maxlength="80"/>
       </div>
     </fieldset>
+    <div class="failure" style="display:none"></div>
     <div class="action">
-      <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
+      <button id="create-account" type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
         <span>创建我的帐户</span>
       </button>
       <p class="clear"></p>
@@ -54,4 +55,5 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <?php
+$javascripts = array('jquery-1.7.1.min', 'register/show');
 include(__DIR__ . '/../layout/footer.php');

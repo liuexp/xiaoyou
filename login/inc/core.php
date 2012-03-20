@@ -2,7 +2,7 @@
 function login_check_credential($db, $username, $password)
 {
   $result = $db->translatedQuery(
-    'SELECT id,pass,salt,iter,email,display_name FROM users WHERE name=%s AND status=1', $username);
+    'SELECT id,pass,salt,iter,email,display_name FROM users WHERE name=%s', $username);
   $num_of_rows = $result->countReturnedRows();
   if ($num_of_rows > 0) {
     $row = $result->fetchRow();

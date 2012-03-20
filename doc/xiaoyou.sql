@@ -121,13 +121,13 @@ CREATE TABLE IF NOT EXISTS `invitations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(500) NOT NULL,
   `invitecode` varchar(100) NOT NULL,
-  `realname` varchar(20) DEFAULT NULL,
   `is_mail_sent` tinyint(1) NOT NULL,
   `user_registered` tinyint(1) NOT NULL,
   `inviter_profile_id` bigint(20) unsigned NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `invitecode` (`invitecode`),
   KEY `inviter_profile_id` (`inviter_profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
