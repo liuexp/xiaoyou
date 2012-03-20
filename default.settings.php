@@ -25,3 +25,9 @@ define('TITLE_SUFFIX', ' | ACM班校友录');
  *   1h means 1 hour
  */
 define('INVITE_INTERVAL', '15m');
+
+/**
+ * List the user names of editors here.
+ * Separate names using the pipe sign (|).
+ */
+define('EDITOR_IDS', '|root|xjia|');

@@ -61,8 +61,7 @@ class UserHelper
   
   public static function isEditor()
   {
-    // TODO
-    return true;
+    return strstr(EDITOR_IDS, UserHelper::getName()) !== false;
   }
   
   public static function isInvited($email)
