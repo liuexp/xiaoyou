@@ -4,7 +4,7 @@
 	<meta charset="utf-8"/>
 	<title>修改密码 | <?php echo SITE_TITLE; ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo LOGIN_BASE; ?>/css/base.css" media="all"/>
-	<link rel="stylesheet" type="text/css" href="<?php echo LOGIN_BASE; ?>/css/login.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo LOGIN_BASE; ?>/css/change-password.css" media="screen"/>
 </head>
 <body id="login">
 	<div id="login-box">

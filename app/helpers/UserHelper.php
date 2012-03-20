@@ -27,8 +27,12 @@ class UserHelper
   
   public static function isRegistered($student)
   {
-    // TODO
-    return (0 + $student->getStudentNumber()) % 2 == 0;
+    // XXX this method is too slow
+    $records = fRecordSet::build('Profile', array(
+      'display_name=' => $student->getRealname(),
+      'start_year=' => $student->getStartYear()
+    ));
+    return $records->count() > 0;
   }
   
   public static function getStudentProfileId($student)
