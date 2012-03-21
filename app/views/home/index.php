@@ -15,10 +15,12 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2>新闻快报</h2>
       <ul>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <?php foreach ($this->articles as $article): ?>
+          <li data-article-id="<?php echo $article->getId(); ?>">
+            <?php echo $article->getTitle(); ?>
+            <!-- use dotdotdot to show abstract of each article -->
+          </li>
+        <?php endforeach; ?>
       </ul>
     </section>
     <section>
