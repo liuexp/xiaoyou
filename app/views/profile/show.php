@@ -99,24 +99,29 @@ include(__DIR__ . '/../layout/header.php');
     <li>家乡：<?php echo $this->profile->getHometown(); ?></li>
     <li>高中：<?php echo $this->profile->getHighSchool(); ?></li>
     <li>自我描述：<?php echo Markdown($this->profile->getDescription()); ?></li>
-  </ul>
-  <ul>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
-      <li>
-        <?php if ($contact->getType() == 'email'): ?>
-          <a href="mailto:<?php echo $contact->getContent(); ?>">
-            <img src="<?php echo SITE_BASE; ?>/images/32-email.png"/>
-          </a>
-        <?php elseif ($contact->getType() == 'qq'): ?>
-          <a href="#qq/<?php echo $contact->getContent(); ?>">
+      <?php if ($contact->getType() == 'email'): ?>
+        <li>Email：<?php echo $contact->getContent(); ?></li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </ul>
+  <ul class="contacts">
+    <?php foreach ($this->profile->getContacts() as $contact): ?>
+      <?php if ($contact->getType() == 'email'): ?>
+        <!-- skip -->
+      <?php elseif ($contact->getType() == 'qq'): ?>
+        <li>
+          <a class="qq" href="#" data-qq="<?php echo $contact->getContent(); ?>">
             <img title="<?php echo $contact->getContent(); ?>" src="<?php echo SITE_BASE; ?>/images/32-qq.png"/>
           </a>
-        <?php else: ?>
-          <a href="<?php echo $contact->getContent(); ?>">
-            <img src="<?php echo SITE_BASE; ?>/images/32-<?php echo $content->type(); ?>.png"/>
+        </li>
+      <?php else: ?>
+        <li>
+          <a class="other" target="_blank" href="<?php echo $contact->getContent(); ?>">
+            <img src="<?php echo SITE_BASE; ?>/images/32-<?php echo $contact->getType(); ?>.png"/>
           </a>
-        <?php endif; ?>
-      </li>
+        </li>
+      <?php endif; ?>
     <?php endforeach; ?>
   </ul>
 </aside>

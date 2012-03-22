@@ -8,3 +8,5 @@
 .relation-list li { line-height: 30px; }
 .relation-list li .tools { display: none; }
 .relation-list li:hover .tools { display: inline; }
+.contacts li { float: left; margin: 2px; }
+.contacts img { width: 22px; height: 22px; }
