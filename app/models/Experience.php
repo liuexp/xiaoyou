@@ -3,6 +3,9 @@ class Experience extends fActiveRecord
 {
   protected function configure()
   {
+    fORMValidation::addStringReplacement($this, 'Type: Please enter a value', '请选择类型');
+    fORMValidation::addStringReplacement($this, 'Major: Please enter a value', '请输入专业/方向');
+    fORMValidation::addStringReplacement($this, 'Location: Please enter a value', '请输入学校/单位');
   }
   
   public function getFormattedTimePeriod()
