@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2012 at 09:02 AM
+-- Generation Time: Mar 22, 2012 at 04:20 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -29,15 +29,13 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
+  `priority` int(11) NOT NULL,
+  `type` enum('news','post') NOT NULL,
+  `visible` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `articles`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -48,19 +46,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
-  `type` varchar(200) NOT NULL,
+  `type` enum('douban','email','facebook','google','kaixin001','qq','renren','rss','twitter','weibo') NOT NULL,
   `content` varchar(1000) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `contacts`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -75,18 +68,15 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `start_month` int(11) DEFAULT NULL,
   `end_year` char(4) DEFAULT NULL,
   `end_month` int(11) DEFAULT NULL,
-  `description` varchar(200) NOT NULL,
+  `type` enum('bachelor','master','doctor','postdoc','work') NOT NULL,
+  `major` varchar(200) NOT NULL,
   `location` varchar(200) NOT NULL,
+  `mentor` varchar(200) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `experiences`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -104,12 +94,7 @@ CREATE TABLE IF NOT EXISTS `honors` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `honors`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -129,12 +114,7 @@ CREATE TABLE IF NOT EXISTS `invitations` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `inviter_profile_id` (`inviter_profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `invitations`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -153,12 +133,7 @@ CREATE TABLE IF NOT EXISTS `names` (
   KEY `start_year` (`start_year`),
   KEY `class_number` (`class_number`),
   KEY `realname` (`realname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `names`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=264 ;
 
 -- --------------------------------------------------------
 
@@ -174,16 +149,13 @@ CREATE TABLE IF NOT EXISTS `papers` (
   `publish_place` varchar(200) NOT NULL,
   `publish_year` char(4) NOT NULL,
   `is_first_author` tinyint(1) NOT NULL,
+  `is_at_sjtu` tinyint(1) NOT NULL,
+  `is_best_paper` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `papers`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -201,19 +173,19 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `gender` char(1) NOT NULL,
   `location` varchar(200) NOT NULL,
   `hometown` varchar(200) NOT NULL,
-  `description` text DEFAULT NULL,
+  `high_school` varchar(200) NOT NULL,
+  `description` text,
+  `memorable` text,
+  `presentable` tinyint(1) NOT NULL,
+  `advices` text,
+  `contributes` text,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_name` (`login_name`),
   UNIQUE KEY `student_number` (`student_number`),
   KEY `start_year` (`start_year`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `profiles`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Constraints for dumped tables
