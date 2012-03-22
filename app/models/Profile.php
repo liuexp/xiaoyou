@@ -10,6 +10,11 @@ class Profile extends fActiveRecord
     return $this->getGender() == 'M';
   }
   
+  public function getContacts()
+  {
+    return fRecordSet::build('Contact', array('profile_id=' => $this->getId()));
+  }
+  
   public function getExperiences()
   {
     return fRecordSet::build('Experience', array('profile_id=' => $this->getId()));
