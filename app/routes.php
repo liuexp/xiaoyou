@@ -27,7 +27,7 @@ $app->post('/avatar/upload', function () {
   $controller->upload();
 });
 
-$app->get('/avatar', function () {
+$app->get('/avatar/edit', function () {
   fAuthorization::requireLoggedIn();
   $controller = new AvatarController();
   $controller->edit();
@@ -116,7 +116,7 @@ $app->get('/honor/:id/edit', function ($id) {
 
 // The following routes are accessed via AJAX
 
-$app->post('/avatar', function () {
+$app->post('/avatar/update', function () {
   fAuthorization::requireLoggedIn();
   $controller = new AvatarController();
   $controller->update();

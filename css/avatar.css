@@ -1,6 +1,7 @@
-h1 { display: block; border: 0 !important; }
-span.hint { display: block; clear: both; margin-top: 20px; }
-#edit-avatar { border: 0; margin: 20px; }
-#edit-avatar * { display: block; float: left; }
-#edit-avatar .action { clear: both; float: right; }
+h1 { float: none !important; display: block; border: 0 !important; }
+.hint { float: none; display: block; margin-top: 20px; }
+.failure { float: none; }
+#edit-avatar-form { float: none; display: block; border: 0; margin: 20px; }
+#edit-avatar-form * { display: block; float: left; }
+#edit-avatar-form .action { clear: both; margin-top: -40px; margin-left: 440px; }
 #jcrop_target { max-width: 400px; max-height: 400px; }

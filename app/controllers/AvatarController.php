@@ -26,6 +26,12 @@ class AvatarController extends ApplicationController
    */
   public function update()
   {
+    $x = fRequest::get('x', 'integer');
+    $y = fRequest::get('y', 'integer');
+    $w = fRequest::get('w', 'integer');
+    $h = fRequest::get('h', 'integer');
+    // TODO
+    $this->ajaxReturn(array('result' => 'failure', 'message' => $x.' '.$y.' '.$w.' '.$h));
   }
   
   /**
@@ -35,7 +41,7 @@ class AvatarController extends ApplicationController
   {
     try {
       if (self::isImage($_FILES['avatar-file']) && move_uploaded_file($_FILES['avatar-file']['tmp_name'], $this->uploadfile)) {
-        fURL::redirect(SITE_BASE . '/avatar');
+        fURL::redirect(SITE_BASE . '/avatar/edit');
       } else {
         throw new fValidationException('上传图片失败');
       }
