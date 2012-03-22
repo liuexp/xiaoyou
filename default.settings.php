@@ -18,7 +18,8 @@ define('UDB_HOST', 'localhost');
 define('HOST_URL', 'http://localhost');
 define('SITE_BASE', '/xiaoyou');
 define('TITLE_SUFFIX', ' | ACM班校友录');
-define('AVATAR_DIR', '/Users/xjia/tmp/');
+define('AVATAR_DIR', '/Users/xjia/tmp/avatar/');
+define('AVATAR_BASE', '/avatars');
 
 /**
  * Interval of sending invitations.
