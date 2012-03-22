@@ -1,0 +1,6 @@
+h1 { display: block; border: 0 !important; }
+span.hint { display: block; clear: both; margin-top: 20px; }
+#edit-avatar { border: 0; margin: 20px; }
+#edit-avatar * { display: block; float: left; }
+#edit-avatar .action { clear: both; float: right; }
+#jcrop_target { max-width: 400px; max-height: 400px; }

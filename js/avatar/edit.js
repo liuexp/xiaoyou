@@ -1,12 +1,13 @@
 $(function(){
   var $jcropTarget = $('#jcrop_target');
-  var $targetWidth, $targetHeight;
   var $jcropPreview = $('#jcrop_preview');
   
-  $('<img/>').attr('src', $jcropTarget.attr('src')).load(function(){
-    $targetWidth = this.width;
-    $targetHeight = this.height;
-  });
+  // $('<img/>').attr('src', $jcropTarget.attr('src')).load(function(){
+  //   $targetWidth = this.width;
+  //   $targetHeight = this.height;
+  // });
+  var $targetWidth = $jcropTarget.width();
+  var $targetHeight = $jcropTarget.height();
   
   function showPreview(coords) {
     if (parseInt(coords.w) > 0) {
