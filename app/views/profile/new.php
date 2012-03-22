@@ -61,11 +61,11 @@ include(__DIR__ . '/../layout/header.php');
       </blockquote>
       <div class="field">
         <span class="label">回忆你在校期间印象最深的一件事</span>
-        <textarea id="memorable" name="memorable" class="monofont" rows="3" cols="45"></textarea>
+        <textarea id="memorable" name="memorable" class="monofont" rows="3" cols="44"></textarea>
       </div>
       <div class="field">
         <span class="label">简单说说你离校后这几年的经历吧</span>
-        <textarea id="description" name="description" class="monofont" rows="3" cols="45"></textarea>
+        <textarea id="description" name="description" class="monofont" rows="3" cols="44"></textarea>
       </div>
     </fieldset>
     <fieldset>
@@ -81,11 +81,11 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <span class="label">你对庆典活动安排有何希望和建议</span>
-        <textarea id="advices" name="advices" class="monofont" rows="3" cols="45"></textarea>
+        <textarea id="advices" name="advices" class="monofont" rows="3" cols="44"></textarea>
       </div>
       <div class="field">
         <span class="label">活动以感恩为一大主题，希望毕业学子能尽其所能回报母校，你是否愿意捐赠？或有何想法？</span>
-        <textarea id="contributes" name="contributes" class="monofont" rows="3" cols="45"></textarea>
+        <textarea id="contributes" name="contributes" class="monofont" rows="3" cols="44"></textarea>
       </div>
     </fieldset>
     <div class="failure" style="display:none"></div>
@@ -101,7 +101,7 @@ include(__DIR__ . '/../layout/header.php');
   <h2>填写说明</h2>
   <ul>
     <li>学号如果记不住可以不填</li>
-    <li>提交之后除基本信息外都不能更改</li>
+    <li>提交之后，除基本信息外都不能更改</li>
   </ul>
 </aside>
 <?php

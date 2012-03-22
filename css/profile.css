@@ -1,6 +1,8 @@
 .profile > * { margin-left: 10px; }
 .profile .avatar { margin: 10px; }
 .profile .details li { margin-bottom: 4px; }
+.profile .details li .tools { display: none; }
+.profile .details li:hover .tools { display: inline; margin-left: 5px; }
 .profile .gender { width: 20px; height: 20px; }
 .popup h2 { display: block; border-bottom: 1px solid #ccc; }
 .popup form .field { margin: 5px 10px 5px 0; }
@@ -13,3 +15,4 @@
 .relation-list li:hover .tools { display: inline; }
 .contacts li { float: left; margin: 2px; }
 .contacts img { width: 22px; height: 22px; }
+#edit-info label.radio { width: 30px; text-align: left; margin-left: 5px; }

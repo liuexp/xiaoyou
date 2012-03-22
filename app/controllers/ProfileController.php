@@ -33,7 +33,7 @@ class ProfileController extends ApplicationController
       $profile->setDisplayName(UserHelper::getDisplayName());
       $profile->setStartYear(fRequest::get('start_year'));
       $profile->setStudentNumber(trim(fRequest::get('student_number')));
-      $profile->setBirthday(fRequest::get('birthday'));
+      $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
       $profile->setHometown(trim(fRequest::get('hometown')));
@@ -74,5 +74,22 @@ class ProfileController extends ApplicationController
   
   public function update($id)
   {
+    try {
+      $profile = new Profile($id);
+      if (UserHelper::getProfileId() != $profile->getId()) {
+        throw new fValidationException('not allowed');
+      }
+      $profile->setStartYear(fRequest::get('start_year'));
+      $profile->setStudentNumber(trim(fRequest::get('student_number')));
+      $profile->setBirthday(trim(fRequest::get('birthday')));
+      $profile->setGender(fRequest::get('gender'));
+      $profile->setLocation(trim(fRequest::get('location')));
+      $profile->setHometown(trim(fRequest::get('hometown')));
+      $profile->setHighSchool(trim(fRequest::get('high_school')));
+      $profile->store();
+      $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
 }

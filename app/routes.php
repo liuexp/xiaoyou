@@ -125,7 +125,7 @@ $app->post('/profiles', function () {
   $controller->create();
 });
 
-$app->put('/profile/:id', function ($id) {
+$app->post('/profile/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->update($id);
