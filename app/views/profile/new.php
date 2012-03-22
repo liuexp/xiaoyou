@@ -38,6 +38,10 @@ include(__DIR__ . '/../layout/header.php');
         <label for="hometown">家乡：</label>
         <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200"/>
       </div>
+      <div class="field">
+        <label for="high_school">高中：</label>
+        <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200"/>
+      </div>
     </fieldset>
     <fieldset>
       <legend>自我描述</legend>

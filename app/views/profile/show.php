@@ -97,6 +97,7 @@ include(__DIR__ . '/../layout/header.php');
     <li>生日：<?php echo $this->profile->getBirthday(); ?></li>
     <li>现居住地：<?php echo $this->profile->getLocation(); ?></li>
     <li>家乡：<?php echo $this->profile->getHometown(); ?></li>
+    <li>高中：<?php echo $this->profile->getHighSchool(); ?></li>
     <li>自我描述：<?php echo Markdown($this->profile->getDescription()); ?></li>
     <!-- TODO list contacts here -->
   </ul>
