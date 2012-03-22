@@ -6,3 +6,4 @@
 #register .textfield { width: 300px; height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #register .textfield:hover { background-color: #FEF5F1; }
 #register .textfield:focus { background-color: #CCFF99; }
+aside ul li { font-size: 14px; line-height: 20px; list-style: circle; margin: 4px 0 4px 20px; }

@@ -24,7 +24,7 @@ include(__DIR__ . '/../layout/header.php');
   </form>
 </section>
 <aside>
-  <h2>填写说明</h2>
+  <h2>邀请说明</h2>
   <ul>
     <li>Email地址每行一个</li>
     <li>我们会定时通过邮件发送邀请码</li>

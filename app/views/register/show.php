@@ -48,10 +48,9 @@ include(__DIR__ . '/../layout/header.php');
 <aside>
   <h2>填写说明</h2>
   <ul>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
+    <li>注册表单中所有项目都必填</li>
+    <li>真实姓名请用中文</li>
+    <li>注册之后，还需要创建个人信息、完善个人资料，大约占用15分钟时间</li>
   </ul>
 </aside>
 <?php
