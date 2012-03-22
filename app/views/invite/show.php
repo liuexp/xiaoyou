@@ -26,10 +26,11 @@ include(__DIR__ . '/../layout/header.php');
 <aside>
   <h2>填写说明</h2>
   <ul>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
+    <li>Email地址每行一个</li>
+    <li>我们会定时通过邮件发送邀请码</li>
+    <li>你的同学在获取邀请码之后就可以注册了</li>
+    <li>我们不允重复发送邀请，所以请删掉已经被邀请的Email地址</li>
+    <li>任何人登录后都可以发送邀请，请确保只发送邀请给ACM班的同学</li>
   </ul>
 </aside>
 <?php

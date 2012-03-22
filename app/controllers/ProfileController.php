@@ -31,13 +31,18 @@ class ProfileController extends ApplicationController
       $profile = new Profile();
       $profile->setLoginName(UserHelper::getName());
       $profile->setDisplayName(UserHelper::getDisplayName());
-      $profile->setStudentNumber(trim(fRequest::get('student_number')));
       $profile->setStartYear(fRequest::get('start_year'));
+      $profile->setStudentNumber(trim(fRequest::get('student_number')));
       $profile->setBirthday(fRequest::get('birthday'));
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
       $profile->setHometown(trim(fRequest::get('hometown')));
-      $profile->setDescription(fRequest::get('description'));
+      $profile->setHighSchool(trim(fRequest::get('high_school')));
+      $profile->setMemorable(trim(fRequest::get('memorable')));
+      $profile->setDescription(trim(fRequest::get('description')));
+      $profile->setPresentable(fRequest::get('presentable', 'boolean'));
+      $profile->setAdvices(trim(fRequest::get('advices')));
+      $profile->setContributes(trim(fRequest::get('contributes')));
       $profile->setCreatedAt(Util::currentTime());
       $profile->store();
       

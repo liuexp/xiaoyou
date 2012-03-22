@@ -4,3 +4,4 @@
 #invite .action { float: right; }
 #invite label { display: block; font-size: 15px; line-height: 30px; }
 #invite textarea { font-size: 20px; line-height: 30px; text-align: center; }
+aside ul li { font-size: 14px; line-height: 20px; list-style: circle; margin: 4px 0 4px 20px; }
