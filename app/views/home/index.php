@@ -13,7 +13,7 @@ include(__DIR__ . '/../layout/header.php');
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <div class="columns">
     <section>
-      <h2>新闻快报</h2>
+      <h2>新闻</h2>
       <ul>
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
@@ -21,6 +21,13 @@ include(__DIR__ . '/../layout/header.php');
             <!-- use dotdotdot to show abstract of each article -->
           </li>
         <?php endforeach; ?>
+      </ul>
+    </section>
+    <section>
+      <h2>征文</h2>
+      <ul>
+        <li>
+        </li>
       </ul>
     </section>
     <section>
