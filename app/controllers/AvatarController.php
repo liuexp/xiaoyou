@@ -6,6 +6,9 @@ class AvatarController extends ApplicationController
     $this->username = UserHelper::getName();
     $this->uploaddir = AVATAR_DIR;
     $this->uploadfile = $this->uploaddir . $this->username . '.jpg';
+    $this->avatarfile = $this->uploaddir . $this->username . '-avatar.jpg';
+    $this->target_width = $this->target_height = 160;
+    $this->jpeg_quality = 100;
   }
   
   /**
@@ -30,8 +33,22 @@ class AvatarController extends ApplicationController
     $y = fRequest::get('y', 'integer');
     $w = fRequest::get('w', 'integer');
     $h = fRequest::get('h', 'integer');
-    // TODO
-    $this->ajaxReturn(array('result' => 'failure', 'message' => $x.' '.$y.' '.$w.' '.$h));
+    $img_w = fRequest::get('img_w', 'integer');
+    $img_h = fRequest::get('img_h', 'integer');
+    try {
+      // throw new Exception(sprintf('x=%d,y=%d,w=%d,h=%d,img_w=%d,img_h=%d', $x, $y, $w, $h, $img_w, $img_h));
+      $img_r = imagecreatefromjpeg($this->uploadfile);
+      $x = $x * imagesx($img_r) / $img_w;
+      $y = $y * imagesy($img_r) / $img_h;
+      $w = $w * imagesx($img_r) / $img_w;
+      $h = $h * imagesy($img_r) / $img_h;
+      $dst_r = imageCreateTrueColor($this->target_width, $this->target_height);
+      imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y, $this->target_width, $this->target_height, $w, $h);
+      imagejpeg($dst_r, $this->avatarfile, $this->jpeg_quality);
+      $this->ajaxReturn(array('result' => 'success'));
+    } catch (Exception $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
   }
   
   /**

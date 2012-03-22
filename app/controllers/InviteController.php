@@ -16,7 +16,7 @@ class InviteController extends ApplicationController
       // all emails are valid now
       foreach ($emails as $email)
         if (UserHelper::isInvited($email))
-          throw new fValidationException($email . '已经呗邀请过了');
+          throw new fValidationException($email . '已经被邀请过了');
       // all emails are not invited
       // note that registered users still have invitation left in the table
       // so this checking guarantees no duplicate emails

@@ -92,7 +92,11 @@ include(__DIR__ . '/../layout/header.php');
     <?php endif; ?>
   </h1>
   <div class="avainfo">
-    <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
+    <?php if (file_exists($this->avatarfile)): ?>
+      <img class="avatar" src="<?php echo AVATAR_BASE; ?>/<?php echo $this->username; ?>-avatar.jpg">
+    <?php else: ?>
+      <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
+    <?php endif; ?>
     <?php if ($this->editable): ?>
       <div class="mask"></div>
       <a id="edit-avatar-link" class="edit" href="#edit-avatar">编辑头像</a>

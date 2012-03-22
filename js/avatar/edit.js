@@ -7,7 +7,12 @@ $(function(){
     $('#y').val(c.y);
     $('#w').val(c.w);
     $('#h').val(c.h);
-  };
+  }
+  
+  function updateImageSize() {
+    $('#img_w').val($jcropTarget.width());
+    $('#img_h').val($jcropTarget.height());
+  }
   
   function showPreview(coords) {
     if (parseInt(coords.w) > 0) {
@@ -15,6 +20,7 @@ $(function(){
       var ry = 160 / coords.h;
       
       updateCoords(coords);
+      updateImageSize();
       
       $jcropPreview.css({
         width: Math.round(rx * $jcropTarget.width()) + 'px',
@@ -37,6 +43,7 @@ $(function(){
   });
   
   $('#edit-avatar-form').submit(function(){
+    updateImageSize();
     $('.failure').hide();
     // TODO lock screen
     $.ajax({

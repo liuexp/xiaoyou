@@ -8,10 +8,12 @@ include(__DIR__ . '/../layout/header.php');
 <div class="hint success">请用鼠标在左侧大图选取要作为头像的部分</div>
 <div class="failure" style="display:none"></div>
 <form id="edit-avatar-form" method="POST" action="<?php echo SITE_BASE; ?>/avatar/update">
-  <input type="hidden" id="x" name="x"/>
-  <input type="hidden" id="y" name="y"/>
-  <input type="hidden" id="w" name="w"/>
-  <input type="hidden" id="h" name="h"/>
+  <input type="hidden" id="x" name="x" value="0"/>
+  <input type="hidden" id="y" name="y" value="0"/>
+  <input type="hidden" id="w" name="w" value="160"/>
+  <input type="hidden" id="h" name="h" value="160"/>
+  <input type="hidden" id="img_w" name="img_w"/>
+  <input type="hidden" id="img_h" name="img_h"/>
   <div>
     <img src="<?php echo AVATAR_BASE; ?>/<?php echo $this->username; ?>.jpg" id="jcrop_target"/>
   </div>
