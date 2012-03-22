@@ -92,13 +92,14 @@ include(__DIR__ . '/../layout/header.php');
     <?php endif; ?>
   </h1>
   <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
-  <ul>
+  <ul class="details">
     <li>入学年份：<?php echo $this->profile->getStartYear(); ?></li>
     <li>生日：<?php echo $this->profile->getBirthday(); ?></li>
     <li>现居住地：<?php echo $this->profile->getLocation(); ?></li>
     <li>家乡：<?php echo $this->profile->getHometown(); ?></li>
     <li>高中：<?php echo $this->profile->getHighSchool(); ?></li>
-    <li>自我描述：<?php echo Markdown($this->profile->getDescription()); ?></li>
+    <li>在校期间印象最深的一件事：<?php echo $this->profile->getMemorable(); ?></li>
+    <li>离校后这几年的简单经历：<?php echo $this->profile->getDescription(); ?></li>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <li>Email：<?php echo $contact->getContent(); ?></li>
