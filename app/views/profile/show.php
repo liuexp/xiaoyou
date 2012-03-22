@@ -93,15 +93,32 @@ include(__DIR__ . '/../layout/header.php');
   </h1>
   <div class="avainfo">
     <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
-    <div class="mask"></div>
-    <a class="edit" href="#edit-avatar">编辑头像</a>
+    <?php if ($this->editable): ?>
+      <div class="mask"></div>
+      <a class="edit" href="#edit-avatar">编辑头像</a>
+    <?php endif; ?>
   </div>
   <ul class="details">
-    <li>入学年份：<?php echo $this->profile->getStartYear(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
-    <li>生日：<?php echo $this->profile->getBirthday(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
-    <li>现居住地：<?php echo $this->profile->getLocation(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
-    <li>家乡：<?php echo $this->profile->getHometown(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
-    <li>高中：<?php echo $this->profile->getHighSchool(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
+    <li>
+      入学年份：<?php echo $this->profile->getStartYear(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+    </li>
+    <li>
+      生日：<?php echo $this->profile->getBirthday(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+    </li>
+    <li>
+      现居住地：<?php echo $this->profile->getLocation(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+    </li>
+    <li>
+      家乡：<?php echo $this->profile->getHometown(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+    </li>
+    <li>
+      高中：<?php echo $this->profile->getHighSchool(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+    </li>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <li>Email：<?php echo $contact->getContent(); ?></li>
@@ -128,6 +145,7 @@ include(__DIR__ . '/../layout/header.php');
     <?php endforeach; ?>
   </ul>
 </aside>
+<?php if ($this->editable): ?>
 <div style="display:none">
   <div id="edit-avatar" class="popup">
     <h2>编辑头像</h2>
@@ -331,6 +349,13 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </div>
 <script type="text/javascript">window.profileId = '<?php echo $this->profile->getId(); ?>';</script>
+<?php endif; ?>
 <?php
-$javascripts = array('datepicker/WdatePicker', 'jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'profile/show');
+if ($this->editable) {
+  $javascripts = array(
+    'datepicker/WdatePicker',
+    'jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
+    'profile/show'
+  );
+}
 include(__DIR__ . '/../layout/footer.php');

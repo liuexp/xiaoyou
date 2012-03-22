@@ -17,6 +17,7 @@ require_once(__DIR__ . '/models/Profile.php');
 
 require_once(__DIR__ . '/controllers/ApplicationController.php');
 require_once(__DIR__ . '/controllers/ArticleController.php');
+require_once(__DIR__ . '/controllers/AvatarController.php');
 require_once(__DIR__ . '/controllers/ContactController.php');
 require_once(__DIR__ . '/controllers/ExperienceController.php');
 require_once(__DIR__ . '/controllers/HomeController.php');
