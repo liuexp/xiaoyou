@@ -4,8 +4,14 @@
 #new-profile .action { float: right; }
 #new-profile label { display: inline-block; width: 150px; text-align: right; font-size: 15px; line-height: 30px; }
 #new-profile label.radio { width: 30px; text-align: left; margin-left: 5px; }
+#new-profile label.long { width: 300px; text-align: left; margin-left: 10px; }
 #new-profile select { width: 100px ;height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #new-profile .textfield { width: 300px; height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #new-profile .textfield:hover { background-color: #FEF5F1; }
 #new-profile .textfield:focus { background-color: #CCFF99; }
 #new-profile textarea { font-size: 20px; line-height: 30px; margin: 0 10px; padding: 10px; }
+blockquote { display: block; padding: 0 60px; width: 320px; margin-top: -10px; margin-bottom: 40px; margin-left: auto; margin-right: auto; }
+blockquote p.prolog { font-size: 14px !important; padding-top: 20px; font-style: italic; }
+blockquote:before, blockquote:after { color: #69c; display: block; font-size: 88px; width: 50px; }
+blockquote:before { content: '\201C'; height: 0; margin-left: -50px; margin-bottom: 10px; }
+blockquote:after { content: '\201D'; height: 50px; margin-top: -70px; margin-left: 320px; }

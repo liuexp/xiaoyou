@@ -8,6 +8,14 @@ include(__DIR__ . '/../layout/header.php');
   <form id="new-profile" method="POST" action="<?php echo SITE_BASE; ?>/profiles">
     <fieldset>
       <legend>基本信息</legend>
+      <blockquote>
+        <p class="prolog">
+          浮云游子意，落日故人情<br/>
+          亲爱的ACM班大家庭成员，欢迎回家<br/>
+          适十周年庆典之际，以此问卷，了解故人近况<br/>
+          以借此机会收集大家的信息，以便更密切的联系
+        </p>
+      </blockquote>
       <div class="field">
         <label for="start_year">入学年份：</label>
         <select id="start_year" name="start_year">
@@ -44,9 +52,20 @@ include(__DIR__ . '/../layout/header.php');
       </div>
     </fieldset>
     <fieldset>
-      <legend>自我描述</legend>
+      <legend>故情·近况</legend>
+      <blockquote>
+        <p class="prolog">
+          惜我往矣，杨柳依依，今我来思，雨雪霏霏<br/>
+          相别数年，不知故人可好？
+        </p>
+      </blockquote>
       <div class="field">
-        <textarea name="description" class="monofont" rows="3" cols="45"></textarea>
+        <label class="long" for="memorable">回忆你在校期间印象最深的一件事</label>
+        <textarea id="memorable" name="memorable" class="monofont" rows="3" cols="45"></textarea>
+      </div>
+      <div class="field">
+        <label class="long" for="description">简单说说你离校后这几年的经历吧</label>
+        <textarea id="description" name="description" class="monofont" rows="3" cols="45"></textarea>
       </div>
     </fieldset>
     <div class="failure" style="display:none"></div>
@@ -61,10 +80,7 @@ include(__DIR__ . '/../layout/header.php');
 <aside>
   <h2>填写说明</h2>
   <ul>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
-    <li>鹅鹅鹅</li>
+    <li>学号如果记不住可以不填</li>
   </ul>
 </aside>
 <?php
