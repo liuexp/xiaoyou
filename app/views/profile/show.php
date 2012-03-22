@@ -15,8 +15,10 @@ include(__DIR__ . '/../layout/header.php');
       <?php foreach ($this->profile->getExperiences() as $experience): ?>
         <li data-experience-id="<?php echo $experience->getId(); ?>">
           <?php echo $experience->getFormattedTimePeriod(); ?>.
-          <?php echo $experience->getLocation(); ?>,
-          <?php echo $experience->getDescription(); ?>.
+          <?php echo $experience->getFormattedType(); ?>.
+          <?php echo $experience->getLocation(); ?>.
+          <?php echo $experience->getMajor(); ?>.
+          <?php echo $experience->getMentor(); ?>
           <?php if ($this->editable): ?>
             <div class="tools">
               <a class="edit edit-experience" href="<?php echo SITE_BASE; ?>/experience/<?php echo $experience->getId(); ?>/edit">
@@ -133,12 +135,27 @@ include(__DIR__ . '/../layout/header.php');
         </select>月
       </div>
       <div class="field">
-        <label>地点：</label>
+        <label>类型：</label>
+        <select name="type">
+          <option value=""></option>
+          <option value="bachelor">本科</option>
+          <option value="master">硕士</option>
+          <option value="doctor">博士</option>
+          <option value="postdoc">博士后</option>
+          <option value="work">工作</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>学校/单位：</label>
         <input type="text" name="location" maxlength="200"/>
       </div>
       <div class="field">
-        <label>描述：</label>
-        <input type="text" name="description" maxlength="200"/>
+        <label>专业/方向：</label>
+        <input type="text" name="major" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label>导师：</label>
+        <input type="text" name="mentor" maxlength="200"/>
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">

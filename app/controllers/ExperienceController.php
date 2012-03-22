@@ -10,8 +10,10 @@ class ExperienceController extends ApplicationController
       $experience->setStartMonth(fRequest::get('start_month'));
       $experience->setEndYear(fRequest::get('end_year'));
       $experience->setEndMonth(fRequest::get('end_month'));
+      $experience->setType(fRequest::get('type'));
+      $experience->setMajor(fRequest::get('major'));
       $experience->setLocation(trim(fRequest::get('location')));
-      $experience->setDescription(trim(fRequest::get('description')));
+      $experience->setMentor(trim(fRequest::get('mentor')));
       $experience->setCreatedAt(Util::currentTime());
       $experience->store();
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
@@ -37,8 +39,10 @@ class ExperienceController extends ApplicationController
       $experience->setStartMonth(fRequest::get('start_month'));
       $experience->setEndYear(fRequest::get('end_year'));
       $experience->setEndMonth(fRequest::get('end_month'));
+      $experience->setType(fRequest::get('type'));
+      $experience->setMajor(fRequest::get('major'));
       $experience->setLocation(trim(fRequest::get('location')));
-      $experience->setDescription(trim(fRequest::get('description')));
+      $experience->setMentor(trim(fRequest::get('mentor')));
       $experience->store();
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
     } catch (fException $e) {

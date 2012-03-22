@@ -31,12 +31,26 @@
       </select>月
     </div>
     <div class="field">
-      <label>地点：</label>
+      <label>类型：</label>
+      <select name="type">
+        <option value="bachelor"<?php if ($this->experience->getType() == 'bachelor') echo ' selected'; ?>>本科</option>
+        <option value="master"<?php if ($this->experience->getType() == 'master') echo ' selected'; ?>>硕士</option>
+        <option value="doctor"<?php if ($this->experience->getType() == 'doctor') echo ' selected'; ?>>博士</option>
+        <option value="postdoc"<?php if ($this->experience->getType() == 'postdoc') echo ' selected'; ?>>博士后</option>
+        <option value="work"<?php if ($this->experience->getType() == 'work') echo ' selected'; ?>>工作</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>学校/单位：</label>
       <input type="text" name="location" maxlength="200" value="<?php echo $this->experience->getLocation(); ?>"/>
     </div>
     <div class="field">
-      <label>描述：</label>
-      <input type="text" name="description" maxlength="200" value="<?php echo $this->experience->getDescription(); ?>"/>
+      <label>专业/方向：</label>
+      <input type="text" name="major" maxlength="200" value="<?php echo $this->experience->getMajor(); ?>"/>
+    </div>
+    <div class="field">
+      <label>导师：</label>
+      <input type="text" name="mentor" maxlength="200" value="<?php echo $this->experience->getMentor(); ?>"/>
     </div>
     <div class="failure" style="display:none"></div>
     <div class="action">

@@ -13,6 +13,15 @@ class Experience extends fActiveRecord
     return $this->getStartDate() . '至今';
   }
   
+  public function getFormattedType()
+  {
+    if ($this->getType() == 'bachelor') return '本科';
+    if ($this->getType() == 'master') return '硕士';
+    if ($this->getType() == 'doctor') return '博士';
+    if ($this->getType() == 'postdoc') return '博士后';
+    return '工作';
+  }
+  
   public function getStartDate()
   {
     if (strlen($this->getStartMonth())) {
