@@ -66,7 +66,7 @@ class ProfileController extends ApplicationController
     try {
       $this->profile = new Profile($id);
       $this->editable = UserHelper::getProfileId() == $this->profile->getId();
-      $this->username = UserHelper::getName();
+      $this->username = $this->profile->getLoginName();
       $this->avatarfile = AVATAR_DIR . $this->username . '-avatar.jpg';
       $this->render('profile/show');
     } catch (fNotFoundException $e) {

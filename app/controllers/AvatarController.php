@@ -7,7 +7,9 @@ class AvatarController extends ApplicationController
     $this->uploaddir = AVATAR_DIR;
     $this->uploadfile = $this->uploaddir . $this->username . '.jpg';
     $this->avatarfile = $this->uploaddir . $this->username . '-avatar.jpg';
+    $this->minifile = $this->uploaddir . $this->username . '-mini.jpg';
     $this->target_width = $this->target_height = 160;
+    $this->mini_width = $this->mini_height = 40;
     $this->jpeg_quality = 100;
   }
   
@@ -45,6 +47,9 @@ class AvatarController extends ApplicationController
       $dst_r = imageCreateTrueColor($this->target_width, $this->target_height);
       imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y, $this->target_width, $this->target_height, $w, $h);
       imagejpeg($dst_r, $this->avatarfile, $this->jpeg_quality);
+      $dst_r = imageCreateTrueColor($this->mini_width, $this->mini_height);
+      imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y, $this->mini_width, $this->mini_height, $w, $h);
+      imagejpeg($dst_r, $this->minifile, $this->jpeg_quality);
       $this->ajaxReturn(array('result' => 'success'));
     } catch (Exception $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

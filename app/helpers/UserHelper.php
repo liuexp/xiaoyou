@@ -81,4 +81,14 @@ class UserHelper
       fURL::redirect(SITE_BASE . '/profiles/new');
     }
   }
+  
+  public static function getNameByProfileId($profileId)
+  {
+    try {
+      $profile = new Profile($profileId);
+      return $profile->getLoginName();
+    } catch (fNotFoundException $e) {
+      return '';  // XXX
+    }
+  }
 }
