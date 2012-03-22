@@ -187,6 +187,10 @@ include(__DIR__ . '/../layout/header.php');
         <input type="checkbox" name="is_at_sjtu"/>
       </div>
       <div class="field">
+        <label>是否最佳论文：</label>
+        <input type="checkbox" name="is_best_paper"/>
+      </div>
+      <div class="field">
         <label>发表在：</label>
         <input type="text" name="publish_place" maxlength="200"/>
       </div>

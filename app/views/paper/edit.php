@@ -16,6 +16,10 @@
     <div class="field">
       <label>是否在交大期间发表：</label>
       <input type="checkbox" name="is_at_sjtu"<?php if ($this->paper->getIsAtSjtu()) echo ' checked'; ?>/>
+    </div>  
+    <div class="field">
+      <label>是否最佳论文：</label>
+      <input type="checkbox" name="is_best_paper"<?php if ($this->paper->getIsBestPAper()) echo ' checked'; ?>/>
     </div>
     <div class="field">
       <label>发表在：</label>
