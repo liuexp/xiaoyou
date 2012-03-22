@@ -95,7 +95,7 @@ include(__DIR__ . '/../layout/header.php');
     <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
     <?php if ($this->editable): ?>
       <div class="mask"></div>
-      <a class="edit" href="#edit-avatar">编辑头像</a>
+      <a id="edit-avatar-link" class="edit" href="#edit-avatar">编辑头像</a>
     <?php endif; ?>
   </div>
   <ul class="details">
@@ -151,7 +151,7 @@ include(__DIR__ . '/../layout/header.php');
     <h2>编辑头像</h2>
     <form id="edit-avatar-form" method="POST" action="<?php echo SITE_BASE; ?>/avatar/upload" enctype="multipart/form-data">
       <div class="field">
-        <span class="label">请先选择一张照片上传：</span><br/>
+        <span class="label">请先选择一张照片上传：（只接受JPEG格式）</span><br/>
         <input type="file" id="avatar-file" name="avatar-file"/><br/>
         <span class="hint">（上传照片后，你可以选取照片的一部分作为头像）</span>
       </div>
@@ -348,7 +348,14 @@ include(__DIR__ . '/../layout/header.php');
     </form>
   </div>
 </div>
-<script type="text/javascript">window.profileId = '<?php echo $this->profile->getId(); ?>';</script>
+<script type="text/javascript">
+  window.profileId = '<?php echo $this->profile->getId(); ?>';
+<?php if ($failure = fMessaging::retrieve('failure', 'upload avatar')): ?>
+  window.uploadAvatar = { result: 'failure', message: '<?php echo $failure; ?>' };
+<?php else: ?>
+  window.uploadAvatar = { result: 'success' };
+<?php endif; ?>
+</script>
 <?php endif; ?>
 <?php
 if ($this->editable) {

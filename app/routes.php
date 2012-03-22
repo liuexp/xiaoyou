@@ -27,10 +27,10 @@ $app->post('/avatar/upload', function () {
   $controller->upload();
 });
 
-$app->post('/avatar', function () {
+$app->get('/avatar', function () {
   fAuthorization::requireLoggedIn();
   $controller = new AvatarController();
-  $controller->update();
+  $controller->edit();
 });
 
 // article list page contains popup window
@@ -115,6 +115,12 @@ $app->get('/honor/:id/edit', function ($id) {
 });
 
 // The following routes are accessed via AJAX
+
+$app->post('/avatar', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AvatarController();
+  $controller->update();
+});
 
 $app->post('/register', function () {
   $controller = new RegisterController();

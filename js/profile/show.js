@@ -1,6 +1,12 @@
 $(function(){
   $('.add').fancybox({'hideOnOverlayClick': false});
   $('.edit').fancybox({'hideOnOverlayClick': false});
+  
+  if (window.uploadAvatar.result === 'failure') {
+    $('#edit-avatar-form .failure').html(window.uploadAvatar.message).show();
+    $('#edit-avatar-link').click();
+  }
+  
   $('#edit-info-form').submit(function(){
     $('#edit-info-form .failure').hide();
     // TODO validation
