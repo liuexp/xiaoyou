@@ -39,3 +39,5 @@ define('EDITOR_IDS', '|root|xjia|');
 define('SCHEDULE_ARTICLE_ID', 2);
 
 define('CORRESPONDS_ARTICLE_ID', 5);//联系人
+
+define('CREDITS_ARTICLE_ID', 7);

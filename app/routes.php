@@ -52,6 +52,11 @@ $app->get('/posts', function () {
   $controller->showPosts();
 });
 
+$app->get('/credits', function () {
+  $controller = new ArticleController();
+  $controller->showCredits();
+});
+
 $app->get('/profiles', function () {
   $controller = new ProfileController();
   $controller->index();

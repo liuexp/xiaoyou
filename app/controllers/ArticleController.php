@@ -47,6 +47,11 @@ class ArticleController extends ApplicationController
     $this->show(CORRESPONDS_ARTICLE_ID);
   }
   
+  public function showCredits()
+  {
+    $this->show(CREDITS_ARTICLE_ID);
+  }
+  
   public function create()
   {
     try {
