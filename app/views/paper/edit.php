@@ -1,6 +1,6 @@
 <div id="edit-paper" class="popup">
   <h2>编辑论文</h2>
-  <form id="edit-paper-form" method="POST" action="<?php echo SITE_BASE; ?>/paper/<?php echo $this->paper->getId(); ?>">
+  <form id="edit-paper-form" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/paper/<?php echo $this->paper->getId(); ?>">
     <div class="field">
       <label>标题：</label>
       <input type="text" name="title" maxlength="200" value="<?php echo $this->paper->getTitle(); ?>"/>
@@ -12,6 +12,10 @@
     <div class="field">
       <label>是否第一作者：</label>
       <input type="checkbox" name="is_first_author"<?php if ($this->paper->getIsFirstAuthor()) echo ' checked'; ?>/>
+    </div>  
+    <div class="field">
+      <label>是否在交大期间发表：</label>
+      <input type="checkbox" name="is_at_sjtu"<?php if ($this->paper->getIsAtSjtu()) echo ' checked'; ?>/>
     </div>
     <div class="field">
       <label>发表在：</label>

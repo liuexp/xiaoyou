@@ -11,6 +11,7 @@ class PaperController extends ApplicationController
       $paper->setPublishPlace(trim(fRequest::get('publish_place')));
       $paper->setPublishYear(fRequest::get('publish_year'));
       $paper->setIsFirstAuthor(fRequest::get('is_first_author', 'boolean'));
+      $paper->setIsAtSjtu(fRequest::get('is_at_sjtu', 'boolean'));
       $paper->setCreatedAt(Util::currentTime());
       $paper->store();
       $this->ajaxReturn(array('result' => 'success', 'paper_id' => $paper->getId()));
@@ -37,6 +38,7 @@ class PaperController extends ApplicationController
       $paper->setPublishPlace(trim(fRequest::get('publish_place')));
       $paper->setPublishYear(fRequest::get('publish_year'));
       $paper->setIsFirstAuthor(fRequest::get('is_first_author', 'boolean'));
+      $paper->setIsAtSjtu(fRequest::get('is_at_sjtu', 'boolean'));
       $paper->store();
       $this->ajaxReturn(array('result' => 'success', 'paper_id' => $paper->getId()));
     } catch (fException $e) {

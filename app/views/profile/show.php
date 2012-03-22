@@ -151,7 +151,7 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-paper" class="popup">
     <h2>添加论文</h2>
-    <form id="add-paper-form" method="POST" action="<?php echo SITE_BASE; ?>/papers">
+    <form id="add-paper-form" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/papers">
       <div class="field">
         <label>标题：</label>
         <input type="text" name="title" maxlength="200"/>
@@ -163,6 +163,10 @@ include(__DIR__ . '/../layout/header.php');
       <div class="field">
         <label>是否第一作者：</label>
         <input type="checkbox" name="is_first_author"/>
+      </div>
+      <div class="field">
+        <label>是否在交大期间发表：</label>
+        <input type="checkbox" name="is_at_sjtu"/>
       </div>
       <div class="field">
         <label>发表在：</label>
