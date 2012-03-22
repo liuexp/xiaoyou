@@ -91,7 +91,11 @@ include(__DIR__ . '/../layout/header.php');
       <img class="gender" src="<?php echo SITE_BASE; ?>/images/female-gender-sign.png"/>
     <?php endif; ?>
   </h1>
-  <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
+  <div class="avainfo">
+    <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
+    <div class="mask"></div>
+    <a class="edit" href="#edit-avatar">编辑头像</a>
+  </div>
   <ul class="details">
     <li>入学年份：<?php echo $this->profile->getStartYear(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
     <li>生日：<?php echo $this->profile->getBirthday(); ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div></li>
