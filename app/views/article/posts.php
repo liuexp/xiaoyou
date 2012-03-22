@@ -1,5 +1,5 @@
 <?php
-$title = '新闻';
+$title = '征文';
 $no_sidebar = true;
 $stylesheets = array('jquery.fancybox-1.3.4', 'articles');
 include(__DIR__ . '/../layout/header.php');
@@ -37,9 +37,9 @@ include(__DIR__ . '/../layout/header.php');
     </article>
   <?php endforeach; ?>
   <div id="new-article">
-    <h1>添加新闻</h1>
+    <h1>添加征文</h1>
     <form id="new-article-form" method="POST">
-      <input type="hidden" name="type" value="news"/>
+      <input type="hidden" name="type" value="post"/>
       <div class="field">
         <label for="title">标题：</label>
         <input class="textfield monofont" type="text" id="title" name="title" maxlength="200"/>
@@ -53,7 +53,7 @@ include(__DIR__ . '/../layout/header.php');
         <span class="hint">（优先级越高，显示的位置越靠前）</span>
       </div>
       <div class="field">
-        <label class="long" for="visible">是否显示在新闻列表中：</label>
+        <label class="long" for="visible">是否显示在征文列表中：</label>
         <input type="checkbox" id="visible" name="visible" checked/>
         <span class="hint">（设为不显示只对普通用户有效，网站编辑仍旧可以访问）</span>
       </div>

@@ -26,8 +26,12 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2>征文</h2>
       <ul>
-        <li>
-        </li>
+        <?php foreach ($this->posts as $article): ?>
+          <li data-article-id="<?php echo $article->getId(); ?>">
+            <?php echo $article->getTitle(); ?>
+            <!-- use dotdotdot to show abstract of each article -->
+          </li>
+        <?php endforeach; ?>
       </ul>
     </section>
     <section>

@@ -2,10 +2,29 @@
 class ArticleController extends ApplicationController
 {
   public function index()
-  {
-    $this->articles = fRecordSet::build('Article');
+  {  
     $this->editable = UserHelper::isEditor();
+    if ($this->editable) {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'news'), array('priority' => 'desc', 'created_at' => 'desc'));
+    } else {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'news', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'desc'));
+    }
     $this->render('article/index');
+  }
+  
+  public function showPosts()
+  {
+    $this->editable = UserHelper::isEditor();
+    if ($this->editable) {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'post'), array('priority' => 'desc', 'created_at' => 'desc'));
+    } else {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'post', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'desc'));
+    }
+    $this->render('article/posts');
   }
   
   public function showSchedule()
@@ -18,12 +37,25 @@ class ArticleController extends ApplicationController
     }
   }
   
+  public function showCorresponds()
+  {
+    try {
+      $this->article = new Article(CORRESPONDS_ARTICLE_ID);
+      $this->render('article/show');
+    } catch (fNotFoundException $e) {
+      Slim::getInstance()->notFound();
+    }
+  }
+  
   public function create()
   {
     try {
       $article = new Article();
+      $article->setType(fRequest::get('type'));
       $article->setTitle(fRequest::get('title'));
       $article->setContent(fRequest::get('content'));
+      $article->setPriority(fRequest::get('priority', 'integer'));
+      $article->setVisible(fRequest::get('visible', 'boolean'));
       $article->setCreatedAt(Util::currentTime());
       $article->store();
       $this->ajaxReturn(array('result' => 'success', 'article_id' => $article->getId()));
@@ -45,8 +77,11 @@ class ArticleController extends ApplicationController
       if (!UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
+      $article->setType(fRequest::get('type'));
       $article->setTitle(fRequest::get('title'));
       $article->setContent(fRequest::get('content'));
+      $article->setPriority(fRequest::get('priority', 'integer'));
+      $article->setVisible(fRequest::get('visible', 'boolean'));
       $article->store();
       $this->ajaxReturn(array('result' => 'success', 'article_id' => $article->getId()));
     } catch (fException $e) {

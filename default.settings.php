@@ -37,3 +37,5 @@ define('EDITOR_IDS', '|root|xjia|');
  * If no schedule is published, put -1.
  */
 define('SCHEDULE_ARTICLE_ID', 2);
+
+define('CORRESPONDS_ARTICLE_ID', 5);//联系人

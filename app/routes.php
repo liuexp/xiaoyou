@@ -37,6 +37,16 @@ $app->get('/schedule', function () {
   $controller->showSchedule();
 });
 
+$app->get('/corresponds', function () {
+  $controller = new ArticleController();
+  $controller->showCorresponds();
+});
+
+$app->get('/posts', function () {
+  $controller = new ArticleController();
+  $controller->showPosts();
+});
+
 $app->get('/profiles', function () {
   $controller = new ProfileController();
   $controller->index();
