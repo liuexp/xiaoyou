@@ -17,8 +17,7 @@ include(__DIR__ . '/../layout/header.php');
       <ul>
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
-            <?php echo $article->getTitle(); ?>
-            <!-- use dotdotdot to show abstract of each article -->
+            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getTitle(); ?></a>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -28,8 +27,7 @@ include(__DIR__ . '/../layout/header.php');
       <ul>
         <?php foreach ($this->posts as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
-            <?php echo $article->getTitle(); ?>
-            <!-- use dotdotdot to show abstract of each article -->
+            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getTitle(); ?></a>
           </li>
         <?php endforeach; ?>
       </ul>

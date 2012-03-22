@@ -26,6 +26,11 @@ $app->get('/articles', function () {
   $controller->index();
 });
 
+$app->get('/article/:id', function ($id) {
+  $controller = new ArticleController();
+  $controller->show($id);
+});
+
 $app->get('/article/:id/edit', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ArticleController();

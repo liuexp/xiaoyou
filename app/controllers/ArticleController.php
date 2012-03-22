@@ -27,24 +27,24 @@ class ArticleController extends ApplicationController
     $this->render('article/posts');
   }
   
-  public function showSchedule()
+  public function show($id)
   {
     try {
-      $this->article = new Article(SCHEDULE_ARTICLE_ID);
+      $this->article = new Article($id);
       $this->render('article/show');
     } catch (fNotFoundException $e) {
       Slim::getInstance()->notFound();
     }
   }
   
+  public function showSchedule()
+  {
+    $this->show(SCHEDULE_ARTICLE_ID);
+  }
+  
   public function showCorresponds()
   {
-    try {
-      $this->article = new Article(CORRESPONDS_ARTICLE_ID);
-      $this->render('article/show');
-    } catch (fNotFoundException $e) {
-      Slim::getInstance()->notFound();
-    }
+    $this->show(CORRESPONDS_ARTICLE_ID);
   }
   
   public function create()
