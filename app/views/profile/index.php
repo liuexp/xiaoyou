@@ -13,7 +13,7 @@ include(__DIR__ . '/../layout/header.php');
         <?php if (UserHelper::isRegistered($this->all_profiles, $student)): ?>
           <li>
             <?php $profileId = UserHelper::getStudentProfileId($this->all_profiles, $student); ?>
-            <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><img src="<?php echo SITE_BASE; ?>/images/default-avatar.png" width="50px" height="50px"/></a>
+            <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><img src="<?php echo SITE_BASE; ?>/images/avatar-40.png" width="40px" height="40px"/></a>
             <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><?php echo $student->getRealname(); ?></a>
           </li>
         <?php endif; ?>

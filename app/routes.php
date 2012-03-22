@@ -4,6 +4,7 @@ $app = new Slim();
 // The following routes are accessed directly via browser
 
 $app->get('/', function () {
+  UserHelper::requireProfile();
   $controller = new HomeController();
   $controller->index();
 });
@@ -15,18 +16,33 @@ $app->get('/register', function () {
 
 $app->get('/invite', function () {
   fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
   $controller = new InviteController();
   $controller->show();
+});
+
+$app->post('/avatar/upload', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AvatarController();
+  $controller->upload();
+});
+
+$app->post('/avatar', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AvatarController();
+  $controller->update();
 });
 
 // article list page contains popup window
 // for creating new articles
 $app->get('/articles', function () {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->index();
 });
 
 $app->get('/article/:id', function ($id) {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->show($id);
 });
@@ -38,26 +54,31 @@ $app->get('/article/:id/edit', function ($id) {
 });
 
 $app->get('/schedule', function () {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->showSchedule();
 });
 
 $app->get('/corresponds', function () {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->showCorresponds();
 });
 
 $app->get('/posts', function () {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->showPosts();
 });
 
 $app->get('/credits', function () {
+  UserHelper::requireProfile();
   $controller = new ArticleController();
   $controller->showCredits();
 });
 
 $app->get('/profiles', function () {
+  UserHelper::requireProfile();
   $controller = new ProfileController();
   $controller->index();
 });
@@ -70,6 +91,7 @@ $app->get('/profiles/new', function () {
 
 $app->get('/profile/:id', function ($id) {
   fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
   $controller = new ProfileController();
   $controller->show($id);
 });
@@ -210,7 +232,5 @@ $app->delete('/paper/:id', function ($id) {
   $controller = new PaperController();
   $controller->delete($id);
 });
-
-// TODO add routes for uploading avatars
 
 $app->run();

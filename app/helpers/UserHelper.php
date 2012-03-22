@@ -73,4 +73,12 @@ class UserHelper
       return false;
     }
   }
+  
+  public static function requireProfile()
+  {
+    if (fRequest::isGet() && fAuthorization::checkLoggedIn() && !self::hasProfile())
+    {
+      fURL::redirect(SITE_BASE . '/profiles/new');
+    }
+  }
 }

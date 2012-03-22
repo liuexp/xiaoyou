@@ -129,6 +129,23 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <div style="display:none">
+  <div id="edit-avatar" class="popup">
+    <h2>编辑头像</h2>
+    <form id="edit-avatar-form" method="POST" action="<?php echo SITE_BASE; ?>/avatar/upload" enctype="multipart/form-data">
+      <div class="field">
+        <span class="label">请先选择一张照片上传：</span><br/>
+        <input type="file" id="avatar-file" name="avatar-file"/><br/>
+        <span class="hint">（上传照片后，你可以选取照片的一部分作为头像）</span>
+      </div>
+      <div class="failure" style="display:none"></div>
+      <div class="action">
+        <button type="submit" class="classy primary" data-afterclick="正在上传⋯⋯">
+          <span>上传</span>
+        </button>
+      </div>
+      <p class="clear"></p>
+    </form>
+  </div>
   <div id="edit-info" class="popup">
     <h2>编辑个人信息</h2>
     <form id="edit-info-form" method="POST" action="<?php echo SITE_BASE; ?>/profile/<?php echo $this->profile->getId(); ?>">
