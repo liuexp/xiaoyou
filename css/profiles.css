@@ -1,4 +1,5 @@
 .text h1:first-child { border-right: 0; }
+.grade { min-height: 10px !important; }
 .grade h2 { margin-left: 5px; margin-top: 35px; border-bottom: 1px solid #ccc; }
 .grade .registered { margin: 0; }
 .grade .registered li { float: left; margin: 0 10px 10px 10px; }
