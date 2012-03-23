@@ -99,6 +99,13 @@ include(__DIR__ . '/../layout/header.php');
         <span class="label">如果愿意作报告，请填写报告简介：</span>
         <textarea name="talk_intro" class="monofont" rows="2" cols="44"></textarea>
       </div>
+      <blockquote>
+        <p class="prolog">
+          感谢您耐心完成这份问卷！<br/>
+          友情提示：提交之后，除基本信息外都不能更改<br/>
+          请确认上述信息无误，然后点击“提交我的个人信息”
+        </p>
+      </blockquote>
     </fieldset>
     <div class="failure" style="display:none"></div>
     <div class="action">
