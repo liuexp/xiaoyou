@@ -2,4 +2,5 @@
 *.tmp
 *.log
 settings.php
-
+avatars/
+video/
