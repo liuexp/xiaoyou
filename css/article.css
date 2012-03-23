@@ -1,2 +1,3 @@
 .text h1:first-child { border-right: 0; }
 article { display: block; clear: both; margin: 20px; border: 0 !important; }
+article p { margin: 8px; line-height: 24px; }

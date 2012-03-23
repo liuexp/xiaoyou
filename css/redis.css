@@ -51,7 +51,7 @@ body > footer .sponsor img { display: block; margin-top: 15px; }
 .text a:hover { color: #0099ff; }
 .text p { margin: 5px 0; }
 .text > p:first-of-type, .text > * > p:first-of-type { margin-top: 15px; }
-.text strong { font-weight: 500; }
+.text strong { font-weight: bold; }
 .text em { font-style: italic; }
 .text sup { line-height: 100%; vertical-align: super; font-size: 70%; }
 .text .math { font-weight: 500; }

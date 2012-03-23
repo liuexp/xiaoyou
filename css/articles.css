@@ -5,6 +5,7 @@
 .articles li:hover .tools { display: inline; }
 article.popup { min-width: 400px; max-width: 700px; min-height: 360px; }
 article.popup section { display: block; margin: 20px; }
+article.popup section p { display: block; margin: 5px; text-align: justify; }
 form .field { margin: 10px; }
 form .field label { display: inline-block; margin: 0; padding: 0; width: 60px; text-align: right; }
 form .field label.long { width: 150px; }
