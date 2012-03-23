@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2012 at 03:48 AM
+-- Generation Time: Mar 23, 2012 at 06:54 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -61,14 +61,14 @@ CREATE TABLE IF NOT EXISTS `articles` (
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
-  `type` enum('douban','email','facebook','google','kaixin001','qq','renren','rss','twitter','weibo') NOT NULL,
+  `type` enum('douban','email','facebook','qq','renren','twitter','weibo') NOT NULL,
   `content` varchar(1000) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 -- --------------------------------------------------------
 
