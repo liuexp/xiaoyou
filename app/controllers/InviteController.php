@@ -73,7 +73,7 @@ class InviteController extends ApplicationController
     $month = date('m');
     $day = date('d');
     $command = <<<EEE
-mail -s "上海交通大学ACM班十周年庆典系列活动邀请函" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: $admin_email" $email <<EOF
+mail -s "上海交通大学ACM班十周年庆典系列活动邀请函" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
 ACM班校友、同学：
 
 　　您好！我们诚挚地邀请您于百忙之中参加上海交通大学ACM班十周年庆典系列活动。
@@ -94,10 +94,10 @@ ACM班校友、同学：
 
 
 　　　　　　　　　　　　　　　　　　　　　　　　　　上海交通大学ACM班
-　　　　　　　　　　　　　　　　　　　　　　　　　　　$year年$month月$day日
+　　　　　　　　　　　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
 
 ---
-此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至管理员（$admin_email）；请勿回复至noreply@acm.sjtu.edu.cn，谢谢您的配合！
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，谢谢您的配合！
 
 EOF
 EEE;
