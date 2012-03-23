@@ -9,7 +9,7 @@ $app->get('/', function () {
   $controller->index();
 });
 
-$app->get('/video', function () {
+$app->get('/intro', function () {
   fAuthorization::requireLoggedIn();
   UserHelper::requireProfile();
   $controller = new VideoController();
