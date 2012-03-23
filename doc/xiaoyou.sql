@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2012 at 04:20 PM
+-- Generation Time: Mar 23, 2012 at 03:48 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -18,6 +18,21 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `xiaoyou`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `activities`
+--
+
+CREATE TABLE IF NOT EXISTS `activities` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `profile_id` bigint(20) unsigned DEFAULT NULL,
+  `realname` varchar(200) NOT NULL,
+  `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite') NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -53,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -76,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -114,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `invitations` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `inviter_profile_id` (`inviter_profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -179,13 +194,16 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `presentable` tinyint(1) NOT NULL,
   `advices` text,
   `contributes` text,
+  `will_give_talk` tinyint(1) NOT NULL,
+  `talk_title` text,
+  `talk_intro` text,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_name` (`login_name`),
   UNIQUE KEY `student_number` (`student_number`),
   KEY `start_year` (`start_year`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Constraints for dumped tables
