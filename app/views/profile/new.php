@@ -61,11 +61,11 @@ include(__DIR__ . '/../layout/header.php');
       </blockquote>
       <div class="field">
         <span class="label">回忆你在校期间印象最深的一件事</span>
-        <textarea id="memorable" name="memorable" class="monofont" rows="3" cols="44"></textarea>
+        <textarea name="memorable" class="monofont" rows="2" cols="44"></textarea>
       </div>
       <div class="field">
         <span class="label">简单说说你离校后这几年的经历吧</span>
-        <textarea id="description" name="description" class="monofont" rows="3" cols="44"></textarea>
+        <textarea name="description" class="monofont" rows="2" cols="44"></textarea>
       </div>
     </fieldset>
     <fieldset>
@@ -77,15 +77,27 @@ include(__DIR__ . '/../layout/header.php');
       </blockquote>
       <div class="field">
         <span class="label">你是否能到现场参加庆典活动：</span>
-        <input type="checkbox" id="presentable" name="presentable"/>
+        <input type="checkbox" name="presentable"/>
       </div>
       <div class="field">
         <span class="label">你对庆典活动安排有何希望和建议</span>
-        <textarea id="advices" name="advices" class="monofont" rows="3" cols="44"></textarea>
+        <textarea name="advices" class="monofont" rows="2" cols="44"></textarea>
       </div>
       <div class="field">
         <span class="label">活动以感恩为一大主题，希望毕业学子能尽其所能回报母校，你是否愿意捐赠？或有何想法？</span>
-        <textarea id="contributes" name="contributes" class="monofont" rows="3" cols="44"></textarea>
+        <textarea name="contributes" class="monofont" rows="2" cols="44"></textarea>
+      </div>
+      <div class="field">
+        <span class="label">是否愿意在第二天作报告：</span>
+        <input type="checkbox" name="will_give_talk"/>
+      </div>
+      <div class="field">
+        <span class="label">如果愿意作报告，请填写报告题目：</span>
+        <textarea name="talk_title" class="monofont" rows="1" cols="44"></textarea>
+      </div>
+      <div class="field">
+        <span class="label">如果愿意作报告，请填写报告简介：</span>
+        <textarea name="talk_intro" class="monofont" rows="2" cols="44"></textarea>
       </div>
     </fieldset>
     <div class="failure" style="display:none"></div>

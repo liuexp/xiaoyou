@@ -43,6 +43,9 @@ class ProfileController extends ApplicationController
       $profile->setPresentable(fRequest::get('presentable', 'boolean'));
       $profile->setAdvices(trim(fRequest::get('advices')));
       $profile->setContributes(trim(fRequest::get('contributes')));
+      $profile->setWillGiveTalk(fRequest::get('will_give_talk', 'boolean'));
+      $profile->setTalkTitle(trim(fRequest::get('talk_title')));
+      $profile->setTalkIntro(trim(fRequest::get('talk_intro')));
       $profile->setCreatedAt(Util::currentTime());
       $profile->store();
       
