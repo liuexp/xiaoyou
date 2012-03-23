@@ -46,7 +46,7 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="text" id="title" name="title" maxlength="200"/>
       </div>
       <div class="field">
-        <textarea class="monofont" id="content" name="content" rows="9" cols="45"></textarea>
+        <textarea class="monofont" id="content" name="content" rows="10" cols="80"></textarea>
       </div>
       <div class="field">
         <label for="priority">优先级：</label>
