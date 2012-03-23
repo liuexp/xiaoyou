@@ -11,6 +11,8 @@ include(__DIR__ . '/../layout/header.php');
   </section>
 <?php else: ?>
   <section class="cdown">
+    <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
+    <div class="message">距离十周年庆典还有</div>
     <div class="countdown">
       <div id="counter" data-start-time="<?php echo sprintf("%02d天%02d:%02d:%02d", $this->days, $this->hours, $this->minutes, $this->seconds); ?>"></div>
       <!--<div class="desc">
@@ -20,8 +22,6 @@ include(__DIR__ . '/../layout/header.php');
         <div>秒</div>
       </div>-->
     </div>
-    <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
-    <p class="clear"></p>
   </section>
 <?php endif; ?>
 <section class="main">
