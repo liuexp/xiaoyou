@@ -28,7 +28,8 @@ include(__DIR__ . '/../layout/header.php');
       <?php endif; ?>
     </li>
   <?php endforeach; ?>
-</ul>
+</ul>  
+<?php if ($this->editable): ?>
 <div style="display:none">
   <?php foreach ($this->articles as $article): ?>
     <article id="article-<?php echo $article->getId(); ?>" class="popup">
@@ -45,7 +46,7 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="text" id="title" name="title" maxlength="200"/>
       </div>
       <div class="field">
-        <textarea class="monofont" name="content" rows="10" cols="80"></textarea>
+        <textarea class="monofont" id="content" name="content" rows="9" cols="45"></textarea>
       </div>
       <div class="field">
         <label for="priority">优先级：</label>
@@ -67,6 +68,7 @@ include(__DIR__ . '/../layout/header.php');
     </form>
   </div>
 </div>
+<?php endif; ?>
 <?php
 $javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'article/index');
 include(__DIR__ . '/../layout/footer.php');
