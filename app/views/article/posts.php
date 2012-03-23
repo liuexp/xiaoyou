@@ -15,7 +15,7 @@ include(__DIR__ . '/../layout/header.php');
 <ul class="articles">
   <?php foreach ($this->articles as $article): ?>
     <li data-article-id="<?php echo $article->getId(); ?>">
-      <a class="article-link" href="#article-<?php echo $article->getId(); ?>">
+      <a class="article-link" href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>">
         <?php echo $article->getTitle(); ?>
       </a>
       <?php if ($this->editable): ?>
@@ -29,13 +29,8 @@ include(__DIR__ . '/../layout/header.php');
     </li>
   <?php endforeach; ?>
 </ul>
+<?php if ($this->editable): ?>
 <div style="display:none">
-  <?php foreach ($this->articles as $article): ?>
-    <article id="article-<?php echo $article->getId(); ?>" class="popup">
-      <h1><?php echo $article->getTitle(); ?></h1>
-      <section><?php echo Markdown($article->getContent()); ?></section>
-    </article>
-  <?php endforeach; ?>
   <div id="new-article">
     <h1>添加征文</h1>
     <form id="new-article-form" method="POST">
@@ -67,6 +62,7 @@ include(__DIR__ . '/../layout/header.php');
     </form>
   </div>
 </div>
+<?php endif; ?>
 <?php
 $javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'article/index');
 include(__DIR__ . '/../layout/footer.php');
