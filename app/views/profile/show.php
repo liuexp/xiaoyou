@@ -16,9 +16,11 @@ include(__DIR__ . '/../layout/header.php');
         <li data-experience-id="<?php echo $experience->getId(); ?>">
           <?php echo $experience->getFormattedTimePeriod(); ?>.
           <?php echo $experience->getFormattedType(); ?>.
-          <?php echo $experience->getLocation(); ?>.
-          <?php echo $experience->getMajor(); ?>.
-          <?php echo $experience->getMentor(); ?>
+          <?php echo htmlspecialchars($experience->getLocation()); ?>.
+          专业/方向：<?php echo htmlspecialchars($experience->getMajor()); ?>.
+          <?php if (strlen($experience->getMentor())): ?>
+            导师：<?php echo htmlspecialchars($experience->getMentor()); ?>
+          <?php endif; ?>
           <?php if ($this->editable): ?>
             <div class="tools">
               <a class="edit edit-experience" href="<?php echo SITE_BASE; ?>/experience/<?php echo $experience->getId(); ?>/edit">
@@ -42,9 +44,10 @@ include(__DIR__ . '/../layout/header.php');
       <?php foreach ($this->profile->getPapers() as $paper): ?>
         <li data-paper-id="<?php echo $paper->getId(); ?>">
           <?php echo $paper->getPublishYear(); ?>.
-          <?php echo $paper->getAuthors(); ?>.
-          <?php echo $paper->getTitle(); ?>.
-          <?php echo $paper->getPublishPlace(); ?>.
+          <?php echo htmlspecialchars($paper->getAuthors()); ?>.
+          <?php echo htmlspecialchars($paper->getTitle()); ?>.
+          <?php echo htmlspecialchars($paper->getPublishPlace()); ?>.
+          <?php if ($paper->getIsBestPaper()): ?>（最佳论文）<?php endif; ?>
           <?php if ($this->editable): ?>
             <div class="tools">
               <a class="edit edit-paper" href="<?php echo SITE_BASE; ?>/paper/<?php echo $paper->getId(); ?>/edit">
@@ -68,7 +71,7 @@ include(__DIR__ . '/../layout/header.php');
       <?php foreach ($this->profile->getHonors() as $honor): ?>
         <li data-honor-id="<?php echo $honor->getId(); ?>">
           <?php echo $honor->getFormattedDate(); ?>.
-          <?php echo $honor->getDescription(); ?>
+          <?php echo htmlspecialchars($honor->getDescription()); ?>
           <?php if ($this->editable): ?>
             <div class="tools">
               <a class="edit edit-honor" href="<?php echo SITE_BASE; ?>/honor/<?php echo $honor->getId(); ?>/edit">
@@ -84,7 +87,7 @@ include(__DIR__ . '/../layout/header.php');
 </section>
 <aside class="profile">
   <h1>
-    <?php echo $this->profile->getDisplayName(); ?>
+    <?php echo htmlspecialchars($this->profile->getDisplayName()); ?>
     <?php if ($this->profile->isMale()): ?>
       <img class="gender" src="<?php echo SITE_BASE; ?>/images/male-gender-sign.png"/>
     <?php else: ?>
@@ -112,21 +115,21 @@ include(__DIR__ . '/../layout/header.php');
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
     </li>
     <li>
-      现居住地：<?php echo $this->profile->getLocation(); ?>
+      现居住地：<?php echo htmlspecialchars($this->profile->getLocation()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
     </li>
     <li>
-      家乡：<?php echo $this->profile->getHometown(); ?>
+      家乡：<?php echo htmlspecialchars($this->profile->getHometown()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
     </li>
     <li>
-      高中：<?php echo $this->profile->getHighSchool(); ?>
+      高中：<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
     </li>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <li>
-          Email：<?php echo $contact->getContent(); ?>
+          Email：<?php echo htmlspecialchars($contact->getContent()); ?>
           <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑联系方式</a></div><?php endif; ?>
         </li>
       <?php endif; ?>
@@ -138,8 +141,8 @@ include(__DIR__ . '/../layout/header.php');
         <!-- skip -->
       <?php elseif ($contact->getType() == 'qq'): ?>
         <li>
-          <a class="qq" href="#" data-qq="<?php echo $contact->getContent(); ?>">
-            <img title="<?php echo $contact->getContent(); ?>" src="<?php echo SITE_BASE; ?>/images/32-qq.png"/>
+          <a class="qq" href="#" data-qq="<?php echo htmlspecialchars($contact->getContent()); ?>">
+            <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-qq.png"/>
           </a>
         </li>
       <?php else: ?>
