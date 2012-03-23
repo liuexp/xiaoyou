@@ -4,21 +4,26 @@ $no_sidebar = true;
 $stylesheets = array('home');
 include(__DIR__ . '/../layout/header.php');
 ?>
-<section class="slogan">
-<!--
-  <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
-  <img class="chinese" src="<?php echo SITE_BASE; ?>/images/chinese.png"/>
--->
-  <div class="countdown">
-    <div id="counter"></div>
-    <div class="desc">
-      <div>天</div>
-      <div>小时</div>
-      <div>分钟</div>
-      <div>秒</div>
+<?php if ($this->reach_countdown): ?>
+  <section class="slogan">
+    <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
+    <img class="chinese" src="<?php echo SITE_BASE; ?>/images/chinese.png"/>
+  </section>
+<?php else: ?>
+  <section class="cdown">
+    <div class="countdown">
+      <div id="counter"></div>
+      <!--<div class="desc">
+        <div>天</div>
+        <div>小时</div>
+        <div>分钟</div>
+        <div>秒</div>
+      </div>-->
     </div>
-  </div>
-</section>
+    <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
+    <p class="clear"></p>
+  </section>
+<?php endif; ?>
 <section class="main">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -56,5 +61,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </section>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.countdown', 'home/index');
+$javascripts = array('jquery-1.7.1.min', 'jquery.countdown.min', 'home/index');
 include(__DIR__ . '/../layout/footer.php');

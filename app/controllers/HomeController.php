@@ -3,6 +3,7 @@ class HomeController extends ApplicationController
 {
   public function index()
   {
+    $this->reach_countdown = false;
     $this->articles = fRecordSet::build(
       'Article', array('type=' => 'news', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'desc'));
     $this->posts = fRecordSet::build(
