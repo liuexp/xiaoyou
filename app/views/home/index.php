@@ -12,7 +12,7 @@ include(__DIR__ . '/../layout/header.php');
 <?php else: ?>
   <section class="cdown">
     <div class="countdown">
-      <div id="counter"></div>
+      <div id="counter" data-start-time="<?php echo sprintf("%02d天%02d:%02d:%02d", $this->days, $this->hours, $this->minutes, $this->seconds); ?>"></div>
       <!--<div class="desc">
         <div>天</div>
         <div>小时</div>

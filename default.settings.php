@@ -34,6 +34,11 @@ define('INVITE_INTERVAL', '15m');
 define('ACTIVITIES_LIMIT', 10);
 
 /**
+ * When does the celebration start?
+ */
+define('COUNTDOWN_GOAL', '2012-06-09 8:00 am');
+
+/**
  * List the user names of editors here.
  * Separate names using the pipe sign (|).
  */
