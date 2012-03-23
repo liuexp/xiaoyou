@@ -1,6 +1,7 @@
 <?php
 class ProfileController extends ApplicationController
 {
+  public $contact_types = array('email', 'renren', 'weibo', 'douban', 'facebook', 'twitter', 'qq');
   public $start_years = array();
   public $class_number_map = array();
   public $students_map = array();
@@ -49,12 +50,16 @@ class ProfileController extends ApplicationController
       $profile->setCreatedAt(Util::currentTime());
       $profile->store();
       
-      $contact = new Contact();
-      $contact->setProfileId($profile->getId());
-      $contact->setType('email');
-      $contact->setContent(UserHelper::getEmail());
-      $contact->setCreatedAt(Util::currentTime());
-      $contact->store();
+      foreach ($this->contact_types as $type) {
+        if (strlen(trim(fRequest::get($type)))) {
+          $contact = new Contact();
+          $contact->setProfileId($profile->getId());
+          $contact->setType($type);
+          $contact->setContent(trim(fRequest::get($type)));
+          $contact->setCreatedAt(Util::currentTime());
+          $contact->store();
+        }
+      }
       
       $this->db->query('COMMIT');
       Activity::fireNewProfile();
@@ -81,6 +86,9 @@ class ProfileController extends ApplicationController
   public function update($id)
   {
     try {
+      $this->db = fORMDatabase::retrieve();
+      $this->db->query('BEGIN');
+      
       $profile = new Profile($id);
       if (UserHelper::getProfileId() != $profile->getId()) {
         throw new fValidationException('not allowed');
@@ -93,9 +101,27 @@ class ProfileController extends ApplicationController
       $profile->setHometown(trim(fRequest::get('hometown')));
       $profile->setHighSchool(trim(fRequest::get('high_school')));
       $profile->store();
+      
+      foreach ($profile->getContacts() as $contact) {
+        $contact->delete();
+      }
+      
+      foreach ($this->contact_types as $type) {
+        if (strlen(trim(fRequest::get($type)))) {
+          $contact = new Contact();
+          $contact->setProfileId($profile->getId());
+          $contact->setType($type);
+          $contact->setContent(trim(fRequest::get($type)));
+          $contact->setCreatedAt(Util::currentTime());
+          $contact->store();
+        }
+      }
+      
+      $this->db->query('COMMIT');
       Activity::fireUpdateProfile();
       $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
     } catch (fException $e) {
+      if (isset($this->db)) $this->db->query('ROLLBACK');
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
   }

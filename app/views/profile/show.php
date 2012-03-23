@@ -125,7 +125,10 @@ include(__DIR__ . '/../layout/header.php');
     </li>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
-        <li>Email：<?php echo $contact->getContent(); ?></li>
+        <li>
+          Email：<?php echo $contact->getContent(); ?>
+          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑联系方式</a></div><?php endif; ?>
+        </li>
       <?php endif; ?>
     <?php endforeach; ?>
   </ul>
@@ -171,39 +174,71 @@ include(__DIR__ . '/../layout/header.php');
   <div id="edit-info" class="popup">
     <h2>编辑个人信息</h2>
     <form id="edit-info-form" method="POST" action="<?php echo SITE_BASE; ?>/profile/<?php echo $this->profile->getId(); ?>">
-      <div class="field">
-        <label for="start_year">入学年份：</label>
-        <select id="start_year" name="start_year">
-          <?php for ($i = 2002; $i <= date('Y'); $i++): ?>
-            <option value="<?php echo $i; ?>"<?php if ($i == $this->profile->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>
-      </div>
-      <div class="field">
-        <label for="student_number">学号：</label>
-        <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo $this->profile->getStudentNumber(); ?>"/>
-      </div>
-      <div class="field">
-        <label for="birthday">生日：</label>
-        <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo $this->profile->getBirthday(); ?>"/>
-      </div>
-      <div class="field">
-        <label>性别：</label>
-        <input type="radio" name="gender" value="M" id="genderM"<?php if ($this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderM">男</label>
-        <input type="radio" name="gender" value="F" id="genderF"<?php if (!$this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderF">女</label>
-      </div>
-      <div class="field">
-        <label for="location">现居住地：</label>
-        <input class="textfield monofont" type="text" id="location" name="location" maxlength="200" value="<?php echo $this->profile->getLocation(); ?>"/>
-      </div>
-      <div class="field">
-        <label for="hometown">家乡：</label>
-        <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo $this->profile->getHometown(); ?>"/>
-      </div>
-      <div class="field">
-        <label for="high_school">高中：</label>
-        <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo $this->profile->getHighSchool(); ?>"/>
-      </div>
+      <fieldset>
+        <div class="field">
+          <label for="start_year">入学年份：</label>
+          <select id="start_year" name="start_year">
+            <?php for ($i = 2002; $i <= date('Y'); $i++): ?>
+              <option value="<?php echo $i; ?>"<?php if ($i == $this->profile->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
+            <?php endfor; ?>
+          </select>
+        </div>
+        <div class="field">
+          <label for="student_number">学号：</label>
+          <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo $this->profile->getStudentNumber(); ?>"/>
+        </div>
+        <div class="field">
+          <label for="birthday">生日：</label>
+          <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo $this->profile->getBirthday(); ?>"/>
+        </div>
+        <div class="field">
+          <label>性别：</label>
+          <input type="radio" name="gender" value="M" id="genderM"<?php if ($this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderM">男</label>
+          <input type="radio" name="gender" value="F" id="genderF"<?php if (!$this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderF">女</label>
+        </div>
+        <div class="field">
+          <label for="location">现居住地：</label>
+          <input class="textfield monofont" type="text" id="location" name="location" maxlength="200" value="<?php echo $this->profile->getLocation(); ?>"/>
+        </div>
+        <div class="field">
+          <label for="hometown">家乡：</label>
+          <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo $this->profile->getHometown(); ?>"/>
+        </div>
+        <div class="field">
+          <label for="high_school">高中：</label>
+          <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo $this->profile->getHighSchool(); ?>"/>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="field">
+          <label for="email">常用Email：</label>
+          <input class="textfield monofont" type="text" id="email" name="email" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('email'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="qq">QQ：</label>
+          <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('qq'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="renren">人人网：</label>
+          <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('renren'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="weibo">新浪微博：</label>
+          <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('weibo'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="douban">豆瓣：</label>
+          <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('douban'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="facebook">Facebook：</label>
+          <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('facebook'); ?>"/>
+        </div>
+        <div class="field">
+          <label for="twitter">Twitter：</label>
+          <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('twitter'); ?>"/>
+        </div>
+      </fieldset>
       <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">

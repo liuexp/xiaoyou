@@ -22,6 +22,17 @@ class Profile extends fActiveRecord
     return fRecordSet::build('Contact', array('profile_id=' => $this->getId()));
   }
   
+  public function getContactOrEmpty($type)
+  {
+    try {
+      $records = fRecordSet::build('Contact', array('profile_id=' => $this->getId(), 'type=' => $type), array(), 1);
+      $records->tossIfEmpty();
+      return $records->getRecord(0)->getContent();
+    } catch (Exception $e) {
+      return '';
+    }
+  }
+  
   public function getExperiences()
   {
     return fRecordSet::build('Experience', array('profile_id=' => $this->getId()));

@@ -52,6 +52,43 @@ include(__DIR__ . '/../layout/header.php');
       </div>
     </fieldset>
     <fieldset>
+      <legend>联系方式</legend>
+      <blockquote>
+        <p class="prolog">
+          联系方式只有登录用户可见<br/>
+          请放心填写，方便其他同学与你联系 :-)
+        </p>
+      </blockquote>
+      <div class="field">
+        <label for="email">常用Email：</label>
+        <input class="textfield monofont" type="text" id="email" name="email" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="qq">QQ：</label>
+        <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="renren">人人网：</label>
+        <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="weibo">新浪微博：</label>
+        <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="douban">豆瓣：</label>
+        <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="facebook">Facebook：</label>
+        <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="twitter">Twitter：</label>
+        <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200"/>
+      </div>
+    </fieldset>
+    <fieldset>
       <legend>故情·近况</legend>
       <blockquote>
         <p class="prolog">
@@ -101,8 +138,8 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <blockquote>
         <p class="prolog">
-          感谢您耐心完成这份问卷！<br/>
-          友情提示：提交之后，除基本信息外都不能更改<br/>
+          感谢你耐心完成这份问卷！<br/>
+          提交之后，除基本信息和联系方式外都不能更改<br/>
           请确认上述信息无误，然后点击“提交我的个人信息”
         </p>
       </blockquote>
@@ -120,7 +157,8 @@ include(__DIR__ . '/../layout/header.php');
   <h2>填写说明</h2>
   <ul>
     <li>学号如果记不住可以不填</li>
-    <li>提交之后，除基本信息外都不能更改</li>
+    <li>提交之后，除基本信息和联系方式外都不能更改</li>
+    <li>联系方式只有登录用户可见，不会泄露，请放心填写，方便其他同学与你联系</li>
   </ul>
 </aside>
 <?php
