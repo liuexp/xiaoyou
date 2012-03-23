@@ -9,6 +9,13 @@ $app->get('/', function () {
   $controller->index();
 });
 
+$app->get('/video', function () {
+  fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
+  $controller = new VideoController();
+  $controller->show();
+});
+
 $app->get('/register', function () {
   $controller = new RegisterController();
   $controller->show();
@@ -162,24 +169,6 @@ $app->post('/profile/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->update($id);
-});
-
-$app->post('/contacts', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ContactController();
-  $controller->create();
-});
-
-$app->put('/contact/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new ContactController();
-  $controller->update($id);
-});
-
-$app->delete('/contact/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new ContactController();
-  $controller->delete($id);
 });
 
 $app->post('/experiences', function () {
