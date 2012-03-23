@@ -6,7 +6,7 @@ require_once(__DIR__ . '/vendor/lib_acm_userpass.php');
 
 require_once(__DIR__ . '/init.php');
 
-require_once(__DIR__ . '/moedls/Activity.php');
+require_once(__DIR__ . '/models/Activity.php');
 require_once(__DIR__ . '/models/Article.php');
 require_once(__DIR__ . '/models/Contact.php');
 require_once(__DIR__ . '/models/Experience.php');
@@ -31,5 +31,6 @@ require_once(__DIR__ . '/controllers/RegisterController.php');
 require_once(__DIR__ . '/helpers/Util.php');
 require_once(__DIR__ . '/helpers/UserHelper.php');
 require_once(__DIR__ . '/helpers/NameHelper.php');
+require_once(__DIR__ . '/helpers/ActivityHelper.php');
 
 require_once(__DIR__ . '/routes.php');

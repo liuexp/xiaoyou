@@ -74,7 +74,7 @@ body > footer .sponsor img { display: block; margin-top: 15px; }
 .columns > *:first-child > * { margin-right: 20px !important; }
 .columns > *:last-child { border-left: 1px solid #eeeeee; left: -1px; position: relative; }
 .columns > *:last-child > * { margin-left: 20px; }
-.columns > section { width: 33%; }
+.columns > section { width: 33%; min-height: 240px; }
 .columns section > * { margin-left: 20px; }
 .columns.sidebar > section { width: 70%; }
 .columns.sidebar > aside { width: 29.5%; min-height: 400px; }

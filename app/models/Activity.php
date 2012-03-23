@@ -7,67 +7,67 @@ class Activity extends fActiveRecord
   
   public static function fireRegister()
   {
-    $this->fire('register');
+    self::fire('register');
   }
   
   public static function fireNewProfile()
   {
-    $this->fire('new profile');
+    self::fire('new profile');
   }
   
   public static function fireUpdateProfile()
   {
-    $this->fire('update profile');
+    self::fire('update profile');
   }
   
   public static function fireUpdateAvatar()
   {
-    $this->fire('update avatar');
+    self::fire('update avatar');
   }
   
   public static function fireNewContact()
   {
-    $this->fire('new contact');
+    self::fire('new contact');
   }
   
   public static function fireNewExperience()
   {
-    $this->fire('new experience');
+    self::fire('new experience');
   }
   
   public static function fireNewHonor()
   {
-    $this->fire('new honor');
+    self::fire('new honor');
   }
   
   public static function fireNewPaper()
   {
-    $this->fire('new paper');
+    self::fire('new paper');
   }
   
   public static function fireUpdateContact()
   {
-    $this->fire('update contact');
+    self::fire('update contact');
   }
   
   public static function fireUpdateExperience()
   {
-    $this->fire('update experience');
+    self::fire('update experience');
   }
   
   public static function fireUpdateHonor()
   {
-    $this->fire('update honor');
+    self::fire('update honor');
   }
   
   public static function fireUpdatePaper()
   {
-    $this->fire('update paper');
+    self::fire('update paper');
   }
   
   public static function fireInvite()
   {
-    $this->fire('invite');
+    self::fire('invite');
   }
   
   /**

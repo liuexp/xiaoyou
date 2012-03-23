@@ -35,10 +35,11 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2>最新动态</h2>
       <ul>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <?php foreach ($this->activities as $activity): ?>
+          <li>
+            <?php include(__DIR__ . '/_activity.php'); ?>
+          </li>
+        <?php endforeach; ?>
       </ul>
     </section>
   </div>

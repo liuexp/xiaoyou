@@ -29,6 +29,11 @@ define('AVATAR_BASE', '/avatars');
 define('INVITE_INTERVAL', '15m');
 
 /**
+ * Number of recent activities displayed on the front-page.
+ */
+define('ACTIVITIES_LIMIT', 10);
+
+/**
  * List the user names of editors here.
  * Separate names using the pipe sign (|).
  */
