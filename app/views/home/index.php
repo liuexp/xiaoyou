@@ -33,7 +33,7 @@ include(__DIR__ . '/../layout/header.php');
       <ul>
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
-            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getTitle(); ?></a>
+            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -43,7 +43,7 @@ include(__DIR__ . '/../layout/header.php');
       <ul>
         <?php foreach ($this->posts as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
-            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getTitle(); ?></a>
+            <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
           </li>
         <?php endforeach; ?>
       </ul>
@@ -61,5 +61,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </section>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.countdown.min', 'home/index');
+$javascripts = array('jquery-1.7.1.min', 'jquery.countdown.min', 'jquery.dotdotdot-1.4.0-packed', 'home/index');
 include(__DIR__ . '/../layout/footer.php');
