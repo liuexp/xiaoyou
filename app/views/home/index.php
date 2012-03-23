@@ -5,8 +5,19 @@ $stylesheets = array('home');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <section class="slogan">
+<!--
   <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
   <img class="chinese" src="<?php echo SITE_BASE; ?>/images/chinese.png"/>
+-->
+  <div class="countdown">
+    <div id="counter"></div>
+    <div class="desc">
+      <div>天</div>
+      <div>小时</div>
+      <div>分钟</div>
+      <div>秒</div>
+    </div>
+  </div>
 </section>
 <section class="main">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -45,4 +56,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </section>
 <?php
+$javascripts = array('jquery-1.7.1.min', 'jquery.countdown', 'home/index');
 include(__DIR__ . '/../layout/footer.php');
