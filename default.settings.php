@@ -24,11 +24,9 @@ define('AVATAR_BASE', '/avatars');
 define('ACM_CLASS_FLV', '/avatars/acm-class.flv');
 
 /**
- * Interval of sending invitations.
- *   15m means 15 minutes
- *   1h means 1 hour
+ * Send invitations with Reply-To this email.
  */
-define('INVITE_INTERVAL', '15m');
+define('ADMIN_EMAIL', 'admin@example.com');
 
 /**
  * Number of recent activities displayed on the front-page.

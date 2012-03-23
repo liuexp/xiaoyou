@@ -9,6 +9,12 @@ $app->get('/', function () {
   $controller->index();
 });
 
+$app->get('/invite/send', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new InviteController();
+  $controller->sendEmails();
+});
+
 $app->get('/intro', function () {
   fAuthorization::requireLoggedIn();
   UserHelper::requireProfile();
