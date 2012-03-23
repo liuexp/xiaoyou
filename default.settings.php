@@ -21,6 +21,8 @@ define('TITLE_SUFFIX', ' | ACM班校友录');
 define('AVATAR_DIR', '/Users/xjia/tmp/avatar/');
 define('AVATAR_BASE', '/avatars');
 
+define('ACM_CLASS_FLV', '/avatars/acm-class.flv');
+
 /**
  * Interval of sending invitations.
  *   15m means 15 minutes
