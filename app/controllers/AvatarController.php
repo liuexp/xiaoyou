@@ -50,6 +50,7 @@ class AvatarController extends ApplicationController
       $dst_r = imageCreateTrueColor($this->mini_width, $this->mini_height);
       imagecopyresampled($dst_r, $img_r, 0, 0, $x, $y, $this->mini_width, $this->mini_height, $w, $h);
       imagejpeg($dst_r, $this->minifile, $this->jpeg_quality);
+      Activity::fireUpdateAvatar();
       $this->ajaxReturn(array('result' => 'success'));
     } catch (Exception $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

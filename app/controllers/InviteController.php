@@ -41,6 +41,7 @@ class InviteController extends ApplicationController
         $invitation->store();
       }
       $this->db->query('COMMIT');
+      Activity::fireInvite();
       $this->ajaxReturn(array('result' => 'success'));
     } catch (fException $e) {
       if (isset($this->db)) $this->db->query('ROLLBACK');

@@ -54,6 +54,7 @@ class ProfileController extends ApplicationController
       $contact->store();
       
       $this->db->query('COMMIT');
+      Activity::fireNewProfile();
       $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
     } catch (fException $e) {
       if (isset($this->db)) $this->db->query('ROLLBACK');
@@ -89,6 +90,7 @@ class ProfileController extends ApplicationController
       $profile->setHometown(trim(fRequest::get('hometown')));
       $profile->setHighSchool(trim(fRequest::get('high_school')));
       $profile->store();
+      Activity::fireUpdateProfile();
       $this->ajaxReturn(array('result' => 'success', 'profile_id' => $profile->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

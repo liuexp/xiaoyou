@@ -62,6 +62,7 @@ class RegisterController extends ApplicationController
         throw new fValidationException('用户名已存在，或该邮件地址已经注册过');
       }
       Invitation::markRegistered($email, $invitecode);
+      Activity::fireRegister();
       $this->ajaxReturn(array('result' => 'success'));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

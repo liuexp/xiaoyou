@@ -15,6 +15,7 @@ class PaperController extends ApplicationController
       $paper->setIsBestPaper(fRequest::get('is_best_paper', 'boolean'));
       $paper->setCreatedAt(Util::currentTime());
       $paper->store();
+      Activity::fireNewPaper();
       $this->ajaxReturn(array('result' => 'success', 'paper_id' => $paper->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
@@ -42,6 +43,7 @@ class PaperController extends ApplicationController
       $paper->setIsAtSjtu(fRequest::get('is_at_sjtu', 'boolean'));
       $paper->setIsBestPaper(fRequest::get('is_best_paper', 'boolean'));
       $paper->store();
+      Activity::fireUpdatePaper();
       $this->ajaxReturn(array('result' => 'success', 'paper_id' => $paper->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

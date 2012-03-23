@@ -16,6 +16,7 @@ class ExperienceController extends ApplicationController
       $experience->setMentor(trim(fRequest::get('mentor')));
       $experience->setCreatedAt(Util::currentTime());
       $experience->store();
+      Activity::fireNewExperience();
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
@@ -44,6 +45,7 @@ class ExperienceController extends ApplicationController
       $experience->setLocation(trim(fRequest::get('location')));
       $experience->setMentor(trim(fRequest::get('mentor')));
       $experience->store();
+      Activity::fireUpdateExperience();
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

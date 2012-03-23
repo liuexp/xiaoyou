@@ -11,6 +11,7 @@ class HonorController extends ApplicationController
       $honor->setDescription(trim(fRequest::get('description')));
       $honor->setCreatedAt(Util::currentTime());
       $honor->store();
+      Activity::fireNewHonor();
       $this->ajaxReturn(array('result' => 'success', 'honor_id' => $honor->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
@@ -34,6 +35,7 @@ class HonorController extends ApplicationController
       $honor->setMonth(fRequest::get('month'));
       $honor->setDescription(trim(fRequest::get('description')));
       $honor->store();
+      Activity::fireUpdateHonor();
       $this->ajaxReturn(array('result' => 'success', 'honor_id' => $honor->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

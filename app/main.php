@@ -6,6 +6,7 @@ require_once(__DIR__ . '/vendor/lib_acm_userpass.php');
 
 require_once(__DIR__ . '/init.php');
 
+require_once(__DIR__ . '/moedls/Activity.php');
 require_once(__DIR__ . '/models/Article.php');
 require_once(__DIR__ . '/models/Contact.php');
 require_once(__DIR__ . '/models/Experience.php');
