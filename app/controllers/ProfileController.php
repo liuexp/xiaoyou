@@ -34,6 +34,9 @@ class ProfileController extends ApplicationController
       $profile->setDisplayName(UserHelper::getDisplayName());
       $profile->setStartYear(fRequest::get('start_year'));
       $profile->setStudentNumber(trim(fRequest::get('student_number')));
+      if (strlen($profile->getStudentNumber()) && !preg_match('/^\d{10}$/', $profile->getStudentNumber())) {
+        throw new fValidationException('学号必须为10位数字');
+      }
       $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
