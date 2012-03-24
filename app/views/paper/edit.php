@@ -19,7 +19,7 @@
     </div>  
     <div class="field">
       <label>是否最佳论文：</label>
-      <input type="checkbox" name="is_best_paper"<?php if ($this->paper->getIsBestPAper()) echo ' checked'; ?>/>
+      <input type="checkbox" name="is_best_paper"<?php if ($this->paper->getIsBestPaper()) echo ' checked'; ?>/>
     </div>
     <div class="field">
       <label>发表在：</label>
