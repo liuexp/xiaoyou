@@ -23,7 +23,7 @@
     </div>
     <div class="field">
       <label>发表在：</label>
-      <input type="text" name="publish_place" maxlength="200" value="<?php echo $this->paper->getPublishPlace(); ?>"/>
+      <input type="text" name="publish_place" maxlength="200" value="<?php echo htmlspecialchars($this->paper->getPublishPlace()); ?>"/>
     </div>
     <div class="field">
       <label>发表年份：</label>

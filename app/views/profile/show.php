@@ -206,11 +206,11 @@ include(__DIR__ . '/../layout/header.php');
         </div>
         <div class="field">
           <label for="student_number">学号：</label>
-          <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo $this->profile->getStudentNumber(); ?>"/>
+          <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getStudentNumber()); ?>"/>
         </div>
         <div class="field">
           <label for="birthday">生日：</label>
-          <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo $this->profile->getBirthday(); ?>"/>
+          <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo htmlspecialchars($this->profile->getBirthday()); ?>"/>
         </div>
         <div class="field">
           <label>性别：</label>
@@ -219,45 +219,45 @@ include(__DIR__ . '/../layout/header.php');
         </div>
         <div class="field">
           <label for="location">现居住地：</label>
-          <input class="textfield monofont" type="text" id="location" name="location" maxlength="200" value="<?php echo $this->profile->getLocation(); ?>"/>
+          <input class="textfield monofont" type="text" id="location" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getLocation()); ?>"/>
         </div>
         <div class="field">
           <label for="hometown">家乡：</label>
-          <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo $this->profile->getHometown(); ?>"/>
+          <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHometown()); ?>"/>
         </div>
         <div class="field">
           <label for="high_school">高中：</label>
-          <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo $this->profile->getHighSchool(); ?>"/>
+          <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>"/>
         </div>
       </fieldset>
       <fieldset>
         <div class="field">
           <label for="email">常用Email：</label>
-          <input class="textfield monofont" type="text" id="email" name="email" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('email'); ?>"/>
+          <input class="textfield monofont" type="text" id="email" name="email" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('email')); ?>"/>
         </div>
         <div class="field">
           <label for="qq">QQ：</label>
-          <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('qq'); ?>"/>
+          <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('qq')); ?>"/>
         </div>
         <div class="field">
           <label for="renren">人人网主页地址：</label>
-          <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('renren'); ?>"/>
+          <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('renren')); ?>"/>
         </div>
         <div class="field">
           <label for="weibo">新浪微博ID：</label>
-          <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('weibo'); ?>"/>
+          <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('weibo')); ?>"/>
         </div>
         <div class="field">
           <label for="douban">豆瓣ID：</label>
-          <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('douban'); ?>"/>
+          <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('douban')); ?>"/>
         </div>
         <div class="field">
           <label for="facebook">Facebook主页地址：</label>
-          <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('facebook'); ?>"/>
+          <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('facebook')); ?>"/>
         </div>
         <div class="field">
           <label for="twitter">Twitter ID：</label>
-          <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('twitter'); ?>"/>
+          <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('twitter')); ?>"/>
         </div>
       </fieldset>
       <div class="failure" style="display:none"></div>

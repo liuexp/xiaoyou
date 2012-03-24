@@ -17,7 +17,7 @@
     </div>
     <div class="field">
       <label>描述：</label>
-      <input type="text" name="description" maxlength="200" value="<?php echo $this->honor->getDescription(); ?>"/>
+      <input type="text" name="description" maxlength="200" value="<?php echo htmlspecialchars($this->honor->getDescription()); ?>"/>
     </div>
     <div class="failure" style="display:none"></div>
     <div class="action">

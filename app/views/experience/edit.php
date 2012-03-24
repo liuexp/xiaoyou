@@ -42,15 +42,15 @@
     </div>
     <div class="field">
       <label>学校/单位：</label>
-      <input type="text" name="location" maxlength="200" value="<?php echo $this->experience->getLocation(); ?>"/>
+      <input type="text" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->experience->getLocation()); ?>"/>
     </div>
     <div class="field">
       <label>专业/方向：</label>
-      <input type="text" name="major" maxlength="200" value="<?php echo $this->experience->getMajor(); ?>"/>
+      <input type="text" name="major" maxlength="200" value="<?php echo htmlspecialchars($this->experience->getMajor()); ?>"/>
     </div>
     <div class="field">
       <label>导师：</label>
-      <input type="text" name="mentor" maxlength="200" value="<?php echo $this->experience->getMentor(); ?>"/>
+      <input type="text" name="mentor" maxlength="200" value="<?php echo htmlspecialchars($this->experience->getMentor()); ?>"/>
     </div>
     <div class="failure" style="display:none"></div>
     <div class="action">
