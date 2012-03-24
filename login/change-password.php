@@ -11,13 +11,14 @@ if (fRequest::isPost()) {
   $confirm_password = fRequest::get('confirm-password');
   $token = fAuthorization::getUserToken();
   $username = $token['name'];
+  $user_id = $token['id'];
   if (empty($old_password) or empty($new_password) or empty($confirm_password)) {
     $errmsg = '密码不能为空';
   } else if ($new_password != $confirm_password) {
     $errmsg = '两次输入的新密码不一致';
   } else if (login_check_credential($db, $username, $old_password) == false) {
     $errmsg = '旧密码错误';
-  } else if (login_change_password($db, $username, $new_password)) {
+  } else if (login_change_password($db, $user_id, $new_password)) {
     fURL::redirect(fSession::delete('change-password-referer', SITE_BASE));
   } else {
     $errmsg = '修改密码失败';
