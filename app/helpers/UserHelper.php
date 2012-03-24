@@ -29,7 +29,7 @@ class UserHelper
   {
     foreach ($profiles as $profile)
       if ($profile->getDisplayName() == $student->getRealname() && $profile->getStartYear() == $student->getStartYear())
-        return strlen($profile->getStudentNumber()) == 10 ? ($profile->getStudentNumber() == $student->getStudentNumber()) : true;
+        return strlen($profile->getStudentNumber()) == 10 ? ($profile->getStudentNumber() == $student->getStudentNumber() || $student->getStudentNumber() == "0000000000") : true;
     return false;
   }
   
