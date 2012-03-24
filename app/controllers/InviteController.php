@@ -53,7 +53,12 @@ class InviteController extends ApplicationController
   {
     if (!UserHelper::isEditor()) throw fValidationException('not allowed');
     print "<pre>\n";
-    $invitations = fRecordSet::build('Invitation', array('user_registered=' => 0));
+    print "Use ?force=true to resend invitations\n";
+    if (fRequest::get('force', 'boolean')) {
+      $invitations = fRecordSet::build('Invitation', array('user_registered=' => 0));
+    } else {
+      $invitations = fRecordSet::build('Invitation', array('user_registered=' => 0, 'is_mail_sent' => 0));
+    }
     foreach ($invitations as $invitation) {
       try {
         $this->sendInvitation($invitation->getEmail(), $invitation->getInvitecode());
