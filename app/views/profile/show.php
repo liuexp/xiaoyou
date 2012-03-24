@@ -151,13 +151,13 @@ include(__DIR__ . '/../layout/header.php');
             <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-weibo.png"/>
           </a>
         </li>
-      <?php elseif ($content->getType() == 'douban'): ?>
+      <?php elseif ($contact->getType() == 'douban'): ?>
         <li>
           <a class="douban" target="_blank" href="http://www.douban.com/people/<?php echo htmlspecialchars($contact->getContent()); ?>/">
             <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-douban.png"/>
           </a>
         </li>
-      <?php elseif ($content->getType() == 'twitter'): ?>
+      <?php elseif ($contact->getType() == 'twitter'): ?>
         <li>
           <a class="twitter" target="_blank" href="http://twitter.com/<?php echo htmlspecialchars($contact->getContent()); ?>">
             <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-twitter.png"/>
