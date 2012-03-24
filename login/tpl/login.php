@@ -13,7 +13,7 @@
 				<h1 id="logotype"><?php echo SITE_TITLE; ?></h1>
 				<div id="flash-block"><?php echo $errmsg; ?></div>
 				<div>
-					<form action="<?php echo LOGIN_BASE; ?>/" id="login-form" method="POST" autocomplete="off">
+					<form action="<?php echo LOGIN_BASE; ?>/" id="login-form" method="POST">
 						<fieldset>
 							<legend>登录</legend>
 							<label for="username">
