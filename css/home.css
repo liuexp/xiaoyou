@@ -10,3 +10,4 @@
 .cdown .countdown .desc { margin: 7px 3px 7px 30px; }
 .cdown .countdown .desc div { float: left; text-align: right; font-family: Arial; width: 70px; margin-right: 65px; font-size: 13px; font-weight: bold; color: #000; }
 .main { margin-top: 30px; /*margin-top: 260px;*/ }
+h2.big { font-size: 20px; font-weight: bold; }
