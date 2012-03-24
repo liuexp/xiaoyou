@@ -141,8 +141,26 @@ include(__DIR__ . '/../layout/header.php');
         <!-- skip -->
       <?php elseif ($contact->getType() == 'qq'): ?>
         <li>
-          <a class="qq" href="#" data-qq="<?php echo htmlspecialchars($contact->getContent()); ?>">
+          <a class="qq" href="http://<?php echo htmlspecialchars($contact->getContent()); ?>.qzone.qq.com/">
             <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-qq.png"/>
+          </a>
+        </li>
+      <?php elseif ($contact->getType() == 'weibo'): ?>
+        <li>
+          <a class="weibo" href="http://weibo.com/<?php echo htmlspecialchars($contact->getContent()); ?>">
+            <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-weibo.png"/>
+          </a>
+        </li>
+      <?php elseif ($content->getType() == 'douban'): ?>
+        <li>
+          <a class="douban" href="http://www.douban.com/people/<?php echo htmlspecialchars($contact->getContent()); ?>/">
+            <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-douban.png"/>
+          </a>
+        </li>
+      <?php elseif ($content->getType() == 'twitter'): ?>
+        <li>
+          <a class="twitter" href="http://twitter.com/<?php echo htmlspecialchars($contact->getContent()); ?>">
+            <img title="<?php echo htmlspecialchars($contact->getContent()); ?>" src="<?php echo SITE_BASE; ?>/images/32-twitter.png"/>
           </a>
         </li>
       <?php else: ?>
@@ -222,23 +240,23 @@ include(__DIR__ . '/../layout/header.php');
           <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('qq'); ?>"/>
         </div>
         <div class="field">
-          <label for="renren">人人网：</label>
+          <label for="renren">人人主页地址：</label>
           <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('renren'); ?>"/>
         </div>
         <div class="field">
-          <label for="weibo">新浪微博：</label>
+          <label for="weibo">新浪微博ID：</label>
           <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('weibo'); ?>"/>
         </div>
         <div class="field">
-          <label for="douban">豆瓣：</label>
+          <label for="douban">豆瓣ID：</label>
           <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('douban'); ?>"/>
         </div>
         <div class="field">
-          <label for="facebook">Facebook：</label>
+          <label for="facebook">Facebook主页地址：</label>
           <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('facebook'); ?>"/>
         </div>
         <div class="field">
-          <label for="twitter">Twitter：</label>
+          <label for="twitter">Twitter ID：</label>
           <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo $this->profile->getContactOrEmpty('twitter'); ?>"/>
         </div>
       </fieldset>
