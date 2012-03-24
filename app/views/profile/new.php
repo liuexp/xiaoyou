@@ -56,7 +56,8 @@ include(__DIR__ . '/../layout/header.php');
       <blockquote>
         <p class="prolog">
           联系方式只有登录用户可见<br/>
-          请放心填写，方便其他同学与你联系 :-)
+          请放心填写，方便其他同学与你联系 :-)<br/>
+          这一部分是选填内容，稍后也可以修改
         </p>
       </blockquote>
       <div class="field">
