@@ -99,6 +99,8 @@ ACM班校友、同学：
 ---
 此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，谢谢您的配合！
 
+*** In case you cannot read this email due to character encoding issues, please contact the site administrator via ${admin_email} . Thanks!
+
 EOF
 EEE;
     system($command, $retval);
