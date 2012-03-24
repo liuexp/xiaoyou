@@ -30,7 +30,7 @@ include(__DIR__ . '/../layout/header.php');
   <div class="columns">
     <section>
       <h2 class="big">新闻</h2>
-      <ul>
+      <ul class="itemize">
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
@@ -40,7 +40,7 @@ include(__DIR__ . '/../layout/header.php');
     </section>
     <section>
       <h2 class="big">征文</h2>
-      <ul>
+      <ul class="itemize">
         <?php foreach ($this->posts as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
@@ -50,7 +50,7 @@ include(__DIR__ . '/../layout/header.php');
     </section>
     <section>
       <h2 class="big">最新动态</h2>
-      <ul>
+      <ul class="itemize">
         <?php foreach ($this->activities as $activity): ?>
           <li>
             <?php include(__DIR__ . '/_activity.php'); ?>

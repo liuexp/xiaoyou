@@ -13,3 +13,4 @@
 h2.big { font-size: 20px; font-weight: bold; }
 p.firstpara, p.secondpara { font-size: 16px !important; }
 p.secondpara { margin-bottom: 20px; }
+ul.itemize li { margin-bottom: 5px; font-size: 14px; }
