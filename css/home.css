@@ -2,11 +2,11 @@
 .slogan .special-logo { height: 240px; margin: 10px 80px; }
 .slogan .chinese { height: 240px; margin: 10px 80px; }
 .cdown .special-logo { position: relative; height: 220px; margin-top: 20px; }
-.cdown .message { position: relative; font-size: 40px; margin-top: -180px; left: 50%; margin-left: -120px; }
+.cdown .message { position: relative; font-size: 40px; margin-top: -180px; left: 50%; margin-left: -120px; color: #930000; }
 .cdown .countdown { position: relative; margin-top: 20px; left: 50%; margin-left: -120px; }
 .cdown .countdown br { clear: both; }
-.cdown .countdown .cntSeparator { font-size: 54px; line-height: 54px; margin: 10px 7px; color: #000; }
-.cdown .countdown .cntSeparator.first { font-size: 30px; line-height: 20px; margin: 50px 20px 0 7px; color: #000; }
+.cdown .countdown .cntSeparator { font-size: 54px; line-height: 54px; margin: 10px 7px; color: #930000; }
+.cdown .countdown .cntSeparator.first { font-size: 30px; line-height: 20px; margin: 50px 20px 0 7px; color: #930000; }
 .cdown .countdown .desc { margin: 7px 3px 7px 30px; }
 .cdown .countdown .desc div { float: left; text-align: right; font-family: Arial; width: 70px; margin-right: 65px; font-size: 13px; font-weight: bold; color: #000; }
 .main { margin-top: 30px; /*margin-top: 260px;*/ }
