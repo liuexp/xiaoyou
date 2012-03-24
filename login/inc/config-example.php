@@ -8,3 +8,5 @@ define('HOST_URL', 'http://localhost');
 define('SITE_BASE', '/xiaoyou');
 define('SITE_TITLE', 'ACM班校友录');
 define('LOGIN_BASE', '/xiaoyou/login');
+
+define('SESSIONS_PATH', '/Users/xjia/tmp/sessions/');
