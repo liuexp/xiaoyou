@@ -31,7 +31,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label for="birthday">生日：</label>
-        <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()"/>
+        <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" placeholder="yyyy-mm-dd"/>
       </div>
       <div class="field">
         <label>性别：</label>
@@ -157,6 +157,7 @@ include(__DIR__ . '/../layout/header.php');
   <h2>填写说明</h2>
   <ul>
     <li>学号如果记不住可以不填</li>
+    <li>生日可以手工输入，格式类似2012-06-09</li>
     <li>提交之后，除基本信息和联系方式外都不能更改</li>
     <li>联系方式只有登录用户可见，不会泄露，请放心填写，方便其他同学与你联系</li>
   </ul>
