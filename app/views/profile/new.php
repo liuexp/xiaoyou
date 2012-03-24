@@ -68,7 +68,7 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200"/>
       </div>
       <div class="field">
-        <label for="renren">人人主页地址：</label>
+        <label for="renren">人人网主页地址：</label>
         <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200"/>
       </div>
       <div class="field">
