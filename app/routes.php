@@ -16,7 +16,6 @@ $app->get('/invite/send', function () {
 });
 
 $app->get('/intro', function () {
-  fAuthorization::requireLoggedIn();
   UserHelper::requireProfile();
   $controller = new VideoController();
   $controller->show();
