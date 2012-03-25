@@ -1,5 +1,5 @@
 <?php
-$title = 'ACM班简介';
+$title = 'ACM班，十周年';
 $no_sidebar = true;
 $stylesheets = array('article');
 include(__DIR__ . '/../layout/header.php');

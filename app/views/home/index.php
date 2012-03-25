@@ -26,11 +26,12 @@ include(__DIR__ . '/../layout/header.php');
 <?php endif; ?>
 <section class="main">
   <p class="firstpara">　　十年前的3月，上海交通大学夺得ACM国际大学生程序设计竞赛世界冠军，这是亚洲有史以来该赛事的第一个世界冠军，也是交大计算机专业的本科生有史以来第一次站在世界舞台的最高点。</p>
-  <p class="secondpara">　　庆贺之余，促使我们思考更深层的问题：我们的学生是否能够站在世界科学舞台的至高点？由此揭开了上海交通大学计算机科学与技术高端人才培养的序幕⋯⋯<span style="font-style:italic">（<a href="<?php echo SITE_BASE; ?>/intro">继续阅读ACM班简介</a>）</span></p>
+  <p class="secondpara">　　庆贺之余，促使我们思考更深层的问题：我们的学生是否能够站在世界科学舞台的至高点？由此揭开了上海交通大学计算机科学与技术高端人才培养的序幕⋯⋯<span><a href="<?php echo SITE_BASE; ?>/intro">[全文]</a></span></p>
   <div class="columns">
     <section>
       <h2 class="big">新闻</h2>
       <ul class="itemize">
+        <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十周年</a></li>
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
