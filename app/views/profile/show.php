@@ -89,16 +89,16 @@ include(__DIR__ . '/../layout/header.php');
   <h1>
     <?php echo htmlspecialchars($this->profile->getDisplayName()); ?>
     <?php if ($this->profile->isMale()): ?>
-      <img class="gender" src="<?php echo SITE_BASE; ?>/images/male-gender-sign.png"/>
+      <img class="gender" src="<?php echo SITE_BASE; ?>/images/male-gender-sign.gif"/>
     <?php else: ?>
-      <img class="gender" src="<?php echo SITE_BASE; ?>/images/female-gender-sign.png"/>
+      <img class="gender" src="<?php echo SITE_BASE; ?>/images/female-gender-sign.gif"/>
     <?php endif; ?>
   </h1>
   <div class="avainfo">
     <?php if (file_exists($this->avatarfile)): ?>
       <img class="avatar" src="<?php echo AVATAR_BASE; ?>/<?php echo $this->username; ?>-avatar.jpg">
     <?php else: ?>
-      <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.png"/>
+      <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.jpg"/>
     <?php endif; ?>
     <?php if ($this->editable): ?>
       <div class="mask"></div>
