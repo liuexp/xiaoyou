@@ -30,20 +30,20 @@ jQuery.fn.countdown = function(userOptions)
     // we'll asume that it's a separator
     for (var i = 0; i < options.startTime.length; i++)
     {
-      if (parseInt(options.startTime[i]) >= 0) 
+      if (parseInt(options.startTime.charAt(i)) >= 0) 
       {
         elem = $('<div id="cnt_' + i + '" class="cntDigit" />').css({
           height: options.digitHeight * options.digitImages * 10, 
           float: 'left', background: 'url(\'' + options.image + '\')',
           width: options.digitWidth});
         digits.push(elem);
-        margin(c, -((parseInt(options.startTime[i]) * options.digitHeight *
+        margin(c, -((parseInt(options.startTime.charAt(i)) * options.digitHeight *
                               options.digitImages)));
         digits[c].__max = 9;
         // Add max digits, for example, first digit of minutes (mm) has 
         // a max of 5. Conditional max is used when the left digit has reach
         // the max. For example second "hours" digit has a conditional max of 4 
-        switch (options.format[i]) {
+        switch (options.format.charAt(i)) {
           case 'h':
             digits[c].__max = (c % 2 == 0) ? 2: 9;
             if (c % 2 == 0)
@@ -60,7 +60,7 @@ jQuery.fn.countdown = function(userOptions)
       }
       else 
         elem = $('<div class="cntSeparator"/>').css({float: 'left'})
-                .text(options.startTime[i]);
+                .text(options.startTime.charAt(i));
 
       where.append(elem)
     }
