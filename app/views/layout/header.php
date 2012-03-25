@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <!--[if lt IE 7]>
+    <script type="text/javascript">var IE7_PNG_SUFFIX = ".png";</script>
+    <![endif]-->
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/IE9.js"></script>
     <![endif]-->
