@@ -17,7 +17,7 @@
   </footer>
   <script type="text/javascript">window.siteBase = '<?php echo SITE_BASE; ?>';</script>
   <script type="text/javascript">window.digitsSuffix = '.png';</script>
-  <!--[if lt IE 8]>
+  <!--[if lt IE 10]>
   <script type="text/javascript">window.digitsSuffix = '.gif';</script>
   <![endif]-->
 <?php if (isset($javascripts)) foreach ($javascripts as $javascript): ?>
