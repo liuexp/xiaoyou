@@ -6,5 +6,5 @@ $(function(){
       window.location.reload();
     }
   });
-  $('.cntSeparator').first().addClass('first');
+  $('.cntSeparator').first().addClass('cntSeparatorFirst');
 });

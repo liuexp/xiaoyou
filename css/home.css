@@ -6,7 +6,7 @@
 .cdown .countdown { position: relative; margin-top: 20px; left: 50%; margin-left: -120px; }
 .cdown .countdown br { clear: both; }
 .cdown .countdown .cntSeparator { font-size: 54px; line-height: 54px; margin: 10px 7px; color: #930000; }
-.cdown .countdown .cntSeparator.first { font-size: 30px; line-height: 20px; margin: 50px 20px 0 7px; color: #930000; }
+.cdown .countdown .cntSeparatorFirst { font-size: 30px; line-height: 30px; margin: 40px 20px 0 7px; color: #930000; }
 .cdown .countdown .desc { margin: 7px 3px 7px 30px; }
 .cdown .countdown .desc div { float: left; text-align: right; font-family: Arial; width: 70px; margin-right: 65px; font-size: 13px; font-weight: bold; color: #000; }
 .main { margin-top: 30px; /*margin-top: 260px;*/ }
