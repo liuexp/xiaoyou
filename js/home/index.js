@@ -1,6 +1,6 @@
 $(function(){
   $('#counter').countdown({
-    image: window.siteBase + '/images/digits.png',
+    image: window.siteBase + '/images/digits' + window.digitsSuffix,
     startTime: $('#counter').attr('data-start-time'),
     timerEnd: function(){
       window.location.reload();

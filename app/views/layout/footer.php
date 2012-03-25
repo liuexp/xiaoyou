@@ -16,6 +16,10 @@
     </div>
   </footer>
   <script type="text/javascript">window.siteBase = '<?php echo SITE_BASE; ?>';</script>
+  <script type="text/javascript">window.digitsSuffix = '.png';</script>
+  <!--[if lt IE 8]>
+  <script type="text/javascript">window.digitsSuffix = '.gif';</script>
+  <![endif]-->
 <?php if (isset($javascripts)) foreach ($javascripts as $javascript): ?>
   <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/<?php echo $javascript; ?>.js"></script>
 <?php endforeach; ?>
