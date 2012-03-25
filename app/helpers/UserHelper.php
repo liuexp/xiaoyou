@@ -28,7 +28,7 @@ class UserHelper
   public static function isRegistered($profiles, $student)
   {
     foreach ($profiles as $profile)
-      if ($profile->getDisplayName() == $student->getRealname() && $profile->getStartYear() == $student->getStartYear())
+      if ($profile->getDisplayName() == $student->getRealname())
         return strlen($profile->getStudentNumber()) == 10 ? ($profile->getStudentNumber() == $student->getStudentNumber() || $student->getStudentNumber() == "0000000000") : true;
     return false;
   }

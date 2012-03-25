@@ -144,7 +144,6 @@ CREATE TABLE IF NOT EXISTS `names` (
   `student_number` varchar(100) NOT NULL,
   `realname` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `student_number` (`student_number`),
   KEY `start_year` (`start_year`),
   KEY `class_number` (`class_number`),
   KEY `realname` (`realname`)
