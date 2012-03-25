@@ -31,12 +31,19 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2 class="big">新闻</h2>
       <ul class="itemize">
-        <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
+        <?php $need_intro = true; ?>
         <?php foreach ($this->articles as $article): ?>
+          <?php if ($article->getPriority() < 100 && $need_intro): ?>
+            <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
+            <?php $need_intro = false; ?>
+          <?php endif; ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
           </li>
         <?php endforeach; ?>
+        <?php if ($need_intro): ?>
+          <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
+        <?php endif; ?>
       </ul>
     </section>
     <section>
