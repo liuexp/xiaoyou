@@ -11,7 +11,7 @@
     </p>
     <div class="sponsor">
       <a href="http://www.sjtu.edu.cn/">
-        <img alt="上海交通大学" width="121px" height="39px" src="<?php echo SITE_BASE; ?>/images/sjtu.png"/>
+        <img width="121px" height="39px" src="<?php echo SITE_BASE; ?>/images/sjtu.png"/>
       </a>
     </div>
   </footer>
