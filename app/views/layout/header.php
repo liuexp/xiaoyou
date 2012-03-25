@@ -40,7 +40,7 @@
           <?php endif; ?>
         </span>
         <a href="<?php echo SITE_BASE; ?>/">
-          <img alt="上海交通大学ACM班" src="<?php echo SITE_BASE; ?>/images/head-logo.png"/>
+          <img src="<?php echo SITE_BASE; ?>/images/head-logo.png"/>
         </a>
         <nav>
           <a href="<?php echo SITE_BASE; ?>/">首页</a>
