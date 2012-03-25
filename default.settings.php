@@ -30,6 +30,9 @@ define('ACM_CLASS_FLV', '/avatars/acm-class.flv');
  */
 define('ADMIN_EMAIL', 'admin@example.com');
 
+define('GLOBAL_INVITATION_EMAIL', 'xiaoyou@acm.sjtu.edu.cn');
+define('GLOBAL_INVITATION_CODE', 'DO REMEMBER TO CHANGE THIS');
+
 /**
  * Number of recent activities displayed on the front-page.
  */
