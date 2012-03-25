@@ -21,7 +21,7 @@ include(__DIR__ . '/../layout/header.php');
               <?php if (file_exists($avatarfile)): ?>
                 <img src="<?php echo AVATAR_BASE; ?>/<?php echo $username; ?>-mini.jpg" width="40px" height="40px"/>
               <?php else: ?>
-                <img src="<?php echo SITE_BASE; ?>/images/avatar-40.png" width="40px" height="40px"/>
+                <img src="<?php echo SITE_BASE; ?>/images/avatar-40.jpg" width="40px" height="40px"/>
               <?php endif; ?>
             </a>
             <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profileId; ?>"><?php echo $student->getRealname(); ?></a>
