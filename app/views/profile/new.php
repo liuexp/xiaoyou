@@ -26,7 +26,7 @@ include(__DIR__ . '/../layout/header.php');
         </select>
       </div>
       <div class="field">
-        <label for="student_number">学号：</label>
+        <label for="student_number">本科学号：</label>
         <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20"/>
       </div>
       <div class="field">
