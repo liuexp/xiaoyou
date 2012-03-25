@@ -9,7 +9,7 @@ class ProfileController extends ApplicationController
   public function index()
   {  
     $this->all_profiles = fRecordSet::build('Profile');
-    $all_names = fRecordSet::build('Name');
+    $all_names = fRecordSet::build('Name', array(), array('student_number' => 'asc'));
     $this->start_years = NameHelper::getAllStartYears($all_names);
     foreach ($this->start_years as $start_year) {
       $this->class_number_map[$start_year] = NameHelper::getClassNumber($all_names, $start_year);

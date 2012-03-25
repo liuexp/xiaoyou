@@ -12,7 +12,7 @@ include(__DIR__ . '/../layout/header.php');
 <?php else: ?>
   <section class="cdown">
     <img class="special-logo" src="<?php echo SITE_BASE; ?>/images/acm-special-logo.png"/>
-    <div class="message">距离十周年庆典还有</div>
+    <div class="message">距离6月9日十周年庆典还有</div>
     <div class="countdown">
       <div id="counter" data-start-time="<?php echo sprintf("%02d天%02d:%02d:%02d", $this->days, $this->hours, $this->minutes, $this->seconds); ?>"></div>
       <!--<div class="desc">
