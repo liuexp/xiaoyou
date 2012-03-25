@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/IE9.js"></script>
+    <![endif]-->
     <link href="<?php echo SITE_BASE; ?>/images/favicon.png" rel="shortcut icon"/>
     <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport"/>
     <title>
