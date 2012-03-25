@@ -61,5 +61,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </section>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.countdown.min', 'jquery.dotdotdot-1.4.0-packed', 'home/index');
+$javascripts = array('jquery-1.7.1.min', 'jquery.countdown.min', 'home/index');
 include(__DIR__ . '/../layout/footer.php');
