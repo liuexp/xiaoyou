@@ -93,7 +93,7 @@ include(__DIR__ . '/../layout/header.php');
       <legend>故情·近况</legend>
       <blockquote>
         <p class="prolog">
-          惜我往矣，杨柳依依，今我来思，雨雪霏霏<br/>
+          昔我往矣，杨柳依依，今我来思，雨雪霏霏<br/>
           相别数年，不知故人可好？
         </p>
       </blockquote>
