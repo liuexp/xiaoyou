@@ -31,7 +31,7 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2 class="big">新闻</h2>
       <ul class="itemize">
-        <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十周年</a></li>
+        <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
         <?php foreach ($this->articles as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
