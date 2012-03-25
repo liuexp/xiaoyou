@@ -10,7 +10,7 @@
 .cdown .countdown .desc { margin: 7px 3px 7px 30px; }
 .cdown .countdown .desc div { float: left; text-align: right; font-family: Arial; width: 70px; margin-right: 65px; font-size: 13px; font-weight: bold; color: #000; }
 .main { margin-top: 30px; /*margin-top: 260px;*/ }
-h2.big { font-size: 20px; font-weight: bold; }
-p.firstpara, p.secondpara { font-size: 16px !important; }
+h2.big { font-size: 20px; font-weight: bold; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; }
+p.firstpara, p.secondpara { font-size: 16px !important; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; }
 p.secondpara { margin-bottom: 20px; }
-ul.itemize li { margin-bottom: 5px; font-size: 14px; }
+ul.itemize li { margin-bottom: 5px; font-size: 14px; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; }
