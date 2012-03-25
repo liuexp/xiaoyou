@@ -36,8 +36,15 @@ class UserHelper
   public static function getStudentProfileId($profiles, $student)
   {
     foreach ($profiles as $profile)
-      if ($profile->getDisplayName() == $student->getRealname() && $profile->getStartYear() == $student->getStartYear())
-        return $profile->getId();
+      if ($profile->getDisplayName() == $student->getRealname()) {
+        if (strlen($profile->getStudentNumber()) == 10) {
+          if ($profile->getStudentNumber() == $student->getStudentNumber() || $student->getStudentNumber() == "0000000000") {
+            return $profile->getId();
+          }
+        } else {
+          return $profile->getId();
+        }
+      }
     return 0;
   }
   
