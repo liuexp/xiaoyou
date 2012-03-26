@@ -43,4 +43,4 @@
   </form>
 </div>
 <script type="text/javascript">window.paperId = '<?php echo $this->paper->getId(); ?>';</script>
-<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/paper/edit.js"></script>
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/paper/edit.min.js"></script>

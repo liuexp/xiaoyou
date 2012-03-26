@@ -164,5 +164,5 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <?php
-$javascripts = array('datepicker/WdatePicker', 'jquery-1.7.1.min', 'profile/new');
+$javascripts = array('datepicker/WdatePicker', 'jquery-1.7.1.min', 'profile/new.min');
 include(__DIR__ . '/../layout/footer.php');

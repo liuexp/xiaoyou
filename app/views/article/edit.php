@@ -35,4 +35,4 @@
   </form>
 </div>
 <script type="text/javascript">window.articleId = '<?php echo $this->article->getId(); ?>';</script>
-<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/article/edit.js"></script>
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/article/edit.min.js"></script>

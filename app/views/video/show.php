@@ -18,5 +18,5 @@ include(__DIR__ . '/../layout/header.php');
   </section>
 </article>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'flowplayer-3.2.8.min', 'video/show');
+$javascripts = array('jquery-1.7.1.min', 'flowplayer-3.2.8.min', 'video/show.min');
 include(__DIR__ . '/../layout/footer.php');

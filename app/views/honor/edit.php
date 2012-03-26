@@ -29,4 +29,4 @@
   </form>
 </div>
 <script type="text/javascript">window.honorId = '<?php echo $this->honor->getId(); ?>';</script>
-<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/honor/edit.js"></script>
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/honor/edit.min.js"></script>

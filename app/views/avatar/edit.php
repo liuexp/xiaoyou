@@ -29,5 +29,5 @@ include(__DIR__ . '/../layout/header.php');
 </form>
 <script type="text/javascript">window.profileId = '<?php echo UserHelper::getProfileId(); ?>';</script>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.Jcrop.min', 'avatar/edit');
+$javascripts = array('jquery-1.7.1.min', 'jquery.Jcrop.min', 'avatar/edit.min');
 include(__DIR__ . '/../layout/footer.php');

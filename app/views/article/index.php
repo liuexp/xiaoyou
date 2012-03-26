@@ -72,5 +72,5 @@ include(__DIR__ . '/../layout/header.php');
 </div>
 <?php endif; ?>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'article/index');
+$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'article/index.min');
 include(__DIR__ . '/../layout/footer.php');

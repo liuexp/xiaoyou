@@ -54,5 +54,5 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
 </aside>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'register/show');
+$javascripts = array('jquery-1.7.1.min', 'register/show.min');
 include(__DIR__ . '/../layout/footer.php');

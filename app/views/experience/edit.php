@@ -62,4 +62,4 @@
   </form>
 </div>
 <script type="text/javascript">window.experienceId = '<?php echo $this->experience->getId(); ?>';</script>
-<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/experience/edit.js"></script>
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/experience/edit.min.js"></script>
