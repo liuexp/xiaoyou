@@ -36,8 +36,8 @@ class RegisterController extends ApplicationController
         throw new fValidationException('两次输入的密码不一致');
       if (strlen($password) < 8)
         throw new fValidationException('密码太短（至少为8个字符）');
-      if (strlen($username) < 4)
-        throw new fValidationException('用户名太短（至少为4个字符）');
+      if (strlen($username) < 3)
+        throw new fValidationException('用户名太短（至少为3个字符）');
       if (strlen($username) > 80)
         throw new fValidationException('用户名太长（最多80个字符）');
       if (!preg_match('/^[a-z0-9]+$/', $username))
