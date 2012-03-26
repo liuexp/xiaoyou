@@ -178,9 +178,57 @@ width="468" height="60" border="1" alt="Banner" /></a></noscript>
 
 </div>
 
-<div id="acm-class-popup" style="padding:0;border:0;position:fixed;_position:absolute;width:269px;height:257px;bottom:0;right:5px;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));">
-  <a style="margin:0;padding:0;border:0" href="javascript:document.getElementById('acm-class-popup').style.display='none';"><img style="padding:0;border:0;position:fixed;_position:absolute;width:16px;height:16px;bottom:242px;right:5px;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));z-index:9999;" src="http://xiaoyou.acm-project.org/popup/close_box.png"/></a>
-  <a style="margin:0;padding:0;border:0" target="_blank" href="http://xiaoyou.acm-project.org/"><img style="padding:0;border:0;position:fixed;_position:absolute;width:269px;height:257px;bottom:0;right:5px;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));z-index:9990;" src="http://xiaoyou.acm-project.org/popup/image.png"/></a>
+<style type="text/css">
+.sl-fixed{
+    position:fixed;
+}
+
+/* 相当于正常的 position:fixed; top:0;  */
+.sl-fixed-top {
+	bottom:auto;
+	top:0;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop));
+}
+
+/* 相当于正常的 position:fixed;bottom:0px; */
+.sl-fixed-bottom {
+	bottom:0;
+	top:auto;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+
+/* 相当于正常的 position:fixed;left:0px; */
+.sl-fixed-left {
+	left:0;
+	_position:absolute;
+	right:auto;
+	_left:expression(eval(document.documentElement.scrollLeft));
+}
+
+/* 相当于正常的 position:fixed;right:0; */
+.sl-fixed-right {
+	right:0;
+	left:auto;
+	_right:auto;
+	_left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0));
+}
+
+/* 当不是 https 时，可以把 # 换成 about:blank 以提升效率 */
+html,htmlbody{
+	_background-image:url('about:blank');
+	_background-attachment:fixed;
+}
+
+/* hack for ie6 */
+.sl-fixed-top,.sl-fixed-right,.sl-fixed-bottom,.sl-fixed-left {
+	_position:absolute;
+}
+</style>
+<div id="acm-class-popup" class="sl-fixed sl-fixed-bottom sl-fixed-right" style="border:0;width:269px;height:257px;">
+  <a style="border:0" href="javascript:document.getElementById('acm-class-popup').style.display='none';"><img style="border:0;bottom:242px;right:5px;width:16px;height:16px;z-index:9999;" class="sl-fixed sl-fixed-bottom sl-fixed-right" src="http://xiaoyou.acm-project.org/popup/close_box.png"/></a>
+  <a style="border:0" target="_blank" href="http://xiaoyou.acm-project.org/"><img style="border:0;width:269px;height:257px;z-index:9990;" class="sl-fixed sl-fixed-bottom sl-fixed-right" src="http://xiaoyou.acm-project.org/popup/image.png"/></a>
 </div>
 
 </body>
