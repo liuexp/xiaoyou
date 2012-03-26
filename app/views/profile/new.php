@@ -141,7 +141,7 @@ include(__DIR__ . '/../layout/header.php');
         <p class="prolog">
           感谢你耐心完成这份问卷！<br/>
           提交之后，除基本信息和联系方式外都不能更改<br/>
-          请确认上述信息无误，然后点击“提交我的个人信息”
+          请确认上述信息无误，然后“提交我的个人信息”
         </p>
       </blockquote>
     </fieldset>
