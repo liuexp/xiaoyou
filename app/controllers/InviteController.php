@@ -52,6 +52,7 @@ class InviteController extends ApplicationController
   public function sendEmails()
   {
     if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+    set_time_limit(0);
     print "<pre>\n";
     print "Use ?force=true to resend invitations\n";
     if (fRequest::get('force', 'boolean')) {
