@@ -16,7 +16,7 @@ class ActivityHelper
       'update experience' => '更新了个人经历',
       'update honor' => '更新了个人荣誉',
       'update paper' => '更新了论文发表情况',
-      'invite' => '邀请了更多同学加入进来'
+      'invite' => '邀请了更多同学'
     );
     
     if (isset($translations[$type])) {
