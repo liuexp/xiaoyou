@@ -126,7 +126,7 @@ include(__DIR__ . '/../layout/header.php');
         <textarea name="contributes" class="monofont" rows="2" cols="44"></textarea>
       </div>
       <div class="field">
-        <span class="label">是否愿意在第二天作报告：</span>
+        <span class="label">是否愿意在第一天作报告：</span>
         <input type="checkbox" name="will_give_talk"/>
       </div>
       <div class="field">
