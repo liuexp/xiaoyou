@@ -52,6 +52,7 @@ class InviteController extends ApplicationController
   public function sendEmails()
   {
     if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+    fSession::close();
     set_time_limit(0);
     print "<pre>\n";
     print "Use ?force=true to resend invitations\n";
@@ -130,6 +131,7 @@ EEE;
     if ($retval) {
       throw new Exception('An error occurred while sending the email: return value is ' . $retval);
     }
-    sleep(3); // wait for 3 seconds (do NOT send mail too frequently)
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
 }
