@@ -1,4 +1,4 @@
 .text h1:first-child { border-right: 0; }
-article { display: block; clear: both; margin: 20px; border: 0 !important; font-size: 15px; line-height: 24px; }
+article { float: none !important; display: block; clear: both; margin: 20px; border: 0 !important; font-size: 15px; line-height: 24px; }
 article p { margin: 12px; line-height: 24px; }
 .intro-section-title { color: #930000; font-size: 22px; line-height: 22px; }
