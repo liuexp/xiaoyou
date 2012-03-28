@@ -182,7 +182,7 @@ include(__DIR__ . '/../layout/header.php');
         <span class="label">请先选择一张照片上传：（只接受JPEG格式）</span><br/>
         <input type="file" id="avatar-file" name="avatar-file"/><br/>
         <span class="hint" style="display:block">（上传照片后，你可以选取照片的一部分作为头像）</span>
-        <span style="color:red">请上传正面的、五官明显的、头像大些的近照</span>
+        <span style="color:red">请选择一张正面的、五官显式的、人像大些、清晰的近照上传</span>
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
