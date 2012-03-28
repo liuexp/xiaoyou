@@ -31,7 +31,11 @@ class ArticleController extends ApplicationController
   {
     try {
       $this->article = new Article($id);
-      $this->render('article/show');
+      if ($this->isNews()) {
+        $this->render('article/show');
+      } else {
+        $this->render('article/show_post');
+      }
     } catch (fNotFoundException $e) {
       Slim::getInstance()->notFound();
     }

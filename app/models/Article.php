@@ -12,4 +12,9 @@ class Article extends fActiveRecord
     // TODO
     return $this->getTitle();
   }
+  
+  public function isNews()
+  {
+    return $this->getType() == 'news';
+  }
 }
