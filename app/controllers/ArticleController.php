@@ -31,7 +31,7 @@ class ArticleController extends ApplicationController
   {
     try {
       $this->article = new Article($id);
-      if ($this->isNews()) {
+      if ($this->article->isNews()) {
         $this->render('article/show');
       } else {
         $this->render('article/show_post');
