@@ -1,10 +1,10 @@
   </div>
   <footer>
     <p>
-      This website is <a href="https://github.com/oipn4e2/xiaoyou">open source software</a> developed by <a href="http://acm.sjtu.edu.cn/~xjia">Xiao Jia</a>.
+      This website is <a href="https://github.com/oipn4e2/xiaoyou">open source software</a> developed by <a href="http://xiaoyou.acm-project.org/profile/1">Xiao Jia</a>.
     </p>
     <p>
-      The ACM class logo was designed by <a href="#">Weinan Zhang</a>. See more <a href="<?php echo SITE_BASE; ?>/credits">credits</a>.
+      The ACM class logo was designed by <a href="http://xiaoyou.acm-project.org/profile/38">Weinan Zhang</a>. See more <a href="<?php echo SITE_BASE; ?>/credits">credits</a>.
     </p>
     <p>
       Copyright &copy; 2012 <a href="http://acm.sjtu.edu.cn/">ACM class</a>. All rights reserved.
