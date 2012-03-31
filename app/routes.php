@@ -99,7 +99,7 @@ $app->get('/profiles/check', function () {
   fAuthorization::requireLoggedIn();
   $controller = new ProfileController();
   $controller->check();
-})
+});
 
 $app->get('/profiles/new', function () {
   fAuthorization::requireLoggedIn();
