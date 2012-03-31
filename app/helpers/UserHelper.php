@@ -33,6 +33,14 @@ class UserHelper
     return false;
   }
   
+  public static function checkRegistered($profiles, $student)
+  {
+    foreach ($profiles as $profile)
+      if ($profile->getDisplayName() == $student->getRealname())
+        return true;
+    return false;
+  }
+  
   public static function getStudentProfileId($profiles, $student)
   {
     foreach ($profiles as $profile)

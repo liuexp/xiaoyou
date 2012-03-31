@@ -7,7 +7,7 @@ class ProfileController extends ApplicationController
   public $students_map = array();
   
   public function index()
-  {  
+  {
     $this->all_profiles = fRecordSet::build('Profile');
     $all_names = fRecordSet::build('Name', array(), array('student_number' => 'asc'));
     $this->start_years = NameHelper::getAllStartYears($all_names);
@@ -16,6 +16,18 @@ class ProfileController extends ApplicationController
       $this->students_map[$start_year] = NameHelper::getStudents($all_names, $start_year);
     }
     $this->render('profile/index');
+  }
+  
+  public function check()
+  {
+    $this->all_profiles = fRecordSet::build('Profile');
+    $all_names = fRecordSet::build('Name', array(), array('student_number' => 'asc'));
+    $this->start_years = NameHelper::getAllStartYears($all_names);
+    foreach ($this->start_years as $start_year) {
+      $this->class_number_map[$start_year] = NameHelper::getClassNumber($all_names, $start_year);
+      $this->students_map[$start_year] = NameHelper::getStudents($all_names, $start_year);
+    }
+    $this->render('profile/check');
   }
   
   public function newProfile()
