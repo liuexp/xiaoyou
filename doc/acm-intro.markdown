@@ -10,6 +10,6 @@
 <h2 class="intro-section-title">班级成果</h2>　　十年来，ACM班学生获得了国内外荣誉和奖项数百人次：继2002年后2005、2010年又两次获得ACM国际大学生程序设计竞赛世界冠军，成为全球该赛事第三个“三冠王”；以第一作者身份在NIPS、WWW、SIGIR、SIGMOD、SIGKDD、ICML、AAAI等重要的国际会议和期刊上发表了40余篇学术论文，并获得国际会议最佳学生论文和最佳候选学生论文各1篇；2005、2009年两次获得国家级教学成果二等奖。
 
 <p class="clear"></p><img style="float:right;height:130px;margin:20px 0 30px 20px;" src="http://xiaoyou.acm-project.org/images/intro/ying.jpg"/>
-<h2 class="intro-section-title">班级未来</h2>　　2011年，ACM班已作为“上海交通大学基础学科拔剑学生培养实验计划”中的计算机科学班纳入致远学院。该班将由图灵奖获得者、康奈尔大学教授John Hopcroft领衔的国际知名教授组成讲席教授团共同执教与指导，全面实施“上海交通大学-国际知名大学-微软亚洲研究院”联合培养。
+<h2 class="intro-section-title">班级未来</h2>　　2011年，ACM班已作为“上海交通大学基础学科拔尖学生培养实验计划”中的计算机科学班纳入致远学院。该班将由图灵奖获得者、康奈尔大学教授John Hopcroft领衔的国际知名教授组成讲席教授团共同执教与指导，全面实施“上海交通大学-国际知名大学-微软亚洲研究院”联合培养。
 
 <p class="clear"></p>　　计算机科学班（ACM班）的历史又翻开了新的一页，新征程、新挑战，我们共同预祝其拥有更加美好的明天！　　（撰稿：俞勇）
