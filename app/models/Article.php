@@ -9,8 +9,7 @@ class Article extends fActiveRecord
   
   public function getShortTitle()
   {
-    // TODO
-    return $this->getTitle();
+    return mb_strimwidth($this->getTitle(), 0, 32, '...', 'UTF-8');
   }
   
   public function isNews()
