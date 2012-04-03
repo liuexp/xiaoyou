@@ -135,6 +135,23 @@ EEE;
     sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
+  public function prepareNoticeEmails()
+  {
+    if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+    fSession::close();
+    set_time_limit(0);
+    print "<pre>\n";
+    $emails = array();
+    $profiles = fRecordSet::build('Profile');
+    foreach ($profiles as $profile) {
+      $emails[] = $profile->getEmail();
+    }
+    $emails = array_unique($emails);
+    foreach ($emails as $email) print "$email\n";
+    print "</pre>\n";
+    print "<form method=\"POST\"><input type=\"submit\"/></form>";
+  }
+  
   public function sendNoticeEmails()
   {
     if (!UserHelper::isEditor()) throw fValidationException('not allowed');

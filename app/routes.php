@@ -18,6 +18,12 @@ $app->get('/invite/send', function () {
 $app->get('/notice/send', function () {
   fAuthorization::requireLoggedIn();
   $controller = new InviteController();
+  $controller->prepareNoticeEmails();
+});
+
+$app->post('/notice/send', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new InviteController();
   $controller->sendNoticeEmails();
 });
 
