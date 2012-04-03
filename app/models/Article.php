@@ -9,11 +9,16 @@ class Article extends fActiveRecord
   
   public function getShortTitle()
   {
-    return mb_strimwidth($this->getTitle(), 0, 32, '...', 'UTF-8');
+    return mb_strimwidth($this->getTitle(), 0, 28, '...', 'UTF-8');
   }
   
   public function isNews()
   {
     return $this->getType() == 'news';
+  }
+  
+  public function isRecent()
+  {
+    return $this->getCreatedAt()->gt(new fTimestamp('-7 day'));
   }
 }

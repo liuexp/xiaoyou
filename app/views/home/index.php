@@ -39,6 +39,7 @@ include(__DIR__ . '/../layout/header.php');
           <?php endif; ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
+            <?php if ($article->isRecent()): ?><img src="<?php echo SITE_BASE; ?>/images/new.gif"/><?php endif; ?>
           </li>
         <?php endforeach; ?>
         <?php if ($need_intro): ?>
