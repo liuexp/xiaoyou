@@ -8,12 +8,21 @@ class ProfileController extends ApplicationController
   
   public function index()
   {
-    $this->all_profiles = fRecordSet::build('Profile');
-    $all_names = fRecordSet::build('Name', array(), array('student_number' => 'asc'));
-    $this->start_years = NameHelper::getAllStartYears($all_names);
-    foreach ($this->start_years as $start_year) {
-      $this->class_number_map[$start_year] = NameHelper::getClassNumber($all_names, $start_year);
-      $this->students_map[$start_year] = NameHelper::getStudents($all_names, $start_year);
+    if (!file_exists(CACHE_PROFILES)) {
+      $this->all_profiles = fRecordSet::build('Profile');
+      $all_names = fRecordSet::build('Name', array(), array('student_number' => 'asc'));
+      $this->start_years = NameHelper::getAllStartYears($all_names);
+      foreach ($this->start_years as $start_year) {
+        $this->class_number_map[$start_year] = NameHelper::getClassNumber($all_names, $start_year);
+        $this->students_map[$start_year] = NameHelper::getStudents($all_names, $start_year);
+      }
+      ob_start();
+      $this->render('profile/_index');
+      $this->cache = ob_get_contents();
+      ob_end_clean();
+      file_put_contents(CACHE_PROFILES, $this->cache);
+    } else {
+      $this->cache = file_get_contents(CACHE_PROFILES);
     }
     $this->render('profile/index');
   }

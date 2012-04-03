@@ -14,3 +14,4 @@ h2.big { font-size: 20px; font-weight: bold; font-family: "微软雅黑","Micros
 p.firstpara, p.secondpara { font-size: 16px !important; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; }
 p.secondpara { margin-bottom: 20px; }
 ul.itemize li { margin-bottom: 5px; font-size: 14px; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; }
+.more { text-align: right; padding-right: 15px; }

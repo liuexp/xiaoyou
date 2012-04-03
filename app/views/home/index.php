@@ -54,6 +54,7 @@ include(__DIR__ . '/../layout/header.php');
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
           </li>
         <?php endforeach; ?>
+        <li class="more"><a href="<?php echo SITE_BASE; ?>/posts">更多⋯⋯</a></li>
       </ul>
     </section>
     <section>
