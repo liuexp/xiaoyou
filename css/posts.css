@@ -1,0 +1,14 @@
+.text h1:first-child { border-right: 0; }
+.articles { display: block; clear: both; margin: 20px; border-left: 0 !important; }
+.articles li { line-height: 30px; width: 49%; float: left; }
+.articles li .tools { display: none; }
+.articles li:hover .tools { display: inline; }
+article.popup { min-width: 400px; max-width: 700px; min-height: 360px; }
+article.popup section { display: block; margin: 20px; }
+article.popup section p { display: block; margin: 5px; text-align: justify; }
+form .field { margin: 10px; }
+form .field label { display: inline-block; margin: 0; padding: 0; width: 60px; text-align: right; }
+form .field label.long { width: 150px; }
+form .field .textfield { display: inline-block; margin: 0; padding: 0; width: 515px; font-size: 18px; line-height: 30px; }
+form .field textarea { margin: 0; padding: 10px; width: 560px; font-size: 14px; line-height: 24px; }
+form .action { float: right; }

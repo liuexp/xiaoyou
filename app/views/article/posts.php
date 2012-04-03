@@ -1,7 +1,7 @@
 <?php
 $title = '征文';
 $no_sidebar = true;
-$stylesheets = array('jquery.fancybox-1.3.4', 'articles');
+$stylesheets = array('jquery.fancybox-1.3.4', 'posts');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <h1>
