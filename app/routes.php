@@ -15,6 +15,12 @@ $app->get('/invite/send', function () {
   $controller->sendEmails();
 });
 
+$app->get('/notice/send', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new InviteController();
+  $controller->sendNoticeEmails();
+});
+
 $app->get('/intro', function () {
   UserHelper::requireProfile();
   $controller = new VideoController();
