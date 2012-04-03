@@ -147,7 +147,7 @@ EEE;
       $emails[] = $profile->getEmail();
     }
     $emails = array_unique($emails);
-    foreach ($emails as $email) print "$email\n";
+    print_r($emails);
     print "</pre>\n";
     print "<form method=\"POST\"><input type=\"submit\"/></form>";
   }

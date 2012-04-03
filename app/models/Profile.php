@@ -24,8 +24,7 @@ class Profile extends fActiveRecord
   
   public function getEmail()
   {
-    // TODO
-    return "stfairy@gmail.com";
+    return $this->getContactOrEmpty('email');
   }
   
   public function getContactOrEmpty($type)
