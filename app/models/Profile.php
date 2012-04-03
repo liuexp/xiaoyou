@@ -22,6 +22,12 @@ class Profile extends fActiveRecord
     return fRecordSet::build('Contact', array('profile_id=' => $this->getId()));
   }
   
+  public function getEmail()
+  {
+    // TODO
+    return "stfairy@gmail.com";
+  }
+  
   public function getContactOrEmpty($type)
   {
     try {

@@ -66,7 +66,7 @@ class InviteController extends ApplicationController
         $this->sendInvitation($invitation->getEmail(), $invitation->getInvitecode());
         $invitation->setIsMailSent(1);
         $invitation->store();
-        echo 'Sent invitation mail to ' . $invitation->getEmail() . "\n";
+        print 'Sent invitation mail to ' . $invitation->getEmail() . "\n";
       } catch (Exception $e) {
         print "Error occurred when processing invitation(id=" . $invitation->getId() . "): " . $e->getMessage() . "\n";
       }
@@ -106,6 +106,78 @@ ACM班十周年庆典系列活动，旨在感谢这十年来风雨同舟一同�
 并使用我们提供给您的邀请码（${invitecode}）注册ACM班校友录。
 在注册并完善您的个人信息后，您也可以看到其他同学的近况与
 动态。
+
+　　祝您生活愉快，身体健康，万事如意！
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　　　上海交通大学ACM班
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
+  }
+  
+  public function sendNoticeEmails()
+  {
+    if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+    fSession::close();
+    set_time_limit(0);
+    print "<pre>\n";
+    $emails = array();
+    $profiles = fRecordSet::build('Profile');
+    foreach ($profiles as $profile) {
+      $emails[] = $profile->getEmail();
+    }
+    $emails = array_unique($emails);
+    foreach ($emails as $email) {
+      try {
+        $this->sendVoteNotice($email);
+        print 'Sent notice mail to ' . $email . "\n";
+      } catch (Exception $e) {
+        print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
+      }
+    }
+  }
+  
+  protected function sendVoteNotice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "ACM班十周年纪念品创意征集启事" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+ACM班校友、同学：
+
+　　ACM班十周年庆典的倒计时已经不到70天了，为了让这个日子更加有意义，筹备组将制作一批纪念品，让这个节日成为大家共同的回忆。前期遴选出的方案主要有以下几种：
+
+　　　　1. 制作一枚“ACM班十周年庆典”的纪念摆设，水晶雕刻
+
+　　　　2. 制作一枚“ACM班十周年庆典”的纪念章
+
+　　　　3. 制作一个“ACM班十周年庆典”的纪念钥匙挂坠
+
+　　　　4. 制作一个“ACM班十周年庆典”的纪念戒指，详情见 http://bbs.sjtu.edu.cn/bbstcon,board,Graduating,reid,1331655915.html
+
+　　各位同学可以为自己支持的方案投票，也可以提出新的想法，详情请访问 http://xiaoyou.acm-project.org/article/24
 
 　　祝您生活愉快，身体健康，万事如意！
 
