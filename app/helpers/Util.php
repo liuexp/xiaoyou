@@ -15,4 +15,23 @@ class Util
   {
     return date('Y');
   }
+  
+  public static function startsWith($haystack, $needle)
+  {
+    $length = strlen($needle);
+    return substr($haystack, 0, $length) === $needle;
+  }
+
+  public static function endsWith($haystack, $needle)
+  {
+    $length = strlen($needle);
+    $start  = $length * -1; // negative
+    return substr($haystack, $start) === $needle;
+  }
+  
+  public static function ensurePrefix($prefix, $str)
+  {
+    if (self::startsWith($str, $prefix)) return $str;
+    return $prefix . $str;
+  }
 }

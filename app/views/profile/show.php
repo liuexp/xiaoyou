@@ -165,7 +165,7 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php else: ?>
         <li>
-          <a class="other" target="_blank" href="<?php echo $contact->getContent(); ?>">
+          <a class="other" target="_blank" href="<?php echo Util::ensurePrefix('http://', $contact->getContent()); ?>">
             <img src="<?php echo SITE_BASE; ?>/images/32-<?php echo $contact->getType(); ?>.png"/>
           </a>
         </li>
