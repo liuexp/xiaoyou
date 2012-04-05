@@ -4,7 +4,7 @@ include_once(__DIR__ . '/inc/init.php');
 if (fAuthorization::checkLoggedIn()) {
   fURL::redirect(fAuthorization::getRequestedURL(false, SITE_BASE));
 } else {
-  $errmsg = '';
+  $errmsg = '忘记用户名或密码请联系：stfairy［at］gmail［dot］com';
   $username = '';
 
   if (fRequest::isPost()) {
