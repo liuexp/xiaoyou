@@ -19,10 +19,10 @@ class ArticleController extends ApplicationController
     $this->editable = UserHelper::isEditor();
     if ($this->editable) {
       $this->articles = fRecordSet::build(
-        'Article', array('type=' => 'post'), array('priority' => 'desc', 'created_at' => 'asc'));
+        'Article', array('type=' => 'post'), array('created_at' => 'asc'));
     } else {
       $this->articles = fRecordSet::build(
-        'Article', array('type=' => 'post', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'asc'));
+        'Article', array('type=' => 'post', 'visible=' => 1), array('created_at' => 'asc'));
     }
     $this->render('article/posts');
   }
