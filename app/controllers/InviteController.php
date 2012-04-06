@@ -166,12 +166,58 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendVoteNotice($email);
+        $this->sendPostsNotice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
     }
+  }
+  
+  protected function sendPostsNotice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "关于“我的故事”征文故事性的要求及征集大家的日志的通知" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+ACM班校友、同学：
+
+　　征文活动已经进行了近半月，得到了大家的支持和踊跃投稿，文章已过40篇，在此深表感谢！
+
+　　为了能够更好地体现“我的故事”的征文要求与目的，之后我们将鼓励大家发表带个人故事及个人心路历程之文章。
+
+　　同时，考虑到大家平时有所感有所思喜欢记录在自己的博客中，所以鼓励大家将当时的日志直接发来作为征文，我们将优先刊登博文日志类文章。
+
+　　感谢大家继续对征文活动的支持！关于投递征文的细节请访问 http://xiaoyou.acm-project.org/article/4
+
+　　祝您生活愉快，身体健康，万事如意！
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendVoteNotice($email)
