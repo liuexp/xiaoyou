@@ -70,6 +70,7 @@ class InviteController extends ApplicationController
       } catch (Exception $e) {
         print "Error occurred when processing invitation(id=" . $invitation->getId() . "): " . $e->getMessage() . "\n";
       }
+      flush();
     }
   }
   
@@ -171,6 +172,7 @@ EEE;
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
+      flush();
     }
   }
   
