@@ -22,7 +22,7 @@ class HomeController extends ApplicationController
     );
     $this->posts = fRecordSet::build(
       'Article',
-      array('type=' => 'post', 'visible=' => 1),
+      array('type=' => 'post', 'visible=' => 1, 'priority<' => 999999),
       array('priority' => 'desc', 'created_at' => 'desc'),
       ACTIVITIES_LIMIT - 1
     );
