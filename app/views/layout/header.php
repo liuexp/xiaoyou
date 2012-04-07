@@ -49,6 +49,7 @@
           <a href="<?php echo SITE_BASE; ?>/schedule">日程</a>
           <a href="<?php echo SITE_BASE; ?>/profiles">花名册</a>
           <a href="<?php echo SITE_BASE; ?>/corresponds">筹备组</a>
+          <a href="<?php echo SITE_BASE; ?>/tweets">微博</a>
         </nav>
       </div>
     </header>
