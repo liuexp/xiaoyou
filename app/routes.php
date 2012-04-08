@@ -9,6 +9,12 @@ $app->get('/', function () {
   $controller->index();
 });
 
+$app->get('/tweets', function () {
+  UserHelper::requireProfile();
+  $controller = new TweetController();
+  $controller->index();
+});
+
 $app->get('/invite/send', function () {
   fAuthorization::requireLoggedIn();
   $controller = new InviteController();

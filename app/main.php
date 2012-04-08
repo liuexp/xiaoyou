@@ -17,6 +17,7 @@ require_once(__DIR__ . '/models/Invitation.php');
 require_once(__DIR__ . '/models/Name.php');
 require_once(__DIR__ . '/models/Paper.php');
 require_once(__DIR__ . '/models/Profile.php');
+require_once(__DIR__ . '/models/Tweet.php');
 
 require_once(__DIR__ . '/controllers/ApplicationController.php');
 require_once(__DIR__ . '/controllers/ArticleController.php');
@@ -29,6 +30,7 @@ require_once(__DIR__ . '/controllers/PaperController.php');
 require_once(__DIR__ . '/controllers/ProfileController.php');
 require_once(__DIR__ . '/controllers/RegisterController.php');
 require_once(__DIR__ . '/controllers/VideoController.php');
+require_once(__DIR__ . '/controllers/TweetController.php');
 
 require_once(__DIR__ . '/helpers/Util.php');
 require_once(__DIR__ . '/helpers/UserHelper.php');

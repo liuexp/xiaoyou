@@ -1,8 +1,19 @@
 <?php
 $title = $this->profile->getDisplayName();
-$stylesheets = array('jquery.fancybox-1.3.4', 'profile');
+$stylesheets = array('bootstrap.min', 'jquery.fancybox-1.3.4', 'profile');
 include(__DIR__ . '/../layout/header.php');
 ?>
+<div class="tabbable" id="profile-tab">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tweets" data-toggle="tab">微博</a></li>
+    <li><a href="#profile" data-toggle="tab">资料</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tweets">
+      <p>I'm in Section 1.</p>
+    </div>
+    <div class="tab-pane" id="profile">
+<!-- begin main content -->
 <section>
   <section>
     <h2>
@@ -85,6 +96,10 @@ include(__DIR__ . '/../layout/header.php');
     </ul>
   </section>
 </section>
+<!-- end main content -->
+    </div><!-- /.tab-pane -->
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
 <aside class="profile">
   <h1>
     <?php echo htmlspecialchars($this->profile->getDisplayName()); ?>
@@ -422,8 +437,12 @@ include(__DIR__ . '/../layout/header.php');
 if ($this->editable) {
   $javascripts = array(
     'datepicker/WdatePicker',
-    'jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
-    'profile/show.min'
+    'jquery-1.7.1.min',
+    'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
+    'profile/show.min',
+    'bootstrap.min'
   );
+} else {
+  $javascripts = array('jquery-1.7.1.min', 'bootstrap.min');
 }
 include(__DIR__ . '/../layout/footer.php');
