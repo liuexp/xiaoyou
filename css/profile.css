@@ -1,9 +1,10 @@
 #profile-tab { width: 638px; }
+section h2.mt20 { margin-top: 20px; }
 .profile > * { margin-left: 10px; }
-.profile .details li { margin-bottom: 4px; line-height: 24px; }
-.profile .details li .tools { display: none; }
-.profile .details li:hover .tools { display: inline; margin-left: 5px; }
-.profile .contacts { margin-top: 6px; }
+.profile ul.details { margin-left: 15px; }
+.profile ul.details li { margin-bottom: 4px; line-height: 24px; }
+.profile ul.details li .tools { display: none; }
+.profile ul.details li:hover .tools { display: inline; margin-left: 5px; }
 .profile .gender { width: 20px; height: 20px; }
 .popup h2 { display: block; border-bottom: 1px solid #ccc; }
 .popup form .field { margin: 5px 10px 5px 0; }
@@ -11,11 +12,13 @@
 .popup form label.small { width: 60px; }
 .popup form.longlabel label { width: 140px; }
 .popup form .action { float: right; }
-.relation-list li { line-height: 30px; }
-.relation-list li .tools { display: none; }
-.relation-list li:hover .tools { display: inline; }
-.contacts li { float: left; margin: 2px; }
-.contacts img { width: 22px; height: 22px; }
+ul.relation-list { margin-left: 25px; }
+ul.relation-list li { line-height: 30px; }
+ul.relation-list li .tools { display: none; }
+ul.relation-list li:hover .tools { display: inline; }
+ul.contacts { margin-left: 15px; margin-top: 6px; }
+ul.contacts li { float: left; margin: 2px; }
+ul.contacts img { width: 22px; height: 22px; }
 #edit-info label.radio { width: 30px; text-align: left; margin-left: 5px; padding-left: 0; }
 .avainfo { display: block; margin: 10px; padding: 0; width: 160px; height: 160px; position: relative; overflow: hidden; cursor: pointer; }
 .avainfo .mask, .avainfo .edit { display: none; }

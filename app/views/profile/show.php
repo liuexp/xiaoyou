@@ -11,21 +11,43 @@ include(__DIR__ . '/../layout/header.php');
   <div class="tab-content">
     <div class="tab-pane active" id="tweets">
       <?php if ($this->editable): ?>
-        <form class="well form-search">
-          <input type="text" class="search-query">
+        <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post">
+          <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
+            <div class="alert alert-success">
+              <a class="close" data-dismiss="alert">&times;</a>
+              <?php echo $tweet_success; ?>
+            </div>
+          <?php endif; ?>
+          <?php if ($tweet_failure = fMessaging::retrieve('failure', 'create tweet')): ?>
+            <div class="alert alert-error">
+              <a class="close" data-dismiss="alert">&times;</a>
+              <?php echo $tweet_failure; ?>
+            </div>
+          <?php endif; ?>
+          <input name="tweet-content" type="text" class="search-query input-xlarge" maxlength="140" placeholder="说点什么吧⋯⋯"/>
           <button type="submit" class="btn btn-primary">
             <i class="icon-plus-sign icon-white"></i>
             发表新微博
           </button>
         </form>
       <?php endif; ?>
-      <p>I'm in Section 1.</p>
+      <ul class="unstyled">
+        <?php foreach ($this->profile->getTweets() as $tweet): ?>
+          <li>
+            <blockquote class="w500">
+              <a class="close">&times;</a>
+              <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
+              <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
+            </blockquote>
+          </li>
+        <?php endforeach; ?>
+      </ul>
     </div>
     <div class="tab-pane" id="profile">
 <!-- begin main content -->
   <section>
     <h2>经历</h2>
-    <ul class="relation-list">
+    <ul class="unstyled relation-list">
       <?php foreach ($this->profile->getExperiences() as $experience): ?>
         <li data-experience-id="<?php echo $experience->getId(); ?>">
           <?php echo $experience->getFormattedTimePeriod(); ?>.
@@ -54,8 +76,8 @@ include(__DIR__ . '/../layout/header.php');
     <?php endif; ?>
   </section>
   <section>
-    <h2>论文</h2>
-    <ul class="relation-list">
+    <h2 class="mt20">论文</h2>
+    <ul class="unstyled relation-list">
       <?php foreach ($this->profile->getPapers() as $paper): ?>
         <li data-paper-id="<?php echo $paper->getId(); ?>">
           <?php echo $paper->getPublishYear(); ?>.
@@ -82,8 +104,8 @@ include(__DIR__ . '/../layout/header.php');
     <?php endif; ?>
   </section>
   <section>
-    <h2>荣誉</h2>
-    <ul class="relation-list">
+    <h2 class="mt20">荣誉</h2>
+    <ul class="unstyled relation-list">
       <?php foreach ($this->profile->getHonors() as $honor): ?>
         <li data-honor-id="<?php echo $honor->getId(); ?>">
           <?php echo $honor->getFormattedDate(); ?>.
@@ -130,7 +152,7 @@ include(__DIR__ . '/../layout/header.php');
       <a id="edit-avatar-link" class="edit" href="#edit-avatar">编辑头像</a>
     <?php endif; ?>
   </div>
-  <ul class="details">
+  <ul class="unstyled details">
     <li>
       入学年份：<?php echo $this->profile->getStartYear(); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
@@ -160,7 +182,7 @@ include(__DIR__ . '/../layout/header.php');
       <?php endif; ?>
     <?php endforeach; ?>
   </ul>
-  <ul class="contacts">
+  <ul class="unstyled contacts">
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <!-- skip -->

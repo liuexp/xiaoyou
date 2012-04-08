@@ -22,6 +22,11 @@ class Profile extends fActiveRecord
     return fRecordSet::build('Contact', array('profile_id=' => $this->getId()));
   }
   
+  public function getTweets()
+  {
+    return fRecordSet::build('Tweet', array('profile_id=' => $this->getId()), array('timestamp' => 'desc'));
+  }
+  
   public function getEmail()
   {
     return $this->getContactOrEmpty('email');

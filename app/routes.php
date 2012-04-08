@@ -15,6 +15,13 @@ $app->get('/tweets', function () {
   $controller->index();
 });
 
+$app->post('/tweets', function () {
+  fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
+  $controller = new TweetController();
+  $controller->create();
+});
+
 $app->get('/invite/send', function () {
   fAuthorization::requireLoggedIn();
   $controller = new InviteController();
