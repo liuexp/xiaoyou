@@ -199,7 +199,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success">上传</button>
+        <button type="submit" class="btn btn-success btn-large">上传</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -274,7 +274,7 @@ include(__DIR__ . '/../layout/header.php');
       </fieldset>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success">保存</button>
+        <button type="submit" class="btn btn-success btn-large">保存</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -336,7 +336,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success">提交</button>
+        <button type="submit" class="btn btn-success btn-large">提交</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -378,7 +378,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success">提交</button>
+        <button type="submit" class="btn btn-success btn-large">提交</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -406,7 +406,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success">提交</button>
+        <button type="submit" class="btn btn-success btn-large">提交</button>
       </div>
       <p class="clear"></p>
     </form>

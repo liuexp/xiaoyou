@@ -54,7 +54,7 @@
     </div>
     <div class="failure" style="display:none"></div>
     <div class="action">
-      <button type="submit" class="btn btn-success">提交</button>
+      <button type="submit" class="btn btn-success btn-large">提交</button>
     </div>
     <p class="clear"></p>
   </form>
