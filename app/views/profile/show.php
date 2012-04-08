@@ -37,7 +37,7 @@ include(__DIR__ . '/../layout/header.php');
       <ul class="unstyled">
         <?php foreach ($this->profile->getTweets() as $tweet): ?>
           <li>
-            <blockquote class="tweet fade in well w500">
+            <blockquote class="tweet fade in well w500" data-tweet-id="<?php echo $tweet->getId(); ?>">
               <?php if ($this->editable): ?>
                 <a class="close" data-dismiss="alert">&times;</a>
               <?php endif; ?>

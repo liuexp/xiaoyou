@@ -17,9 +17,14 @@ $app->get('/tweets', function () {
 
 $app->post('/tweets', function () {
   fAuthorization::requireLoggedIn();
-  UserHelper::requireProfile();
   $controller = new TweetController();
   $controller->create();
+});
+
+$app->delete('/tweet/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new TweetController();
+  $controller->delete($id);
 });
 
 $app->get('/invite/send', function () {

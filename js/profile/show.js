@@ -8,7 +8,8 @@ $(function(){
   }
   
   $('.tweet').bind('closed', function(){
-    alert('hi');
+    $(this).parent().remove();
+    $.ajax(window.siteBase + '/tweet/' + $(this).attr('data-tweet-id'), { type: 'DELETE' });
   });
   
   $('#edit-info-form').submit(function(){

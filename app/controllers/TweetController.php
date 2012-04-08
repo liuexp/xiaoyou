@@ -26,4 +26,18 @@ class TweetController extends ApplicationController
     }
     fURL::redirect(SITE_BASE . '/profile/' . $profileId);
   }
+  
+  public function delete($id)
+  {
+    try {
+      $tweet = new Tweet($id);
+      if (UserHelper::getProfileId() != $tweet->getProfileId()) {
+        throw new fValidationException('not allowed');
+      }
+      $tweet->delete();
+      $this->ajaxReturn(array('result' => 'success'));
+    } catch (fException $e) {
+      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
+  }
 }

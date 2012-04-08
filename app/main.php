@@ -18,6 +18,7 @@ require_once(__DIR__ . '/models/Name.php');
 require_once(__DIR__ . '/models/Paper.php');
 require_once(__DIR__ . '/models/Profile.php');
 require_once(__DIR__ . '/models/Tweet.php');
+require_once(__DIR__ . '/models/TweetComment.php');
 
 require_once(__DIR__ . '/controllers/ApplicationController.php');
 require_once(__DIR__ . '/controllers/ArticleController.php');
