@@ -24,17 +24,20 @@ include(__DIR__ . '/../layout/header.php');
               <?php echo $tweet_failure; ?>
             </div>
           <?php endif; ?>
-          <input name="tweet-content" type="text" class="search-query input-xlarge" maxlength="140" placeholder="说点什么吧⋯⋯"/>
-          <button type="submit" class="btn btn-primary">
-            <i class="icon-plus-sign icon-white"></i>
-            发表新微博
-          </button>
+          <div class="controls">
+            <div class="input-append">
+              <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/><button type="submit" class="btn btn-primary btn-large btn-input-large">
+                <!--<i class="icon-plus-sign icon-white"></i>-->
+                发表新微博
+              </button>
+            </div>
+          </div>
         </form>
       <?php endif; ?>
       <ul class="unstyled">
         <?php foreach ($this->profile->getTweets() as $tweet): ?>
           <li>
-            <blockquote class="w500">
+            <blockquote class="well w500">
               <a class="close">&times;</a>
               <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
               <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
