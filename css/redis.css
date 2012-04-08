@@ -46,7 +46,7 @@ body > footer a { color: #444444; }
 body > footer .sponsor { position: absolute; top: 0; right: 0; }
 body > footer .sponsor img { display: block; margin-top: 15px; }
 
-.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 10px auto 20px auto; max-width: 840px; padding: 30px; }
+.text { -webkit-box-shadow: #cccccc, 0px, 0px, 10px; -moz-box-shadow: #cccccc, 0px, 0px, 10px; box-shadow: #cccccc, 0px, 0px, 10px; overflow: hidden; *zoom: 1; background-color: #fafafa; color: #333333; margin: 10px auto 20px auto; width: 840px; padding: 30px; }
 .text a { color: #0066aa; text-shadow: #f0f0f0, 1px, 1px, 0px; }
 .text a:hover { color: #0099ff; }
 .text p { margin: 5px 0; }
@@ -77,7 +77,7 @@ body > footer .sponsor img { display: block; margin-top: 15px; }
 .columns > section { width: 33%; min-height: 240px; }
 .columns section > * { margin-left: 20px; }
 .columns.sidebar > section { width: 70%; }
-.columns.sidebar > aside { width: 29.5%; min-height: 400px; }
+.columns.sidebar > aside { width: 200px; min-height: 400px; }
 .columns.sidebar .columns { margin-left: 0 !important; margin-right: 0 !important; }
 .columns.nosidebar > section { width: 100%; border: none; }
 .columns.nosidebar > *:last-child > * { margin-left: 0; }
