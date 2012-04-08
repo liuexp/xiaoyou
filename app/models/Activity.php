@@ -7,7 +7,7 @@ class Activity extends fActiveRecord
   
   protected static function clearProfilesCache()
   {
-    unlink(CACHE_PROFILES);
+    @unlink(CACHE_PROFILES);
   }
   
   public static function fireRegister()
