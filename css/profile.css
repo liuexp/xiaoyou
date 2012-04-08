@@ -1,8 +1,9 @@
 #profile-tab { width: 638px; }
 .profile > * { margin-left: 10px; }
-.profile .details li { margin-bottom: 4px; }
+.profile .details li { margin-bottom: 4px; line-height: 24px; }
 .profile .details li .tools { display: none; }
 .profile .details li:hover .tools { display: inline; margin-left: 5px; }
+.profile .contacts { margin-top: 6px; }
 .profile .gender { width: 20px; height: 20px; }
 .popup h2 { display: block; border-bottom: 1px solid #ccc; }
 .popup form .field { margin: 5px 10px 5px 0; }

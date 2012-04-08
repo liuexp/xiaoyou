@@ -121,29 +121,29 @@ include(__DIR__ . '/../layout/header.php');
   <ul class="details">
     <li>
       入学年份：<?php echo $this->profile->getStartYear(); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <li>
       生日：<?php echo $this->profile->getBirthday(); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <li>
       现居住地：<?php echo htmlspecialchars($this->profile->getLocation()); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <li>
       家乡：<?php echo htmlspecialchars($this->profile->getHometown()); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <li>
       高中：<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑信息</a></div><?php endif; ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <li>
           Email：<?php echo htmlspecialchars($contact->getContent()); ?>
-          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info">编辑联系方式</a></div><?php endif; ?>
+          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
         </li>
       <?php endif; ?>
     <?php endforeach; ?>
