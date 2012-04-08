@@ -70,7 +70,7 @@ include(__DIR__ . '/../layout/header.php');
               <a class="delete delete-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
             </div>
           <?php endif; ?>
-        </lii>
+        </li>
       <?php endforeach; ?>
     </ul>
     <?php if ($this->editable): ?>
