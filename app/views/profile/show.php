@@ -26,7 +26,7 @@ include(__DIR__ . '/../layout/header.php');
           <?php endif; ?>
           <div class="controls">
             <div class="input-append">
-              <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/><button type="submit" class="btn btn-primary btn-large btn-input-large">
+              <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/><button type="submit" class="btn btn-danger btn-large btn-input-large">
                 <!--<i class="icon-plus-sign icon-white"></i>-->
                 发表新微博
               </button>
@@ -461,10 +461,9 @@ include(__DIR__ . '/../layout/header.php');
 if ($this->editable) {
   $javascripts = array(
     'datepicker/WdatePicker',
-    'jquery-1.7.1.min',
+    'jquery-1.7.1.min', 'bootstrap.min',
     'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
-    'profile/show.min',
-    'bootstrap.min'
+    'profile/show.min'
   );
 } else {
   $javascripts = array('jquery-1.7.1.min', 'bootstrap.min');

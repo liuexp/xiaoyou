@@ -2,6 +2,7 @@
 section h2.mt20 { margin-top: 20px; }
 .input-btn-large { width: 460px; height: 35px; padding: 4px 0 2px 10px; margin: 0; }
 .btn-input-large { margin-top: -1px; }
+.tweet p { word-wrap: break-word; overflow: hidden; }
 .profile > * { margin-left: 10px; }
 .profile ul.details { margin-left: 15px; }
 .profile ul.details li { margin-bottom: 4px; line-height: 24px; }
