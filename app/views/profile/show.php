@@ -14,7 +14,6 @@ include(__DIR__ . '/../layout/header.php');
     </div>
     <div class="tab-pane" id="profile">
 <!-- begin main content -->
-<section>
   <section>
     <h2>
       经历
@@ -95,7 +94,6 @@ include(__DIR__ . '/../layout/header.php');
       <?php endforeach; ?>
     </ul>
   </section>
-</section>
 <!-- end main content -->
     </div><!-- /.tab-pane -->
   </div><!-- /.tab-content -->
