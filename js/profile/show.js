@@ -7,6 +7,10 @@ $(function(){
     $('#edit-avatar-link').click();
   }
   
+  $('.tweet').bind('closed', function(){
+    alert('hi');
+  });
+  
   $('#edit-info-form').submit(function(){
     $('#edit-info-form .failure').hide();
     // TODO validation

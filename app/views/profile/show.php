@@ -13,13 +13,13 @@ include(__DIR__ . '/../layout/header.php');
       <?php if ($this->editable): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
-            <div class="alert alert-success">
+            <div class="alert alert-success fade in">
               <a class="close" data-dismiss="alert">&times;</a>
               <?php echo $tweet_success; ?>
             </div>
           <?php endif; ?>
           <?php if ($tweet_failure = fMessaging::retrieve('failure', 'create tweet')): ?>
-            <div class="alert alert-error">
+            <div class="alert alert-error fade in">
               <a class="close" data-dismiss="alert">&times;</a>
               <?php echo $tweet_failure; ?>
             </div>
@@ -37,8 +37,10 @@ include(__DIR__ . '/../layout/header.php');
       <ul class="unstyled">
         <?php foreach ($this->profile->getTweets() as $tweet): ?>
           <li>
-            <blockquote class="well w500">
-              <a class="close">&times;</a>
+            <blockquote class="tweet fade in well w500">
+              <?php if ($this->editable): ?>
+                <a class="close" data-dismiss="alert">&times;</a>
+              <?php endif; ?>
               <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
               <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
             </blockquote>
