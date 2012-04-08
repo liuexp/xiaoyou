@@ -20,6 +20,7 @@ class TweetController extends ApplicationController
         throw new fValidationException('微博长度不能超过140个字符');
       }
       $tweet->store();
+      Activity::fireNewTweet();
       fMessaging::create('success', 'create tweet', '成功发表新微博！');
     } catch (fException $e) {
       fMessaging::create('failure', 'create tweet', $e->getMessage());
