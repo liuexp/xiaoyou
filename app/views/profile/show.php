@@ -199,9 +199,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在上传⋯⋯">
-          <span>上传</span>
-        </button>
+        <button type="submit" class="btn btn-success">上传</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -276,9 +274,7 @@ include(__DIR__ . '/../layout/header.php');
       </fieldset>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
-          <span>保存</span>
-        </button>
+        <button type="submit" class="btn btn-success">保存</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -340,9 +336,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
-          <span>提交</span>
-        </button>
+        <button type="submit" class="btn btn-success">提交</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -384,9 +378,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
-          <span>提交</span>
-        </button>
+        <button type="submit" class="btn btn-success">提交</button>
       </div>
       <p class="clear"></p>
     </form>
@@ -414,9 +406,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
-          <span>提交</span>
-        </button>
+        <button type="submit" class="btn btn-success">提交</button>
       </div>
       <p class="clear"></p>
     </form>
