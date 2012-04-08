@@ -24,12 +24,7 @@ include(__DIR__ . '/../layout/header.php');
     <div class="tab-pane" id="profile">
 <!-- begin main content -->
   <section>
-    <h2>
-      经历
-      <?php if ($this->editable): ?>
-        <a class="add" href="#add-experience"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
-      <?php endif; ?>
-    </h2>
+    <h2>经历</h2>
     <ul class="relation-list">
       <?php foreach ($this->profile->getExperiences() as $experience): ?>
         <li data-experience-id="<?php echo $experience->getId(); ?>">
@@ -51,14 +46,15 @@ include(__DIR__ . '/../layout/header.php');
         </lii>
       <?php endforeach; ?>
     </ul>
+    <?php if ($this->editable): ?>
+      <button class="add btn btn-success btn-small" href="#add-experience">
+        <i class="icon-plus-sign icon-white"></i>
+        添加经历
+      </button>
+    <?php endif; ?>
   </section>
   <section>
-    <h2>
-      论文
-      <?php if ($this->editable): ?>
-        <a class="add" href="#add-paper"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
-      <?php endif; ?>
-    </h2>
+    <h2>论文</h2>
     <ul class="relation-list">
       <?php foreach ($this->profile->getPapers() as $paper): ?>
         <li data-paper-id="<?php echo $paper->getId(); ?>">
@@ -78,14 +74,15 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endforeach; ?>
     </ul>
+    <?php if ($this->editable): ?>
+      <button class="add btn btn-success btn-small" href="#add-paper">
+        <i class="icon-plus-sign icon-white"></i>
+        添加论文
+      </button>
+    <?php endif; ?>
   </section>
   <section>
-    <h2>
-      荣誉
-      <?php if ($this->editable): ?>
-        <a class="add" href="#add-honor"><img src="<?php echo SITE_BASE; ?>/images/icons/add.png"/></a>
-      <?php endif; ?>
-    </h2>
+    <h2>荣誉</h2>
     <ul class="relation-list">
       <?php foreach ($this->profile->getHonors() as $honor): ?>
         <li data-honor-id="<?php echo $honor->getId(); ?>">
@@ -102,6 +99,12 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endforeach; ?>
     </ul>
+    <?php if ($this->editable): ?>
+      <button class="add btn btn-success btn-small" href="#add-honor">
+        <i class="icon-plus-sign icon-white"></i>
+        添加荣誉
+      </button>
+    <?php endif; ?>
   </section>
 <!-- end main content -->
     </div><!-- /.tab-pane -->
