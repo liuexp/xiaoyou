@@ -8,15 +8,15 @@
 .popup h2 { display: block; border-bottom: 1px solid #ccc; }
 .popup form .field { margin: 5px 10px 5px 0; }
 .popup form label { display: inline-block; width: 130px; text-align: right; }
+.popup form label.small { width: 60px; }
 .popup form.longlabel label { width: 140px; }
-.popup form input[type=text] { width: 200px; }
 .popup form .action { float: right; }
 .relation-list li { line-height: 30px; }
 .relation-list li .tools { display: none; }
 .relation-list li:hover .tools { display: inline; }
 .contacts li { float: left; margin: 2px; }
 .contacts img { width: 22px; height: 22px; }
-#edit-info label.radio { width: 30px; text-align: left; margin-left: 5px; }
+#edit-info label.radio { width: 30px; text-align: left; margin-left: 5px; padding-left: 0; }
 .avainfo { display: block; margin: 10px; padding: 0; width: 160px; height: 160px; position: relative; overflow: hidden; cursor: pointer; }
 .avainfo .mask, .avainfo .edit { display: none; }
 .avainfo:hover .mask, .avainfo:hover .edit { display: block; position: absolute; bottom: 0; left: 0; right: 0; height: 23px; line-height: 23px; width: 160px; background-color: #333; opacity: 0.9; filter: alpha(opacity=90); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; }

@@ -1,6 +1,6 @@
 <div id="edit-paper" class="popup">
   <h2>编辑论文</h2>
-  <form id="edit-paper-form" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/paper/<?php echo $this->paper->getId(); ?>">
+  <form id="edit-paper-form" class="form-horizontal" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/paper/<?php echo $this->paper->getId(); ?>">
     <div class="field">
       <label>标题：</label>
       <input type="text" name="title" maxlength="200" value="<?php echo $this->paper->getTitle(); ?>"/>
@@ -27,7 +27,7 @@
     </div>
     <div class="field">
       <label>发表年份：</label>
-      <select name="publish_year">
+      <select name="publish_year" class="input-mini">
         <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
           <option value="<?php echo $i; ?>"<?php if ($i == $this->paper->getPublishYear()) echo ' selected'; ?>><?php echo $i; ?></option>
         <?php endfor; ?>

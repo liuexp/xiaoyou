@@ -10,6 +10,15 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tweets">
+      <?php if ($this->editable): ?>
+        <form class="well form-search">
+          <input type="text" class="search-query">
+          <button type="submit" class="btn btn-primary">
+            <i class="icon-plus-sign icon-white"></i>
+            发表新微博
+          </button>
+        </form>
+      <?php endif; ?>
       <p>I'm in Section 1.</p>
     </div>
     <div class="tab-pane" id="profile">
@@ -190,7 +199,7 @@ include(__DIR__ . '/../layout/header.php');
 <div style="display:none">
   <div id="edit-avatar" class="popup">
     <h2>编辑头像</h2>
-    <form id="edit-avatar-form" method="POST" action="<?php echo SITE_BASE; ?>/avatar/upload" enctype="multipart/form-data">
+    <form id="edit-avatar-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/avatar/upload" enctype="multipart/form-data">
       <div class="field">
         <span class="label">请先选择一张照片上传：（只接受JPEG格式）</span><br/>
         <input type="file" id="avatar-file" name="avatar-file"/><br/>
@@ -209,11 +218,11 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="edit-info" class="popup">
     <h2>编辑个人信息</h2>
-    <form id="edit-info-form" method="POST" action="<?php echo SITE_BASE; ?>/profile/<?php echo $this->profile->getId(); ?>">
+    <form id="edit-info-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/profile/<?php echo $this->profile->getId(); ?>">
       <fieldset>
         <div class="field">
           <label for="start_year">入学年份：</label>
-          <select id="start_year" name="start_year">
+          <select id="start_year" name="start_year" class="input-mini">
             <?php for ($i = 2002; $i <= date('Y'); $i++): ?>
               <option value="<?php echo $i; ?>"<?php if ($i == $this->profile->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
             <?php endfor; ?>
@@ -221,58 +230,52 @@ include(__DIR__ . '/../layout/header.php');
         </div>
         <div class="field">
           <label for="student_number">本科学号：</label>
-          <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getStudentNumber()); ?>"/>
+          <input class="textfield monofont input-medium" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getStudentNumber()); ?>"/>
         </div>
         <div class="field">
           <label for="birthday">生日：</label>
-          <input class="textfield monofont Wdate" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo htmlspecialchars($this->profile->getBirthday()); ?>"/>
-        </div>
-        <div class="field">
-          <label>性别：</label>
+          <input class="textfield monofont Wdate input-medium" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo htmlspecialchars($this->profile->getBirthday()); ?>"/>
+          <label class="small">性别：</label>
           <input type="radio" name="gender" value="M" id="genderM"<?php if ($this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderM">男</label>
           <input type="radio" name="gender" value="F" id="genderF"<?php if (!$this->profile->isMale()) echo ' checked'; ?>/><label class="radio" for="genderF">女</label>
         </div>
         <div class="field">
           <label for="location">现居住地：</label>
-          <input class="textfield monofont" type="text" id="location" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getLocation()); ?>"/>
+          <input class="textfield monofont input-medium" type="text" id="location" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getLocation()); ?>"/>
         </div>
         <div class="field">
           <label for="hometown">家乡：</label>
-          <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHometown()); ?>"/>
-        </div>
-        <div class="field">
-          <label for="high_school">高中：</label>
-          <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>"/>
+          <input class="textfield monofont input-medium" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHometown()); ?>"/>
+          <label for="high_school" class="small">高中：</label>
+          <input class="textfield monofont input-medium" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>"/>
         </div>
       </fieldset>
       <fieldset>
         <div class="field">
           <label for="email">常用Email：</label>
-          <input class="textfield monofont" type="text" id="email" name="email" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('email')); ?>"/>
-        </div>
-        <div class="field">
-          <label for="qq">QQ：</label>
-          <input class="textfield monofont" type="text" id="qq" name="qq" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('qq')); ?>"/>
+          <input class="textfield monofont input-medium" type="text" id="email" name="email" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('email')); ?>"/>
+          <label for="qq" class="small">QQ：</label>
+          <input class="textfield monofont input-medium" type="text" id="qq" name="qq" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('qq')); ?>"/>
         </div>
         <div class="field">
           <label for="renren">人人网主页地址：</label>
-          <input class="textfield monofont" type="text" id="renren" name="renren" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('renren')); ?>"/>
-        </div>
-        <div class="field">
-          <label for="weibo">新浪微博ID：</label>
-          <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('weibo')); ?>"/>
-        </div>
-        <div class="field">
-          <label for="douban">豆瓣ID：</label>
-          <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('douban')); ?>"/>
+          <input class="textfield monofont input-xlarge" type="text" id="renren" name="renren" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('renren')); ?>"/>
         </div>
         <div class="field">
           <label for="facebook">Facebook主页地址：</label>
-          <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('facebook')); ?>"/>
+          <input class="textfield monofont input-xlarge" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('facebook')); ?>"/>
+        </div>
+        <div class="field">
+          <label for="weibo">新浪微博ID：</label>
+          <input class="textfield monofont input-small" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('weibo')); ?>"/>
+        </div>
+        <div class="field">
+          <label for="douban">豆瓣ID：</label>
+          <input class="textfield monofont input-small" type="text" id="douban" name="douban" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('douban')); ?>"/>
         </div>
         <div class="field">
           <label for="twitter">Twitter ID：</label>
-          <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('twitter')); ?>"/>
+          <input class="textfield monofont input-small" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('twitter')); ?>"/>
         </div>
       </fieldset>
       <div class="failure" style="display:none"></div>
@@ -284,15 +287,15 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-experience" class="popup">
     <h2>添加经历</h2>
-    <form id="add-experience-form" method="POST" action="<?php echo SITE_BASE; ?>/experiences">
+    <form id="add-experience-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/experiences">
       <div class="field">
         <label>开始年月：</label>
-        <select name="start_year">
+        <select name="start_year" class="input-mini">
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>年
-        <select name="start_month">
+        <select name="start_month" class="input-mini">
           <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -301,13 +304,13 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label>结束年月：</label>
-        <select name="end_year">
+        <select name="end_year" class="input-mini">
           <option value="">至今</option>
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>年
-        <select name="end_month">
+        <select name="end_month" class="input-mini">
           <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -316,7 +319,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label>类型：</label>
-        <select name="type">
+        <select name="type" class="input-small">
           <option value=""></option>
           <option value="bachelor">本科</option>
           <option value="master">硕士</option>
@@ -346,7 +349,7 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-paper" class="popup">
     <h2>添加论文</h2>
-    <form id="add-paper-form" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/papers">
+    <form id="add-paper-form" class="form-horizontal" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/papers">
       <div class="field">
         <label>标题：</label>
         <input type="text" name="title" maxlength="200"/>
@@ -373,7 +376,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label>发表年份：</label>
-        <select name="publish_year">
+        <select name="publish_year" class="input-mini">
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
@@ -388,15 +391,15 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <div id="add-honor" class="popup">
     <h2>添加荣誉</h2>
-    <form id="add-honor-form" method="POST" action="<?php echo SITE_BASE; ?>/honors">
+    <form id="add-honor-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/honors">
       <div class="field">
         <label>获得荣誉年月：</label>
-        <select name="year">
+        <select name="year" class="input-mini">
           <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>年
-        <select name="month">
+        <select name="month" class="input-mini">
           <option value=""></option>
           <?php for ($i = 1; $i <= 12; $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>

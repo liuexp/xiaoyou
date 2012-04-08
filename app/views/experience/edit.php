@@ -1,14 +1,14 @@
 <div id="edit-experience" class="popup">
   <h2>编辑经历</h2>
-  <form id="edit-experience-form" method="POST" action="<?php echo SITE_BASE; ?>/experience/<?php echo $this->experience->getId(); ?>">
+  <form id="edit-experience-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/experience/<?php echo $this->experience->getId(); ?>">
     <div class="field">
       <label>开始年月：</label>
-      <select name="start_year">
+      <select name="start_year" class="input-mini">
         <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
           <option value="<?php echo $i; ?>"<?php if ($i == $this->experience->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
         <?php endfor; ?>
       </select>年
-      <select name="start_month">
+      <select name="start_month" class="input-mini">
         <option value=""></option>
         <?php for ($i = 1; $i <= 12; $i++): ?>
           <option value="<?php echo $i; ?>"<?php if ($i == $this->experience->getStartMonth()) echo ' selected'; ?>><?php echo $i; ?></option>
@@ -17,13 +17,13 @@
     </div>
     <div class="field">
       <label>结束年月：</label>
-      <select name="end_year">
+      <select name="end_year" class="input-mini">
         <option value="">至今</option>
         <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
           <option value="<?php echo $i; ?>"<?php if ($i == $this->experience->getEndYear()) echo ' selected'; ?>><?php echo $i; ?></option>
         <?php endfor; ?>
       </select>年
-      <select name="end_month">
+      <select name="end_month" class="input-mini">
         <option value=""></option>
         <?php for ($i = 1; $i <= 12; $i++): ?>
           <option value="<?php echo $i; ?>"<?php if ($i == $this->experience->getEndMonth()) echo ' selected'; ?>><?php echo $i; ?></option>
@@ -32,7 +32,7 @@
     </div>
     <div class="field">
       <label>类型：</label>
-      <select name="type">
+      <select name="type" class="input-small">
         <option value="bachelor"<?php if ($this->experience->getType() == 'bachelor') echo ' selected'; ?>>本科</option>
         <option value="master"<?php if ($this->experience->getType() == 'master') echo ' selected'; ?>>硕士</option>
         <option value="doctor"<?php if ($this->experience->getType() == 'doctor') echo ' selected'; ?>>博士</option>
