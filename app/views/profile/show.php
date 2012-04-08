@@ -199,7 +199,10 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="failure" style="display:none"></div>
       <div class="action">
-        <button type="submit" class="btn btn-success btn-large">上传</button>
+        <button type="submit" class="btn btn-success btn-large">
+          <i class="icon-ok icon-white"></i>
+          上传
+        </button>
       </div>
       <p class="clear"></p>
     </form>
