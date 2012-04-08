@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2012 at 03:45 PM
+-- Generation Time: Apr 08, 2012 at 12:07 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned DEFAULT NULL,
   `realname` varchar(200) NOT NULL,
-  `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite') NOT NULL,
+  `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite','new tweet') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;

@@ -77,6 +77,11 @@ class Activity extends fActiveRecord
     self::fire('invite');
   }
   
+  public static function fireNewTweet()
+  {
+    self::fire('new tweet');
+  }
+  
   /**
    * This function never fails.
    */
