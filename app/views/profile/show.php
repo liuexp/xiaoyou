@@ -5,8 +5,8 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="tabbable" id="profile-tab">
   <ul class="nav nav-tabs">
-    <li><a href="#tweets" data-toggle="tab">微博</a></li>
     <li class="active"><a href="#profile" data-toggle="tab">资料</a></li>
+    <li><a href="#tweets" data-toggle="tab">微博</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tweets">
