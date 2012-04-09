@@ -33,6 +33,12 @@ $app->post('/tweet/:id/reply', function ($id) {
   $controller->reply($id);
 });
 
+$app->post('/article/:id/reply', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new ArticleController();
+  $controller->reply($id);
+});
+
 $app->get('/invite/send', function () {
   fAuthorization::requireLoggedIn();
   $controller = new InviteController();

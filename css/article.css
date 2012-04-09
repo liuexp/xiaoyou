@@ -3,3 +3,15 @@ h1.title { float: none !important; }
 article { float: none !important; display: block; clear: both; margin: 20px; border: 0 !important; font-size: 15px; line-height: 24px; }
 article p { margin: 12px; line-height: 24px; }
 .intro-section-title { color: #930000; font-size: 22px; line-height: 22px; }
+.comments.comment-list { border-left: 0; border-right: 0; left: 0; position: inherit; float: none; clear: both; }
+.comments.comment-list .a-feed { position: relative; padding-bottom: 6px; margin-top: 10px; border-bottom: 1px solid #E3EEF8; padding-left: 20px; min-height: 40px; margin-bottom: 10px; word-wrap: break-word; word-break: break-all; zoom: 1; display: block; outline: 0; vertical-align: baseline; }
+.comments.comment-list .a-feed::after { display: block; clear: both; }
+.comments.comment-list .a-feed aside { float: left; _position: absolute; _left: 20px; _top: 0; display: block; margin: 0; padding: 0; border: 0; }
+.comments.comment-list .a-feed aside figure { position: absolute; overflow: visible; width: 40px; height: 40px; display: block; }
+.comments.comment-list .a-feed aside figure a { width: 40px; height: 40px; overflow: hidden; }
+.comments.comment-list .a-feed aside figure img { margin: 0; display: block; border: 0; width: 40px; }
+.comments.comment-list .a-feed h3 { word-wrap: break-word; word-break: break-all; margin-left: 50px; margin-right: 40px; line-height: 1.4em; padding-bottom: 5px; font-weight: normal; font-size: 14px; color: #333; }
+.comments.comment-list .a-feed .details { margin-left: 50px; margin-bottom: 5px; zoom: 1; padding: 0; display: block; }
+.comments.comment-list .a-feed .details .legend { line-height: 1.5em; margin: 0; padding: 0; display: block; }
+.comments.comment-list .a-feed .details .legend span.duration { margin-right: 0.4em; color: #888; }
+.comments.comment-list #comment-form { margin-left: 70px; }

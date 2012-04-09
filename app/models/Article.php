@@ -21,4 +21,9 @@ class Article extends fActiveRecord
   {
     return $this->getCreatedAt()->gt(new fTimestamp('-5 day'));
   }
+  
+  public function getComments()
+  {
+    return fRecordSet::build('ArticleComment', array('article_id=' => $this->getId()), array('timestamp' => 'asc'));
+  }
 }

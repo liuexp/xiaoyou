@@ -111,4 +111,27 @@ class ArticleController extends ApplicationController
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
   }
+  
+  public function reply($id)
+  {
+    try {
+      $article = new Article($id);
+      $comment = new ArticleComment();
+      $comment->setArticleId($article->getId());
+      $comment->setProfileId(UserHelper::getProfileId());
+      $comment->setContent(trim(fRequest::get('article-comment')));
+      if (strlen($comment->getContent()) < 1) {
+        throw new fValidationException('回复长度不能少于1个字符');
+      }
+      if (strlen($comment->getContent()) > 240) {
+        throw new fValidationException('回复长度不能超过240个字符');
+      }
+      $comment->store();
+      fMessaging::create('success', 'create article comment', '成功发表评论！');
+      fURL::redirect(SITE_BASE . '/article/' . $id . '#comment-' . $comment->getId());
+    } catch (fException $e) {
+      fMessaging::create('failure', 'create article comment', $e->getMessage());
+      fURL::redirect(SITE_BASE . '/article/' . $id . '#comment-form');
+    }
+  }
 }
