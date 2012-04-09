@@ -17,7 +17,7 @@ class ActivityHelper
       'update honor' => '更新了个人荣誉',
       'update paper' => '更新了论文发表情况',
       'invite' => '邀请了更多同学',
-      'new tweet' => '发表了新微博'
+      'new tweet' => '发表了<a href="tweets">新微博</a>'
     );
     
     if (isset($translations[$type])) {
