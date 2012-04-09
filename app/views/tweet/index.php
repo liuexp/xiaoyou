@@ -41,5 +41,5 @@ include(__DIR__ . '/../layout/header.php');
 <?php endforeach; ?>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'bootstrap.min');
+$javascripts = array('jquery-1.7.1.min', 'bootstrap.min', 'hide-broken-images');
 include(__DIR__ . '/../layout/footer.php');
