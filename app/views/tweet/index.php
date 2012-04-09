@@ -26,8 +26,8 @@ include(__DIR__ . '/../layout/header.php');
     </aside>
     <h3>
       <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
-      :
-      <?php echo $tweet->getContent(); ?>
+      <span>:</span>
+      <span><?php echo $tweet->getContent(); ?></span>
     </h3>
     <div class="details">
       <div class="legend">
