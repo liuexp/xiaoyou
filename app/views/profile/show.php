@@ -40,7 +40,25 @@ include(__DIR__ . '/../layout/header.php');
                   <a class="close" data-dismiss="alert">&times;</a>
                 <?php endif; ?>
                 <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
-                <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
+                <small class="pull-right">发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
+                <p class="clear"></p>
+                <?php foreach ($tweet->getComments() as $comment): ?>
+                  <?php $replier = $comment->getProfile(); ?>
+                  <blockquote>
+                    <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $replier->getId(); ?>"><?php echo $replier->getDisplayName(); ?></a>
+                    <span>:</span>
+                    <span><?php echo htmlspecialchars($comment->getContent()); ?></span>
+                    <small><?php echo $comment->getTimestamp()->getFuzzyDifference(); ?></small>
+                  </blockquote>
+                <?php endforeach; ?>
+                <form class="form-search" action="<?php echo SITE_BASE; ?>/tweet/<?php echo $tweet->getId(); ?>/reply" method="post">
+                  <div class="controls">
+                    <div class="input-append">
+                      <input name="tweet-comment" type="text" class="input-xlarge" maxlength="140" placeholder="这里输入回复内容"/>
+                      <button type="submit" class="btn btn-success btn-small">添加回复</button>
+                    </div>
+                  </div>
+                </form>
               </blockquote>
             </li>
           <?php endforeach; ?>

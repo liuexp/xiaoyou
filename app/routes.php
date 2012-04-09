@@ -27,6 +27,12 @@ $app->delete('/tweet/:id', function ($id) {
   $controller->delete($id);
 });
 
+$app->post('/tweet/:id/reply', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new TweetController();
+  $controller->reply($id);
+});
+
 $app->get('/invite/send', function () {
   fAuthorization::requireLoggedIn();
   $controller = new InviteController();

@@ -9,4 +9,9 @@ class Tweet extends fActiveRecord
   {
     return new Profile($this->getProfileId());
   }
+  
+  public function getComments()
+  {
+    return fRecordSet::build('TweetComment', array('tweet_id=' => $this->getId()), array('timestamp' => 'asc'));
+  }
 }

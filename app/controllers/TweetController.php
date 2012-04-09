@@ -42,4 +42,19 @@ class TweetController extends ApplicationController
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
   }
+  
+  public function reply($id)
+  {
+    try {
+      $tweet = new Tweet($id);
+      $comment = new TweetComment();
+      $comment->setTweetId($tweet->getId());
+      $comment->setProfileId(UserHelper::getProfileId());
+      $comment->setContent(trim(fRequest::get('tweet-comment')));
+      $comment->store();
+    } catch (fException $e) {
+      // TODO
+    }  
+    fURL::redirect(SITE_BASE . '/profile/' . $tweet->getProfileId() . '#tweet/' . $tweet->getId());
+  }
 }
