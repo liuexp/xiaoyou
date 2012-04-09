@@ -28,7 +28,7 @@ include(__DIR__ . '/../layout/header.php');
     <h3>
       <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
       <span>:</span>
-      <span><?php echo htmlspecialchars($comment->getContent()); ?></span>
+      <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($comment->getContent())); ?></span>
     </h3>
     <div class="details">
       <div class="legend">

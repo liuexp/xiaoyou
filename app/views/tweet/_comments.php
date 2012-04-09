@@ -3,7 +3,7 @@
   <blockquote data-tweet-comment-id="<?php echo $comment->getId(); ?>">
     <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $replier->getId(); ?>"><?php echo $replier->getDisplayName(); ?></a>
     <span>:</span>
-    <span><?php echo htmlspecialchars($comment->getContent()); ?></span>
+    <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($comment->getContent())); ?></span>
     <small><?php echo $comment->getTimestamp()->getFuzzyDifference(); ?></small>
   </blockquote>
 <?php endforeach; ?>

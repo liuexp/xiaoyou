@@ -38,5 +38,6 @@ require_once(__DIR__ . '/helpers/Util.php');
 require_once(__DIR__ . '/helpers/UserHelper.php');
 require_once(__DIR__ . '/helpers/NameHelper.php');
 require_once(__DIR__ . '/helpers/ActivityHelper.php');
+require_once(__DIR__ . '/helpers/TweetHelper.php');
 
 require_once(__DIR__ . '/routes.php');
