@@ -1,5 +1,5 @@
 .text h1:first-child { border-right: 0; }
-.articles { display: block; clear: both; margin: 20px; border-left: 0 !important; }
+.articles { float: none; display: block; clear: both; margin: 20px; border-left: 0 !important; }
 .articles li { line-height: 30px; width: 49%; float: left; }
 .articles li .tools { display: none; }
 .articles li:hover .tools { display: inline; }
