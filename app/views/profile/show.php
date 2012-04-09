@@ -44,7 +44,7 @@ include(__DIR__ . '/../layout/header.php');
                 <p class="clear"></p>
                 <?php foreach ($tweet->getComments() as $comment): ?>
                   <?php $replier = $comment->getProfile(); ?>
-                  <blockquote>
+                  <blockquote data-tweet-comment-id="<?php echo $comment->getId(); ?>">
                     <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $replier->getId(); ?>"><?php echo $replier->getDisplayName(); ?></a>
                     <span>:</span>
                     <span><?php echo htmlspecialchars($comment->getContent()); ?></span>
