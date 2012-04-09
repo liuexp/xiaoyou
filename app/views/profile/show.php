@@ -5,11 +5,11 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="tabbable" id="profile-tab">
   <ul class="nav nav-tabs">
-    <li><a href="#tweets" data-toggle="tab">微博</a></li>
-    <li class="active"><a href="#profile" data-toggle="tab">资料</a></li>
+    <li class="active"><a href="#tweets" data-toggle="tab">微博</a></li>
+    <li><a href="#profile" data-toggle="tab">资料</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane" id="tweets">
+    <div class="tab-pane active" id="tweets">
       <?php if ($this->editable): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
@@ -25,12 +25,8 @@ include(__DIR__ . '/../layout/header.php');
             </div>
           <?php endif; ?>
           <div class="controls">
-            <div class="input-append">
-              <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/><button type="submit" class="btn btn-danger btn-large btn-input-large">
-                <!--<i class="icon-plus-sign icon-white"></i>-->
-                发表新微博
-              </button>
-            </div>
+            <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/>
+            <button type="submit" class="btn btn-danger btn-large btn-input-large">发表新微博</button>
           </div>
         </form>
       <?php endif; ?>
@@ -48,7 +44,7 @@ include(__DIR__ . '/../layout/header.php');
         <?php endforeach; ?>
       </ul>
     </div>
-    <div class="tab-pane active" id="profile">
+    <div class="tab-pane" id="profile">
 <!-- begin main content -->
   <section>
     <h2>经历</h2>
