@@ -5,11 +5,11 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="tabbable" id="profile-tab">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#profile" data-toggle="tab">资料</a></li>
     <li><a href="#tweets" data-toggle="tab">微博</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab">资料</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="tweets">
+    <div class="tab-pane" id="tweets">
       <?php if ($this->editable): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
@@ -48,7 +48,7 @@ include(__DIR__ . '/../layout/header.php');
         <?php endforeach; ?>
       </ul>
     </div>
-    <div class="tab-pane" id="profile">
+    <div class="tab-pane active" id="profile">
 <!-- begin main content -->
   <section>
     <h2>经历</h2>
