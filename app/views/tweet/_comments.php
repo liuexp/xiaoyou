@@ -7,6 +7,7 @@
     <small><?php echo $comment->getTimestamp()->getFuzzyDifference(); ?></small>
   </blockquote>
 <?php endforeach; ?>
+<?php if (fAuthorization::checkLoggedIn()): ?>
 <form class="form-search" action="<?php echo SITE_BASE; ?>/tweet/<?php echo $tweet->getId(); ?>/reply" method="post">
   <div class="controls">
     <div class="input-append">
@@ -15,3 +16,4 @@
     </div>
   </div>
 </form>
+<?php endif; ?>
