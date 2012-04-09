@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2012 at 12:07 PM
+-- Generation Time: Apr 09, 2012 at 05:59 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -51,6 +51,23 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `article_comments` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `article_id` bigint(20) unsigned NOT NULL,
+  `profile_id` bigint(20) unsigned NOT NULL,
+  `content` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `article_id` (`article_id`),
+  KEY `profile_id` (`profile_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -217,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -234,11 +251,18 @@ CREATE TABLE IF NOT EXISTS `tweet_comments` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `tweet_id` (`tweet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `article_comments`
+--
+ALTER TABLE `article_comments`
+  ADD CONSTRAINT `article_comments_ibfk_2` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `article_comments_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `contacts`
@@ -274,5 +298,5 @@ ALTER TABLE `tweets`
 -- Constraints for table `tweet_comments`
 --
 ALTER TABLE `tweet_comments`
-  ADD CONSTRAINT `tweet_comments_ibfk_2` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tweet_comments_ibfk_1` FOREIGN KEY (`tweet_id`) REFERENCES `tweets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tweet_comments_ibfk_1` FOREIGN KEY (`tweet_id`) REFERENCES `tweets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tweet_comments_ibfk_2` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
