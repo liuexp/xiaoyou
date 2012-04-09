@@ -51,6 +51,12 @@ class TweetController extends ApplicationController
       $comment->setTweetId($tweet->getId());
       $comment->setProfileId(UserHelper::getProfileId());
       $comment->setContent(trim(fRequest::get('tweet-comment')));
+      if (strlen($comment->getContent()) < 1) {
+        throw new fValidationException('回复长度不能少于1个字符');
+      }
+      if (strlen($comment->getContent()) > 140) {
+        throw new fValidationException('回复长度不能超过140个字符');
+      }
       $comment->store();
     } catch (fException $e) {
       // TODO
