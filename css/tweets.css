@@ -1,5 +1,5 @@
 .timeline.feed-list { border-left: 0; border-right: 0; left: 0; position: inherit; float: none; clear: both; }
-.timeline.feed-list .a-feed { position: relative; padding-bottom: 6px; margin-top: 10px; border-bottom: 1px solid #E3EEF8; margin-left: -20px; padding-left: 20px; min-height: 40px; margin-bottom: 10px; word-wrap: break-word; word-break: break-all; zoom: 1; display: block; outline: 0; vertical-align: baseline; }
+.timeline.feed-list .a-feed { position: relative; padding-bottom: 6px; margin-top: 10px; border-bottom: 1px solid #E3EEF8; padding-left: 20px; min-height: 40px; margin-bottom: 10px; word-wrap: break-word; word-break: break-all; zoom: 1; display: block; outline: 0; vertical-align: baseline; }
 .timeline.feed-list .a-feed::after { display: block; clear: both; }
 .timeline.feed-list .a-feed aside { float: left; _position: absolute; _left: 20px; _top: 0; display: block; margin: 0; padding: 0; border: 0; }
 .timeline.feed-list .a-feed aside figure { position: absolute; overflow: visible; width: 40px; height: 40px; display: block; }
