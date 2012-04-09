@@ -39,7 +39,7 @@ include(__DIR__ . '/../layout/header.php');
                 <?php if ($this->editable): ?>
                   <a class="close" data-dismiss="alert">&times;</a>
                 <?php endif; ?>
-                <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
+                <p><?php echo TweetHelper::replaceEmotion(htmlspecialchars($tweet->getContent())); ?></p>
                 <small class="pull-right">发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
                 <p class="clear"></p>
                 <?php include(__DIR__ . '/../tweet/_comments.php'); ?>
