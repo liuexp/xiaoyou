@@ -28,7 +28,7 @@ class HomeController extends ApplicationController
     );
     $this->activities = fRecordSet::buildFromSQL(
       'Activity',
-      'SELECT activities.* FROM activities GROUP BY CONCAT(realname,type) ORDER BY timestamp DESC LIMIT ' . ACTIVITIES_LIMIT
+      'SELECT activities.* FROM activities GROUP BY realname,type,DATE(timestamp),HOUR(timestamp) ORDER BY timestamp DESC LIMIT ' . ACTIVITIES_LIMIT
     );
     $this->render('home/index');
   }
