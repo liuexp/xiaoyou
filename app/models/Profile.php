@@ -17,6 +17,11 @@ class Profile extends fActiveRecord
     return $this->getGender() == 'M';
   }
   
+  public function getHeOrShe()
+  {
+    return $this->isMale() ? '他' : '她';
+  }
+  
   public function getContacts()
   {
     return fRecordSet::build('Contact', array('profile_id=' => $this->getId()));

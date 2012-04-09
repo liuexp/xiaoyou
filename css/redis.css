@@ -129,6 +129,7 @@ body.topics.whos-using-redis ul:first-of-type li img { vertical-align: middle; m
 
 .clear { clear: both; }
 .w500 { width: 578px; }
+.w300 { width: 397px; }
 
 /** github buttons **/
 button.classy,button.classy:disabled,button.classy.disabled,a.button.classy:disabled,a.button.classy.disabled,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy.disabled:hover:disabled,a.button.classy.disabled:hover,a.button.classy,button.classy:disabled:hover,button.classy.disabled:disabled:hover,a.button.classy:disabled:hover,a.button.classy.disabled:disabled:hover,a.button.classy.disabled:hover{

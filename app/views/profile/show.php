@@ -30,19 +30,29 @@ include(__DIR__ . '/../layout/header.php');
           </div>
         </form>
       <?php endif; ?>
-      <ul class="unstyled">
-        <?php foreach ($this->profile->getTweets() as $tweet): ?>
-          <li id="tweet/<?php echo $tweet->getId(); ?>">
-            <blockquote class="tweet fade in well w500" data-tweet-id="<?php echo $tweet->getId(); ?>">
-              <?php if ($this->editable): ?>
-                <a class="close" data-dismiss="alert">&times;</a>
-              <?php endif; ?>
-              <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
-              <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
-            </blockquote>
-          </li>
-        <?php endforeach; ?>
-      </ul>
+      <?php $tweets = $this->profile->getTweets(); ?>
+      <?php if (count($tweets)): ?>
+        <ul class="unstyled">
+          <?php foreach ($tweets as $tweet): ?>
+            <li id="tweet/<?php echo $tweet->getId(); ?>">
+              <blockquote class="tweet fade in well w500" data-tweet-id="<?php echo $tweet->getId(); ?>">
+                <?php if ($this->editable): ?>
+                  <a class="close" data-dismiss="alert">&times;</a>
+                <?php endif; ?>
+                <p><?php echo htmlspecialchars($tweet->getContent()); ?></p>
+                <small>发表于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
+              </blockquote>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      <?php else: ?>
+        <div class="well w300 no-tweets">
+          <p>
+            <?php echo $this->profile->getDisplayName(); ?>还没有发表过微博<br/>
+            可以先看看<?php echo $this->profile->getHeOrShe(); ?>的个人资料
+          </p>
+        </div>
+      <?php endif; ?>
     </div>
     <div class="tab-pane" id="profile">
 <!-- begin main content -->

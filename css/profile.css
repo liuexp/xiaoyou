@@ -6,6 +6,7 @@ section h2.mt20 { margin-top: 20px; }
 .tweet a.close { display: none; }
 .tweet:hover a.close { display: block; }
 .tweet p { word-wrap: break-word; overflow: hidden; }
+.no-tweets { color: #888; font-size: 14px; background: url(../images/faceya.png) 135px center no-repeat; padding-left: 200px; padding-bottom: 20px; padding-top: 20px; }
 .profile > * { margin-left: 10px; }
 .profile ul.details { margin-left: 15px; }
 .profile ul.details li { margin-bottom: 4px; line-height: 24px; }
