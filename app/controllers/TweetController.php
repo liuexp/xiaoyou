@@ -3,7 +3,7 @@ class TweetController extends ApplicationController
 {
   public function index()
   {
-    $this->tweets = fRecordSet::build('Tweet', array(), array('timestamp' => 'desc'), 30);
+    $this->tweets = fRecordSet::build('Tweet', array(), array('timestamp' => 'desc'), 15);
     $this->render('tweet/index');
   }
   
