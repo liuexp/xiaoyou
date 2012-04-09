@@ -10,6 +10,7 @@ require_once(__DIR__ . '/init.php');
 
 require_once(__DIR__ . '/models/Activity.php');
 require_once(__DIR__ . '/models/Article.php');
+require_once(__DIR__ . '/models/ArticleComment.php');
 require_once(__DIR__ . '/models/Contact.php');
 require_once(__DIR__ . '/models/Experience.php');
 require_once(__DIR__ . '/models/Honor.php');
