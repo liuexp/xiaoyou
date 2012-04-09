@@ -14,4 +14,4 @@ article p { margin: 12px; line-height: 24px; }
 .comments.comment-list .a-feed .details { margin-left: 50px; margin-bottom: 5px; zoom: 1; padding: 0; display: block; }
 .comments.comment-list .a-feed .details .legend { line-height: 1.5em; margin: 0; padding: 0; display: block; }
 .comments.comment-list .a-feed .details .legend span.duration { margin-right: 0.4em; color: #888; }
-.comments.comment-list #comment-form { margin-left: 70px; }
+.comments.comment-list #comment-form { margin-left: 70px; width: 400px; }
