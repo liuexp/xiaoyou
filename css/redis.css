@@ -38,7 +38,7 @@ body > header > .container { margin: 0 auto; max-width: 900px; }
 body > header > .container > a { float: left; border-right: 1px solid black; padding: 7.5px 20px 7.5px 0; }
 body > header > .container > a img { display: block; height: 45px; }
 body > header nav { float: left; border-left: 1px solid #930000; padding: 0 0 0 20px; }
-body > header nav a { color: #fff; display: block; float: left; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; font-size: 20px; font-weight: normal; line-height: 60px; margin: 0 9px; text-decoration: none; text-shadow: #550000, 0px, 1px, 1px; }
+body > header nav a { color: #fff; display: block; float: left; font-family: "微软雅黑","Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif; font-size: 19px; font-weight: normal; line-height: 60px; margin: 0 9px; text-decoration: none; text-shadow: #550000, 0px, 1px, 1px; }
 body > header nav a:first-child { margin-left: 0; }
 body > header nav a:hover { color: #ffffcc; text-decoration: none; }
 body > footer { background: url(../images/small-logo.png) no-repeat left top; padding: 10px 10px 10px 70px; max-width: 820px; margin: 20px auto; color: #777777; position: relative; font-size: 11px; }
