@@ -34,6 +34,9 @@ include(__DIR__ . '/../layout/header.php');
         <span class="duration"><?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?></span>
       </div>
     </div>
+    <div class="comments">
+      <?php include(__DIR__ . '/_comments.php'); ?>
+    </div>
   </article>
 <?php endforeach; ?>
 </div>

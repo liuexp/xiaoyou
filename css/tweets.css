@@ -9,3 +9,4 @@
 .timeline.feed-list .a-feed .details { margin-left: 50px; margin-bottom: 5px; zoom: 1; padding: 0; display: block; }
 .timeline.feed-list .a-feed .details .legend { line-height: 1.5em; margin: 0; padding: 0; display: block; }
 .timeline.feed-list .a-feed .details .legend span.duration { margin-right: 0.4em; color: #888; }
+.timeline.feed-list .a-feed .comments { margin-left: 50px; }
