@@ -45,7 +45,10 @@ class ExperienceController extends ApplicationController
       $experience->setLocation(trim(fRequest::get('location')));
       $experience->setMentor(trim(fRequest::get('mentor')));
       $experience->store();
-      Activity::fireUpdateExperience();
+      if (UserHelper::getProfileId() == $experience->getProfileId()) {
+        // not editor power
+        Activity::fireUpdateExperience();
+      }
       $this->ajaxReturn(array('result' => 'success', 'experience_id' => $experience->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));

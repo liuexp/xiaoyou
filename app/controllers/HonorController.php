@@ -35,7 +35,10 @@ class HonorController extends ApplicationController
       $honor->setMonth(fRequest::get('month'));
       $honor->setDescription(trim(fRequest::get('description')));
       $honor->store();
-      Activity::fireUpdateHonor();
+      if (UserHelper::getProfileId() == $honor->getProfileId()) {
+        // not editor power
+        Activity::fireUpdateHonor();
+      }
       $this->ajaxReturn(array('result' => 'success', 'honor_id' => $honor->getId()));
     } catch (fException $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
