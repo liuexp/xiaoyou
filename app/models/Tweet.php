@@ -17,7 +17,7 @@ class Tweet extends fActiveRecord
   
   public function getReplyTimestamp()
   {
-    $comments = $this->getComments();
+    $comments = $this->getComments()->getRecords();
     if ($n = count($comments)) {
       return $comments[$n - 1]->getTimestamp();
     }

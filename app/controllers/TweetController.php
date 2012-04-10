@@ -3,15 +3,8 @@ class TweetController extends ApplicationController
 {
   public function index()
   {
-    $this->tweets = fRecordSet::build('Tweet', array(), array('timestamp' => 'desc'), ACTIVITIES_LIMIT);
-    // $n = count($this->tweets);
-    // for ($i = 0; $i < $n; $i++)
-    //   for ($j = $i + 1; $j < $n; $j++)
-    //     if ($this->tweets[$i]->getReplyTimestamp()->lt($this->tweets[$j]->getReplyTimestamp())) {
-    //       $t = $this->tweets[$i];
-    //       $this->tweets[$i] = $this->tweets[$j];
-    //       $this->tweets[$j] = $t;
-    //     }
+    $this->tweets = fRecordSet::build('Tweet', array(), array('timestamp' => 'desc'), ACTIVITIES_LIMIT)->getRecords();
+    TweetHelper::sort($this->tweets);
     $this->render('tweet/index');
   }
   
