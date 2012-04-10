@@ -14,4 +14,13 @@ class Tweet extends fActiveRecord
   {
     return fRecordSet::build('TweetComment', array('tweet_id=' => $this->getId()), array('timestamp' => 'asc'));
   }
+  
+  public function getReplyTimestamp()
+  {
+    $comments = $this->getComments();
+    if ($n = count($comments)) {
+      return $comments[$n - 1]->getTimestamp();
+    }
+    return $this->getTimestamp();
+  }
 }
