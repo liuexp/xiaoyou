@@ -32,7 +32,7 @@ class PaperController extends ApplicationController
   {
     try {
       $paper = new Paper($id);
-      if (UserHelper::getProfileId() != $paper->getProfileId()) {
+      if (UserHelper::getProfileId() != $paper->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $paper->setTitle(trim(fRequest::get('title')));
@@ -54,7 +54,7 @@ class PaperController extends ApplicationController
   {
     try {
       $paper = new Paper($id);
-      if (UserHelper::getProfileId() != $paper->getProfileId()) {
+      if (UserHelper::getProfileId() != $paper->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $paper->delete();

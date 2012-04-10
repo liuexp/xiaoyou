@@ -28,7 +28,7 @@ class HonorController extends ApplicationController
   {
     try {
       $honor = new Honor($id);
-      if (UserHelper::getProfileId() != $honor->getProfileId()) {
+      if (UserHelper::getProfileId() != $honor->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $honor->setYear(fRequest::get('year'));
@@ -46,7 +46,7 @@ class HonorController extends ApplicationController
   {
     try {
       $honor = new Honor($id);
-      if (UserHelper::getProfileId() != $honor->getProfileId()) {
+      if (UserHelper::getProfileId() != $honor->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $honor->delete();

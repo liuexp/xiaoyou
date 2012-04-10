@@ -33,7 +33,7 @@ class ExperienceController extends ApplicationController
   {
     try {
       $experience = new Experience($id);
-      if (UserHelper::getProfileId() != $experience->getProfileId()) {
+      if (UserHelper::getProfileId() != $experience->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $experience->setStartYear(fRequest::get('start_year'));
@@ -56,7 +56,7 @@ class ExperienceController extends ApplicationController
   {
     try {
       $experience = new Experience($id);
-      if (UserHelper::getProfileId() != $experience->getProfileId()) {
+      if (UserHelper::getProfileId() != $experience->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $experience->delete();
