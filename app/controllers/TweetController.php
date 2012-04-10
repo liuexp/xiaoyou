@@ -33,7 +33,7 @@ class TweetController extends ApplicationController
   {
     try {
       $tweet = new Tweet($id);
-      if (UserHelper::getProfileId() != $tweet->getProfileId()) {
+      if (UserHelper::getProfileId() != $tweet->getProfileId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $tweet->delete();

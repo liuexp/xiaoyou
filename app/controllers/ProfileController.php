@@ -98,7 +98,7 @@ class ProfileController extends ApplicationController
   {
     try {
       $this->profile = new Profile($id);
-      $this->editable = UserHelper::getProfileId() == $this->profile->getId();
+      $this->editable = (UserHelper::getProfileId() == $this->profile->getId()) or UserHelper::isEditor();
       $this->username = $this->profile->getLoginName();
       $this->avatarfile = AVATAR_DIR . $this->username . '-avatar.jpg';
       $this->render('profile/show');
@@ -114,7 +114,7 @@ class ProfileController extends ApplicationController
       $this->db->query('BEGIN');
       
       $profile = new Profile($id);
-      if (UserHelper::getProfileId() != $profile->getId()) {
+      if (UserHelper::getProfileId() != $profile->getId() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
       }
       $profile->setStartYear(fRequest::get('start_year'));
