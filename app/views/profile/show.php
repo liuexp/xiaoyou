@@ -10,7 +10,7 @@ include(__DIR__ . '/../layout/header.php');
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="tweets">
-      <?php if ($this->editable): ?>
+      <?php if ($this->editable and !UserHelper::isEditor()): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
             <div class="alert alert-success fade in">
@@ -81,7 +81,7 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endforeach; ?>
     </ul>
-    <?php if ($this->editable): ?>
+    <?php if ($this->editable and !UserHelper::isEditor()): ?>
       <button class="add btn btn-success btn-small" href="#add-experience">
         <i class="icon-plus-sign icon-white"></i>
         添加经历
@@ -109,7 +109,7 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endforeach; ?>
     </ul>
-    <?php if ($this->editable): ?>
+    <?php if ($this->editable and !UserHelper::isEditor()): ?>
       <button class="add btn btn-success btn-small" href="#add-paper">
         <i class="icon-plus-sign icon-white"></i>
         添加论文
@@ -134,7 +134,7 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endforeach; ?>
     </ul>
-    <?php if ($this->editable): ?>
+    <?php if ($this->editable and !UserHelper::isEditor()): ?>
       <button class="add btn btn-success btn-small" href="#add-honor">
         <i class="icon-plus-sign icon-white"></i>
         添加荣誉
@@ -160,7 +160,7 @@ include(__DIR__ . '/../layout/header.php');
     <?php else: ?>
       <img class="avatar" src="<?php echo SITE_BASE; ?>/images/default-avatar.jpg"/>
     <?php endif; ?>
-    <?php if ($this->editable): ?>
+    <?php if ($this->editable and !UserHelper::isEditor()): ?>
       <div class="mask"></div>
       <a id="edit-avatar-link" class="edit" href="#edit-avatar">编辑头像</a>
     <?php endif; ?>
