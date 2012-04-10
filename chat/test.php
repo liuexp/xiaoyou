@@ -3,8 +3,6 @@ $memcache = new Memcache();
 $memcache->addServer('172.16.6.105', 11211);
 $memcache->addServer('172.16.6.107', 11211);
 
-$memcache->connect('172.16.6.105', 11211) or die ("Could not connect");
-
 $version = $memcache->getVersion();
 echo "Server's version: ".$version."<br/>\n";
 
