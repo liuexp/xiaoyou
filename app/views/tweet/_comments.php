@@ -8,7 +8,7 @@
   </blockquote>
 <?php endforeach; ?>
 <?php if (fAuthorization::checkLoggedIn()): ?>
-<form class="form-search" action="<?php echo SITE_BASE; ?>/tweet/<?php echo $tweet->getId(); ?>/reply" method="post">
+<form class="form-search" action="<?php echo SITE_BASE; ?>/tweet/<?php echo $tweet->getId(); ?>/reply" method="post" onsubmit="$.blockUI();">
   <div class="controls">
     <div class="input-append">
       <input name="tweet-comment" type="text" class="input-xlarge" maxlength="140" placeholder="这里输入回复内容"/>
