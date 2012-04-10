@@ -32,6 +32,9 @@ include(__DIR__ . '/../layout/header.php');
     <div class="details">
       <div class="legend">
         <span class="duration"><?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?></span>
+        <a class="reply" href="javascript:void(0)">
+          回复<?php if ($cc = $tweet->getComments()->count()): ?>(<?php echo $cc; ?>)<?php endif; ?>
+        </a>
       </div>
     </div>
     <div class="comments">
@@ -41,5 +44,5 @@ include(__DIR__ . '/../layout/header.php');
 <?php endforeach; ?>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
+$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images', 'toggle-comments');
 include(__DIR__ . '/../layout/footer.php');
