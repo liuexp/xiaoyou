@@ -38,7 +38,7 @@ include(__DIR__ . '/../layout/header.php');
   </article>
 <?php endforeach; ?>
 <?php if (fAuthorization::checkLoggedIn()): ?>
-  <form id="comment-form" class="pull-left" action="<?php echo SITE_BASE; ?>/article/<?php echo $this->article->getId(); ?>/reply" method="post">
+  <form id="comment-form" class="pull-left" action="<?php echo SITE_BASE; ?>/article/<?php echo $this->article->getId(); ?>/reply" method="post" onsubmit="$.blockUI();">
     <?php if ($artcom_success = fMessaging::retrieve('success', 'create article comment')): ?>
       <div class="alert alert-success fade in">
         <a class="close" data-dismiss="alert">&times;</a>
@@ -64,5 +64,5 @@ include(__DIR__ . '/../layout/header.php');
 <?php endif; ?>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'bootstrap.min');
+$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min');
 include(__DIR__ . '/../layout/footer.php');

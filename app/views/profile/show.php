@@ -11,7 +11,7 @@ include(__DIR__ . '/../layout/header.php');
   <div class="tab-content">
     <div class="tab-pane active" id="tweets">
       <?php if ($this->editable): ?>
-        <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post">
+        <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
             <div class="alert alert-success fade in">
               <a class="close" data-dismiss="alert">&times;</a>
@@ -469,12 +469,12 @@ include(__DIR__ . '/../layout/header.php');
 if ($this->editable) {
   $javascripts = array(
     'datepicker/WdatePicker',
-    'jquery-1.7.1.min', 'bootstrap.min',
+    'jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min',
     'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
     'profile/show.min',
     'hide-broken-images'
   );
 } else {
-  $javascripts = array('jquery-1.7.1.min', 'bootstrap.min', 'hide-broken-images');
+  $javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
 }
 include(__DIR__ . '/../layout/footer.php');
