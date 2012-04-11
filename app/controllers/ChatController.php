@@ -48,6 +48,7 @@ class ChatController extends ApplicationController
       $this->releaseLock();
       
       $this->ajaxReturn(array('result' => 'success'));
+      fURL::redirect(SITE_BASE . '/chat/sendform');
     } catch (Exception $e) {
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
