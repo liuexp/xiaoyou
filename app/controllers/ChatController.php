@@ -42,11 +42,11 @@ class ChatController extends ApplicationController
       $this->getCache()->set('chat-messages', $messages);
       $this->releaseLock();
       
-      $this->ajaxReturn(array('result' => 'success'));
-      fURL::redirect(SITE_BASE . '/chat/sendform');
+      // $this->ajaxReturn(array('result' => 'success'));
     } catch (Exception $e) {
-      $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+      // $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
+    fURL::redirect(SITE_BASE . '/chat/messages#bottom');
   }
   
   public function listMessages()
