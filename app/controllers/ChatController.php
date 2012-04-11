@@ -69,6 +69,11 @@ class ChatController extends ApplicationController
   
   public function listMessages()
   {
+    $this->render('chat/messages');
+  }
+  
+  public function ajaxMessages()
+  {
     $this->acquireLock();
     $users = $this->getCache()->get('chat-users', array());
     $users[] = UserHelper::getName();
@@ -77,7 +82,7 @@ class ChatController extends ApplicationController
     
     $this->getCache()->set('chat-online-' . UserHelper::getName(), true, 5 * $this->pollInterval);
     $this->messages = $this->getCache()->get('chat-messages', array());
-    $this->render('chat/messages');
+    $this->render('chat/ajax-messages');
   }
   
   public function listUsers()

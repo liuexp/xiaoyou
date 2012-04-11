@@ -33,6 +33,12 @@ $app->get('/chat/messages', function () {
   $controller->listMessages();
 });
 
+$app->get('/chat/ajax-messages', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->ajaxMessages();
+});
+
 $app->get('/chat/users', function () {
   fAuthorization::requireLoggedIn();
   $controller = new ChatController();

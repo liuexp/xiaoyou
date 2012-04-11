@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <title>在线聊天</title>
+  <script type="text/javascript">window.messages_url = '<?php echo SITE_BASE; ?>/chat/ajax-messages';</script>
 </head>
 <frameset cols="30%,70%">
   <frame id="users" name="users" src="<?php echo SITE_BASE; ?>/chat/users"></frame>
