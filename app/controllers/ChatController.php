@@ -93,6 +93,6 @@ class ChatController extends ApplicationController
   public function ajaxUsers()
   {
     $this->refreshUsers();
-    $this->render('chat/users');
+    $this->render('chat/ajax-users');
   }
 }
