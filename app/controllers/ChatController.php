@@ -61,7 +61,7 @@ class ChatController extends ApplicationController
     $this->getCache()->set('chat-users', $users);
     $this->releaseLock();
     
-    $this->getCache()->set('chat-online-' . UserHelper::getName(), true, $this->pollInterval);
+    $this->getCache()->set('chat-online-' . UserHelper::getName(), true, 2 * $this->pollInterval);
     $this->messages = $this->getCache()->get('chat-messages', array());
     $this->render('chat/messages');
   }
