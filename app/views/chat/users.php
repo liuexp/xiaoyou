@@ -10,6 +10,7 @@
 <body>
 <div class="container">
   <div class="users user-list">
+    <h2>在线用户</h2>
   <?php foreach ($this->users as $username): ?>
     <?php if (!UserHelper::hasProfile($username)) continue; ?>
     <?php $profile = new Profile(UserHelper::getProfileId($username)); ?>
