@@ -48,6 +48,8 @@ class ChatController extends ApplicationController
   public function sendMessage()
   {
     try {
+      sleep(1);
+      
       $message = new stdClass();
       $message->profileId = UserHelper::getProfileId(); // for link
       $message->loginName = UserHelper::getName();  // for avatar
