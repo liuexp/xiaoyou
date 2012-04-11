@@ -45,6 +45,12 @@ $app->get('/chat/users', function () {
   $controller->listUsers();
 });
 
+$app->get('/chat/ajax-users', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->ajaxUsers();
+});
+
 $app->get('/tweets', function () {
   UserHelper::requireProfile();
   $controller = new TweetController();
