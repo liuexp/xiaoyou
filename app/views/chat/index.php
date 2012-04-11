@@ -5,7 +5,7 @@
   <title>在线聊天</title>
   <script type="text/javascript">window.messages_url = '<?php echo SITE_BASE; ?>/chat/ajax-messages';</script>
 </head>
-<frameset cols="30%,70%">
+<frameset cols="200px,*">
   <frame id="users" name="users" src="<?php echo SITE_BASE; ?>/chat/users"></frame>
   <frameset rows="50px,*">
     <frame id="sendform" name="sendform" src="<?php echo SITE_BASE; ?>/chat/sendform"></frame>
