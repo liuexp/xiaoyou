@@ -1,7 +1,7 @@
 <?php
 class ChatController extends ApplicationController
 {
-  public $pollInterval = 4; // 4 seconds
+  public $pollInterval = 5; // 5 seconds
   
   protected function getCache()
   {
