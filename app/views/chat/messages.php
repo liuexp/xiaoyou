@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta http-equiv="refresh" content="<?php echo $this->pollInterval; ?>"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/redis.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/chat.css"/>
 </head>
