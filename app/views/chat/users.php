@@ -25,7 +25,7 @@
         </figure>
       </aside>
       <h3>
-        <a target="_blank" href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName; ?></a>
+        <a target="_blank" href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
       </h3>
       <div class="details">
         <div class="legend">
