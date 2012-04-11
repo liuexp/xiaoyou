@@ -18,6 +18,7 @@
           </div>
         </div>
       </div>
+      <input type="hidden" name="request_token" value="<?php echo fRequest::generateCSRFToken('/chat/sendform') ?>" />
     </fieldset>
   </form>
 </div><!-- /.container -->
