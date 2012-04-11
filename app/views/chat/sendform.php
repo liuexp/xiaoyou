@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-  <form class="form-horizontal" action="<?php echo SITE_BASE; ?>/chat" method="post">
+  <form class="form-horizontal" action="<?php echo SITE_BASE; ?>/chat" method="post" onsubmit="$.blockUI();">
     <fieldset>
       <div class="control-group">
         <div class="controls">
@@ -21,6 +21,7 @@
   </form>
 </div><!-- /.container -->
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery.blockui.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 parent.frames['messages'].location.reload();
