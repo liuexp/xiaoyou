@@ -56,5 +56,14 @@
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/hide-broken-images.js"></script>
+<script type="text/javascript">
+$(function(){
+  $('html, body').animate({ 
+    scrollTop: $(document).height()-$(window).height()}, 
+    1400, 
+    'easeOutQuint'
+  );
+});
+</script>
 </body>
 </html>
