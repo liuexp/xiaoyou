@@ -27,7 +27,11 @@ class TweetController extends ApplicationController
     } catch (fException $e) {
       fMessaging::create('failure', 'create tweet', $e->getMessage());
     }
-    fURL::redirect(SITE_BASE . '/profile/' . $profileId);
+    if (fRequest::get('quick', 'boolean')) {
+      fURL::redirect(SITE_BASE . '/tweets');
+    } else {
+      fURL::redirect(SITE_BASE . '/profile/' . $profileId);
+    }
   }
   
   public function delete($id)

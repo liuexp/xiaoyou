@@ -8,6 +8,7 @@ include(__DIR__ . '/../layout/header.php');
   <h1>最新微博</h1>
   <?php if (fAuthorization::checkLoggedIn()): ?>
     <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
+      <input type="hidden" name="quick" value="true"/>
       <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
         <div class="alert alert-success fade in">
           <a class="close" data-dismiss="alert">&times;</a>
