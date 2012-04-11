@@ -7,6 +7,7 @@ include(__DIR__ . '/../layout/header.php');
 <div class="timeline feed-list">
   <h1>最新微博</h1>
   <?php if (fAuthorization::checkLoggedIn()): ?>
+  <center>
     <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
       <input type="hidden" name="quick" value="true"/>
       <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
@@ -26,6 +27,7 @@ include(__DIR__ . '/../layout/header.php');
         <button type="submit" class="btn btn-danger btn-large btn-input-large">发表新微博</button>
       </div>
     </form>
+  </center>
   <?php endif; ?>
 <?php foreach ($this->tweets as $tweet): ?>
   <?php
