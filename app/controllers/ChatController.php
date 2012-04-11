@@ -59,7 +59,7 @@ class ChatController extends ApplicationController
     } catch (Exception $e) {
       // TODO
     }
-    fURL::redirect(SITE_BASE . '/chat/messages#bottom');
+    fURL::redirect(SITE_BASE . '/chat/messages');
   }
   
   public function listMessages()
