@@ -27,7 +27,9 @@
       </h3>
       <div class="details">
         <div class="legend">
-          <span class="duration"><?php echo $message->timestamp->getFuzzyDifference(); ?></span>
+          <span class="duration">
+            <?php if (isset($message->timestamp)) echo $message->timestamp->getFuzzyDifference(); ?>
+          </span>
         </div>
       </div>
     </article>
