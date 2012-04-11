@@ -21,8 +21,22 @@ class ChatController extends ApplicationController
     // TODO
   }
   
+  protected function refreshUsers()
+  {
+    $this->users = array();
+    $this->acquireLock();
+    foreach (array_unique($this->getCache()->get('chat-users', array())) as $user) {
+      if ($this->getCache()->get("chat-online-$user", false)) {
+        $this->users[] = $user;
+      }
+    }
+    $this->getCache()->set('chat-users', $this->users);
+    $this->releaseLock();
+  }
+  
   public function index()
   {
+    $this->refreshUsers();
     $this->render('chat/index');
   }
   
@@ -63,15 +77,7 @@ class ChatController extends ApplicationController
   
   public function listUsers()
   {
-    $this->users = array();
-    $this->acquireLock();
-    foreach (array_unique($this->getCache()->get('chat-users', array())) as $user) {
-      if ($this->getCache()->get("chat-online-$user", false)) {
-        $this->users[] = $user;
-      }
-    }
-    $this->getCache()->set('chat-users', $this->users);
-    $this->releaseLock();
+    $this->refreshUsers();
     $this->render('chat/users');
   }
 }
