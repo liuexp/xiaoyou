@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8"/>
   <meta http-equiv="refresh" content="<?php echo 4 * $this->pollInterval; ?>"/>
   <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/redis.css"/>
   <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/bootstrap.min.css"/>
