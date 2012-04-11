@@ -48,6 +48,8 @@ class ChatController extends ApplicationController
   public function sendMessage()
   {
     try {
+      fRequest::validateCSRFToken(fRequest::get('request_token'), '/chat/sendform');
+      
       usleep(500000);  // 0.5 seconds
       
       $message = new stdClass();
