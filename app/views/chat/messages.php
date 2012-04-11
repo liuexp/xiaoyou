@@ -42,8 +42,10 @@
       <div class="control-group">
         <label class="control-label" for="message"></label>
         <div class="controls">
-          <input class="span4" id="message" type="text" name="message" size="140" maxlength="140"/>
-          <button type="submit" class="btn btn-primary btn-small">发送</button>
+          <div class="input-append">
+            <input class="span4" id="message" type="text" name="message" size="140" maxlength="140"/>
+            <button type="submit" class="btn btn-primary">发送</button>
+          </div>
         </div>
       </div>
     </fieldset>
