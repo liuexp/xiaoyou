@@ -21,12 +21,6 @@ $app->post('/chat', function () {
   $controller->sendMessage();
 });
 
-$app->get('/chat/sendform', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->showSendForm();
-});
-
 $app->get('/chat/messages', function () {
   fAuthorization::requireLoggedIn();
   $controller = new ChatController();

@@ -26,11 +26,6 @@ class ChatController extends ApplicationController
     $this->render('chat/index');
   }
   
-  public function showSendForm()
-  {
-    $this->render('chat/sendform');
-  }
-  
   public function sendMessage()
   {
     try {
