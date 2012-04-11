@@ -8,15 +8,15 @@
   <script type="text/javascript">window.users_url = '<?php echo SITE_BASE; ?>/chat/ajax-users';</script>
 </head>
 <body>
-<div class="container"></div>
+<div id="user-container" class="container"></div>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/hide-broken-images.js"></script>
 <script type="text/javascript">
 $(function(){
-  $('.container').load(window.users_url);
+  $('#user-container').load(window.users_url);
   setInterval(function(){
-    $('.container').load(window.users_url);
+    $('#user-container').load(window.users_url);
   }, <?php echo 1000 * 2 * $this->pollInterval; ?>);
   $.ajaxSetup({ cache: false });
 })
