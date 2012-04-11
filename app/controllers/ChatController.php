@@ -70,7 +70,7 @@ class ChatController extends ApplicationController
   {
     $this->users = array();
     $this->acquireLock();
-    foreach ($this->getCache()->get('chat-users', array()) as $user) {
+    foreach (array_unique($this->getCache()->get('chat-users', array())) as $user) {
       if ($this->getCache()->get("chat-online-$user", false)) {
         $this->users[] = $user;
       }
