@@ -55,6 +55,10 @@ class ChatController extends ApplicationController
       $message->content = trim(fRequest::get('message', 'string'));
       $message->timestamp = new fTimestamp();
       
+      if (strlen($message->content) < 1) {
+        throw new fValidationException('message content too short');
+      }
+      
       $this->acquireLock();
       $messages = $this->getCache()->get('chat-messages', array());
       $messages[] = $message;
