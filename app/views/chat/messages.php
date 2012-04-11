@@ -8,20 +8,7 @@
   <link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/css/chat.css"/>
 </head>
 <body>
-<div class="container">  
-  <form class="form-horizontal" action="<?php echo SITE_BASE; ?>/chat" method="post">
-    <fieldset>
-      <div class="control-group">
-        <label class="control-label" for="message"></label>
-        <div class="controls">
-          <div class="input-append">
-            <input class="span4" id="message" type="text" name="message" size="140" maxlength="140"/>
-            <button type="submit" class="btn btn-primary">发送</button>
-          </div>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+<div class="container">
   <div class="messages message-list">
   <?php foreach (array_reverse($this->messages) as $message): ?>
     <article class="a-feed">

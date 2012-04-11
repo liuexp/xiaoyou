@@ -40,6 +40,11 @@ class ChatController extends ApplicationController
     $this->render('chat/index');
   }
   
+  public function showSendForm()
+  {
+    $this->render('chat/sendform');
+  }
+  
   public function sendMessage()
   {
     try {
@@ -59,7 +64,7 @@ class ChatController extends ApplicationController
     } catch (Exception $e) {
       // TODO
     }
-    fURL::redirect(SITE_BASE . '/chat/messages');
+    fURL::redirect(SITE_BASE . '/chat/sendform');
   }
   
   public function listMessages()

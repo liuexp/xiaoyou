@@ -5,7 +5,10 @@
   <title>在线聊天</title>
 </head>
 <frameset cols="30%,70%">
-  <frame src="<?php echo SITE_BASE; ?>/chat/users"></frame>
-  <frame src="<?php echo SITE_BASE; ?>/chat/messages"></frame>
+  <frame id="users" name="users" src="<?php echo SITE_BASE; ?>/chat/users"></frame>
+  <frameset rows="20%,80%">
+    <frame id="sendform" name="sendform" src="<?php echo SITE_BASE; ?>/chat/sendform"></frame>
+    <frame id="messages" name="messages" src="<?php echo SITE_BASE; ?>/chat/messages"></frame>
+  </frameset>
 </frameset>
 </html>
