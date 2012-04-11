@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-  <form class="form-horizontal" action="<?php echo SITE_BASE; ?>/chat" method="post" onsubmit="$.blockUI();">
+  <form action="<?php echo SITE_BASE; ?>/chat" method="post" onsubmit="$.blockUI();">
     <fieldset>
       <div class="control-group">
         <div class="controls">
