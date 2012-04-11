@@ -58,7 +58,7 @@
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/hide-broken-images.js"></script>
 <script type="text/javascript">
 $(function(){
-  $('html, body').animate({ scrollTop: $(document).height()-$(window).height() }, 1000);
+  $('html, body').animate({ scrollTop: $(document).height()-$(window).height() }, 0);
 });
 </script>
 </body>
