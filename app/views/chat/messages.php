@@ -13,7 +13,7 @@
     <article class="a-feed">
       <aside>
         <figure>
-          <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $message->profileId; ?>">
+          <a target="_blank" href="<?php echo SITE_BASE; ?>/profile/<?php echo $message->profileId; ?>">
             <?php if (file_exists(AVATAR_DIR . $message->loginName . '-mini.jpg')): ?>
               <img src="<?php echo AVATAR_BASE; ?>/<?php echo $message->loginName; ?>-mini.jpg" width="40px" height="40px"/>
             <?php else: ?>
@@ -23,7 +23,7 @@
         </figure>
       </aside>
       <h3>
-        <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $message->profileId; ?>"><?php echo $message->displayName; ?></a>
+        <a target="_blank" href="<?php echo SITE_BASE; ?>/profile/<?php echo $message->profileId; ?>"><?php echo $message->displayName; ?></a>
         <span>:</span>
         <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($message->content)); ?></span>
       </h3>
