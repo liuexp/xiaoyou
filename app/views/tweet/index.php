@@ -23,8 +23,8 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
       <div class="controls">
-        <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/>
-        <button type="submit" class="btn btn-danger btn-large btn-input-large">发表新微博</button>
+        <input name="tweet-content" type="text" class="span6 input-xlarge" maxlength="140" placeholder="说点什么吧⋯⋯"/>
+        <button type="submit" class="btn btn-danger btn-large">发表新微博</button>
       </div>
     </form>
   </center>
