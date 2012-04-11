@@ -33,6 +33,7 @@ require_once(__DIR__ . '/controllers/ProfileController.php');
 require_once(__DIR__ . '/controllers/RegisterController.php');
 require_once(__DIR__ . '/controllers/VideoController.php');
 require_once(__DIR__ . '/controllers/TweetController.php');
+require_once(__DIR__ . '/controllers/ChatController.php');
 
 require_once(__DIR__ . '/helpers/Util.php');
 require_once(__DIR__ . '/helpers/UserHelper.php');

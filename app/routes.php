@@ -9,6 +9,36 @@ $app->get('/', function () {
   $controller->index();
 });
 
+$app->get('/chat', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->index();
+});
+
+$app->post('/chat', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->sendMessage();
+});
+
+$app->get('/chat/sendform', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->showSendForm();
+});
+
+$app->get('/chat/messages', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->listMessages();
+});
+
+$app->get('/chat/users', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new ChatController();
+  $controller->listUsers();
+});
+
 $app->get('/tweets', function () {
   UserHelper::requireProfile();
   $controller = new TweetController();
