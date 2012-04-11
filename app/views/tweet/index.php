@@ -6,6 +6,26 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="timeline feed-list">
   <h1>最新微博</h1>
+  <?php if (fAuthorization::checkLoggedIn()): ?>
+    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
+      <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
+        <div class="alert alert-success fade in">
+          <a class="close" data-dismiss="alert">&times;</a>
+          <?php echo $tweet_success; ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($tweet_failure = fMessaging::retrieve('failure', 'create tweet')): ?>
+        <div class="alert alert-error fade in">
+          <a class="close" data-dismiss="alert">&times;</a>
+          <?php echo $tweet_failure; ?>
+        </div>
+      <?php endif; ?>
+      <div class="controls">
+        <input name="tweet-content" type="text" class="input-xlarge input-btn-large" maxlength="140" placeholder="说点什么吧⋯⋯"/>
+        <button type="submit" class="btn btn-danger btn-large btn-input-large">发表新微博</button>
+      </div>
+    </form>
+  <?php endif; ?>
 <?php foreach ($this->tweets as $tweet): ?>
   <?php
     $profile = $tweet->getProfile();
