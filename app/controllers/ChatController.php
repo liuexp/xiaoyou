@@ -1,7 +1,7 @@
 <?php
 class ChatController extends ApplicationController
 {
-  public $pollInterval = 5; // 5 seconds
+  public $pollInterval = 4; // 4 seconds
   
   protected function getCache()
   {
@@ -34,17 +34,16 @@ class ChatController extends ApplicationController
       $message->loginName = UserHelper::getName();  // for avatar
       $message->displayName = UserHelper::getDisplayName(); // for display
       $message->content = trim(fRequest::get('message', 'string'));
-    
+      $message->timestamp = new fTimestamp();
+      
       $this->acquireLock();
       $messages = $this->getCache()->get('chat-messages', array());
       $messages[] = $message;
       while (count($messages) > 50) array_shift($messages);
       $this->getCache()->set('chat-messages', $messages);
       $this->releaseLock();
-      
-      // $this->ajaxReturn(array('result' => 'success'));
     } catch (Exception $e) {
-      // $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+      // TODO
     }
     fURL::redirect(SITE_BASE . '/chat/messages#bottom');
   }
@@ -57,7 +56,7 @@ class ChatController extends ApplicationController
     $this->getCache()->set('chat-users', $users);
     $this->releaseLock();
     
-    $this->getCache()->set('chat-online-' . UserHelper::getName(), true, 2 * $this->pollInterval);
+    $this->getCache()->set('chat-online-' . UserHelper::getName(), true, 5 * $this->pollInterval);
     $this->messages = $this->getCache()->get('chat-messages', array());
     $this->render('chat/messages');
   }
