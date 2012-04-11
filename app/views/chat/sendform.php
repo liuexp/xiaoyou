@@ -25,8 +25,7 @@
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery.blockui.min.js"></script>
 <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-//parent.frames['messages'].location.reload();
-$('#message-container').load(window.messages_url);
+$('#message-container', parent.frames['messages']).load(window.messages_url);
 document.getElementById('message').focus();
 </script>
 </body>
