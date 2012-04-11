@@ -13,7 +13,7 @@
       <div class="control-group">
         <div class="controls">
           <div class="input-append">
-            <input class="span4" id="message" type="text" name="message" size="140" maxlength="140"/>
+            <input class="span6" id="message" type="text" name="message" size="140" maxlength="140"/>
             <button type="submit" class="btn btn-primary">发送</button>
           </div>
         </div>
