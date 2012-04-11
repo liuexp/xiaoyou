@@ -50,9 +50,14 @@ include(__DIR__ . '/../layout/header.php');
     <section>
       <h2 class="big">征文</h2>
       <ul class="itemize">
+        <?php $first_post = true; ?>
         <?php foreach ($this->posts as $article): ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
+            <?php if ($first_post): ?>
+              <img src="<?php echo SITE_BASE; ?>/images/new.gif"/>
+              <?php $first_post = false; ?>
+            <?php endif; ?>
           </li>
         <?php endforeach; ?>
         <li class="more"><a href="<?php echo SITE_BASE; ?>/posts">更多⋯⋯</a></li>
