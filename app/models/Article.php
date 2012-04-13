@@ -19,7 +19,7 @@ class Article extends fActiveRecord
   
   public function isRecent()
   {
-    return $this->getCreatedAt()->gt(new fTimestamp('-5 day'));
+    return $this->getCreatedAt()->gt(new fTimestamp('-2 day'));
   }
   
   public function getComments()
