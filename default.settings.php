@@ -59,3 +59,5 @@ define('SCHEDULE_ARTICLE_ID', 2);
 define('CORRESPONDS_ARTICLE_ID', 5);//联系人
 
 define('CREDITS_ARTICLE_ID', 7);
+
+define('RECENT_ARTICLE_THRESHOLD', 5);

@@ -19,7 +19,11 @@ class Article extends fActiveRecord
   
   public function isRecent()
   {
-    return $this->getCreatedAt()->gt(new fTimestamp('-4 day'));
+		if (isset(RECENT_ARTICLE_THRESHOLD))
+			$d = RECENT_ARTICLE_THRESHOLD;
+		else
+			$d = 5;
+    return $this->getCreatedAt()->gt(new fTimestamp("-$d day"));
   }
   
   public function getComments()
