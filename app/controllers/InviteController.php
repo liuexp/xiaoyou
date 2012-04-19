@@ -167,13 +167,73 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendPostsNotice($email);
+        $this->sendDonateNotice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
       flush();
     }
+  }
+  
+  protected function sendDonateNotice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "关于图灵铜像捐赠活动的最新消息" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+各位同学：
+
+　　今年6月23日，是图灵诞辰100周年的纪念日。全世界范围内纪念图灵的
+活动很多，尤其是在美国和英国高校的计算机系里。我们特地将一些信息汇
+总形成了调查报告，请点击以下链接《关于世界各地纪念图灵活动的调研》：
+
+　　http://xiaoyou.acm-project.org/article/108
+
+　　这篇文章收集了包括美国、英国、法国、比利时、丹麦、瑞士等世界各
+地高校对图灵的纪念建筑，经过调查，在中国的高校中，还没有任何针对图
+灵的纪念物。所以这次捐助图灵铜像的活动得到了学校的大力支持。学校通
+过一些渠道，已经联系上了图灵唯一在世的亲人（他的侄子），邀请他当天
+来上海为图灵铜像揭幕。
+
+　　铜像募捐活动从上周开始收到了大家的大力资助，为了保证捐款过程尽
+量公开，俞勇老师会将捐款情况以简报的方式向大家公布，第一份简报请见
+
+　　http://xiaoyou.acm-project.org/article/104
+
+　　同时为了方便海外同学捐款，节约手续费，我们委托03级郑煜昊同学用
+paypal代收捐款，最后一同打入捐款账号。如果方便使用paypal，可以联系
+将款项打入dannyt1984@gmail.com，这个邮件地址也就是郑煜昊的email，
+有事可以联系他。
+
+　　感谢大家对十周年庆典的大力支持。
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendPostsNotice($email)
