@@ -167,13 +167,72 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendDonateNotice($email);
+        $this->sendTuring0421Notice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
       flush();
     }
+  }
+  
+  protected function sendTuring0421Notice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "[4月21日] 图灵铜像的最新消息" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+各位同学：
+
+　　自捐款倡议发起以来，已经赢得了大家的广泛关注。为方便讨论，我们推荐大家加入一个google group
+
+　　https://groups.google.com/forum/?fromgroups#!forum/news-acm-sjtu
+
+　　加入之后就可以收到来自news-acm-sjtu@googlegroups.com的信件了。加入这个群不需要任何验证，直接可以发言，但国内同学可能需要翻越防火前才能访问，建议使用google
+group的邮件列表功能。
+
+　　这两天我们得到了很多好消息。首先是图灵的侄子已经正式授权了铜像的制作许可。其次，2012图灵年纪念活动的组委会，也将我们的活动作为了纪念活动的一个重要组成部分。学校方面，张杰校长和其他老师都表示大力支持。他还说，交大校园里就应该摆放更多著名的科学家的纪念物，他准备计划组织学校部门研究如何在学校的重要路口安放这批铜像，而图灵铜像一定会是第一个出现的。
+
+　　俞老师统计了第二份关于捐款的公报。截止当前，捐款总额已超过了7万人民币，详情请见
+
+　　http://xiaoyou.acm-project.org/article/111
+
+　　关于海外同学使用paypal捐款方法，郑煜昊来信提醒了我们适当的操作方法，详情请见
+
+　　http://xiaoyou.acm-project.org/article/96
+
+　　有同学询问铜像的制作进度，铜像是交由媒体设计学院一个很有经验的老师设计的，他连续工作了很多天，正在争取四月底把初稿制作出来，让大家先睹为快。
+
+　　有同学询问款项的使用计划和铜像的制作计划，以及使用捐款的组织名称和性质，关于这些问题，我们会组织人员撰写报告，及时在网站公布的，最晚在下周公布。
+
+　　最后感谢大家对十周年庆典的大力支持。
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendDonateNotice($email)
