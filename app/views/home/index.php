@@ -45,6 +45,7 @@ include(__DIR__ . '/../layout/header.php');
         <?php if ($need_intro): ?>
           <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
         <?php endif; ?>
+        <li class="more"><a href="<?php echo SITE_BASE; ?>/articles">更多⋯⋯</a></li>
       </ul>
     </section>
     <section>
