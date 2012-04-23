@@ -18,7 +18,7 @@ class HomeController extends ApplicationController
       'Article',
       array('type=' => 'news', 'visible=' => 1),
       array('priority' => 'desc', 'created_at' => 'desc'),
-      ACTIVITIES_LIMIT
+      ACTIVITIES_LIMIT - 2
     );
     $this->posts = fRecordSet::build(
       'Article',
