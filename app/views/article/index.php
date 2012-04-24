@@ -52,7 +52,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label for="priority">优先级：</label>
-        <input class="monofont" type="number" id="priority" name="priority" maxlength="3"/>
+        <input class="monofont" type="number" id="priority" name="priority" maxlength="10"/>
         <span class="hint">（优先级越高，显示的位置越靠前）</span>
       </div>
       <div class="field">
