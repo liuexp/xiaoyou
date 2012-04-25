@@ -16,7 +16,8 @@ class Invitation extends fActiveRecord
   
   public static function isValid($email, $invitecode, $realname)
   {
-    return Name::exist($realname) and (self::isGlobalInvitation($email, $invitecode) or self::existAvailable($email, $invitecode));
+    if (self::isGlobalInvitation($email, $invitecode)) return true;
+    return Name::exist($realname) and self::existAvailable($email, $invitecode));
   }
   
   public static function isGlobalInvitation($email, $invitecode)
