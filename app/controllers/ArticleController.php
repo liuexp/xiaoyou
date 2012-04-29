@@ -46,6 +46,11 @@ class ArticleController extends ApplicationController
     $this->show(SCHEDULE_ARTICLE_ID);
   }
   
+  public function showTeachers()
+  {
+    $this->show(TEACHERS_ARTICLE_ID);
+  }
+  
   public function showCorresponds()
   {
     $this->show(CORRESPONDS_ARTICLE_ID);

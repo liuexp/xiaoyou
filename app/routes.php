@@ -155,6 +155,12 @@ $app->get('/schedule', function () {
   $controller->showSchedule();
 });
 
+$app->get('/teachers', function () {
+  UserHelper::requireProfile();
+  $controller = new ArticleController();
+  $controller->showTeachers();
+});
+
 $app->get('/corresponds', function () {
   UserHelper::requireProfile();
   $controller = new ArticleController();

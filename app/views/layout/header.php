@@ -46,7 +46,8 @@
           <a href="<?php echo SITE_BASE; ?>/">首页</a>
           <a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
           <a href="<?php echo SITE_BASE; ?>/posts">征文</a>
-          <a href="<?php echo SITE_BASE; ?>/schedule">日程</a>
+          <!--<a href="<?php echo SITE_BASE; ?>/schedule">日程</a>-->
+          <a href="<?php echo SITE_BASE; ?>/teachers">教师</a>
           <a href="<?php echo SITE_BASE; ?>/profiles">花名册</a>
           <a href="<?php echo SITE_BASE; ?>/corresponds">筹备组</a>
           <a href="<?php echo SITE_BASE; ?>/tweets">微博</a>
