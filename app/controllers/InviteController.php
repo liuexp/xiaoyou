@@ -167,13 +167,65 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendTuring0421Notice($email);
+        $this->sendTuring0429Notice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
       flush();
     }
+  }
+  
+  protected function sendTuring0429Notice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "[4月29日] 征文和铜像制作细节公布" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+各位同学：
+
+　　征文活动受到大家广泛支持，上海交通大学出版社决定将这些文章集结公开出版，印数在两三千册左右。编辑会将一些修改意见发给大家，如果还想赶在书截止之前投稿的同学，请务必于5月1日晚上12点之前将征文以如下方式发送给编辑：
+
+http://xiaoyou.acm-project.org/article/88
+
+　　铜像募捐活动的最新情况参见，目前捐款总额已超过了预期的一半，情况喜人：
+
+http://xiaoyou.acm-project.org/article/124
+
+　　关于铜像制作的细节，参见
+
+http://xiaoyou.acm-project.org/article/113
+
+　　等铜像的模型制作出来，我们在网站上及时上传照片的。
+
+　　如果6月9号打算来现场参加活动的毕业同学，请快速前去网站登记，以便我们及时预订宾馆。
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendTuring0421Notice($email)
