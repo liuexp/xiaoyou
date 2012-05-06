@@ -56,7 +56,7 @@ include(__DIR__ . '/../layout/header.php');
           <li data-article-id="<?php echo $article->getId(); ?>">
             <a href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>"><?php echo $article->getShortTitle(); ?></a>
             <?php if ($first_post): ?>
-              <img src="<?php echo SITE_BASE; ?>/images/new.gif"/>
+              <!-- <img src="<?php echo SITE_BASE; ?>/images/new.gif"/> -->
               <?php $first_post = false; ?>
             <?php endif; ?>
           </li>
