@@ -167,13 +167,57 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendTuring0429Notice($email);
+        $this->sendTuring0509Notice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
       flush();
     }
+  }
+  
+  protected function sendTuring0509Notice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "[5月9日] 铜像捐款的最新进展" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+各位同学：
+
+　　图灵铜像的捐赠倡议得到了大家积极的响应。截止到现在今日，大家一齐募集的款项已经达到了预期的目标，在此感谢各位的大力支持！
+
+　　我们预备于北京时间5月10日晚上关闭筹款账号，希望大家不要在这个时间节点之后再进行汇款了。之后我们会清点每笔款项的来源，并公布每笔捐款的数额和时间，私下核对捐赠者的姓名。多出的款项数额不大，作何用途可以一起探讨研究。
+ 　　又，十周年征文集的初稿已经提交给上海交通大学出版社了。由于几位任课老师的文章还在创作之中，所以现在还来得及投稿，这周末无论如何是最晚的时间了，具体可见
+
+     http://xiaoyou.acm-project.org/posts
+
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendTuring0429Notice($email)
