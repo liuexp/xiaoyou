@@ -167,13 +167,68 @@ EEE;
     $emails = array_unique($emails);
     foreach ($emails as $email) {
       try {
-        $this->sendTuring0509Notice($email);
+        $this->sendTuring0512Notice($email);
         print 'Sent notice mail to ' . $email . "\n";
       } catch (Exception $e) {
         print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
       }
       flush();
     }
+  }
+  
+  protected function sendTuring0512Notice($email)
+  {
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "[5月12日] 铜像捐款截止&拍摄ACM班记录片" -a "From: noreply@acm.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+各位同学：
+
+　　图灵铜像的捐款已正式截止，最后两天又有很多同学捐了款，而且没有留下名字，以下是无主捐款名单：
+
+　　4.18  人民币     1717
+　　4.18  人民币     1024
+　　5.4   人民币     100
+　　5.9   人民币     1023
+　　5.9   人民币     500
+　　5.9   人民币     101.01
+　　5.10  人民币     3000
+　　5.10  人民币     999
+　　5.10  人民币     500
+　　5.10  人民币     521
+　　5.11  人民币     137.04
+
+　　名单下周一左右就要交给施工方刻字了，如果在此之前找不到捐款人，就赶不上刻名字了。
+
+　　接下来的主要活动是拍摄ACM班记录片。我们会邀请一些同学来配合拍摄，比如找一些同学来讲故事，或者重现一次体育比赛等等，每个年级都会参加。如果大家有好的故事或者好的素材，比如视频、照片、或者感觉值得说的故事，都可以联系marong1204@gmail.com，马融。
+
+
+　　此致
+
+敬礼！
+
+
+　　　　　　　　　　　　　　ACM班十周年庆典活动筹备组
+　　　　　　　　　　　　　　　　　${year}年${month}月${day}日
+
+---
+此邮件为系统自动发送，关于网站使用方面的任何问题，请回复本邮件至
+管理员（${admin_email}）；请勿回复至noreply@acm.sjtu.edu.cn，
+谢谢您的配合！
+
+*** In case you cannot read this email due to character encoding 
+issues, please contact the site administrator via ${admin_email}
+
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
   
   protected function sendTuring0509Notice($email)
