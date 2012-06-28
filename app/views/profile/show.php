@@ -5,11 +5,11 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="tabbable" id="profile-tab">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tweets" data-toggle="tab">微博</a></li>
-    <li><a href="#profile" data-toggle="tab">资料</a></li>
+    <li><a href="#tweets" data-toggle="tab">微博</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab">资料</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="tweets">
+    <div class="tab-pane" id="tweets">
       <?php if ($this->is_owner): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
@@ -31,7 +31,7 @@ include(__DIR__ . '/../layout/header.php');
         </form>
       <?php endif; ?>
       <?php $tweets = $this->profile->getTweets(); ?>
-      <?php if (count($tweets)): ?>
+      <?php if (count($tweets) && $this->is_allowed): ?>
         <ul class="unstyled">
           <?php foreach ($tweets as $tweet): ?>
             <li id="tweet/<?php echo $tweet->getId(); ?>">
@@ -56,7 +56,7 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
     </div>
-    <div class="tab-pane" id="profile">
+    <div class="tab-pane active" id="profile">
 <!-- begin main content -->
   <section>
     <h2>经历</h2>
@@ -166,10 +166,16 @@ include(__DIR__ . '/../layout/header.php');
     <?php endif; ?>
   </div>
   <ul class="unstyled details">
+<?php if ($this->is_allowed): ?>
     <li>
       入学年份：<?php echo $this->profile->getStartYear(); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
+    <li>
+      班级号：<?php echo $this->profile->getClassNumber(); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+
     <li>
       生日：<?php echo $this->profile->getBirthday(); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
@@ -186,6 +192,23 @@ include(__DIR__ . '/../layout/header.php');
       高中：<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
+    <li>
+      隐私安全：<?php 
+switch($this->profile->getPrivacyControl()){
+case 0:
+	echo "所有同学";
+	break;
+case 1:
+	echo "相同年级";
+	break;
+case 2:
+	echo "相同班级";
+	break;
+}
+?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
         <li>
@@ -194,10 +217,34 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endif; ?>
     <?php endforeach; ?>
+
+    <?php foreach ($this->profile->getContacts() as $contact): ?>
+      <?php if ($contact->getType() == 'mobile'): ?>
+        <li>
+          Mobile：<?php echo htmlspecialchars($contact->getContent()); ?>
+          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+
+    <?php foreach ($this->profile->getContacts() as $contact): ?>
+      <?php if ($contact->getType() == 'tele'): ?>
+        <li>
+          Tele：<?php echo htmlspecialchars($contact->getContent()); ?>
+          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+
+
   </ul>
   <ul class="unstyled contacts">
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'email'): ?>
+        <!-- skip -->
+      <?php elseif ($contact->getType() == 'mobile'): ?>
+        <!-- skip -->
+      <?php elseif ($contact->getType() == 'tele'): ?>
         <!-- skip -->
       <?php elseif ($contact->getType() == 'qq'): ?>
         <li>
@@ -231,6 +278,8 @@ include(__DIR__ . '/../layout/header.php');
         </li>
       <?php endif; ?>
     <?php endforeach; ?>
+
+    <?php endif; ?>
   </ul>
 </aside>
 <?php if ($this->editable): ?>
@@ -270,6 +319,13 @@ include(__DIR__ . '/../layout/header.php');
           <label for="student_number">本科学号：</label>
           <input class="textfield monofont input-medium" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getStudentNumber()); ?>"/>
         </div>
+	<div class="field">
+        <label >隐私安全：</label>
+          <input type="radio" name="privacy" value="0" id="privacy0"<?php if ($this->profile->getPrivacyControl()==0) echo ' checked'; ?>/><label class="radio2" for="privacy0">向所有同学公开</label>
+          <input type="radio" name="privacy" value="1" id="privacy1"<?php if ($this->profile->getPrivacyControl()==1) echo ' checked'; ?>/><label class="radio2" for="privacy1">向相同年级同学公开</label>
+          <input type="radio" name="privacy" value="2" id="privacy2"<?php if ($this->profile->getPrivacyControl()==2) echo ' checked'; ?>/><label class="radio2" for="privacy2">向同班同学公开</label>
+      </div>
+
         <div class="field">
           <label for="birthday">生日：</label>
           <input class="textfield monofont Wdate input-medium" type="text" id="birthday" name="birthday" maxlength="10" onclick="WdatePicker()" value="<?php echo htmlspecialchars($this->profile->getBirthday()); ?>"/>
@@ -289,6 +345,13 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       </fieldset>
       <fieldset>
+        <div class="field">
+          <label for="tele">固定电话：</label>
+          <input class="textfield monofont input-medium" type="text" id="tele" name="tele" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('tele')); ?>"/>
+          <label for="mobile" class="small">移动电话</label>
+          <input class="textfield monofont input-medium" type="text" id="mobile" name="mobile" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('mobile')); ?>"/>
+        </div>
+
         <div class="field">
           <label for="email">常用Email：</label>
           <input class="textfield monofont input-medium" type="text" id="email" name="email" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('email')); ?>"/>
@@ -316,6 +379,17 @@ include(__DIR__ . '/../layout/header.php');
           <input class="textfield monofont input-small" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('twitter')); ?>"/>
         </div>
       </fieldset>
+	<div class="field">
+        <label for="subscription">希望校友频道提供</label>
+        <select id="subscription" name="subscription">
+          <option value="<?php echo htmlspecialchars($this->profile->getSubscription()); ?>"></option>
+          <option value=1>校友刊物</option>
+          <option value=2>校友信息</option>
+          <option value=3>学术研讨会信息</option>
+          <option value=4>相关法律出版物目录</option>
+        </select>
+      </div>
+
       <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="btn btn-success btn-large">保存</button>

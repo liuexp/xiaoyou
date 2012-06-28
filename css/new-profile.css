@@ -5,6 +5,7 @@
 #new-profile label { display: inline-block; width: 150px; text-align: right; font-size: 15px; line-height: 30px; }
 #new-profile span.label { display: inline-block; font-size: 15px; line-height: 30px; margin-left: 10px; }
 #new-profile label.radio { width: 30px; text-align: left; margin-left: 5px; }
+#new-profile label.radio2 { width: 80px; text-align: left; margin-left: 1px; }
 #new-profile select { width: 100px ;height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #new-profile .textfield { width: 300px; height: 30px; font-size: 20px; line-height: 30px; text-align: center; }
 #new-profile .textfield:hover { background-color: #FEF5F1; }

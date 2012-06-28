@@ -11,7 +11,7 @@ class RegisterController extends ApplicationController
     try {
       // invitation information
       $email = trim(fRequest::get('email'));
-      $invitecode = trim(fRequest::get('invitecode'));
+      $stuid = trim(fRequest::get('stuid','integer',0));
       $realname = trim(fRequest::get('realname'));
       // account information
       $username = trim(fRequest::get('username'));
@@ -22,8 +22,8 @@ class RegisterController extends ApplicationController
         throw new fValidationException('请填入Email地址');
       if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         throw new fValidationException('请填入合法的Email地址');
-      if (empty($invitecode))
-        throw new fValidationException('请填入邀请码');
+      if (empty($stuid))
+	      throw new fValidationException('请填入学号');
       if (empty($realname))
         throw new fValidationException('请填入真实姓名');
       if (empty($username))
@@ -42,7 +42,7 @@ class RegisterController extends ApplicationController
         throw new fValidationException('用户名太长（最多80个字符）');
       if (!preg_match('/^[a-z0-9]+$/', $username))
         throw new fValidationException('用户名中只允许出现小写字母和数字');
-      if (!Invitation::isValid($email, $invitecode, $realname))
+      if (!Name::existid($realname,$stuid))
         throw new fValidationException('无效的邀请信息（请务必填写用于接收邀请码的Email地址，并使用中文姓名注册）');
       
       if ($email == GLOBAL_INVITATION_EMAIL) {
@@ -65,7 +65,8 @@ class RegisterController extends ApplicationController
       } catch (fException $e) {
         throw new fValidationException('用户名已存在，或该邮件地址已经注册过');
       }
-      Invitation::markRegistered($email, $invitecode);
+      //Invitation::markRegistered($email, $invitecode);
+      Name::markRegistered($realname,$stuid);
       Activity::fireRegister();
       $this->ajaxReturn(array('result' => 'success'));
     } catch (fException $e) {

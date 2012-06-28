@@ -1,5 +1,5 @@
 <?php
-$title = '征文';
+$title = '讲座信息';
 $no_sidebar = true;
 $stylesheets = array('jquery.fancybox-1.3.4', 'posts');
 include(__DIR__ . '/../layout/header.php');
@@ -32,7 +32,7 @@ include(__DIR__ . '/../layout/header.php');
 <?php if ($this->editable): ?>
 <div style="display:none">
   <div id="new-article">
-    <h1>添加征文</h1>
+    <h1>添加讲座信息</h1>
     <form id="new-article-form" method="POST">
       <input type="hidden" name="type" value="post"/>
       <div class="field">
@@ -48,7 +48,7 @@ include(__DIR__ . '/../layout/header.php');
         <span class="hint">（优先级越高，显示的位置越靠前）</span>
       </div>
       <div class="field">
-        <label class="long" for="visible">是否显示在征文列表中：</label>
+        <label class="long" for="visible">是否显示在列表中：</label>
         <input type="checkbox" id="visible" name="visible" checked/>
         <span class="hint">（设为不显示只对普通用户有效，网站编辑仍旧可以访问）</span>
       </div>

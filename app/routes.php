@@ -51,6 +51,32 @@ $app->get('/chat/ajax-users', function () {
   $controller->ajaxUsers();
 });
 
+$app->get('/inbox', function () {
+  UserHelper::requireProfile();
+  $controller = new MailController();
+  $controller->inbox();
+});
+
+$app->get('/outbox', function () {
+  UserHelper::requireProfile();
+  $controller = new MailController();
+  $controller->sent();
+});
+
+
+$app->post('/inbox', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new MailController();
+  $controller->create();
+});
+
+$app->delete('/inbox/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new MailController();
+  $controller->delete($id);
+});
+
+
 $app->get('/tweets', function () {
   UserHelper::requireProfile();
   $controller = new TweetController();
@@ -128,6 +154,18 @@ $app->get('/avatar/edit', function () {
   $controller = new AvatarController();
   $controller->edit();
 });
+
+$app->get('/manage_known_users', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new NameController();
+  $controller->showKnown();
+});
+$app->get('/manage_users/:id/edit', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new NameController();
+  $controller->edit($id);
+});
+
 
 // article list page contains popup window
 // for creating new articles
@@ -247,7 +285,27 @@ $app->post('/articles', function () {
   $controller->create();
 });
 
+$app->post('/manage_users', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new NameController();
+  $controller->create();
+});
+
+
 // fuck slim reads php://input before flourish
+$app->post('/manage_users/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new NameController();
+  $controller->update($id);
+});
+
+$app->delete('/manage_users/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new NameController();
+  $controller->delete($id);
+});
+
+
 $app->post('/article/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ArticleController();

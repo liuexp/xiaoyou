@@ -73,6 +73,23 @@ class UserHelper
     $profile = new Profile(array('login_name' => $name));
     return $profile->getId();
   }
+
+  public static function viewProfile($profile){
+	  if($profile==null)return false;
+	  $p=$profile->getPrivacyControl();
+	  if($p<=0){
+		  return true;
+	  }else if($p<=1){
+		  $curp= new Profile(array('login_name' => self::getName()));
+		  return $curp->getStartYear() == $profile->getStartYear();
+	  }else{
+		  $curp= new Profile(array('login_name' => self::getName()));
+		  $a=$curp->getClassNumber();
+		  $b=$profile->getClassNumber();
+		  return $curp->getId()==$profile->getId() || (!empty($a) && !empty($b) && $a==$b);
+	  }
+  }
+
   
   public static function isEditor()
   {

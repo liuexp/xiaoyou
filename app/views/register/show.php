@@ -13,8 +13,8 @@ include(__DIR__ . '/../layout/header.php');
         <input class="textfield monofont" type="email" id="email" name="email" maxlength="200"/>
       </div>
       <div class="field">
-        <label for="invitecode">邀请码：</label>
-        <input class="textfield monofont" type="text" id="invitecode" name="invitecode" maxlength="20"/>
+        <label for="stuid">本科学号：</label>
+        <input class="textfield monofont" type="text" id="stuid" name="stuid" maxlength="20"/>
       </div>
       <div class="field">
         <label for="realname">真实姓名：</label>
