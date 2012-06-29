@@ -188,24 +188,6 @@ $app->get('/article/:id/edit', function ($id) {
   $controller->edit($id);
 });
 
-$app->get('/schedule', function () {
-  UserHelper::requireProfile();
-  $controller = new ArticleController();
-  $controller->showSchedule();
-});
-
-$app->get('/teachers', function () {
-  UserHelper::requireProfile();
-  $controller = new ArticleController();
-  $controller->showTeachers();
-});
-
-$app->get('/corresponds', function () {
-  UserHelper::requireProfile();
-  $controller = new ArticleController();
-  $controller->showCorresponds();
-});
-
 $app->get('/posts', function () {
   UserHelper::requireProfile();
   $controller = new ArticleController();
