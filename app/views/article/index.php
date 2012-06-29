@@ -13,10 +13,9 @@ include(__DIR__ . '/../layout/header.php');
   <?php endif; ?>
 </h1>
 <ul class="articles">
-  <?php $need_intro = true; ?>
+  <?php $need_intro = false; ?>
   <?php foreach ($this->articles as $article): ?>
     <?php if ($article->getPriority() < 100 && $need_intro): ?>
-      <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
       <?php $need_intro = false; ?>
     <?php endif; ?>
     <li data-article-id="<?php echo $article->getId(); ?>">
@@ -33,9 +32,6 @@ include(__DIR__ . '/../layout/header.php');
       <?php endif; ?>
     </li>
   <?php endforeach; ?>
-  <?php if ($need_intro): ?>
-    <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
-  <?php endif; ?>
 </ul>  
 <?php if ($this->editable): ?>
 <div style="display:none">

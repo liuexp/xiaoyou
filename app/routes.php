@@ -124,12 +124,13 @@ $app->post('/notice/send', function () {
   $controller = new InviteController();
   $controller->sendNoticeEmails();
 });
-
+/*
 $app->get('/intro', function () {
   UserHelper::requireProfile();
   $controller = new VideoController();
   $controller->show();
 });
+ */
 
 $app->get('/register', function () {
   $controller = new RegisterController();

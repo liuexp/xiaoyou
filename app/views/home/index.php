@@ -5,16 +5,17 @@ $stylesheets = array('home');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <section class="main">
-  <p class="firstpara">　　十年前的3月，上海交通大学在美国夏威夷夺得ACM国际大学生程序设计竞赛世界冠军，这是亚洲有史以来该赛事的第一个世界冠军，也是上海交通大学计算机专业的本科生有史以来第一次站在世界舞台的最高点。</p>
-  <p class="secondpara">　　庆贺之余，促使我们思考更深层的问题：我们的学生是否能够站在世界科学舞台的至高点？由此揭开了上海交通大学计算机科学与技术高端人才培养的序幕。<span><a href="<?php echo SITE_BASE; ?>/intro">[全文]</a></span></p>
+  <p class="firstpara">　　
+上海交通大学的法学教育可以上溯到20世纪之初南洋公学时期的政治特班。
+南洋公学于1901年举办政治特班，由蔡元培先生主持，在当时，科举制度还没有废除，为了给处于大变革时代的中国社会培养具有现代学识的治国人才，特班“专教中西政治、文学、法律、道德诸学”，开设了宪法、国际公法、行政纲要等课程，从而使南洋公学成为首批开展近现代法学教育的中国高等学府之一。 
+</p>
   <div class="columns">
     <section>
       <h2 class="big">新闻</h2>
       <ul class="itemize">
-        <?php $need_intro = true; ?>
+        <?php $need_intro = false; ?>
         <?php foreach ($this->articles as $article): ?>
           <?php if ($article->getPriority() < 100 && $need_intro): ?>
-            <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
             <?php $need_intro = false; ?>
           <?php endif; ?>
           <li data-article-id="<?php echo $article->getId(); ?>">
@@ -22,9 +23,6 @@ include(__DIR__ . '/../layout/header.php');
             <?php if ($article->isRecent()): ?><img src="<?php echo SITE_BASE; ?>/images/new.gif"/><?php endif; ?>
           </li>
         <?php endforeach; ?>
-        <?php if ($need_intro): ?>
-          <li><a href="<?php echo SITE_BASE; ?>/intro">ACM班，十年</a></li>
-        <?php endif; ?>
         <li class="more"><a href="<?php echo SITE_BASE; ?>/articles">更多⋯⋯</a></li>
       </ul>
     </section>

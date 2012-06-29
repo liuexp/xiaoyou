@@ -7,9 +7,9 @@ include(__DIR__ . '/../layout/header.php');
 <div class="timeline feed-list">
   <h1>
 <?php if ($this->isInbox): ?>
-收件箱 </h1> <h3>>>> <a href="<?php echo SITE_BASE; ?>/outbox">发件箱</a></h3>
+收件箱 </h1> <!-- <h3>>>> <a href="<?php echo SITE_BASE; ?>/outbox">发件箱</a></h3> -->
 <?php else: ?>
-发件箱 </h1> <h3>>>> <a href="<?php echo SITE_BASE; ?>/inbox">收件箱</a> </h3>
+发件箱 </h1> <!-- <h3>>>> <a href="<?php echo SITE_BASE; ?>/inbox">收件箱</a> </h3> -->
 <?php endif; ?>
 
   <?php if (fAuthorization::checkLoggedIn()): ?>
@@ -60,6 +60,10 @@ include(__DIR__ . '/../layout/header.php');
       <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
       <span>:</span>
       <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($mail->getContent())); ?></span>
+<br/>
+  <small class="pull-right">发送于<?php echo $mail->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $mail->getTimestamp(); ?>）</small>
+                <p class="clear"></p>
+
     </h3>
 
     <div class="comments" >

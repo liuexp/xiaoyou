@@ -8,7 +8,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/IE9.js"></script>
     <![endif]-->
-    <link href="<?php echo SITE_BASE; ?>/images/favicon.png" rel="shortcut icon"/>
+    <link href="<?php echo SITE_BASE; ?>/images/icon.ico" rel="shortcut icon"/>
     <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport"/>
     <title>
       <?php echo $title . TITLE_SUFFIX; ?>
@@ -33,11 +33,12 @@
             Hi, <a href="<?php echo $profile_link; ?>"><?php echo UserHelper::getDisplayName(); ?></a> |
             <!-- <a href="<?php echo SITE_BASE; ?>/invite">邀请同学</a> | -->
 	<?php if (UserHelper::isEditor()): ?>
-            <a href="<?php echo SITE_BASE; ?>/manage_known_users">管理已知校友列表</a> |
+            <a href="<?php echo SITE_BASE; ?>/manage_known_users">已知校友管理</a> |
           <?php endif; ?>
 
 
             <a href="<?php echo SITE_BASE; ?>/inbox">收件箱</a> |
+            <a href="<?php echo SITE_BASE; ?>/outbox">发件箱</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a>
           <?php else: ?>
@@ -46,7 +47,7 @@
           <?php endif; ?>
         </span>
         <a href="<?php echo SITE_BASE; ?>/">
-          <img src="<?php echo SITE_BASE; ?>/images/head-logo.png"/>
+          <img src="<?php echo SITE_BASE; ?>/images/KoGuan_logo.png"/>
         </a>
         <nav>
           <a href="<?php echo SITE_BASE; ?>/">首页</a>
