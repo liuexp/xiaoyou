@@ -46,4 +46,7 @@ memcached is essential only if you're going to use real-time chat.
 * 对于管理员用户，会显示添加按钮，并且每一篇文章旁边会显示修改与删除
 
 ### 添加讲座信息
-同上
+* 打开讲座信息列表
+* 对于管理员用户，会显示添加按钮，并且每一份通知旁边会显示修改与删除
+
+
