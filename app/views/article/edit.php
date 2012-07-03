@@ -5,7 +5,7 @@
       <label for="type">类型：</label>
       <select id="type" name="type">
         <option value="news"<?php if ($this->article->getType() == 'news') echo ' selected'; ?>>新闻</option>
-        <option value="post"<?php if ($this->article->getType() == 'post') echo ' selected'; ?>>征文</option>
+        <option value="post"<?php if ($this->article->getType() == 'post') echo ' selected'; ?>>讲座信息</option>
       </select>
     </div>
     <div class="field">

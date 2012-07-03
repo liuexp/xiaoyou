@@ -1,7 +1,7 @@
 <?php
 class ProfileController extends ApplicationController
 {
-  public $contact_types = array('email', 'renren', 'weibo', 'douban', 'facebook', 'twitter', 'qq','mobile','tele');
+  public $contact_types = array('email', 'renren', 'weibo', 'douban', 'facebook', 'twitter', 'qq','mobile','tele','msn');
   public $start_years = array();
   public $class_number_map = array();
   public $students_map = array();
@@ -62,8 +62,9 @@ class ProfileController extends ApplicationController
       $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
-      $profile->setHometown(trim(fRequest::get('hometown')));
-      $profile->setHighSchool(trim(fRequest::get('high_school')));
+      $profile->setPostNumber(trim(fRequest::get('post_number')));
+      //$profile->setHometown(trim(fRequest::get('hometown')));
+      //$profile->setHighSchool(trim(fRequest::get('high_school')));
       $profile->setMemorable(trim(fRequest::get('memorable')));
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->setDescription(trim(fRequest::get('description')));
@@ -132,8 +133,9 @@ class ProfileController extends ApplicationController
       $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
-      $profile->setHometown(trim(fRequest::get('hometown')));
-      $profile->setHighSchool(trim(fRequest::get('high_school')));
+      $profile->setPostNumber(trim(fRequest::get('post_number')));
+      //$profile->setHometown(trim(fRequest::get('hometown')));
+      //$profile->setHighSchool(trim(fRequest::get('high_school')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->store();

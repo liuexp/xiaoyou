@@ -84,7 +84,7 @@ include(__DIR__ . '/../layout/header.php');
     <?php if ($this->is_owner): ?>
       <button class="add btn btn-success btn-small" href="#add-experience">
         <i class="icon-plus-sign icon-white"></i>
-        添加经历
+        添加经历（含工作）
       </button>
     <?php endif; ?>
   </section>
@@ -185,13 +185,10 @@ include(__DIR__ . '/../layout/header.php');
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
     <li>
-      家乡：<?php echo htmlspecialchars($this->profile->getHometown()); ?>
+      邮政编码：<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
-    <li>
-      高中：<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>
-      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
-    </li>
+
     <li>
       隐私安全：<?php 
 switch($this->profile->getPrivacyControl()){
@@ -219,9 +216,19 @@ case 2:
     <?php endforeach; ?>
 
     <?php foreach ($this->profile->getContacts() as $contact): ?>
+      <?php if ($contact->getType() == 'msn'): ?>
+        <li>
+          MSN：<?php echo htmlspecialchars($contact->getContent()); ?>
+          <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+
+
+    <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'mobile'): ?>
         <li>
-          Mobile：<?php echo htmlspecialchars($contact->getContent()); ?>
+          移动电话：<?php echo htmlspecialchars($contact->getContent()); ?>
           <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
         </li>
       <?php endif; ?>
@@ -230,7 +237,7 @@ case 2:
     <?php foreach ($this->profile->getContacts() as $contact): ?>
       <?php if ($contact->getType() == 'tele'): ?>
         <li>
-          Tele：<?php echo htmlspecialchars($contact->getContent()); ?>
+          固定电话：<?php echo htmlspecialchars($contact->getContent()); ?>
           <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
         </li>
       <?php endif; ?>
@@ -245,6 +252,8 @@ case 2:
       <?php elseif ($contact->getType() == 'mobile'): ?>
         <!-- skip -->
       <?php elseif ($contact->getType() == 'tele'): ?>
+        <!-- skip -->
+      <?php elseif ($contact->getType() == 'msn'): ?>
         <!-- skip -->
       <?php elseif ($contact->getType() == 'qq'): ?>
         <li>
@@ -316,8 +325,8 @@ case 2:
           </select>
         </div>
         <div class="field">
-          <label for="student_number">本科学号：</label>
-          <input class="textfield monofont input-medium" type="text" id="student_number" name="student_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getStudentNumber()); ?>"/>
+          <label for="class_number">原班级号：</label>
+          <input class="textfield monofont input-medium" type="text" id="class_number" name="class_number" maxlength="20" value="<?php echo htmlspecialchars($this->profile->getClassNumber()); ?>"/>
         </div>
 	<div class="field">
         <label >隐私安全：</label>
@@ -336,15 +345,24 @@ case 2:
         <div class="field">
           <label for="location">现居住地：</label>
           <input class="textfield monofont input-medium" type="text" id="location" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getLocation()); ?>"/>
+        <label for="post_number">邮政编码：</label>
+          <input class="textfield monofont input-medium" type="text" id="post_number" name="post_number" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>"/>
+
         </div>
-        <div class="field">
+<!--        <div class="field">
           <label for="hometown">家乡：</label>
           <input class="textfield monofont input-medium" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHometown()); ?>"/>
           <label for="high_school" class="small">高中：</label>
           <input class="textfield monofont input-medium" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>"/>
         </div>
+-->
       </fieldset>
       <fieldset>
+        <div class="field">
+          <label for="msn">MSN：</label>
+          <input class="textfield monofont input-medium" type="text" id="msn" name="msn" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('msn')); ?>"/>
+	</div>
+ 
         <div class="field">
           <label for="tele">固定电话：</label>
           <input class="textfield monofont input-medium" type="text" id="tele" name="tele" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('tele')); ?>"/>

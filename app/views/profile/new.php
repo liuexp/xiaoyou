@@ -43,16 +43,12 @@ include(__DIR__ . '/../layout/header.php');
         <input type="radio" name="gender" value="F" id="genderF"/><label class="radio" for="genderF">女</label>
       </div>
       <div class="field">
-        <label for="location">现居住地：</label>
+        <label for="location">现居住地（详细地址）：</label>
         <input class="textfield monofont" type="text" id="location" name="location" maxlength="200"/>
       </div>
       <div class="field">
-        <label for="hometown">家乡：</label>
-        <input class="textfield monofont" type="text" id="hometown" name="hometown" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label for="high_school">高中：</label>
-        <input class="textfield monofont" type="text" id="high_school" name="high_school" maxlength="200"/>
+        <label for="post_number">邮政编码：</label>
+        <input class="textfield monofont" type="text" id="post_number" name="post_number" maxlength="200"/>
       </div>
     </fieldset>
     <fieldset>
@@ -74,6 +70,12 @@ include(__DIR__ . '/../layout/header.php');
         <label for="mobile">移动电话：</label>
         <input class="textfield monofont" type="text" id="mobile" name="mobile" maxlength="200"/>
       </div>
+
+      <div class="field">
+        <label for="mobile">MSN：</label>
+        <input class="textfield monofont" type="text" id="mobile" name="mobile" maxlength="200"/>
+      </div>
+
 
       <div class="field">
         <label for="email">常用Email：</label>

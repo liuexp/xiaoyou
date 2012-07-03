@@ -33,18 +33,19 @@
             Hi, <a href="<?php echo $profile_link; ?>"><?php echo UserHelper::getDisplayName(); ?></a> |
             <!-- <a href="<?php echo SITE_BASE; ?>/invite">邀请同学</a> | -->
 	<?php if (UserHelper::isEditor()): ?>
-            <a href="<?php echo SITE_BASE; ?>/manage_known_users">已知校友管理</a> |
+            <a href="<?php echo SITE_BASE; ?>/manage_known_users">管理</a> |
           <?php endif; ?>
 
 
             <a href="<?php echo SITE_BASE; ?>/inbox">收件箱</a> |
             <a href="<?php echo SITE_BASE; ?>/outbox">发件箱</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a>
+            <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
           <?php else: ?>
             <a href="<?php echo SITE_BASE; ?>/register">注册</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/">登录</a>
+            <a href="<?php echo SITE_BASE; ?>/login/">登录</a> |
           <?php endif; ?>
+            <a href="<?php echo SITE_BASE; ?>/help">帮助</a>
         </span>
         <a href="<?php echo SITE_BASE; ?>/">
           <img src="<?php echo SITE_BASE; ?>/images/KoGuan_logo.png"/>
@@ -58,7 +59,6 @@
           <!-- <a href="<?php echo SITE_BASE; ?>/profiles">花名册</a> -->
           <!--<a href="<?php echo SITE_BASE; ?>/corresponds">筹备组</a>-->
           <a href="<?php echo SITE_BASE; ?>/tweets">微博</a>
-          <a href="<?php echo SITE_BASE; ?>/help">帮助</a>
         </nav>
       </div>
     </header>
