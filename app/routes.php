@@ -57,6 +57,13 @@ $app->get('/inbox', function () {
   $controller->inbox();
 });
 
+$app->get('/help', function () {
+  //UserHelper::requireProfile();
+  $controller = new HelpController();
+  $controller->show();
+});
+
+
 $app->get('/outbox', function () {
   UserHelper::requireProfile();
   $controller = new MailController();
