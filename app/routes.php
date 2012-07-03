@@ -8,49 +8,6 @@ $app->get('/', function () {
   $controller = new HomeController();
   $controller->index();
 });
-
-$app->get('/chat', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->index();
-});
-
-$app->post('/chat', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->sendMessage();
-});
-
-$app->get('/chat/sendform', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->showSendForm();
-});
-
-$app->get('/chat/messages', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->listMessages();
-});
-
-$app->get('/chat/ajax-messages', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->ajaxMessages();
-});
-
-$app->get('/chat/users', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->listUsers();
-});
-
-$app->get('/chat/ajax-users', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ChatController();
-  $controller->ajaxUsers();
-});
-
 $app->get('/inbox', function () {
   UserHelper::requireProfile();
   $controller = new MailController();
@@ -113,24 +70,6 @@ $app->post('/article/:id/reply', function ($id) {
   $controller = new ArticleController();
   $controller->reply($id);
 });
-
-$app->get('/invite/send', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new InviteController();
-  $controller->sendEmails();
-});
-
-$app->get('/notice/send', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new InviteController();
-  $controller->prepareNoticeEmails();
-});
-
-$app->post('/notice/send', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new InviteController();
-  $controller->sendNoticeEmails();
-});
 /*
 $app->get('/intro', function () {
   UserHelper::requireProfile();
@@ -143,14 +82,6 @@ $app->get('/register', function () {
   $controller = new RegisterController();
   $controller->show();
 });
-
-$app->get('/invite', function () {
-  fAuthorization::requireLoggedIn();
-  UserHelper::requireProfile();
-  $controller = new InviteController();
-  $controller->show();
-});
-
 $app->post('/avatar/upload', function () {
   fAuthorization::requireLoggedIn();
   $controller = new AvatarController();
@@ -200,13 +131,6 @@ $app->get('/posts', function () {
   $controller = new ArticleController();
   $controller->showPosts();
 });
-
-$app->get('/credits', function () {
-  UserHelper::requireProfile();
-  $controller = new ArticleController();
-  $controller->showCredits();
-});
-
 $app->get('/profiles', function () {
   UserHelper::requireProfile();
   $controller = new ProfileController();
@@ -260,12 +184,6 @@ $app->post('/avatar/update', function () {
 
 $app->post('/register', function () {
   $controller = new RegisterController();
-  $controller->submit();
-});
-
-$app->post('/invite', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new InviteController();
   $controller->submit();
 });
 

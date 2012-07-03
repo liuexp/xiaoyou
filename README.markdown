@@ -1,10 +1,3 @@
-memcached is essential only if you're going to use real-time chat.
-
-    $ sudo apt-get install memcached
-    $ sudo apt-get install php5-memcache
-    
-    $ sudo apt-get install php-apc
-
 ## INSTALL:
 * $ cp default.settings.php settings.php, 
 * Edit the corresponding setup.
