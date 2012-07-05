@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 29, 2012 at 10:10 PM
+-- Generation Time: Jul 05, 2012 at 09:00 PM
 -- Server version: 5.5.25-log
 -- PHP Version: 5.4.4
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite','new tweet') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 -- --------------------------------------------------------
 
@@ -79,14 +79,14 @@ CREATE TABLE IF NOT EXISTS `article_comments` (
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
-  `type` enum('douban','email','facebook','qq','renren','twitter','weibo','tele','mobile') NOT NULL,
+  `type` enum('douban','email','facebook','qq','renren','twitter','weibo','tele','mobile','msn') NOT NULL,
   `content` varchar(1000) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `honors` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -156,13 +156,29 @@ CREATE TABLE IF NOT EXISTS `invitations` (
 --
 
 CREATE TABLE IF NOT EXISTS `mails` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `sender` bigint(20) unsigned NOT NULL,
+  `receiver` bigint(20) unsigned NOT NULL,
+  `content` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `parent` bigint(20) NOT NULL DEFAULT '-1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `msgs`
+--
+
+CREATE TABLE IF NOT EXISTS `msgs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender` bigint(20) unsigned NOT NULL,
   `receiver` bigint(20) unsigned NOT NULL,
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -181,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `names` (
   KEY `start_year` (`start_year`),
   KEY `class_number` (`class_number`),
   KEY `realname` (`realname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- --------------------------------------------------------
 
@@ -220,9 +236,10 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `class_number` varchar(4) DEFAULT NULL,
   `birthday` date NOT NULL,
   `gender` char(1) NOT NULL,
-  `location` varchar(200) NOT NULL,
-  `hometown` varchar(200) NOT NULL,
-  `high_school` varchar(200) NOT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `post_number` varchar(200) DEFAULT NULL,
+  `hometown` varchar(200) DEFAULT NULL,
+  `high_school` varchar(200) DEFAULT NULL,
   `description` text,
   `memorable` text,
   `presentable` tinyint(1) NOT NULL,
