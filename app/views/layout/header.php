@@ -14,9 +14,13 @@
       <?php echo $title . TITLE_SUFFIX; ?>
     </title>
     <link href="<?php echo SITE_BASE; ?>/css/redis.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo SITE_BASE; ?>/css/message.css" rel="stylesheet" type="text/css"/> 
     <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
       <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
     <?php endforeach; ?>
+    <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery.blockui.min.js"></script>
+    <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
   </head>
   <body>
     <header>
@@ -35,10 +39,7 @@
 	<?php if (UserHelper::isEditor()): ?>
             <a href="<?php echo SITE_BASE; ?>/manage_known_users">管理</a> |
           <?php endif; ?>
-
-
-            <a href="<?php echo SITE_BASE; ?>/inbox">收件箱</a> |
-            <a href="<?php echo SITE_BASE; ?>/outbox">发件箱</a> |
+            <a href="<?php echo SITE_BASE; ?>/inbox">短信息</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
           <?php else: ?>
@@ -63,3 +64,11 @@
       </div>
     </header>
     <div class="text columns home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">
+<?php $msg=UserHelper::getMessage();if(!empty($msg)): ?>
+            <div class="alert alert-success fade in">
+              <a class="close" data-dismiss="alert">&times;</a>
+<?php echo $msg; ?>
+            </div>
+<?php endif; ?>
+
+

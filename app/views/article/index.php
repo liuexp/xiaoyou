@@ -4,7 +4,7 @@ $no_sidebar = true;
 $stylesheets = array('jquery.fancybox-1.3.4', 'articles');
 include(__DIR__ . '/../layout/header.php');
 ?>
-<h1>
+<div style="clear:both;"><h1>
   <?php echo $title; ?>
   <?php if ($this->editable): ?>
     <a class="fancy-link" href="#new-article">
@@ -12,6 +12,7 @@ include(__DIR__ . '/../layout/header.php');
     </a>
   <?php endif; ?>
 </h1>
+</div>
 <ul class="articles">
   <?php $need_intro = false; ?>
   <?php foreach ($this->articles as $article): ?>

@@ -120,7 +120,27 @@ class UserHelper
       $profile = new Profile($profileId);
       return $profile->getLoginName();
     } catch (fNotFoundException $e) {
-      return '';  // XXX
+      return '';  
     }
+  }
+
+  public static function hasCompleteProfile($profile ){
+	  $z=$profile->getLocation();
+	  $y=$profile->getPostNumber();
+	  $x=$profile->getContactOrEmpty('mobile');
+	  $w=$profile->getContactOrEmpty('qq');
+	  return !(empty($z)||empty($y)||empty($x)||empty($w));
+  }
+
+
+  //TODO: also check new mails, new messages, new activities etc.
+  public static function getMessage(){
+	$name = self::getName();
+	try {
+		$p=new Profile(array('login_name' => $name));
+		return !self::hasCompleteProfile($p)?'您的个人信息不完整!':null;
+	} catch (fNotFoundException $e) {
+		return null;
+	}
   }
 }

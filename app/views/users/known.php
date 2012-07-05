@@ -5,6 +5,7 @@ $stylesheets = array('jquery.fancybox-1.3.4', 'articles');
 include(__DIR__ . '/../layout/header.php');
 $this->editable=true;
 ?>
+<div style="clear:both">
 <h1>
   <?php echo $title; ?>
   <?php if ($this->editable): ?>
@@ -13,6 +14,7 @@ $this->editable=true;
     </a>
   <?php endif; ?>
 </h1>
+</div>
 <ul class="articles">
   <?php foreach ($this->users as $user): ?>
     <li data-article-id="<?php echo $user->getId(); ?>">

@@ -11,6 +11,11 @@ $(function(){
     $(this).parent().remove();
     $.ajax(window.siteBase + '/tweet/' + $(this).attr('data-tweet-id'), { type: 'DELETE' });
   });
+
+  $('.msgs').bind('closed', function(){
+    $(this).parent().remove();
+    $.ajax(window.siteBase + '/msgs/' + $(this).attr('data-tweet-id'), { type: 'DELETE' });
+  });
   
   $('#edit-info-form').submit(function(){
     $('#edit-info-form .failure').hide();

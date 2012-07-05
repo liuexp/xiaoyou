@@ -4,18 +4,11 @@ class MailController extends ApplicationController
   public function inbox()
   {
     $profileId = UserHelper::getProfileId();
-    $this->mail = fRecordSet::build('Mail', array('receiver=' =>$profileId), array('timestamp' => 'desc'), ACTIVITIES_LIMIT)->getRecords();
-    $this->isInbox=true;
+    $this->mail = fRecordSet::build('Mail', array('receiver=|sender=' =>array($profileId,$profileId), 'parent='=>-1), array('timestamp' => 'desc'))->getRecords();
+    TweetHelper::sort($this->mail);
     $this->render('mail/index');
   }
-  public function sent()
-  {
-    $profileId = UserHelper::getProfileId();
-    $this->mail = fRecordSet::build('Mail', array('sender=' =>$profileId), array('timestamp' => 'desc'), ACTIVITIES_LIMIT)->getRecords();
-    $this->isInbox=false;
-    $this->render('mail/index');
-  }
-  
+ 
   public function create()
   {  
     try {
@@ -26,8 +19,10 @@ class MailController extends ApplicationController
       $re=trim(fRequest::get('dest'));
       if (empty($re)){
 	      $re=trim(fRequest::get('destre','integer'));
+	      $pa=trim(fRequest::get('parent','integer',-1));
 	      $x=new Profile($re);
 	      $mail->setReceiver($re);
+	      $mail->setParent($pa);
       }else {
       	$receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array())->getRecord(0);
       	$mail->setReceiver($receiver->getId());
@@ -55,6 +50,9 @@ class MailController extends ApplicationController
       $mail = new Mail($id);
       if (UserHelper::getProfileId() != $mail->getReceiver() and !UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
+      }
+      foreach ($mail->getReplies() as $re){
+	      $re->delete();
       }
       $mail->delete();
       $this->ajaxReturn(array('result' => 'success'));

@@ -41,6 +41,19 @@ $app->delete('/inbox/:id', function ($id) {
 });
 
 
+$app->post('/msgs', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new MsgController();
+  $controller->create();
+});
+
+
+$app->delete('/msgs/:id', function ($id) {
+  fAuthorization::requireLoggedIn();
+  $controller = new MsgController();
+  $controller->delete($id);
+});
+
 $app->get('/tweets', function () {
   UserHelper::requireProfile();
   $controller = new TweetController();
