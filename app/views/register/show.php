@@ -7,7 +7,7 @@ include(__DIR__ . '/../layout/header.php');
   <h1>注册</h1>
   <form id="register" method="POST">
     <fieldset>
-      <legend>邀请信息</legend>
+      <legend>基本信息</legend>
       <div class="field">
         <label for="email">Email地址：</label>
         <input class="textfield monofont" type="email" id="email" name="email" maxlength="200"/>

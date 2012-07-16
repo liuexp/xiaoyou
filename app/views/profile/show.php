@@ -428,22 +428,10 @@ case 2:
           <input class="textfield monofont input-xlarge" type="text" id="renren" name="renren" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('renren')); ?>"/>
         </div>
         <div class="field">
-          <label for="facebook">Facebook主页地址：</label>
-          <input class="textfield monofont input-xlarge" type="text" id="facebook" name="facebook" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('facebook')); ?>"/>
-        </div>
-        <div class="field">
           <label for="weibo">新浪微博ID：</label>
           <input class="textfield monofont input-small" type="text" id="weibo" name="weibo" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('weibo')); ?>"/>
         </div>
-        <div class="field">
-          <label for="douban">豆瓣ID：</label>
-          <input class="textfield monofont input-small" type="text" id="douban" name="douban" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('douban')); ?>"/>
-        </div>
-        <div class="field">
-          <label for="twitter">Twitter ID：</label>
-          <input class="textfield monofont input-small" type="text" id="twitter" name="twitter" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('twitter')); ?>"/>
-        </div>
-      </fieldset>
+        </fieldset>
 	<div class="field">
         <label for="subscription">希望校友频道提供</label>
         <select id="subscription" name="subscription">

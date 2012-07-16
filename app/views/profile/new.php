@@ -93,18 +93,6 @@ include(__DIR__ . '/../layout/header.php');
         <label for="weibo">新浪微博ID：</label>
         <input class="textfield monofont" type="text" id="weibo" name="weibo" maxlength="200"/>
       </div>
-      <div class="field">
-        <label for="douban">豆瓣ID：</label>
-        <input class="textfield monofont" type="text" id="douban" name="douban" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label for="facebook">Facebook主页地址：</label>
-        <input class="textfield monofont" type="text" id="facebook" name="facebook" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label for="twitter">Twitter ID：</label>
-        <input class="textfield monofont" type="text" id="twitter" name="twitter" maxlength="200"/>
-      </div>
 	<div class="field">
         <label >隐私安全(查看权限)：</label>
           <input type="radio" name="privacy" value="0" id="privacy0" /><label class="radio2" for="privacy0">所有同学</label>
@@ -112,23 +100,6 @@ include(__DIR__ . '/../layout/header.php');
           <input type="radio" name="privacy" value="2" id="privacy2" /><label class="radio2" for="privacy2">相同班级</label>
       </div>
 
-    </fieldset>
-    <fieldset>
-      <legend>故情·近况</legend>
-      <blockquote>
-        <p class="prolog">
-          昔我往矣，杨柳依依，今我来思，雨雪霏霏<br/>
-          相别数年，不知故人可好？
-        </p>
-      </blockquote>
-      <div class="field">
-        <span class="label">回忆您在校期间印象最深的一件事</span>
-        <textarea name="memorable" class="monofont" rows="2" cols="44"></textarea>
-      </div>
-      <div class="field">
-        <span class="label">简单说说您离校后这几年的经历吧</span>
-        <textarea name="description" class="monofont" rows="2" cols="44"></textarea>
-      </div>
     </fieldset>
     <fieldset>
       <legend>感恩·梦想</legend>

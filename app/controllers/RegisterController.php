@@ -43,7 +43,7 @@ class RegisterController extends ApplicationController
       if (!preg_match('/^[a-z0-9]+$/', $username))
         throw new fValidationException('用户名中只允许出现小写字母和数字');
       if (!Name::existid($realname,$stuid))
-        throw new fValidationException('无效的邀请信息（请务必填写用于接收邀请码的Email地址，并使用中文姓名注册）');
+        throw new fValidationException('无效的用户信息（请务必填写用于注册的本科学号，并使用中文姓名注册）');
       
       if ($email == GLOBAL_INVITATION_EMAIL) {
         $email = 'xiaoyou' . substr(md5(md5(time()) . rand()), 0, 10) . '@acm.sjtu.edu.cn';
