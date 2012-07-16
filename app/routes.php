@@ -78,6 +78,12 @@ $app->post('/tweet/:id/reply', function ($id) {
   $controller->reply($id);
 });
 
+$app->post('/article/preview', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new PreviewController();
+  $controller->show();
+});
+
 $app->post('/article/:id/reply', function ($id) {
   fAuthorization::requireLoggedIn();
   $controller = new ArticleController();

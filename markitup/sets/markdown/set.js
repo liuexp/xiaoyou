@@ -6,7 +6,7 @@
 // ----------------------------------------------------------------------------
 myMarkdownSettings = {
     nameSpace:          'markdown', // Useful to prevent multi-instances CSS conflict
-    previewParserPath:  '~/sets/markdown/preview.php',
+    previewParserPath:  'preview',  // note here: since the path should be generated dynamically, I moved it to app/views/layout/header.php
     onShiftEnter:       {keepDefault:false, openWith:'\n\n'},
     markupSet: [
         {name:'First Level Heading', key:"1", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
