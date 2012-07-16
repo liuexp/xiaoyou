@@ -21,8 +21,30 @@
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery.blockui.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
+    <?php if (isset($getMarkdown)) : ?>
+<!-- markItUp! -->
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/markitup/jquery.markitup.js"></script>
+<!-- markItUp! toolbar settings -->
+<script type="text/javascript" src="<?php echo SITE_BASE; ?>/markitup/sets/markdown/set.js"></script>
+<!-- markItUp! skin -->
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/markitup/skins/markitup/style.css" />
+<!--  markItUp! toolbar skin -->
+<link rel="stylesheet" type="text/css" href="<?php echo SITE_BASE; ?>/markitup/sets/markdown/style.css" />
+    <?php endif; ?>
   </head>
   <body>
+    <?php if (isset($getMarkdown)) : ?>
+<script type="text/javascript">
+<!--
+$(document).ready(function()	{
+	// Add markItUp! to your textarea in one line
+	// $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
+	$('#markdown').markItUp(myMarkdownSettings);
+});
+-->
+</script>
+
+    <?php endif; ?>
     <header>
       <div class="container">
         <span class="userinfo">

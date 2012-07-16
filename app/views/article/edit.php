@@ -13,7 +13,7 @@
       <input class="textfield monofont" type="text" id="edit-title" name="title" maxlength="200" value="<?php echo $this->article->getTitle(); ?>"/>
     </div>
     <div class="field">
-      <textarea class="monofont" name="content" rows="9" cols="80"><?php echo $this->article->getContent(); ?></textarea>
+      <textarea id="markdown" class="monofont" name="content" rows="9" cols="80"><?php echo $this->article->getContent(); ?></textarea>
     </div>  
     <div class="field">
       <label for="priority">优先级：</label>
