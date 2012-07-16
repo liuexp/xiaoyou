@@ -24,8 +24,11 @@ class MailController extends ApplicationController
 	      $mail->setReceiver($re);
 	      $mail->setParent($pa);
       }else {
-      	$receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array())->getRecord(0);
-      	$mail->setReceiver($receiver->getId());
+      	//$receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array())->getRecord(0);
+	      $receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array());
+	      if($receiver->getCount()>0)$receiver=$receiver->getRecord(0);
+	      else throw new fNotFoundException('user doesn\'t exist');
+	      $mail->setReceiver($receiver->getId());
       }
       if (strlen($mail->getContent()) < 1) {
         throw new fValidationException('信息长度不能少于1个字符');
@@ -37,7 +40,7 @@ class MailController extends ApplicationController
       //Activity::fireNewTweet();
       fMessaging::create('success', 'create mail', '信息发送成功！');
     }catch(fNotFoundException $e) {
-      fMessaging::create('failure', 'create mail', '该用户名不存在！');
+      fMessaging::create('failure', 'create mail', '该用户名不存在,或该用户没有创建个人资料！');
     } catch (fException $e) {
       fMessaging::create('failure', 'create mail', $e->getMessage());
     }
