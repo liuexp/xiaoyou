@@ -6,7 +6,6 @@ include(__DIR__ . '/../layout/header.php');
 ?>
 <section>
   <h1>创建个人信息</h1>
-</div>
   <form id="new-profile" method="POST" action="<?php echo SITE_BASE; ?>/profiles">
     <fieldset>
       <legend>基本信息</legend>
