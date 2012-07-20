@@ -38,4 +38,5 @@ define('ACTIVITIES_LIMIT', 10);
  * Separate names using the pipe sign (|).
  */
 define('EDITOR_IDS', '|root|xjia|');
+define('RECENT_ARTICLE_THRESHOLD', 5);
 

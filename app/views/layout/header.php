@@ -115,7 +115,7 @@ $(document).ready(function()	{
       </div>
     </header>
     <div class="text columns home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">
-<?php $msg=UserHelper::getMessage();if(!empty($msg)): ?>
+<?php $msg=UserHelper::getMessage();if(!empty($msg)&&(!isset($isNewProfile))): ?>
             <div class="alert alert-success fade in">
               <a class="close" data-dismiss="alert">&times;</a>
 <?php echo $msg; ?>
