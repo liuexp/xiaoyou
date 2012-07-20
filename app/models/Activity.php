@@ -4,12 +4,7 @@ class Activity extends fActiveRecord
   protected function configure()
   {
   }
-  
-  protected static function clearProfilesCache()
-  {
-    @unlink(CACHE_PROFILES);
-  }
-  
+ 
   public static function fireRegister()
   {
     self::fire('register');
@@ -18,7 +13,6 @@ class Activity extends fActiveRecord
   public static function fireNewProfile()
   {
     self::fire('new profile');
-    self::clearProfilesCache();
   }
   
   public static function fireUpdateProfile()
@@ -29,7 +23,6 @@ class Activity extends fActiveRecord
   public static function fireUpdateAvatar()
   {
     self::fire('update avatar');
-    self::clearProfilesCache();
   }
   
   public static function fireNewContact()

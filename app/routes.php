@@ -150,17 +150,6 @@ $app->get('/posts', function () {
   $controller = new ArticleController();
   $controller->showPosts();
 });
-$app->get('/profiles', function () {
-  UserHelper::requireProfile();
-  $controller = new ProfileController();
-  $controller->index();
-});
-
-$app->get('/profiles/check', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ProfileController();
-  $controller->check();
-});
 
 $app->get('/profiles/new', function () {
   fAuthorization::requireLoggedIn();
