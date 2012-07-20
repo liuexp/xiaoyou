@@ -10,5 +10,5 @@ form .field { margin: 10px; }
 form .field label { display: inline-block; margin: 0; padding: 0; width: 60px; text-align: right; }
 form .field label.long { width: 150px; }
 form .field .textfield { display: inline-block; margin: 0; padding: 0; width: 515px; font-size: 18px; line-height: 30px; }
-form .field textarea { margin: 0; padding: 10px; width: 560px; font-size: 14px; line-height: 24px; }
+form .field textarea { margin: 0;  font-size: 14px; line-height: 24px; }
 form .action { float: right; }

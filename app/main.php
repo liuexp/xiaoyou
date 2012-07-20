@@ -32,6 +32,7 @@ require_once(__DIR__ . '/controllers/MailController.php');
 require_once(__DIR__ . '/controllers/MsgController.php');
 require_once(__DIR__ . '/controllers/NameController.php');
 require_once(__DIR__ . '/controllers/PaperController.php');
+require_once(__DIR__ . '/controllers/PreviewController.php');
 require_once(__DIR__ . '/controllers/ProfileController.php');
 require_once(__DIR__ . '/controllers/RegisterController.php');
 require_once(__DIR__ . '/controllers/TweetController.php');
