@@ -1,16 +1,42 @@
 <?php
 $title = $this->profile->getDisplayName();
 $stylesheets = array('bootstrap.min', 'jquery.fancybox-1.3.4', 'profile');
+$active=$this->active;
 include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="tabbable" id="profile-tab">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tweets" data-toggle="tab">微博</a></li>
-    <li ><a href="#profile" data-toggle="tab">资料</a></li>
-    <li ><a href="#msgs" data-toggle="tab">留言版</a></li>
+<?php if ($active==0): ?>
+    <li class="active">
+<?php else: ?>
+<li>
+<?php endif; ?>
+<a href="#tweets" data-toggle="tab">微博</a></li>
+
+<?php if ($active==1): ?>
+    <li class="active">
+<?php else: ?>
+<li>
+<?php endif; ?>
+<a href="#profile" data-toggle="tab">资料</a></li>
+
+
+<?php if ($active==2): ?>
+    <li class="active">
+<?php else: ?>
+<li>
+<?php endif; ?>
+    <a href="#msgs" data-toggle="tab">留言版</a></li>
+
   </ul>
+
+
   <div class="tab-content">
+<?php if ($active==0): ?>
     <div class="tab-pane active" id="tweets">
+<?php else: ?>
+    <div class="tab-pane " id="tweets">
+<?php endif; ?>
       <?php if ($this->is_owner): ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/tweets" method="post" onsubmit="$.blockUI();">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create tweet')): ?>
@@ -57,7 +83,11 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
     </div>
-    <div class="tab-pane" id="msgs">
+<?php if ($active==2): ?>
+    <div class="tab-pane active" id="msgs">
+<?php else: ?>
+    <div class="tab-pane " id="msgs">
+<?php endif; ?>
         <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/msgs" method="post" onsubmit="$.blockUI();">
           <?php if ($tweet_success = fMessaging::retrieve('success', 'create msg')): ?>
             <div class="alert alert-success fade in">
@@ -103,7 +133,11 @@ include(__DIR__ . '/../layout/header.php');
       <?php endif; ?>
     </div>
 
+<?php if ($active==1): ?>
+    <div class="tab-pane active" id="profile">
+<?php else: ?>
     <div class="tab-pane " id="profile">
+<?php endif; ?>
 <!-- begin main content -->
   <section>
     <h2>经历</h2>

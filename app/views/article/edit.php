@@ -1,3 +1,19 @@
+<script type="text/javascript">
+<!--
+
+$(document).ready(function()	{
+$('#markdown2').markItUp(myMarkdownSettings).css('height', function() {
+  /* Since line-height is set in the markItUp-css, fetch that value and
+  split it into value and unit.  */
+  var h = jQuery(this).css('line-height').match(/(\d+)(.*)/)
+  /* Multiply line-height-value with nr-of-rows and add the unit.  */
+  return (h[1]*jQuery(this).attr('rows'))+h[2]
+});
+});
+-->
+</script>
+
+
 <div id="edit-article">
   <h1>编辑文章</h1>
   <form id="edit-article-form" method="POST" action="<?php echo SITE_BASE; ?>/article/<?php echo $this->article->getId(); ?>">
@@ -13,7 +29,7 @@
       <input class="textfield monofont" type="text" id="edit-title" name="title" maxlength="200" value="<?php echo $this->article->getTitle(); ?>"/>
     </div>
     <div class="field">
-      <textarea id="markdown" class="monofont" name="content" rows="9" cols="80"><?php echo $this->article->getContent(); ?></textarea>
+      <textarea id="markdown2" class="monofont" name="content" rows="9" cols="63"><?php echo $this->article->getContent(); ?></textarea>
     </div>  
     <div class="field">
       <label for="priority">优先级：</label>

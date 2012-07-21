@@ -65,19 +65,16 @@ class ProfileController extends ApplicationController
     }
   }
   
-  public function show($id)
+  public function show($id,$active)
   {
     try {
       $this->profile = new Profile($id);
       $this->editable = ((UserHelper::getProfileId() == $this->profile->getId()) or UserHelper::isEditor());
       $this->is_owner = UserHelper::getProfileId() == $this->profile->getId();
-      if(!(UserHelper::viewProfile($this->profile))){
-		//throw new fValidationException('not allowed');
-      }
-
       $this->is_allowed=UserHelper::viewProfile($this->profile);
       $this->username = $this->profile->getLoginName();
       $this->avatarfile = AVATAR_DIR . $this->username . '-avatar.jpg';
+      $this->active=$active;
       $this->render('profile/show');
     } catch (fNotFoundException $e) {
       Slim::getInstance()->notFound();

@@ -65,7 +65,7 @@ include(__DIR__ . '/../layout/header.php');
     </h3>
     <div class="details">
       <div class="legend">
-        <a class="reply" href="javascript:void(0)">
+      <a class="reply" data-mail-id=<?php echo $mail->getId(); ?> href="javascript:void(0)">
           回复<?php if ($cc = $mail->getReplies()->count()): ?>(<?php echo $cc; ?>)<?php endif; ?>
         </a>
       </div>
@@ -87,7 +87,7 @@ include(__DIR__ . '/../layout/header.php');
     <div class="input-append">
     <input name="destre" type="hidden" value="<?php echo $mail->getSender(); ?>" />
     <input name="parent" type="hidden" value="<?php echo $mail->getId(); ?>" />
-      <input name="mail-content" type="text" class="input-xlarge" maxlength="140" placeholder="这里输入回复内容"/>
+    <input name="mail-content" id="textbox-<?php echo $mail->getId();?>" type="text" class="input-xlarge" maxlength="140" placeholder="这里输入回复内容"/>
       <button type="submit" class="btn btn-success btn-small">添加回复</button>
     </div>
   </div>

@@ -25,7 +25,7 @@ class MsgController extends ApplicationController
     } catch (fException $e) {
       fMessaging::create('failure', 'create msg', $e->getMessage());
     }
-      fURL::redirect(SITE_BASE . '/profile/' . $re . '#msgs');
+      fURL::redirect(SITE_BASE . '/profile/' . $re . '/msgs');
   }
   
   public function delete($id)

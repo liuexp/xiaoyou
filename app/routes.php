@@ -161,7 +161,23 @@ $app->get('/profile/:id', function ($id) {
   fAuthorization::requireLoggedIn();
   UserHelper::requireProfile();
   $controller = new ProfileController();
-  $controller->show($id);
+  $controller->show($id,0);
+});
+
+
+$app->get('/profile/:id/tweet', function ($id) {
+  fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
+  $controller = new ProfileController();
+  $controller->show($id,0);
+});
+
+
+$app->get('/profile/:id/msgs', function ($id) {
+  fAuthorization::requireLoggedIn();
+  UserHelper::requireProfile();
+  $controller = new ProfileController();
+  $controller->show($id,2);
 });
 
 $app->get('/experience/:id/edit', function ($id) {

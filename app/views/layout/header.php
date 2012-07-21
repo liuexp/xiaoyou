@@ -74,7 +74,7 @@ $(document).ready(function()	{
   var h = jQuery(this).css('line-height').match(/(\d+)(.*)/)
   /* Multiply line-height-value with nr-of-rows and add the unit.  */
   return (h[1]*jQuery(this).attr('rows'))+h[2]
-});
+	});
 });
 -->
 </script>

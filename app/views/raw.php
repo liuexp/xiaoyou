@@ -1,2 +1,2 @@
 <?php
-echo $data;
+echo $this->data;
