@@ -113,6 +113,19 @@ $app->get('/avatar/edit', function () {
   $controller->edit();
 });
 
+$app->get('/export/csv', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->exportCSV();
+});
+
+
+$app->get('/manage', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->index();
+});
+
 $app->get('/manage_known_users', function () {
   fAuthorization::requireLoggedIn();
   $controller = new NameController();

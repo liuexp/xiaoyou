@@ -92,9 +92,8 @@ $(document).ready(function()	{
               }
             ?>
             Hi, <a href="<?php echo $profile_link; ?>"><?php echo UserHelper::getDisplayName(); ?></a> |
-            <!-- <a href="<?php echo SITE_BASE; ?>/invite">邀请同学</a> | -->
 	<?php if (UserHelper::isEditor()): ?>
-            <a href="<?php echo SITE_BASE; ?>/manage_known_users">管理</a> |
+            <a href="<?php echo SITE_BASE; ?>/manage">管理</a> |
           <?php endif; ?>
 	    <a href="<?php echo SITE_BASE; ?>/inbox">短信息
 <?php $c=UserHelper::hasNewMail(); if ($c>0): ?>
@@ -116,10 +115,6 @@ $(document).ready(function()	{
           <a href="<?php echo SITE_BASE; ?>/">首页</a>
           <a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
           <a href="<?php echo SITE_BASE; ?>/posts">讲座信息</a>
-          <!--<a href="<?php echo SITE_BASE; ?>/schedule">日程</a>-->
-          <!--<a href="<?php echo SITE_BASE; ?>/teachers">教师</a>-->
-          <!-- <a href="<?php echo SITE_BASE; ?>/profiles">花名册</a> -->
-          <!--<a href="<?php echo SITE_BASE; ?>/corresponds">筹备组</a>-->
           <a href="<?php echo SITE_BASE; ?>/tweets">微博</a>
         </nav>
       </div>

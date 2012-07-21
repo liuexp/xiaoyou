@@ -37,12 +37,17 @@ class Profile extends fActiveRecord
     return fRecordSet::build('Msg', array('receiver=' => $this->getId()), array('timestamp' => 'desc'));
   }
   
-
   public function getEmail()
   {
     return $this->getContactOrEmpty('email');
   }
+
+  public function getMobile()
+  {
+    return $this->getContactOrEmpty('mobile');
+  }
   
+
   public function getContactOrEmpty($type)
   {
     try {
@@ -53,19 +58,5 @@ class Profile extends fActiveRecord
       return '';
     }
   }
-  
-  public function getExperiences()
-  {
-    return fRecordSet::build('Experience', array('profile_id=' => $this->getId()));
-  }
-  
-  public function getPapers()
-  {
-    return fRecordSet::build('Paper', array('profile_id=' => $this->getId()));
-  }
-  
-  public function getHonors()
-  {
-    return fRecordSet::build('Honor', array('profile_id=' => $this->getId()));
-  }
+ 
 }
