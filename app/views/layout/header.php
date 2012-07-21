@@ -96,7 +96,11 @@ $(document).ready(function()	{
 	<?php if (UserHelper::isEditor()): ?>
             <a href="<?php echo SITE_BASE; ?>/manage_known_users">管理</a> |
           <?php endif; ?>
-            <a href="<?php echo SITE_BASE; ?>/inbox">短信息</a> |
+	    <a href="<?php echo SITE_BASE; ?>/inbox">短信息
+<?php $c=UserHelper::hasNewMail(); if ($c>0): ?>
+(<?php echo $c; ?>)
+<?php endif; ?>
+</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
           <?php else: ?>

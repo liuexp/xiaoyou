@@ -65,13 +65,23 @@ include(__DIR__ . '/../layout/header.php');
     </h3>
     <div class="details">
       <div class="legend">
+<?php $hasUnRead=$mail->hasUnRead(UserHelper::getProfileId()); ?>
+<?php if ($hasUnRead):?>
+      <a class="newreply" data-mail-id=<?php echo $mail->getId(); ?> href="javascript:void(0)"         data-text ="回复<?php if ($cc = $mail->getReplies()->count()): ?>(<?php echo $cc; ?>)<?php endif; ?>">收起回复
+<?php else: ?>
       <a class="reply" data-mail-id=<?php echo $mail->getId(); ?> href="javascript:void(0)">
           回复<?php if ($cc = $mail->getReplies()->count()): ?>(<?php echo $cc; ?>)<?php endif; ?>
+<?php endif;?>
         </a>
       </div>
     </div>
 
+<?php if ($hasUnRead):?>
+    <div class="newcomments" >
+<?php else: ?>
     <div class="comments" >
+<?php endif;?>
+
 <?php foreach ($mail->getReplies() as $comment): ?>
   <?php $replier = $comment->getSendProfile(); ?>
   <blockquote data-tweet-comment-id="<?php echo $comment->getId(); ?>">

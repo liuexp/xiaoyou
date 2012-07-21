@@ -124,6 +124,24 @@ class UserHelper
     }
   }
 
+  public static function hasNewMail($profile=null ){
+	  $profileId=0;
+	  try{
+		  if(empty($profile)){
+			$name = self::getName();
+			$p=new Profile(array('login_name' => $name));
+			$profileId=$p->getId();
+		  }else{
+			  $profileId=$profile->getId();
+		  }
+		  $m = fRecordSet::build('Mail', array('receiver=' =>$profileId,'read='=>0), array('timestamp' => 'desc'))->count();
+		  return $m;
+	    } catch (fNotFoundException $e){
+		    return 0;
+	    }
+    
+  }
+
   public static function hasCompleteProfile($profile ){
 	  $z=$profile->getLocation();
 	  $y=$profile->getPostNumber();

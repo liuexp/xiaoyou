@@ -28,4 +28,20 @@ class Mail extends fActiveRecord
     return $this->getTimestamp();
   }
 
+  public function hasUnRead($id=0){
+	$mails= fRecordSet::build('Mail', array('receiver=' => $id, 'parent=' => $this->getId(),'read=' =>0), array('timestamp' => 'asc'));
+
+	foreach($mails as $m){
+		$m->setRead(1);
+		$m->store();
+	}
+	if($this->getReceiver()==$id){
+		$this->setRead(1);
+		$this->store();
+	}
+
+ 	if($this->getRead()){
+		return $mails->count()>0;
+	}else return true;
+   }
 }
