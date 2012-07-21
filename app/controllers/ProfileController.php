@@ -30,17 +30,8 @@ class ProfileController extends ApplicationController
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
       $profile->setPostNumber(trim(fRequest::get('post_number')));
-      //$profile->setHometown(trim(fRequest::get('hometown')));
-      //$profile->setHighSchool(trim(fRequest::get('high_school')));
-      $profile->setMemorable(trim(fRequest::get('memorable')));
       $profile->setSubscription(trim(fRequest::get('subscription')));
-      $profile->setDescription(trim(fRequest::get('description')));
-      $profile->setPresentable(fRequest::get('presentable', 'boolean'));
       $profile->setAdvices(trim(fRequest::get('advices')));
-      $profile->setContributes(trim(fRequest::get('contributes')));
-      $profile->setWillGiveTalk(fRequest::get('will_give_talk', 'boolean'));
-      $profile->setTalkTitle(trim(fRequest::get('talk_title')));
-      $profile->setTalkIntro(trim(fRequest::get('talk_intro')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
       $profile->setCreatedAt(Util::currentTime());
       $profile->store();
@@ -65,7 +56,7 @@ class ProfileController extends ApplicationController
     }
   }
   
-  public function show($id,$active)
+  public function show($id,$active=0)
   {
     try {
       $this->profile = new Profile($id);
@@ -98,8 +89,6 @@ class ProfileController extends ApplicationController
       $profile->setGender(fRequest::get('gender'));
       $profile->setLocation(trim(fRequest::get('location')));
       $profile->setPostNumber(trim(fRequest::get('post_number')));
-      //$profile->setHometown(trim(fRequest::get('hometown')));
-      //$profile->setHighSchool(trim(fRequest::get('high_school')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->store();

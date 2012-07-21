@@ -192,25 +192,6 @@ $app->get('/profile/:id/msgs', function ($id) {
   $controller = new ProfileController();
   $controller->show($id,2);
 });
-
-$app->get('/experience/:id/edit', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new ExperienceController();
-  $controller->edit($id);
-});
-
-$app->get('/paper/:id/edit', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new PaperController();
-  $controller->edit($id);
-});
-
-$app->get('/honor/:id/edit', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new HonorController();
-  $controller->edit($id);
-});
-
 // The following routes are accessed via AJAX
 
 $app->post('/avatar/update', function () {
@@ -228,6 +209,12 @@ $app->post('/articles', function () {
   fAuthorization::requireLoggedIn();
   $controller = new ArticleController();
   $controller->create();
+});
+
+$app->post('/import/users', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->importUsers();
 });
 
 $app->post('/manage_users', function () {
@@ -274,62 +261,4 @@ $app->post('/profile/:id', function ($id) {
   $controller = new ProfileController();
   $controller->update($id);
 });
-
-$app->post('/experiences', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new ExperienceController();
-  $controller->create();
-});
-
-// fuck slim reads php://input before flourish
-$app->post('/experience/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new ExperienceController();
-  $controller->update($id);
-});
-
-$app->delete('/experience/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new ExperienceController();
-  $controller->delete($id);
-});
-
-$app->post('/honors', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new HonorController();
-  $controller->create();
-});
-
-// fuck slim reads php://input before flourish
-$app->post('/honor/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new HonorController();
-  $controller->update($id);
-});
-
-$app->delete('/honor/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new HonorController();
-  $controller->delete($id);
-});
-
-$app->post('/papers', function () {
-  fAuthorization::requireLoggedIn();
-  $controller = new PaperController();
-  $controller->create();
-});
-
-// fuck slim reads php://input before flourish
-$app->post('/paper/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new PaperController();
-  $controller->update($id);
-});
-
-$app->delete('/paper/:id', function ($id) {
-  fAuthorization::requireLoggedIn();
-  $controller = new PaperController();
-  $controller->delete($id);
-});
-
 $app->run();

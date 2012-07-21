@@ -13,14 +13,6 @@ include(__DIR__ . '/../layout/header.php');
 <?php endif; ?>
 <a href="#tweets" data-toggle="tab">微博</a></li>
 
-<?php if ($active==1): ?>
-    <li class="active">
-<?php else: ?>
-<li>
-<?php endif; ?>
-<a href="#profile" data-toggle="tab">资料</a></li>
-
-
 <?php if ($active==2): ?>
     <li class="active">
 <?php else: ?>
@@ -132,98 +124,6 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
     </div>
-
-<?php if ($active==1): ?>
-    <div class="tab-pane active" id="profile">
-<?php else: ?>
-    <div class="tab-pane " id="profile">
-<?php endif; ?>
-<!-- begin main content -->
-  <section>
-    <h2>经历</h2>
-    <ul class="unstyled relation-list">
-      <?php foreach ($this->profile->getExperiences() as $experience): ?>
-        <li data-experience-id="<?php echo $experience->getId(); ?>">
-          <?php echo $experience->getFormattedTimePeriod(); ?>.
-          <?php echo $experience->getFormattedType(); ?>.
-          <?php echo htmlspecialchars($experience->getLocation()); ?>.
-          专业/方向：<?php echo htmlspecialchars($experience->getMajor()); ?>.
-          <?php if (strlen($experience->getMentor())): ?>
-            导师：<?php echo htmlspecialchars($experience->getMentor()); ?>
-          <?php endif; ?>
-          <?php if ($this->editable): ?>
-            <div class="tools">
-              <a class="edit edit-experience" href="<?php echo SITE_BASE; ?>/experience/<?php echo $experience->getId(); ?>/edit">
-                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
-              </a>
-              <a class="delete delete-experience" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
-            </div>
-          <?php endif; ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-    <?php if ($this->is_owner): ?>
-      <button class="add btn btn-success btn-small" href="#add-experience">
-        <i class="icon-plus-sign icon-white"></i>
-        添加经历（含工作）
-      </button>
-    <?php endif; ?>
-  </section>
-  <section>
-    <h2 class="mt20">论文</h2>
-    <ul class="unstyled relation-list">
-      <?php foreach ($this->profile->getPapers() as $paper): ?>
-        <li data-paper-id="<?php echo $paper->getId(); ?>">
-          <?php echo $paper->getPublishYear(); ?>.
-          <?php echo htmlspecialchars($paper->getAuthors()); ?>.
-          <?php echo htmlspecialchars($paper->getTitle()); ?>.
-          <?php echo htmlspecialchars($paper->getPublishPlace()); ?>.
-          <?php if ($paper->getIsBestPaper()): ?>（最佳论文）<?php endif; ?>
-          <?php if ($this->editable): ?>
-            <div class="tools">
-              <a class="edit edit-paper" href="<?php echo SITE_BASE; ?>/paper/<?php echo $paper->getId(); ?>/edit">
-                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
-              </a>
-              <a class="delete delete-paper" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
-            </div>
-          <?php endif; ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-    <?php if ($this->is_owner): ?>
-      <button class="add btn btn-success btn-small" href="#add-paper">
-        <i class="icon-plus-sign icon-white"></i>
-        添加论文
-      </button>
-    <?php endif; ?>
-  </section>
-  <section>
-    <h2 class="mt20">荣誉</h2>
-    <ul class="unstyled relation-list">
-      <?php foreach ($this->profile->getHonors() as $honor): ?>
-        <li data-honor-id="<?php echo $honor->getId(); ?>">
-          <?php echo $honor->getFormattedDate(); ?>.
-          <?php echo htmlspecialchars($honor->getDescription()); ?>
-          <?php if ($this->editable): ?>
-            <div class="tools">
-              <a class="edit edit-honor" href="<?php echo SITE_BASE; ?>/honor/<?php echo $honor->getId(); ?>/edit">
-                <img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/>
-              </a>
-              <a class="delete delete-honor" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/delete.png"/></a>
-            </div>
-          <?php endif; ?>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-    <?php if ($this->is_owner): ?>
-      <button class="add btn btn-success btn-small" href="#add-honor">
-        <i class="icon-plus-sign icon-white"></i>
-        添加荣誉
-      </button>
-    <?php endif; ?>
-  </section>
-<!-- end main content -->
-    </div><!-- /.tab-pane -->
   </div><!-- /.tab-content -->
 </div><!-- /.tabbable -->
 <aside class="profile">
@@ -430,13 +330,6 @@ case 2:
           <input class="textfield monofont input-medium" type="text" id="post_number" name="post_number" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>"/>
 
         </div>
-<!--        <div class="field">
-          <label for="hometown">家乡：</label>
-          <input class="textfield monofont input-medium" type="text" id="hometown" name="hometown" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHometown()); ?>"/>
-          <label for="high_school" class="small">高中：</label>
-          <input class="textfield monofont input-medium" type="text" id="high_school" name="high_school" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getHighSchool()); ?>"/>
-        </div>
--->
       </fieldset>
       <fieldset>
         <div class="field">
@@ -630,12 +523,12 @@ case 2:
 if ($this->editable) {
   $javascripts = array(
     'datepicker/WdatePicker',
-    'jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min',
+    'jquery.blockui.min',
     'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
     'profile/show.min',
     'hide-broken-images'
   );
 } else {
-  $javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
+  $javascripts = array( 'jquery.blockui.min', 'hide-broken-images');
 }
 include(__DIR__ . '/../layout/footer.php');

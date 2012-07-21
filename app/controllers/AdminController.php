@@ -24,6 +24,29 @@ class AdminController extends ApplicationController
     	$this->render('csv');
   }
 
+  public function importUsers(){
+	  try{
+	 	 $raw=fRequest::get('content');
+  	 	 $this->db = fORMDatabase::retrieve();
+  	 	 $this->db->query('BEGIN');
+	 	 foreach (explode("\n",$raw) as $i){
+	 	         $j=explode("\t",$i);
+			 if (count($j) < 2) continue;
+	 	         $x=$j[0];
+	 	         $y=$j[1];
+	 	         $user= new Name();
+	 	         $user->setRealname($x);
+	 	         $user->setStudentNumber($y);
+	 	         $user->store();
+	 	 }
+	 	 $this->db->query('COMMIT');
+	 	 $this->ajaxReturn(array('result' => 'success'));
+	  } catch (fException $e) {
+	      	 if (isset($this->db)) $this->db->query('ROLLBACK');
+	         $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
 
+
+  }
 
 }

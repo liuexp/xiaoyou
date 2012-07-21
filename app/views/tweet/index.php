@@ -48,7 +48,7 @@ include(__DIR__ . '/../layout/header.php');
       </figure>
     </aside>
     <h3>
-      <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
+      <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo htmlspecialchars($profile->getDisplayName()); ?></a>
       <span>:</span>
       <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($tweet->getContent())); ?></span>
     </h3>
@@ -58,6 +58,10 @@ include(__DIR__ . '/../layout/header.php');
         <a class="reply" href="javascript:void(0)">
           回复<?php if ($cc = $tweet->getComments()->count()): ?>(<?php echo $cc; ?>)<?php endif; ?>
         </a>
+<?php if (UserHelper::isEditor()): ?>
+<a class="delete-tweet" href="javascript:void(0)" data-tweet-id="<?php echo $tweet->getId(); ?>" >
+          删除</a>
+<?php endif; ?>
       </div>
     </div>
     <div class="comments">
@@ -67,5 +71,5 @@ include(__DIR__ . '/../layout/header.php');
 <?php endforeach; ?>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images', 'toggle-comments');
+$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images', 'toggle-comments','tweet/index');
 include(__DIR__ . '/../layout/footer.php');
