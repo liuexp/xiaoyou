@@ -23,7 +23,7 @@ $app->get('/help', function () {
 $app->get('/search', function () {
   UserHelper::requireProfile();
   $controller = new SearchController();
-  $controller->show();
+  $controller->index();
 });
 
 
@@ -44,6 +44,12 @@ $app->post('/msgs', function () {
   fAuthorization::requireLoggedIn();
   $controller = new MsgController();
   $controller->create();
+});
+
+$app->post('/search', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new SearchController();
+  $controller->show();
 });
 
 
@@ -260,4 +266,12 @@ $app->post('/profile/:id', function ($id) {
   $controller = new ProfileController();
   $controller->update($id);
 });
+
+$app->post('/search/sendmail', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new SearchController();
+  $controller->sendmail();
+});
+
+
 $app->run();
