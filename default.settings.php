@@ -21,6 +21,10 @@ define('SITE_BASE', '/xiaoyou');
 define('TITLE_SUFFIX', ' | ACM班校友录');
 define('AVATAR_DIR', '/Users/xjia/tmp/avatar/');
 define('AVATAR_BASE', '/avatars');
+define('UPLOAD_DIR', '/srv/http/xiaoyou/upload/');
+define('UPLOAD_BASE', '/upload');
+define('UPLOAD_EXT',array('jpg','png','bmp','gif'));
+
 
 define('SESSIONS_PATH', '/Users/xjia/tmp/sessions/');
 

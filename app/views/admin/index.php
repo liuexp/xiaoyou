@@ -37,7 +37,60 @@ include(__DIR__ . '/../layout/header.php');
 群发邮件
 </h1>
 <section>
+  <center>
+    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
+      <input type="hidden" name="quick" value="true"/>
+      <div class="controls">
+        <select id="field" name="field" style="width:110px;">
+          <option value="">工作领域:</option>
+<?php $i=1;while (Util::getFieldName($i) != $i ): ?>
+<option value="<?php echo $i; ?>"> <?php echo Util::getFieldName($i++); ?> </option>
+<?php endwhile; ?>
+        </select>
+      <select id="start_year" name="start_year" style="width:85px;">
+          <option value="">入学年份</option>
+          <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+          <?php endfor; ?>
+        </select>
+        <input name="major" type="text" maxlength="140" placeholder="在校专业" style="width:100px;"/>
+        <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
+        <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
+<br/>
+<textarea id="mail-content" name="mail-content" class="input-xlarge" cols="120" rows="10">
+</textarea>
+<br/>
+        <button type="submit" class="btn btn-danger btn-large">发送</button>
+      </div>
+    </form>
+  </center>
+
 </section>
+
+<h1>
+文件资源管理
+</h1>
+<section>
+  <center>
+    <form class="well form-search w500" enctype="multipart/form-data" action="<?php echo SITE_BASE; ?>/manage/upload" method="post" onsubmit="$.blockUI();">
+ 
+        <input name="userfile" id="userfile" type="file" />
+      <div class="failure" style="display:none"></div>
+        <button type="submit" class="btn btn-danger btn-large">上传</button>
+    </form>
+  </center>
+
+
+  <?php foreach ($this->uploadList as $file): ?>
+    <li>
+        <?php echo $file; ?>
+    </li>
+  <?php endforeach; ?>
+</ul>
+
+
+</section>
+
 
 <h1>
 批量导出

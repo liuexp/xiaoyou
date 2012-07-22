@@ -5,9 +5,20 @@ class AdminController extends ApplicationController
   {  
     if (!UserHelper::isEditor()) {
         throw new fValidationException('not allowed');
-      }
-	$this->users = fRecordSet::build(
+    }
+    $this->users = fRecordSet::build(
         'Name', array('registered=' => 0), array('id' => 'desc', 'student_number' => 'asc'));
+
+    $uploadList=array();
+    if ($handle = opendir(UPLOAD_DIR)) {
+    	while (false !== ($entry = readdir($handle))) {
+    	    if ($entry != "." && $entry != ".." && !is_dir(UPLOAD_DIR . $entry)) {
+		    $uploadList[]=$entry;
+    	    }
+	}
+    }
+    closedir($handle);
+    $this->uploadList=$uploadList;
     $this->render('admin/index');
   }
   public function exportCSV(){
@@ -45,8 +56,30 @@ class AdminController extends ApplicationController
 	      	 if (isset($this->db)) $this->db->query('ROLLBACK');
 	         $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
+  }
 
 
+
+  public function upload()
+  {
+    $uploadfile = UPLOAD_DIR . basename($_FILES['userfile']['name']);
+    try {
+      if (self::validFile($uploadfile) && move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+        fURL::redirect(SITE_BASE . '/manage');
+
+      } else {
+        throw new fValidationException('上传失败');
+      }
+    } catch (Exception $e) {
+      fMessaging::create('failure', 'upload file', $e->getMessage());
+      fURL::redirect(SITE_BASE . '/manage');
+    }
+  }
+
+  public static function validFile($f){
+	  $tmp = explode('.', $f);
+	  $ext = strtolower(end($tmp));
+	  return in_array($ext,unserialize(UPLOAD_EXT));
   }
 
 }

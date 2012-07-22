@@ -130,6 +130,12 @@ $app->get('/manage', function () {
   $controller = new AdminController();
   $controller->index();
 });
+$app->post('/manage/upload', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->upload();
+});
+
 
 $app->get('/manage_known_users', function () {
   fAuthorization::requireLoggedIn();

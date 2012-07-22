@@ -1,74 +1,90 @@
 <?php
-$title = '新闻';
+$title = '找人';
 $no_sidebar = true;
-$stylesheets = array('jquery.fancybox-1.3.4', 'articles');
-$getMarkdown=true;
+$stylesheets = array('bootstrap.min', 'tweets');
 include(__DIR__ . '/../layout/header.php');
 ?>
-<div style="clear:both;"><h1>
-  <?php echo $title; ?>
-  <?php if ($this->editable): ?>
-    <a class="fancy-link" href="#new-article">
-      <img src="<?php echo SITE_BASE; ?>/images/icons/page_add.png"/>
-    </a>
-  <?php endif; ?>
-</h1>
-</div>
-<ul class="articles">
-  <?php $need_intro = false; ?>
-  <?php foreach ($this->articles as $article): ?>
-    <?php if ($article->getPriority() < 100 && $need_intro): ?>
-      <?php $need_intro = false; ?>
-    <?php endif; ?>
-    <li data-article-id="<?php echo $article->getId(); ?>">
-      <a class="article-link" href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>">
-        <?php echo $article->getTitle(); ?>
-      </a>
-      <?php if ($this->editable): ?>
-        <div class="tools">
-          <a class="edit edit-article" href="<?php echo SITE_BASE; ?>/article/<?php echo $article->getId(); ?>/edit">
-            <img src="<?php echo SITE_BASE; ?>/images/icons/page_edit.png"/>
-          </a>
-          <a class="delete delete-article" href="#"><img src="<?php echo SITE_BASE; ?>/images/icons/page_delete.png"/></a>
-        </div>
-      <?php endif; ?>
-    </li>
-  <?php endforeach; ?>
-</ul>  
-<?php if ($this->editable): ?>
-<div style="display:none">
-  <div id="new-article">
-    <h1>添加新闻</h1>
-    <form id="new-article-form" method="POST">
-      <input type="hidden" name="type" value="news"/>
-      <div class="field">
-        <label for="title">标题：</label>
-        <input class="textfield monofont" type="text" id="title" name="title" maxlength="200"/>
+<div class="timeline feed-list">
+  <?php if (fAuthorization::checkLoggedIn()): ?>
+  <center>
+    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/search" method="post" onsubmit="$.blockUI();">
+      <input type="hidden" name="quick" value="true"/>
+      <div class="controls">
+        <select id="field" name="field" style="width:110px;">
+          <option value="">工作领域:</option>
+<?php $i=1;while (Util::getFieldName($i) != $i ): ?>
+<option value="<?php echo $i; ?>"> <?php echo Util::getFieldName($i++); ?> </option>
+<?php endwhile; ?>
+        </select>
+      <select id="start_year" name="start_year" style="width:85px;">
+          <option value="">入学年份</option>
+          <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+          <?php endfor; ?>
+        </select>
+        <input name="major" type="text" maxlength="140" placeholder="在校专业" style="width:100px;"/>
+        <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
+        <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
+        <button type="submit" class="btn btn-danger btn-large">找人</button>
       </div>
-      <div class="field">
-        <textarea id="markdown" class="monofont" name="content" rows="10" cols="63"></textarea>
-      </div>
-      <div class="field">
-        <label for="priority">优先级：</label>
-        <input class="monofont" type="number" id="priority" name="priority" maxlength="10"/>
-        <span class="hint">（优先级越高，显示的位置越靠前）</span>
-      </div>
-      <div class="field">
-        <label class="long" for="visible">是否显示在新闻列表中：</label>
-        <input type="checkbox" id="visible" name="visible" checked/>
-        <span class="hint">（设为不显示只对普通用户有效，网站编辑仍旧可以访问）</span>
-      </div>
-      <div class="failure" style="display:none"></div>
-      <div class="action">
-        <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
-          <span>提交</span>
-        </button>
-      </div>
-      <p class="clear"></p>
     </form>
-  </div>
-</div>
+  </center>
+<?php if ($this->editable): ?>
+    <form class="form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
+<!-- <a class="btn btn-primary" href="#"><font color="#FFF">给下列用户群发邮件</font></a> -->
+<input id="field" name="field" type="hidden" value="<?php echo $this->field; ?>">
+<input id="start_year" name="start_year" type="hidden" value="<?php echo $this->start_year; ?>">
+<input id="major" name="major" type="hidden" value="<?php echo $this->major; ?>">
+<input id="location" name="location" type="hidden" value="<?php echo $this->location; ?>">
+<input id="words" name="words" type="hidden" value="<?php echo $this->words; ?>">
+        <button type="submit" class="btn btn-danger btn-large">给下列用户群发邮件</button>
 <?php endif; ?>
+  <?php endif; ?>
+<?php if (isset($this->users)): ?>
+<?php foreach ($this->users as $profile): ?>
+  <?php
+    $username = $profile->getLoginName();
+    $avatarfile = AVATAR_DIR . $username . '-mini.jpg';
+    $isAllowed=UserHelper::viewProfile($profile);
+  ?>
+  <article class="a-feed" id="user-<?php echo $profile->getId(); ?>">
+    <aside>
+      <figure>
+<?php if ($isAllowed): ?>
+        <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>">
+<?php endif; ?>
+          <?php if (file_exists($avatarfile)): ?>
+            <img src="<?php echo AVATAR_BASE; ?>/<?php echo $username; ?>-mini.jpg" width="40px" height="40px"/>
+          <?php else: ?>
+            <img src="<?php echo SITE_BASE; ?>/images/avatar-40.jpg" width="40px" height="40px"/>
+          <?php endif; ?>
+
+<?php if ($isAllowed): ?>
+        </a>
+<?php endif; ?>
+      </figure>
+    </aside>
+    <h3>
+<?php if ($isAllowed): ?>
+      <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>">
+<?php endif; ?>
+<?php echo htmlspecialchars($profile->getDisplayName()); ?>
+<?php if ($isAllowed): ?>
+</a>
+<?php endif; ?>
+      <span>:</span>
+	      <span><?php echo "领域:".Util::getFieldName($profile->getField()).";  单位:".$profile->getInstitute().";  职务:".$profile->getPosition();?>  </span>
+    </h3>
+    <div class="details">
+      <div class="legend">
+        <span >现居住地:</span>
+	<span>  <?php echo $profile->getLocation(); ?></span>
+      </div>
+    </div>
+  </article>
+<?php endforeach; ?>
+<?php endif; ?>
+</div>
 <?php
-$javascripts = array('jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'article/index.min');
+$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
 include(__DIR__ . '/../layout/footer.php');
