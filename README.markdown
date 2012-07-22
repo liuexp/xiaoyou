@@ -3,7 +3,7 @@
 * Edit the corresponding setup.
 * $ cp login/inc/config-example.php login/inc/config.php
 * Edit the corresponding setup.
-* $ chmod 0644 upload
+* $ chmod 0744 upload
 * Import users.sql and xiaoyou.sql
 * The default password for root is root.
 

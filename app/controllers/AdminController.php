@@ -82,4 +82,62 @@ class AdminController extends ApplicationController
 	  return in_array($ext,unserialize(UPLOAD_EXT));
   }
 
+  public function sendmail(){
+    if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+    fSession::close();
+    set_time_limit(0);
+    print "<pre>\n";
+    $emails = array();
+
+    $cons=array();
+    $field=trim(fRequest::get('field'));
+    $start_year=trim(fRequest::get('start_year'));
+    $major=trim(fRequest::get('major'));
+    $location=trim(fRequest::get('location'));
+    $words=trim(fRequest::get('words'));
+    $title=trim(fRequest::get('mail-title'));
+    $content=trim(fRequest::get('mail-content'));
+    
+    $cons['login_name|display_name~']=$words;
+    if(!empty($field))$cons['field=']=$field;
+    if(!empty($start_year))$cons['start_year=']=$start_year;
+    if(!empty($major))$cons['major=']=$major;
+    if(!empty($location))$cons['location~']=$location;
+    $users = fRecordSet::build('Profile', $cons, array('id' => 'asc'));
+    foreach ($users as $profile) {
+      $emails[] = $profile->getEmail();
+    }
+    $emails = array_filter(array_unique($emails), 'strlen');
+    foreach ($emails as $email) {
+      try {
+	self::send($email,$title,$content);
+	print 'Sent notice mail to ' . $email . "\n";
+      } catch (Exception $e) {
+        print "Error occurred when sending mail to $email: " . $e->getMessage() . "\n";
+      }
+      flush();
+    }
+    print "<a href='javascript:history.go(-1);'>Go Back</a>\n";
+
+  }
+
+  public static function send($email,$title,$content){
+	  /*
+    $admin_email = ADMIN_EMAIL;
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    $command = <<<EEE
+mail -s "${title}" -a "From: noreply@law.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+${content}
+EOF
+EEE;
+    system($command, $retval);
+    if ($retval) {
+      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
+	   */ 
+  }
 }

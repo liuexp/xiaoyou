@@ -287,9 +287,9 @@ $app->post('/profile/:id', function ($id) {
   $controller->update($id);
 });
 
-$app->post('/search/sendmail', function () {
+$app->post('/manage/sendmail', function () {
   fAuthorization::requireLoggedIn();
-  $controller = new SearchController();
+  $controller = new AdminController();
   $controller->sendmail();
 });
 

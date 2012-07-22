@@ -5,7 +5,6 @@ $stylesheets = array('bootstrap.min', 'tweets');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="timeline feed-list">
-  <?php if (fAuthorization::checkLoggedIn()): ?>
   <center>
     <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/search" method="post" onsubmit="$.blockUI();">
       <input type="hidden" name="quick" value="true"/>
@@ -30,22 +29,30 @@ include(__DIR__ . '/../layout/header.php');
     </form>
   </center>
 <?php if ($this->editable): ?>
-    <form class="form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
+<center>
+    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
 <!-- <a class="btn btn-primary" href="#"><font color="#FFF">给下列用户群发邮件</font></a> -->
 <input id="field" name="field" type="hidden" value="<?php echo $this->field; ?>">
 <input id="start_year" name="start_year" type="hidden" value="<?php echo $this->start_year; ?>">
 <input id="major" name="major" type="hidden" value="<?php echo $this->major; ?>">
 <input id="location" name="location" type="hidden" value="<?php echo $this->location; ?>">
 <input id="words" name="words" type="hidden" value="<?php echo $this->words; ?>">
+
+<input id="mail-title" name="mail-title" class="input-xlarge"  placeholder="邮件标题"/>
+<br/>
+<textarea id="mail-content" name="mail-content" class="input-xlarge"  rows="10" placeholder="正文">
+</textarea>
+<br/>
         <button type="submit" class="btn btn-danger btn-large">给下列用户群发邮件</button>
+</form>
+</center>
 <?php endif; ?>
-  <?php endif; ?>
 <?php if (isset($this->users)): ?>
 <?php foreach ($this->users as $profile): ?>
   <?php
     $username = $profile->getLoginName();
     $avatarfile = AVATAR_DIR . $username . '-mini.jpg';
-    $isAllowed=UserHelper::viewProfile($profile);
+    $isAllowed=$this->editable||UserHelper::viewProfile($profile);
   ?>
   <article class="a-feed" id="user-<?php echo $profile->getId(); ?>">
     <aside>

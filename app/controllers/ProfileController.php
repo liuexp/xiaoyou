@@ -67,7 +67,7 @@ class ProfileController extends ApplicationController
       $this->profile = new Profile($id);
       $this->editable = ((UserHelper::getProfileId() == $this->profile->getId()) or UserHelper::isEditor());
       $this->is_owner = UserHelper::getProfileId() == $this->profile->getId();
-      $this->is_allowed=UserHelper::viewProfile($this->profile);
+      $this->is_allowed=$this->editable || UserHelper::viewProfile($this->profile);
       if(!$this->is_allowed){
       	throw new fValidationException('not allowed');
       }

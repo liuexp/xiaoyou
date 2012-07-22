@@ -30,16 +30,34 @@ include(__DIR__ . '/../layout/header.php');
     </li>
   <?php endforeach; ?>
 </ul>
-
-
 </section>
+<!--
 <h1>
-群发邮件
+群发邮件到未注册用户
 </h1>
 <section>
   <center>
     <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
-      <input type="hidden" name="quick" value="true"/>
+      <input type="hidden" name="registered" value="false"/>
+      <div class="controls">
+<textarea id="mail-content" name="mail-content" class="input-xlarge" cols="120" rows="10">
+</textarea>
+<br/>
+        <button type="submit" class="btn btn-danger btn-large">发送</button>
+      </div>
+    </form>
+  </center>
+
+</section>
+-->
+
+<h1>
+群发邮件到已注册用户
+</h1>
+<section>
+  <center>
+    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
+      <input type="hidden" name="registered" value="true"/>
       <div class="controls">
         <select id="field" name="field" style="width:110px;">
           <option value="">工作领域:</option>
@@ -57,7 +75,9 @@ include(__DIR__ . '/../layout/header.php');
         <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
         <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
 <br/>
-<textarea id="mail-content" name="mail-content" class="input-xlarge" cols="120" rows="10">
+<input id="mail-title" name="mail-title" class="input-xlarge"  placeholder="邮件标题"/>
+<br/>
+<textarea id="mail-content" name="mail-content" class="input-xlarge"  rows="10" placeholder="正文">
 </textarea>
 <br/>
         <button type="submit" class="btn btn-danger btn-large">发送</button>
@@ -83,8 +103,11 @@ include(__DIR__ . '/../layout/header.php');
 
   <?php foreach ($this->uploadList as $file): ?>
     <li>
+    <a href="<?php echo SITE_BASE. UPLOAD_BASE.'/'. $file; ?>">
         <?php echo $file; ?>
+</a>
     </li>
+
   <?php endforeach; ?>
 </ul>
 
