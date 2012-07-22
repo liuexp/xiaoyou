@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 05, 2012 at 09:00 PM
--- Server version: 5.5.25-log
--- PHP Version: 5.4.4
+-- Generation Time: Jul 22, 2012 at 02:18 PM
+-- Server version: 5.5.25a-log
+-- PHP Version: 5.4.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -46,7 +46,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `pass`, `salt`, `iter`, `status`, `email`, `display_name`, `created_at`, `updated_at`) VALUES(1, 'root', '33010f27c43b3faeb40d21f1dee03fd3', 'ab531deb151615fead8516980b5c9874', 14, 2, 'asdf@asdf.com', 'asdf', '2012-06-25 23:52:33', '2012-06-25 23:52:33');
+INSERT INTO `users` (`id`, `name`, `pass`, `salt`, `iter`, `status`, `email`, `display_name`, `created_at`, `updated_at`) VALUES
+(1, 'root', '33010f27c43b3faeb40d21f1dee03fd3', 'ab531deb151615fead8516980b5c9874', 14, 2, 'asdf@asdf.com', 'asdf', '2012-06-25 23:52:33', '2012-06-25 23:52:33');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

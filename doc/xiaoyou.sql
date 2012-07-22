@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 05, 2012 at 09:00 PM
--- Server version: 5.5.25-log
--- PHP Version: 5.4.4
+-- Generation Time: Jul 22, 2012 at 02:18 PM
+-- Server version: 5.5.25a-log
+-- PHP Version: 5.4.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite','new tweet') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 -- --------------------------------------------------------
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 -- --------------------------------------------------------
 
@@ -162,8 +162,9 @@ CREATE TABLE IF NOT EXISTS `mails` (
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `parent` bigint(20) NOT NULL DEFAULT '-1',
+  `read` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `msgs` (
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -197,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `names` (
   KEY `start_year` (`start_year`),
   KEY `class_number` (`class_number`),
   KEY `realname` (`realname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 -- --------------------------------------------------------
 
@@ -238,20 +239,16 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `gender` char(1) NOT NULL,
   `location` varchar(200) DEFAULT NULL,
   `post_number` varchar(200) DEFAULT NULL,
-  `hometown` varchar(200) DEFAULT NULL,
-  `high_school` varchar(200) DEFAULT NULL,
-  `description` text,
-  `memorable` text,
-  `presentable` tinyint(1) NOT NULL,
   `advices` text,
-  `contributes` text,
-  `will_give_talk` tinyint(1) NOT NULL,
-  `talk_title` text,
-  `talk_intro` text,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `subscription` text,
   `privacy_control` int(11) NOT NULL DEFAULT '0',
+  `field` smallint(6) DEFAULT NULL,
+  `institute` varchar(200) DEFAULT NULL,
+  `position` varchar(200) DEFAULT NULL,
+  `major` varchar(200) DEFAULT NULL,
+  `mentor` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login_name` (`login_name`),
   UNIQUE KEY `student_number` (`student_number`),
@@ -271,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -288,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `tweet_comments` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `tweet_id` (`tweet_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Constraints for dumped tables

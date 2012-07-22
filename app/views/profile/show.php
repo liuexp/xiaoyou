@@ -169,6 +169,26 @@ include(__DIR__ . '/../layout/header.php');
       邮政编码：<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
     </li>
+    <li>
+      工作领域：<?php echo htmlspecialchars(Util::getFieldName($this->profile->getField())); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+    <li>
+      工作单位：<?php echo htmlspecialchars($this->profile->getInstitute()); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+    <li>
+      职务：<?php echo htmlspecialchars($this->profile->getPosition()); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+    <li>
+      在校学习专业：<?php echo htmlspecialchars($this->profile->getMajor()); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
+    <li>
+      导师：<?php echo htmlspecialchars($this->profile->getMentor()); ?>
+      <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
+    </li>
 
     <li>
       隐私安全：<?php 
@@ -330,9 +350,31 @@ case 2:
           <input class="textfield monofont input-medium" type="text" id="post_number" name="post_number" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>"/>
 
         </div>
+         <div class="field">
+          <label for="field">工作领域：</label>
+        <select id="field" name="field" style="width: 160px;">
+          <option value="<?php echo htmlspecialchars($this->profile->getField()); ?>"></option>
+<?php $i=1;while (Util::getFieldName($i) != $i ): ?>
+<option value="<?php echo $i; ?>"> <?php echo Util::getFieldName($i++); ?> </option>
+<?php endwhile; ?>
+        </select>
+        <label for="institute">工作单位：</label>
+          <input class="textfield monofont input-medium" type="text" id="institute" name="institute" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getInstitute()); ?>"/>
+
+        </div>
+         <div class="field">
+          <label for="position">职务：</label>
+          <input class="textfield monofont input-medium" type="text" id="position" name="position" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getPosition()); ?>"/>
+        <label for="major">在校学习专业：</label>
+          <input class="textfield monofont input-medium" type="text" id="major" name="major" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getMajor()); ?>"/>
+
+        </div>
       </fieldset>
       <fieldset>
         <div class="field">
+        <label for="mentor">导师：</label>
+          <input class="textfield monofont input-medium" type="text" id="mentor" name="mentor" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getMentor()); ?>"/>
+
           <label for="msn">MSN：</label>
           <input class="textfield monofont input-medium" type="text" id="msn" name="msn" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('msn')); ?>"/>
 	</div>
@@ -340,14 +382,16 @@ case 2:
         <div class="field">
           <label for="tele">固定电话：</label>
           <input class="textfield monofont input-medium" type="text" id="tele" name="tele" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('tele')); ?>"/>
-          <label for="mobile" class="small">移动电话</label>
+
+          <label for="mobile" >移动电话：</label>
           <input class="textfield monofont input-medium" type="text" id="mobile" name="mobile" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('mobile')); ?>"/>
         </div>
 
         <div class="field">
           <label for="email">常用Email：</label>
           <input class="textfield monofont input-medium" type="text" id="email" name="email" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('email')); ?>"/>
-          <label for="qq" class="small">QQ：</label>
+
+          <label for="qq" >QQ：</label>
           <input class="textfield monofont input-medium" type="text" id="qq" name="qq" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getContactOrEmpty('qq')); ?>"/>
         </div>
         <div class="field">
@@ -377,138 +421,6 @@ case 2:
       <p class="clear"></p>
     </form>
   </div>
-  <div id="add-experience" class="popup">
-    <h2>添加经历</h2>
-    <form id="add-experience-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/experiences">
-      <div class="field">
-        <label>开始年月：</label>
-        <select name="start_year" class="input-mini">
-          <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>年
-        <select name="start_month" class="input-mini">
-          <option value=""></option>
-          <?php for ($i = 1; $i <= 12; $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>月
-      </div>
-      <div class="field">
-        <label>结束年月：</label>
-        <select name="end_year" class="input-mini">
-          <option value="">至今</option>
-          <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>年
-        <select name="end_month" class="input-mini">
-          <option value=""></option>
-          <?php for ($i = 1; $i <= 12; $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>月
-      </div>
-      <div class="field">
-        <label>类型：</label>
-        <select name="type" class="input-small">
-          <option value=""></option>
-          <option value="bachelor">本科</option>
-          <option value="master">硕士</option>
-          <option value="doctor">博士</option>
-          <option value="postdoc">博士后</option>
-          <option value="work">工作</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>学校/单位：</label>
-        <input type="text" name="location" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label>专业/方向：</label>
-        <input type="text" name="major" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label>导师：</label>
-        <input type="text" name="mentor" maxlength="200"/>
-      </div>
-      <div class="failure" style="display:none"></div>
-      <div class="action">
-        <button type="submit" class="btn btn-success btn-large">提交</button>
-      </div>
-      <p class="clear"></p>
-    </form>
-  </div>
-  <div id="add-paper" class="popup">
-    <h2>添加论文</h2>
-    <form id="add-paper-form" class="form-horizontal" class="longlabel" method="POST" action="<?php echo SITE_BASE; ?>/papers">
-      <div class="field">
-        <label>标题：</label>
-        <input type="text" name="title" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label>作者列表：</label>
-        <input type="text" name="authors" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label>是否第一作者：</label>
-        <input type="checkbox" name="is_first_author"/>
-      </div>
-      <div class="field">
-        <label>是否在交大期间发表：</label>
-        <input type="checkbox" name="is_at_sjtu"/>
-      </div>
-      <div class="field">
-        <label>是否最佳论文：</label>
-        <input type="checkbox" name="is_best_paper"/>
-      </div>
-      <div class="field">
-        <label>发表在：</label>
-        <input type="text" name="publish_place" maxlength="200"/>
-      </div>
-      <div class="field">
-        <label>发表年份：</label>
-        <select name="publish_year" class="input-mini">
-          <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>
-      </div>
-      <div class="failure" style="display:none"></div>
-      <div class="action">
-        <button type="submit" class="btn btn-success btn-large">提交</button>
-      </div>
-      <p class="clear"></p>
-    </form>
-  </div>
-  <div id="add-honor" class="popup">
-    <h2>添加荣誉</h2>
-    <form id="add-honor-form" class="form-horizontal" method="POST" action="<?php echo SITE_BASE; ?>/honors">
-      <div class="field">
-        <label>获得荣誉年月：</label>
-        <select name="year" class="input-mini">
-          <?php for ($i = 2002; $i <= Util::currentYear(); $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>年
-        <select name="month" class="input-mini">
-          <option value=""></option>
-          <?php for ($i = 1; $i <= 12; $i++): ?>
-            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-          <?php endfor; ?>
-        </select>月
-      </div>
-      <div class="field">
-        <label>描述：</label>
-        <input type="text" name="description" maxlength="200"/>
-      </div>
-      <div class="failure" style="display:none"></div>
-      <div class="action">
-        <button type="submit" class="btn btn-success btn-large">提交</button>
-      </div>
-      <p class="clear"></p>
-    </form>
-  </div>
 </div>
 <script type="text/javascript">
   window.profileId = '<?php echo $this->profile->getId(); ?>';
@@ -523,12 +435,12 @@ case 2:
 if ($this->editable) {
   $javascripts = array(
     'datepicker/WdatePicker',
-    'jquery.blockui.min',
+    'jquery.blockui.min','bootstrap.min',
     'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
     'profile/show.min',
     'hide-broken-images'
   );
 } else {
-  $javascripts = array( 'jquery.blockui.min', 'hide-broken-images');
+  $javascripts = array( 'bootstrap.min','jquery.blockui.min', 'hide-broken-images');
 }
 include(__DIR__ . '/../layout/footer.php');

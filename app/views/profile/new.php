@@ -44,13 +44,39 @@ include(__DIR__ . '/../layout/header.php');
         <input type="radio" name="gender" value="F" id="genderF"/><label class="radio" for="genderF">女</label>
       </div>
       <div class="field">
-        <label for="location">现居住地（详细地址）：</label>
+        <label for="location">现居住地：</label>
         <input class="textfield monofont" type="text" id="location" name="location" maxlength="200"/>
       </div>
       <div class="field">
         <label for="post_number">邮政编码：</label>
         <input class="textfield monofont" type="text" id="post_number" name="post_number" maxlength="200"/>
       </div>
+      <div class="field">
+        <label for="field">工作领域：</label>
+        <select id="field" name="field" >
+          <option></option>
+<?php $i=1;while (Util::getFieldName($i) != $i ): ?>
+<option value="<?php echo $i; ?>"> <?php echo Util::getFieldName($i++); ?> </option>
+<?php endwhile; ?>
+        </select>
+      </div>
+      <div class="field">
+        <label for="institute">工作单位：</label>
+        <input class="textfield monofont" type="text" id="institute" name="institute" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="position">职务：</label>
+        <input class="textfield monofont" type="text" id="position" name="position" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="major">在校学习专业：</label>
+        <input class="textfield monofont" type="text" id="major" name="major" maxlength="200"/>
+      </div>
+      <div class="field">
+        <label for="mentor">导师：</label>
+        <input class="textfield monofont" type="text" id="mentor" name="mentor" maxlength="200"/>
+      </div>
+
     </fieldset>
     <fieldset>
       <legend>联系方式</legend>

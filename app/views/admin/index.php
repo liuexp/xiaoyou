@@ -1,7 +1,7 @@
 <?php
 $title = '管理';
 $no_sidebar = true;
-$stylesheets = array('jquery.fancybox-1.3.4', 'articles');
+$stylesheets = array('bootstrap.min','jquery.fancybox-1.3.4', 'articles');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <div style="clear:both">
@@ -44,7 +44,7 @@ include(__DIR__ . '/../layout/header.php');
 </h1>
 <section>
 <ul >
-<a href = "<?php echo SITE_BASE; ?>/export/csv">批量导出为CSV</a>
+<a  class="btn btn-primary btn-large" href = "<?php echo SITE_BASE; ?>/export/csv"><font color="#FFF">批量导出为CSV</font></a>
 </ul>
 </section>
 <div style="display:none">

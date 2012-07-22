@@ -20,11 +20,10 @@ $app->get('/help', function () {
   $controller->show();
 });
 
-
-$app->get('/outbox', function () {
+$app->get('/search', function () {
   UserHelper::requireProfile();
-  $controller = new MailController();
-  $controller->sent();
+  $controller = new SearchController();
+  $controller->show();
 });
 
 

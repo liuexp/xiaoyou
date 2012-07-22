@@ -33,6 +33,11 @@ class ProfileController extends ApplicationController
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->setAdvices(trim(fRequest::get('advices')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
+      $profile->setField(trim(fRequest::get('field')));
+      $profile->setInstitute(trim(fRequest::get('institute')));
+      $profile->setPosition(trim(fRequest::get('position')));
+      $profile->setMajor(trim(fRequest::get('major')));
+      $profile->setMentor(trim(fRequest::get('mentor')));
       $profile->setCreatedAt(Util::currentTime());
       $profile->store();
       
@@ -63,6 +68,9 @@ class ProfileController extends ApplicationController
       $this->editable = ((UserHelper::getProfileId() == $this->profile->getId()) or UserHelper::isEditor());
       $this->is_owner = UserHelper::getProfileId() == $this->profile->getId();
       $this->is_allowed=UserHelper::viewProfile($this->profile);
+      if(!$this->is_allowed){
+      	throw new fValidationException('not allowed');
+      }
       $this->username = $this->profile->getLoginName();
       $this->avatarfile = AVATAR_DIR . $this->username . '-avatar.jpg';
       $this->active=$active;
@@ -90,6 +98,11 @@ class ProfileController extends ApplicationController
       $profile->setLocation(trim(fRequest::get('location')));
       $profile->setPostNumber(trim(fRequest::get('post_number')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
+      $profile->setField(trim(fRequest::get('field')));
+      $profile->setInstitute(trim(fRequest::get('institute')));
+      $profile->setPosition(trim(fRequest::get('position')));
+      $profile->setMajor(trim(fRequest::get('major')));
+      $profile->setMentor(trim(fRequest::get('mentor')));
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->store();
       
