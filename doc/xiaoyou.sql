@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 22, 2012 at 02:18 PM
+-- Generation Time: Jul 22, 2012 at 03:08 PM
 -- Server version: 5.5.25a-log
 -- PHP Version: 5.4.5
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite','new tweet') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
   `priority` int(11) NOT NULL,
-  `type` enum('news','post') NOT NULL,
+  `type` enum('news','post','culture','infrastructure','halloffame') NOT NULL,
   `visible` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `tweet_comments` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `tweet_id` (`tweet_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Constraints for dumped tables
