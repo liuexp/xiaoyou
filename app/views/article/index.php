@@ -1,5 +1,5 @@
 <?php
-$title = '新闻';
+$title = isset($this->title)?$this->title:'新闻';
 $no_sidebar = true;
 $stylesheets = array('jquery.fancybox-1.3.4', 'articles');
 $getMarkdown=true;
@@ -40,7 +40,11 @@ include(__DIR__ . '/../layout/header.php');
   <div id="new-article">
     <h1>添加新闻</h1>
     <form id="new-article-form" method="POST">
+<?php if (!isset($this->articleType)): ?>
       <input type="hidden" name="type" value="news"/>
+<?php else: ?>
+<input type="hidden" name="type" value="<?php echo $this->articleType; ?>"/>
+<?php endif; ?>
       <div class="field">
         <label for="title">标题：</label>
         <input class="textfield monofont" type="text" id="title" name="title" maxlength="200"/>

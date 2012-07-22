@@ -22,6 +22,9 @@ $('#markdown2').markItUp(myMarkdownSettings).css('height', function() {
       <select id="type" name="type">
         <option value="news"<?php if ($this->article->getType() == 'news') echo ' selected'; ?>>新闻</option>
         <option value="post"<?php if ($this->article->getType() == 'post') echo ' selected'; ?>>讲座信息</option>
+	<option value="culture"<?php if ($this->article->getType() == 'culture') echo ' selected'; ?>>人才培养</option>
+        <option value="infrastructure"<?php if ($this->article->getType() == 'infrastructure') echo ' selected'; ?>>法学院建设</option>
+        <option value="halloffame"<?php if ($this->article->getType() == 'halloffame') echo ' selected'; ?>>校友风采</option>
       </select>
     </div>
     <div class="field">

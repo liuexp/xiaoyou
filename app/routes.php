@@ -162,7 +162,21 @@ $app->get('/article/:id/edit', function ($id) {
   $controller = new ArticleController();
   $controller->edit($id);
 });
-
+$app->get('/cultures', function () {
+  UserHelper::requireProfile();
+  $controller = new ArticleController();
+  $controller->cultures();
+});
+$app->get('/infrastructures', function () {
+  UserHelper::requireProfile();
+  $controller = new ArticleController();
+  $controller->infrastructures();
+});
+$app->get('/halloffames', function () {
+  UserHelper::requireProfile();
+  $controller = new ArticleController();
+  $controller->halloffames();
+});
 $app->get('/posts', function () {
   UserHelper::requireProfile();
   $controller = new ArticleController();

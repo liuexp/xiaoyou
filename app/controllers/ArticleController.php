@@ -26,7 +26,54 @@ class ArticleController extends ApplicationController
     }
     $this->render('article/posts');
   }
-  
+
+  public function cultures()
+  {  
+    $this->editable = UserHelper::isEditor();
+    if ($this->editable) {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'culture'), array('priority' => 'desc', 'created_at' => 'asc'));
+    } else {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'culture', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'asc'));
+    }
+    $this->title="人才培养";
+    $this->articleType="culture";
+    $this->render('article/index');
+  }
+ 
+
+  public function infrastructures()
+  {  
+    $this->editable = UserHelper::isEditor();
+    if ($this->editable) {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'infrastructure'), array('priority' => 'desc', 'created_at' => 'asc'));
+    } else {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'infrastructure', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'asc'));
+    }
+    $this->title="法学院建设";
+    $this->articleType="infrastructure";
+    $this->render('article/index');
+  }
+ 
+
+  public function halloffames()
+  {  
+    $this->editable = UserHelper::isEditor();
+    if ($this->editable) {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'halloffame'), array('priority' => 'desc', 'created_at' => 'asc'));
+    } else {
+      $this->articles = fRecordSet::build(
+        'Article', array('type=' => 'halloffame', 'visible=' => 1), array('priority' => 'desc', 'created_at' => 'asc'));
+    }
+    $this->title="校友风采";
+    $this->articleType="halloffame";
+    $this->render('article/index');
+  }
+ 
   public function show($id)
   {
     try {
@@ -40,28 +87,7 @@ class ArticleController extends ApplicationController
       Slim::getInstance()->notFound();
     }
   }
-  
-  public function showSchedule()
-  {
-    $this->show(SCHEDULE_ARTICLE_ID);
-  }
-  
-  public function showTeachers()
-  {
-    $this->show(TEACHERS_ARTICLE_ID);
-  }
-  
-  public function showCorresponds()
-  {
-    $this->show(CORRESPONDS_ARTICLE_ID);
-  }
-  
-  public function showCredits()
-  {
-    $this->show(CREDITS_ARTICLE_ID);
-  }
-  
-  public function create()
+   public function create()
   {
     try {
       $article = new Article();

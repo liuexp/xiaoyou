@@ -100,6 +100,9 @@ $(document).ready(function()	{
 (<?php echo $c; ?>)
 <?php endif; ?>
 </a> |
+
+          <a href="<?php echo SITE_BASE; ?>/tweets">微博</a> |
+          <a href="<?php echo SITE_BASE; ?>/search">找人</a> |
             <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
           <?php else: ?>
@@ -109,14 +112,14 @@ $(document).ready(function()	{
             <a href="<?php echo SITE_BASE; ?>/help">帮助</a>
         </span>
         <a href="<?php echo SITE_BASE; ?>/">
-          <img src="<?php echo SITE_BASE; ?>/images/KoGuan_logo.png"/>
+          <img src="<?php echo SITE_BASE; ?>/images/KoGuan_logo.png" style="width: 110px;"/>
         </a>
         <nav>
-          <a href="<?php echo SITE_BASE; ?>/">首页</a>
           <a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
-          <a href="<?php echo SITE_BASE; ?>/posts">讲座信息</a>
-          <a href="<?php echo SITE_BASE; ?>/tweets">微博</a>
-          <a href="<?php echo SITE_BASE; ?>/search">找人</a>
+          <a href="<?php echo SITE_BASE; ?>/posts">讲座</a>
+          <a href="<?php echo SITE_BASE; ?>/cultures">人才培养</a>
+          <a href="<?php echo SITE_BASE; ?>/infrastructures">法学院建设</a>
+          <a href="<?php echo SITE_BASE; ?>/halloffames">校友风采</a>
         </nav>
       </div>
     </header>
