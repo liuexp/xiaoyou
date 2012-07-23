@@ -122,7 +122,41 @@ class AdminController extends ApplicationController
   }
 
   public static function send($email,$title,$content){
-	  /*
+ 	require_once(__DIR__ . '/../vendor/class.phpmailer.php');
+ 	include(__DIR__ . '/../vendor/class.smtp.php');
+	error_reporting(E_STRICT);
+	date_default_timezone_set("Asia/Shanghai");//设定时区东八区
+	$mail             = new PHPMailer(); //new一个PHPMailer对象出来
+	$mail->CharSet ="UTF-8";//设定邮件编码，默认ISO-8859-1，如果发中文此项必须设置，否则乱码
+	$mail->IsSMTP(); // 设定使用SMTP服务
+	$mail->SMTPDebug  = 1;                     // 启用SMTP调试功能
+	                                       // 1 = errors and messages
+	                                       // 2 = messages only
+	$mail->SMTPAuth   = true;                  // 启用 SMTP 验证功能
+	$mail->SMTPSecure = "ssl";                 // 安全协议
+	$mail->Host       = SMTP_ADDR;
+	$mail->Port       = SMTP_PORT;
+	$mail->Username   = SMTP_USER;
+	$mail->Password   = SMTP_PASS;
+	$mail->SetFrom(ADMIN_EMAIL, ADMIN_EMAIL);
+	$mail->AddReplyTo(ADMIN_EMAIL,ADMIN_EMAIL);
+	$mail->Subject    = $title;
+	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer! "; // optional, comment out and test
+	$mail->MsgHTML($content);
+	$address = $email;
+	$mail->AddAddress($address, "");
+	//$mail->AddAttachment("images/phpmailer.gif");      // attachment 
+	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
+	if(!$mail->Send()) {
+	    echo "Mailer Error: " . $mail->ErrorInfo;
+	} else {
+	    echo "Message sent!恭喜，邮件发送成功！";
+	    }
+    flush();
+    sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
+  }
+
+  public static function cmd_send($email,$title,$content){
     $admin_email = ADMIN_EMAIL;
     $year = date('Y');
     $month = date('m');
@@ -138,6 +172,5 @@ EEE;
     }
     flush();
     sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
-	   */ 
   }
 }

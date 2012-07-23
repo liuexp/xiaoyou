@@ -24,6 +24,10 @@ define('AVATAR_BASE', '/avatars');
 define('UPLOAD_DIR', '/srv/http/xiaoyou/upload/');
 define('UPLOAD_BASE', '/upload');
 define('UPLOAD_EXT',array('jpg','png','bmp','gif'));
+define('SMTP_ADDR', 'smtp.gmail.com');
+define('SMTP_PORT', '465');
+define('SMTP_USER', 'liuexp@gmail.com');
+define('SMTP_PASS', '');
 
 
 define('SESSIONS_PATH', '/Users/xjia/tmp/sessions/');
