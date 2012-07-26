@@ -133,7 +133,7 @@ class AdminController extends ApplicationController
 	                                       // 1 = errors and messages
 	                                       // 2 = messages only
 	$mail->SMTPAuth   = true;                  // 启用 SMTP 验证功能
-	$mail->SMTPSecure = "ssl";                 // 安全协议
+	$mail->SMTPSecure = SMTP_PRO;                 // 安全协议
 	$mail->Host       = SMTP_ADDR;
 	$mail->Port       = SMTP_PORT;
 	$mail->Username   = SMTP_USER;

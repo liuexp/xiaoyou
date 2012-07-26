@@ -24,6 +24,7 @@ define('AVATAR_BASE', '/avatars');
 define('UPLOAD_DIR', '/srv/http/xiaoyou/upload/');
 define('UPLOAD_BASE', '/upload');
 define('UPLOAD_EXT',array('jpg','png','bmp','gif'));
+define('SMTP_PRO', 'ssl');//ssl or tls
 define('SMTP_ADDR', 'smtp.googlemail.com');
 define('SMTP_PORT', '465');
 define('SMTP_USER', 'liuexp@gmail.com');
