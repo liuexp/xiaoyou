@@ -123,9 +123,9 @@ class AdminController extends ApplicationController
 
   public static function send($email,$title,$content){
  	require_once(__DIR__ . '/../vendor/class.phpmailer.php');
- 	include(__DIR__ . '/../vendor/class.smtp.php');
-	error_reporting(E_STRICT);
-	date_default_timezone_set("Asia/Shanghai");//设定时区东八区
+ 	require_once(__DIR__ . '/../vendor/class.smtp.php');
+	error_reporting(E_ALL);
+	//date_default_timezone_set("Asia/Shanghai");//设定时区东八区
 	$mail             = new PHPMailer(); //new一个PHPMailer对象出来
 	$mail->CharSet ="UTF-8";//设定邮件编码，默认ISO-8859-1，如果发中文此项必须设置，否则乱码
 	$mail->IsSMTP(); // 设定使用SMTP服务
@@ -150,7 +150,7 @@ class AdminController extends ApplicationController
 	if(!$mail->Send()) {
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	} else {
-	    echo "Message sent!恭喜，邮件发送成功！";
+	    //echo "恭喜，邮件发送成功！";
 	    }
     flush();
     sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
@@ -162,13 +162,13 @@ class AdminController extends ApplicationController
     $month = date('m');
     $day = date('d');
     $command = <<<EEE
-mail -s "${title}" -a "From: noreply@law.sjtu.edu.cn" -a "Reply-To: ${admin_email}" ${email} <<EOF
+mail -s "${title}"  ${email} <<EOF
 ${content}
 EOF
 EEE;
-    system($command, $retval);
+    echo passthru($command, $retval). "\n";
     if ($retval) {
-      throw new Exception('An error occurred while sending the email: return value is ' . $retval);
+      throw new Exception('An error occurred while sending the email: command '. $command . '\n  return value is ' . $retval);
     }
     flush();
     sleep(1); // wait for 1 seconds (do NOT send mail too frequently)

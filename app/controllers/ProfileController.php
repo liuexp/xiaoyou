@@ -28,7 +28,10 @@ class ProfileController extends ApplicationController
       }
       $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
-      $profile->setLocation(trim(fRequest::get('location')));
+      //$profile->setLocation(trim(fRequest::get('location')));
+      $province=trim(fRequest::get('province'));
+      $city=trim(fRequest::get('city'));
+      $profile->setLocation(self::formatLocation($province,$city));
       $profile->setPostNumber(trim(fRequest::get('post_number')));
       $profile->setSubscription(trim(fRequest::get('subscription')));
       $profile->setAdvices(trim(fRequest::get('advices')));
@@ -128,5 +131,13 @@ class ProfileController extends ApplicationController
       if (isset($this->db)) $this->db->query('ROLLBACK');
       $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
     }
+  }
+
+  public static function formatLocation($p,$c){
+	  if($p != "直辖市"){
+		  return $p . "省 " . $c ."市";
+	  }else {
+		  return $c;
+	  }
   }
 }
