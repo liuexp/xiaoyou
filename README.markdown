@@ -5,6 +5,7 @@
 * Edit the corresponding setup.
 * $ chmod 0744 upload
 * Import users.sql and xiaoyou.sql
+* Enabled php-openssl.
 * The default password for root is root.
 
 
