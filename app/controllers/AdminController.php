@@ -148,7 +148,7 @@ class AdminController extends ApplicationController
 	//$mail->AddAttachment("images/phpmailer.gif");      // attachment 
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 	if(!$mail->Send()) {
-	    echo "Mailer Error: " . $mail->ErrorInfo;
+	    echo "Mailer Error: " . $mail->ErrorInfo . "\n";
 	} else {
 	    //echo "恭喜，邮件发送成功！";
 	    }
