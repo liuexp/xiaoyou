@@ -41,7 +41,7 @@ class AdminController extends ApplicationController
   	 	 $this->db = fORMDatabase::retrieve();
   	 	 $this->db->query('BEGIN');
 	 	 foreach (explode("\n",$raw) as $i){
-	 	         $j=explode("\t",$i);
+			 $j=preg_split('/\s+/', $i);
 			 if (count($j) < 2) continue;
 	 	         $x=$j[0];
 	 	         $y=$j[1];
