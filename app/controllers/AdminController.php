@@ -195,7 +195,7 @@ class AdminController extends ApplicationController
 		throw new Exception($mail->ErrorInfo);
 	} else {
 	    //echo "恭喜，邮件发送成功！";
-	    }
+	}
     flush();
     sleep(1); // wait for 1 seconds (do NOT send mail too frequently)
   }
