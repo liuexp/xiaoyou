@@ -157,10 +157,11 @@ include(__DIR__ . '/../layout/header.php');
         <label for="content">列表:</label>
 (其中第一列为校友真实姓名，第二列为学号)
 <p>
-<textarea class="monofont" name="content" rows=10 cols=80>
+<textarea class="monofont" name="content" rows=10 cols=190 style="width: 500px;">
 </textarea>
 </p>
       </div>
+<br/>
       <div class="failure" style="display:none"></div>
       <div class="action">
         <button type="submit" class="classy primary" data-afterclick="正在提交⋯⋯">
