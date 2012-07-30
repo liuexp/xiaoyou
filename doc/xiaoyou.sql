@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 22, 2012 at 03:08 PM
+-- Generation Time: Jul 30, 2012 at 11:52 AM
 -- Server version: 5.5.25a-log
 -- PHP Version: 5.4.5
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `activities`
 --
 
+DROP TABLE IF EXISTS `activities`;
 CREATE TABLE IF NOT EXISTS `activities` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned DEFAULT NULL,
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
   `type` enum('register','new profile','update profile','update avatar','new contact','new experience','new honor','new paper','update contact','update experience','update honor','update paper','invite','new tweet') NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -41,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `activities` (
 -- Table structure for table `articles`
 --
 
+DROP TABLE IF EXISTS `articles`;
 CREATE TABLE IF NOT EXISTS `articles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(200) NOT NULL,
@@ -51,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_at` datetime NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -59,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Table structure for table `article_comments`
 --
 
+DROP TABLE IF EXISTS `article_comments`;
 CREATE TABLE IF NOT EXISTS `article_comments` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `article_id` bigint(20) unsigned NOT NULL,
@@ -68,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `article_comments` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -76,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `article_comments` (
 -- Table structure for table `contacts`
 --
 
+DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
@@ -86,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `type` (`type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -94,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `contacts` (
 -- Table structure for table `experiences`
 --
 
+DROP TABLE IF EXISTS `experiences`;
 CREATE TABLE IF NOT EXISTS `experiences` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
@@ -109,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -117,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `experiences` (
 -- Table structure for table `honors`
 --
 
+DROP TABLE IF EXISTS `honors`;
 CREATE TABLE IF NOT EXISTS `honors` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
@@ -127,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `honors` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -135,6 +141,7 @@ CREATE TABLE IF NOT EXISTS `honors` (
 -- Table structure for table `invitations`
 --
 
+DROP TABLE IF EXISTS `invitations`;
 CREATE TABLE IF NOT EXISTS `invitations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(200) NOT NULL,
@@ -147,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `invitations` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `inviter_profile_id` (`inviter_profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -155,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `invitations` (
 -- Table structure for table `mails`
 --
 
+DROP TABLE IF EXISTS `mails`;
 CREATE TABLE IF NOT EXISTS `mails` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `sender` bigint(20) unsigned NOT NULL,
@@ -164,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `mails` (
   `parent` bigint(20) NOT NULL DEFAULT '-1',
   `read` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -172,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `mails` (
 -- Table structure for table `msgs`
 --
 
+DROP TABLE IF EXISTS `msgs`;
 CREATE TABLE IF NOT EXISTS `msgs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sender` bigint(20) unsigned NOT NULL,
@@ -179,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `msgs` (
   `content` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -187,6 +196,7 @@ CREATE TABLE IF NOT EXISTS `msgs` (
 -- Table structure for table `names`
 --
 
+DROP TABLE IF EXISTS `names`;
 CREATE TABLE IF NOT EXISTS `names` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `start_year` char(4) DEFAULT NULL,
@@ -198,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `names` (
   KEY `start_year` (`start_year`),
   KEY `class_number` (`class_number`),
   KEY `realname` (`realname`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -206,6 +216,7 @@ CREATE TABLE IF NOT EXISTS `names` (
 -- Table structure for table `papers`
 --
 
+DROP TABLE IF EXISTS `papers`;
 CREATE TABLE IF NOT EXISTS `papers` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
@@ -220,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `papers` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -228,6 +239,7 @@ CREATE TABLE IF NOT EXISTS `papers` (
 -- Table structure for table `profiles`
 --
 
+DROP TABLE IF EXISTS `profiles`;
 CREATE TABLE IF NOT EXISTS `profiles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `login_name` varchar(100) NOT NULL,
@@ -253,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   UNIQUE KEY `login_name` (`login_name`),
   UNIQUE KEY `student_number` (`student_number`),
   KEY `start_year` (`start_year`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -261,6 +273,7 @@ CREATE TABLE IF NOT EXISTS `profiles` (
 -- Table structure for table `tweets`
 --
 
+DROP TABLE IF EXISTS `tweets`;
 CREATE TABLE IF NOT EXISTS `tweets` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `profile_id` bigint(20) unsigned NOT NULL,
@@ -268,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -276,6 +289,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
 -- Table structure for table `tweet_comments`
 --
 
+DROP TABLE IF EXISTS `tweet_comments`;
 CREATE TABLE IF NOT EXISTS `tweet_comments` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `tweet_id` bigint(20) unsigned NOT NULL,
@@ -285,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `tweet_comments` (
   PRIMARY KEY (`id`),
   KEY `profile_id` (`profile_id`),
   KEY `tweet_id` (`tweet_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables

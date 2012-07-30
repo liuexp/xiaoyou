@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 22, 2012 at 02:18 PM
+-- Generation Time: Jul 30, 2012 at 11:54 AM
 -- Server version: 5.5.25a-log
 -- PHP Version: 5.4.5
 
@@ -46,8 +46,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `pass`, `salt`, `iter`, `status`, `email`, `display_name`, `created_at`, `updated_at`) VALUES
-(1, 'root', '33010f27c43b3faeb40d21f1dee03fd3', 'ab531deb151615fead8516980b5c9874', 14, 2, 'asdf@asdf.com', 'asdf', '2012-06-25 23:52:33', '2012-06-25 23:52:33');
+INSERT INTO `users` (`id`, `name`, `pass`, `salt`, `iter`, `status`, `email`, `display_name`, `created_at`, `updated_at`) VALUES(1, 'root', '33010f27c43b3faeb40d21f1dee03fd3', 'ab531deb151615fead8516980b5c9874', 14, 2, 'asdf@asdf.com', 'asdf', '2012-06-25 23:52:33', '2012-06-25 23:52:33');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
