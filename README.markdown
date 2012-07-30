@@ -3,6 +3,8 @@
 * Edit the corresponding setup.
 * $ cp login/inc/config-example.php login/inc/config.php
 * Edit the corresponding setup.
+* $ mkdir upload
+* $ chown http upload
 * $ chmod 0744 upload
 * Import users.sql and xiaoyou.sql
 * Enabled php-openssl.

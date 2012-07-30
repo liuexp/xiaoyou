@@ -26,7 +26,7 @@ class MailController extends ApplicationController
       }else {
       	//$receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array())->getRecord(0);
 	      $receiver=fRecordSet::build('Profile',array('login_name=' => $re ),array());
-	      if($receiver->getCount()>0)$receiver=$receiver->getRecord(0);
+	      if($receiver->count())$receiver=$receiver->getRecord(0);
 	      else throw new fNotFoundException('user doesn\'t exist');
 	      $mail->setReceiver($receiver->getId());
       }

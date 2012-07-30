@@ -44,11 +44,7 @@ class RegisterController extends ApplicationController
         throw new fValidationException('用户名中只允许出现小写字母和数字');
       if (!Name::existid($realname,$stuid))
         throw new fValidationException('无效的用户信息（请务必填写用于注册的本科学号，并使用中文姓名注册）');
-      
-      if ($email == GLOBAL_INVITATION_EMAIL) {
-        $email = 'xiaoyou' . substr(md5(md5(time()) . rand()), 0, 10) . '@acm.sjtu.edu.cn';
-      }
-      
+     
       $h = acm_userpass_hash($password);
       try {
         $udb = new fDatabase('mysql', UDB_NAME, UDB_USER, UDB_PASS, UDB_HOST);
