@@ -135,6 +135,18 @@ $app->post('/manage/upload', function () {
   $controller = new AdminController();
   $controller->upload();
 });
+$app->post('/manage/getmail', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->getmail();
+});
+$app->post('/manage/sendmail1', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->sendmail1();
+});
+
+
 
 
 $app->get('/manage_known_users', function () {

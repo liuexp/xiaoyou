@@ -55,9 +55,10 @@ include(__DIR__ . '/../layout/header.php');
 群发邮件到已注册用户
 </h1>
 <section>
+    <form class="well form-search w500" id="sendmail-form" method="post" >
   <center>
-    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
       <input type="hidden" name="registered" value="true"/>
+      <div class="failure" style="display:none"></div>
       <div class="controls">
         <select id="field" name="field" style="width:110px;">
           <option value="">工作领域:</option>
@@ -82,8 +83,13 @@ include(__DIR__ . '/../layout/header.php');
 <br/>
         <button type="submit" class="btn btn-danger btn-large">发送</button>
       </div>
-    </form>
+
   </center>
+<br/>
+<div class="progress progress-striped active" style="display:none">
+  <div class="bar" style="width: 40%;"></div>
+</div>
+    </form>
 
 </section>
 
@@ -173,5 +179,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'admin/index.min');
+$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'json', 'admin/index.min');
 include(__DIR__ . '/../layout/footer.php');

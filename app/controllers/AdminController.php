@@ -82,6 +82,33 @@ class AdminController extends ApplicationController
 	  return in_array($ext,unserialize(UPLOAD_EXT));
   }
 
+  public function getmail(){
+    $emails = array();
+
+    $cons=array();
+    $field=trim(fRequest::get('field'));
+    $start_year=trim(fRequest::get('start_year'));
+    $major=trim(fRequest::get('major'));
+    $location=trim(fRequest::get('location'));
+    $words=trim(fRequest::get('words'));
+   
+    $cons['login_name|display_name~']=$words;
+    if(!empty($field))$cons['field=']=$field;
+    if(!empty($start_year))$cons['start_year=']=$start_year;
+    if(!empty($major))$cons['major=']=$major;
+    if(!empty($location))$cons['location~']=$location;
+    try{
+	    $users = fRecordSet::build('Profile', $cons, array('id' => 'asc'));
+     } catch (Exception $e) {
+	    $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+     }
+    foreach ($users as $profile) {
+      $emails[] = $profile->getEmail();
+    }
+    $emails = array_filter(array_unique($emails), 'strlen');
+    $this->ajaxReturn(array('result' => 'success','emails' => json_encode($emails)));
+  }
+
   public function sendmail(){
     if (!UserHelper::isEditor()) throw fValidationException('not allowed');
     fSession::close();
@@ -121,15 +148,31 @@ class AdminController extends ApplicationController
 
   }
 
+  public function sendmail1(){
+    try {
+	    if (!UserHelper::isEditor()) throw fValidationException('not allowed');
+	    $emails=json_decode(trim(fRequest::get('emails')));
+	    $title=trim(fRequest::get('title'));
+	    $content=trim(fRequest::get('content'));
+	    foreach ($emails as $email){
+			self::send($email,$title,$content);
+	    }
+	    $this->ajaxReturn(array('result' => 'success'));
+    } catch (Exception $e) {
+         $this->ajaxReturn(array('result' => 'failure', 'message' => $e->getMessage()));
+    }
+
+  }
+
   public static function send($email,$title,$content){
  	require_once(__DIR__ . '/../vendor/class.phpmailer.php');
  	require_once(__DIR__ . '/../vendor/class.smtp.php');
-	error_reporting(E_ALL);
-	//date_default_timezone_set("Asia/Shanghai");//设定时区东八区
+	//error_reporting(E_STRICT);
+	date_default_timezone_set("Asia/Shanghai");//设定时区东八区
 	$mail             = new PHPMailer(); //new一个PHPMailer对象出来
 	$mail->CharSet ="UTF-8";//设定邮件编码，默认ISO-8859-1，如果发中文此项必须设置，否则乱码
 	$mail->IsSMTP(); // 设定使用SMTP服务
-	$mail->SMTPDebug  = 1;                     // 启用SMTP调试功能
+	//$mail->SMTPDebug  = 2;                     // 启用SMTP调试功能
 	                                       // 1 = errors and messages
 	                                       // 2 = messages only
 	$mail->SMTPAuth   = true;                  // 启用 SMTP 验证功能
@@ -148,7 +191,8 @@ class AdminController extends ApplicationController
 	//$mail->AddAttachment("images/phpmailer.gif");      // attachment 
 	//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
 	if(!$mail->Send()) {
-	    echo "Mailer Error: " . $mail->ErrorInfo . "\n";
+	    //echo "Mailer Error: " . $mail->ErrorInfo . "\n";
+		throw new Exception($mail->ErrorInfo);
 	} else {
 	    //echo "恭喜，邮件发送成功！";
 	    }
