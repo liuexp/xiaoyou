@@ -98,7 +98,11 @@ class ProfileController extends ApplicationController
       $profile->setStudentNumber(trim(fRequest::get('student_number')));
       $profile->setBirthday(trim(fRequest::get('birthday')));
       $profile->setGender(fRequest::get('gender'));
-      $profile->setLocation(trim(fRequest::get('location')));
+      //$profile->setLocation(trim(fRequest::get('location'))); 
+      $province=trim(fRequest::get('province'));
+      $city=trim(fRequest::get('city'));
+      $profile->setLocation(self::formatLocation($province,$city));
+
       $profile->setPostNumber(trim(fRequest::get('post_number')));
       $profile->setPrivacyControl(trim(fRequest::get('privacy','int',0)));
       $profile->setField(trim(fRequest::get('field')));

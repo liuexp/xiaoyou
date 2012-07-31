@@ -345,7 +345,17 @@ case 2:
         </div>
         <div class="field">
           <label for="location">现居住地：</label>
-          <input class="textfield monofont input-medium" type="text" id="location" name="location" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getLocation()); ?>"/>
+<select id="province" name="province" onChange="changeCity()" style="width:80px;">
+<option value="" >省份</option>
+<?php $i=1;$z=Util::splitLocation($this->profile->getLocation());$p="";$c="";if(!empty($z)){$p=$z[0];$c=$z[1];}while (Util::getProvinceName($i)!=$i): ?>
+<option value="<?php echo Util::getProvinceName($i); ?>" <?php if($p==Util::getProvinceName($i))echo ' selected';?>> <?php echo Util::getProvinceName($i++); ?> </option>
+<?php endwhile; ?>
+ </select>
+     <select id="city" name="city" style="width:80px;">
+     <option selected="selected" value="<?php echo $c;?>"><?php if(empty($c)) echo '城市';else echo $c;?></option>
+          <option value="">---</option>
+          </select>
+
         <label for="post_number">邮政编码：</label>
           <input class="textfield monofont input-medium" type="text" id="post_number" name="post_number" maxlength="200" value="<?php echo htmlspecialchars($this->profile->getPostNumber()); ?>"/>
 
@@ -355,7 +365,7 @@ case 2:
         <select id="field" name="field" style="width: 160px;">
           <option value="<?php echo htmlspecialchars($this->profile->getField()); ?>"></option>
 <?php $i=1;while (Util::getFieldName($i) != $i ): ?>
-<option value="<?php echo $i; ?>"> <?php echo Util::getFieldName($i++); ?> </option>
+<option value="<?php echo $i; ?>" <?php if ($this->profile->getField() == $i) echo ' selected';?>> <?php echo Util::getFieldName($i++); ?> </option>
 <?php endwhile; ?>
         </select>
         <label for="institute">工作单位：</label>
@@ -407,10 +417,10 @@ case 2:
         <label for="subscription">希望校友频道提供</label>
         <select id="subscription" name="subscription">
           <option value="<?php echo htmlspecialchars($this->profile->getSubscription()); ?>"></option>
-          <option value=1>校友刊物</option>
-          <option value=2>校友信息</option>
-          <option value=3>学术研讨会信息</option>
-          <option value=4>相关法律出版物目录</option>
+          <option value=1 <?php if ($this->profile->getSubscription() == 1) echo ' selected'; ?>>校友刊物</option>
+          <option value=2 <?php if ($this->profile->getSubscription() == 2) echo ' selected'; ?>>校友信息</option>
+          <option value=3 <?php if ($this->profile->getSubscription() == 3) echo ' selected'; ?>>学术研讨会信息</option>
+          <option value=4 <?php if ($this->profile->getSubscription() == 4) echo ' selected'; ?>>相关法律出版物目录</option>
         </select>
       </div>
 
@@ -438,7 +448,8 @@ if ($this->editable) {
     'jquery.blockui.min','bootstrap.min',
     'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack',
     'profile/show.min',
-    'hide-broken-images'
+    'hide-broken-images',
+    'profile/city'
   );
 } else {
   $javascripts = array( 'bootstrap.min','jquery.blockui.min', 'hide-broken-images');

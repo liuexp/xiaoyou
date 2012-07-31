@@ -31,21 +31,34 @@
      ];
 
      function getCity(){
-         //获得省份下拉框的对象
-         var sltProvince=document.forms[0].province;
-         //获得城市下拉框的对象
-         var sltCity=document.forms[0].city;
+	 var sltProvince=document.getElementById('province');
+	 var sltCity=document.getElementById('city');
+	 if(sltProvince.selectedIndex<1)return;
          
-         //得到对应省份的城市数组
          var provinceCity=city[sltProvince.selectedIndex - 1];
+         sltCity.length=2;
 
-         //清空城市下拉框，仅留提示选项
-         sltCity.length=1;
-
-         //将城市数组中的值填充到城市下拉框中
         if(provinceCity != null && provinceCity.length > 0){
             for(var i=0;i<provinceCity.length;i++){
-                sltCity[i+1]=new Option(provinceCity[i], provinceCity[i]);
+                sltCity[i+2]=new Option(provinceCity[i], provinceCity[i]);
             }
         }
      }
+
+     function changeCity(){
+	 var sltProvince=document.getElementById('province');
+	 var sltCity=document.getElementById('city');
+	 if(sltProvince.selectedIndex<1)return;
+         
+         var provinceCity=city[sltProvince.selectedIndex - 1];
+         sltCity.length=2;
+
+        if(provinceCity != null && provinceCity.length > 0){
+	    sltCity[0]=new Option("城市", "");
+            for(var i=0;i<provinceCity.length;i++){
+                sltCity[i+2]=new Option(provinceCity[i], provinceCity[i]);
+            }
+        }
+     }
+
+getCity();
