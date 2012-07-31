@@ -45,7 +45,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
       <div class="field">
         <label for="province">现居住地：</label>
-<select id="province" name="province" onChange="getCity()">
+<select id="province" name="province" onChange="changeCity()">
 <option value="" selected="selected">省份</option>
 <?php $i=1;while (Util::getProvinceName($i)!=$i): ?>
 <option value="<?php echo Util::getProvinceName($i); ?>" > <?php echo Util::getProvinceName($i++); ?> </option>
