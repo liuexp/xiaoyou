@@ -29,8 +29,10 @@ include(__DIR__ . '/../layout/header.php');
     </form>
   </center>
 <?php if ($this->editable): ?>
+    <form class="well form-search w500" id="sendmail-form" method="post" >
+
 <center>
-    <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/manage/sendmail" method="post" onsubmit="$.blockUI();">
+      <div class="failure" style="display:none"></div>
 <!-- <a class="btn btn-primary" href="#"><font color="#FFF">给下列用户群发邮件</font></a> -->
 <input id="field" name="field" type="hidden" value="<?php echo $this->field; ?>">
 <input id="start_year" name="start_year" type="hidden" value="<?php echo $this->start_year; ?>">
@@ -44,8 +46,13 @@ include(__DIR__ . '/../layout/header.php');
 </textarea>
 <br/>
         <button type="submit" class="btn btn-danger btn-large">给下列用户群发邮件</button>
-</form>
 </center>
+<br/>
+<div class="progress progress-striped active" style="display:none">
+  <div class="bar" style="width: 0%;"></div>
+</div>
+
+</form>
 <?php endif; ?>
 <?php if (isset($this->users)): ?>
 <?php foreach ($this->users as $profile): ?>
@@ -93,5 +100,6 @@ include(__DIR__ . '/../layout/header.php');
 <?php endif; ?>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
+if($this->editable)$javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images','json','admin/sendmail');
+else $javascripts = array('jquery-1.7.1.min', 'jquery.blockui.min', 'bootstrap.min', 'hide-broken-images');
 include(__DIR__ . '/../layout/footer.php');

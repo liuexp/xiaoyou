@@ -87,7 +87,7 @@ include(__DIR__ . '/../layout/header.php');
   </center>
 <br/>
 <div class="progress progress-striped active" style="display:none">
-  <div class="bar" style="width: 40%;"></div>
+  <div class="bar" style="width: 0%;"></div>
 </div>
     </form>
 
@@ -179,5 +179,5 @@ include(__DIR__ . '/../layout/header.php');
   </div>
 </div>
 <?php
-$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'json', 'admin/index.min');
+$javascripts = array('jquery-1.7.1.min', 'jquery.fancybox-1.3.4.pack', 'jquery.easing-1.3.pack', 'jquery.mousewheel-3.0.4.pack', 'json', 'admin/index.min','admin/sendmail');
 include(__DIR__ . '/../layout/footer.php');
