@@ -320,7 +320,7 @@ case 2:
         <div class="field">
           <label for="start_year">入学年份：</label>
           <select id="start_year" name="start_year" class="input-mini">
-            <?php for ($i = 2002; $i <= date('Y'); $i++): ?>
+            <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
               <option value="<?php echo $i; ?>"<?php if ($i == $this->profile->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
             <?php endfor; ?>
           </select>
