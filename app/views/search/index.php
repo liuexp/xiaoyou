@@ -4,6 +4,7 @@ $no_sidebar = true;
 $stylesheets = array('bootstrap.min', 'tweets','articles');
 include(__DIR__ . '/../layout/header.php');
 ?>
+<div class="timeline feed-list">
     <form class="well form-search w500" action="<?php echo SITE_BASE; ?>/search" method="post" onsubmit="$.blockUI();">
       <input type="hidden" name="quick" value="true"/>
       <div class="controls">
@@ -64,7 +65,6 @@ include(__DIR__ . '/../layout/header.php');
 
 </form>
 <?php endif; ?>
-<div class="timeline feed-list">
 <?php if (isset($this->users)): ?>
 <?php foreach ($this->users as $profile): ?>
   <?php
