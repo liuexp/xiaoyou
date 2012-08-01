@@ -1,7 +1,7 @@
 <?php
 $title = '短信息';
 $no_sidebar = true;
-$stylesheets = array('bootstrap.min', 'tweets');
+$stylesheets = array('bootstrap.min', 'tweets','articles');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <div class="timeline feed-list">
@@ -24,13 +24,17 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
       <div class="controls">
-<label for="dest">收件人用户名:</label>
+      <fieldset>
+<div class="field">
+<label for="dest">收件人:</label>
         <input name="dest" type="text" class="input-xlarge" maxlength="140" placeholder="收件人用户名"/>
-<br/>
+</div>
+        <div class="field">
 <label for="mail-content">正文:</label>
         <input name="mail-content" type="text" class="span6 input-xlarge" maxlength="140" placeholder="说点什么吧⋯⋯"/>
-<br/>
+</div>
         <button type="submit" class="btn btn-danger btn-large">发送</button>
+      </fieldset>
       </div>
     </form>
   <?php endif; ?>

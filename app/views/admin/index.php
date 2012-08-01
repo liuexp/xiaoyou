@@ -56,10 +56,12 @@ include(__DIR__ . '/../layout/header.php');
 </h1>
 <section>
     <form class="well form-search w500" id="sendmail-form" method="post" >
-  <center>
       <input type="hidden" name="registered" value="true"/>
       <div class="failure" style="display:none"></div>
       <div class="controls">
+      <fieldset>
+        <div class="field">
+          <label for="field">工作领域:</label>
         <select id="field" name="field" style="width:110px;">
           <option value="">工作领域:</option>
 <?php $i=1;while (Util::getFieldName($i) != $i ): ?>
@@ -72,29 +74,33 @@ include(__DIR__ . '/../layout/header.php');
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>
-<br/>
-        <label for="major">专业：</label>
+        </div>
+        <div class="field">
+       <label for="major">专业：</label>
         <input name="major" type="text" maxlength="140" placeholder="在校专业" style="width:100px;"/>
         <label for="location">地区：</label>
         <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
-<br/>
+</div>
+        <div class="field">
         <label for="words">用户名：</label>
-        <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
-<br/>
-<label for="mail-title">标题：</label>
-<input id="mail-title" name="mail-title" class="input-xlarge"  placeholder="邮件标题"/>
+        <input name="words" type="text" class="input-xlarge span4" maxlength="140" placeholder="搜索用户、人名"/>
+</div>
+        <div class="field">
+<label for="mail-title"> 标题：</label>
+<input id="mail-title" name="mail-title" class="input-xlarge span4"  placeholder="邮件标题"/>
+</div>
 
-<br/>
+
 <label for="mail-content">正文:</label>
 
 <br/>
 <textarea id="mail-content" name="mail-content" class="input-xlarge"  rows="10" placeholder="正文">
 </textarea>
+      </fieldset>
 <br/>
         <button type="submit" class="btn btn-danger btn-large">发送</button>
       </div>
 
-  </center>
 <br/>
 <div class="progress progress-striped active" style="display:none">
   <div class="bar" style="width: 0%;"></div>
