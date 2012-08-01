@@ -91,7 +91,7 @@ $(document).ready(function()	{
                 $profile_link = SITE_BASE . '/profiles/new';
               }
             ?>
-            Hi, <a href="<?php echo $profile_link; ?>"><?php echo UserHelper::getDisplayName(); ?></a> |
+            Hi, <a href="<?php echo $profile_link; ?>"><?php echo htmlspecialchars(UserHelper::getDisplayName()); ?></a> |
 	<?php if (UserHelper::isEditor()): ?>
             <a href="<?php echo SITE_BASE; ?>/manage">管理</a> |
           <?php endif; ?>

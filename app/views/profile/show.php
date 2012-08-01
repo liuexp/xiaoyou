@@ -1,5 +1,5 @@
 <?php
-$title = $this->profile->getDisplayName();
+$title = htmlspecialchars($this->profile->getDisplayName());
 $stylesheets = array('bootstrap.min', 'jquery.fancybox-1.3.4', 'profile');
 $active=$this->active;
 include(__DIR__ . '/../layout/header.php');
@@ -69,7 +69,7 @@ include(__DIR__ . '/../layout/header.php');
       <?php else: ?>
         <div class="well w300 no-tweets">
           <p>
-            <?php echo $this->profile->getDisplayName(); ?>还没有发表过微博<br/>
+            <?php echo htmlspecialchars($this->profile->getDisplayName()); ?>还没有发表过微博<br/>
             可以先看看<?php echo $this->profile->getHeOrShe(); ?>的个人资料
           </p>
         </div>
@@ -109,7 +109,7 @@ include(__DIR__ . '/../layout/header.php');
                   <a class="close" data-dismiss="alert">&times;</a>
                 <?php endif; ?>
                 <p><?php echo TweetHelper::replaceEmotion(htmlspecialchars($tweet->getContent())); ?></p>
-                <small class="pull-right"><?php $z=$tweet->getSendProfile();echo $z->getDisplayName(); ?>留言于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
+                <small class="pull-right"><?php $z=$tweet->getSendProfile();echo htmlspecialchars($z->getDisplayName()); ?>留言于<?php echo $tweet->getTimestamp()->getFuzzyDifference(); ?>（<?php echo $tweet->getTimestamp(); ?>）</small>
                 <p class="clear"></p>
               </blockquote>
             </li>
@@ -118,7 +118,7 @@ include(__DIR__ . '/../layout/header.php');
       <?php else: ?>
         <div class="well w300 no-tweets">
           <p>
-            <?php echo $this->profile->getDisplayName(); ?>还没有任何留言<br/>
+            <?php echo htmlspecialchars($this->profile->getDisplayName()); ?>还没有任何留言<br/>
             可以先看看<?php echo $this->profile->getHeOrShe(); ?>的个人资料
           </p>
         </div>

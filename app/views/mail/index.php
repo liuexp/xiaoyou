@@ -61,8 +61,8 @@ include(__DIR__ . '/../layout/header.php');
       </figure>
     </aside>
     <h3>
-      <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo $profile->getDisplayName(); ?></a>
-      <span>对 <?php echo $profile2->getDisplayName();?> 说 </span>
+      <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $profile->getId(); ?>"><?php echo htmlspecialchars($profile->getDisplayName()); ?></a>
+      <span>对 <?php echo htmlspecialchars($profile2->getDisplayName());?> 说 </span>
       <span>:</span>
       <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($mail->getContent())); ?></span>
 <br/>
@@ -92,7 +92,7 @@ include(__DIR__ . '/../layout/header.php');
 <?php foreach ($mail->getReplies() as $comment): ?>
   <?php $replier = $comment->getSendProfile(); ?>
   <blockquote data-tweet-comment-id="<?php echo $comment->getId(); ?>">
-    <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $replier->getId(); ?>"><?php echo $replier->getDisplayName(); ?></a>
+    <a href="<?php echo SITE_BASE; ?>/profile/<?php echo $replier->getId(); ?>"><?php echo htmlspecialchars($replier->getDisplayName()); ?></a>
     <span>:</span>
     <span><?php echo TweetHelper::replaceEmotion(htmlspecialchars($comment->getContent())); ?></span>
     <small><?php echo $comment->getTimestamp()->getFuzzyDifference(); ?></small>
