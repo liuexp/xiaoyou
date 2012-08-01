@@ -41,28 +41,28 @@ myMarkdownSettings = {
 	    previewParserPath:  '<?php echo SITE_BASE; ?>/article/preview',
     onShiftEnter:       {keepDefault:false, openWith:'\n\n'},
     markupSet: [
-        {name:'First Level Heading', key:"1", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
-        {name:'Second Level Heading', key:"2", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },
+        {name:'一级标题', key:"1", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
+        {name:'二级标题', key:"2", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },
         {name:'Heading 3', key:"3", openWith:'### ', placeHolder:'Your title here...' },
         {name:'Heading 4', key:"4", openWith:'#### ', placeHolder:'Your title here...' },
         {name:'Heading 5', key:"5", openWith:'##### ', placeHolder:'Your title here...' },
         {name:'Heading 6', key:"6", openWith:'###### ', placeHolder:'Your title here...' },
         {separator:'---------------' },        
-        {name:'Bold', key:"B", openWith:'**', closeWith:'**'},
-        {name:'Italic', key:"I", openWith:'_', closeWith:'_'},
+        {name:'加粗', key:"B", openWith:'**', closeWith:'**'},
+        {name:'斜体', key:"I", openWith:'_', closeWith:'_'},
         {separator:'---------------' },
         {name:'Bulleted List', openWith:'- ' },
         {name:'Numeric List', openWith:function(markItUp) {
             return markItUp.line+'. ';
         }},
         {separator:'---------------' },
-        {name:'Picture', key:"P", replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
-        {name:'Link', key:"L", openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")', placeHolder:'Your text to link here...' },
+        {name:'图片', key:"P", replaceWith:'![[![显示文字]!]]([![图片地址:!:http://]!] "[![图片标题]!]")'},
+        {name:'链接', key:"L", openWith:'[', closeWith:']([![链接地址:!:http://]!] "[![链接标签]!]")', placeHolder:'Your text to link here...' },
         {separator:'---------------'},    
-        {name:'Quotes', openWith:'> '},
-        {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
+        {name:'引用', openWith:'> '},
+        {name:'代码', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
         {separator:'---------------'},
-        {name:'Preview', call:'preview', className:"preview"}
+        {name:'预览', call:'preview', className:"preview"}
     ]
 }
 $(document).ready(function()	{

@@ -21,8 +21,13 @@ include(__DIR__ . '/../layout/header.php');
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>
+<br/>
+        <label for="major">专业：</label>
         <input name="major" type="text" maxlength="140" placeholder="在校专业" style="width:100px;"/>
+        <label for="location">地区：</label>
         <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
+<br/>
+        <label for="words">用户名：</label>
         <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
         <button type="submit" class="btn btn-danger btn-large">找人</button>
       </div>
@@ -39,8 +44,11 @@ include(__DIR__ . '/../layout/header.php');
 <input id="major" name="major" type="hidden" value="<?php echo $this->major; ?>">
 <input id="location" name="location" type="hidden" value="<?php echo $this->location; ?>">
 <input id="words" name="words" type="hidden" value="<?php echo $this->words; ?>">
-
+<label for="mail-title">标题</label>
 <input id="mail-title" name="mail-title" class="input-xlarge"  placeholder="邮件标题"/>
+
+<br/>
+<label for="mail-content">正文:</label>
 <br/>
 <textarea id="mail-content" name="mail-content" class="input-xlarge"  rows="10" placeholder="正文">
 </textarea>

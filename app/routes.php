@@ -124,6 +124,11 @@ $app->get('/export/csv', function () {
   $controller->exportCSV();
 });
 
+$app->get('/export/xls', function () {
+  fAuthorization::requireLoggedIn();
+  $controller = new AdminController();
+  $controller->exportXLS();
+});
 
 $app->get('/manage', function () {
   fAuthorization::requireLoggedIn();

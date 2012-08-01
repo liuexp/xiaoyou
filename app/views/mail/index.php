@@ -24,7 +24,10 @@ include(__DIR__ . '/../layout/header.php');
         </div>
       <?php endif; ?>
       <div class="controls">
+<label for="dest">收件人用户名:</label>
         <input name="dest" type="text" class="input-xlarge" maxlength="140" placeholder="收件人用户名"/>
+<br/>
+<label for="mail-content">正文:</label>
         <input name="mail-content" type="text" class="span6 input-xlarge" maxlength="140" placeholder="说点什么吧⋯⋯"/>
 <br/>
         <button type="submit" class="btn btn-danger btn-large">发送</button>

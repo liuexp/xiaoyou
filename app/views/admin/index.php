@@ -72,11 +72,21 @@ include(__DIR__ . '/../layout/header.php');
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>
+<br/>
+        <label for="major">专业：</label>
         <input name="major" type="text" maxlength="140" placeholder="在校专业" style="width:100px;"/>
+        <label for="location">地区：</label>
         <input name="location" type="text" maxlength="140" placeholder="现工作地区" style="width:100px;"/>
+<br/>
+        <label for="words">用户名：</label>
         <input name="words" type="text" class="input-xlarge" maxlength="140" placeholder="搜索用户、人名"/>
 <br/>
+<label for="mail-title">标题：</label>
 <input id="mail-title" name="mail-title" class="input-xlarge"  placeholder="邮件标题"/>
+
+<br/>
+<label for="mail-content">正文:</label>
+
 <br/>
 <textarea id="mail-content" name="mail-content" class="input-xlarge"  rows="10" placeholder="正文">
 </textarea>
@@ -126,7 +136,7 @@ include(__DIR__ . '/../layout/header.php');
 </h1>
 <section>
 <ul >
-<a  class="btn btn-primary btn-large" href = "<?php echo SITE_BASE; ?>/export/csv"><font color="#FFF">批量导出为CSV</font></a>
+<a  class="btn btn-primary btn-large" href = "<?php echo SITE_BASE; ?>/export/xls"><font color="#FFF">批量导出到Excel</font></a>
 </ul>
 </section>
 <div style="display:none">

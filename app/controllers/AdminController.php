@@ -34,6 +34,24 @@ class AdminController extends ApplicationController
 	}
     	$this->render('csv');
   }
+  public function exportXLS(){
+      	if (!UserHelper::isEditor()) {
+        	throw new fValidationException('not allowed');
+      	}
+	$users = fRecordSet::build(
+        'Profile', array(), array('id' => 'desc', 'student_number' => 'asc'))->getRecords();
+//	$this->csv="姓名\t性别\t生日\t手机\t工作领域\t现工作地区\t工作单位\t职务\t在校学习专业\t导师\t邮政编码\t注册时间\n";
+//	foreach($users as $u){
+//		$this->csv .= $u->getDisplayName()."\t".$u->getGender()."\t".$u->getBirthday()."\t".$u->getMobile()."\t".$u->getField()."\t".$u->getLocation()."\t".$u->getInstitute()."\t".$u->getPosition()."\t".$u->getMajor()."\t".$u->getMentor()."\t".$u->getPostNumber()."\t".$u->getCreatedAt() . "\n";
+//	}
+	$this->data=array(
+		1=> array('姓名','性别','生日','手机','工作领域','现工作地区','工作单位','职务','在校学习专业','导师','邮政编码','注册时间')
+	);
+	foreach($users as $u){
+		$this->data[]=array($u->getDisplayName(),$u->getGender(),$u->getBirthday(),$u->getMobile(),$u->getField(),$u->getLocation(),$u->getInstitute(),$u->getPosition(),$u->getMajor(),$u->getMentor(),$u->getPostNumber(),$u->getCreatedAt());
+	}
+    	$this->render('xls');
+  }
 
   public function importUsers(){
 	  try{
