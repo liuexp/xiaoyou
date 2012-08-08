@@ -13,6 +13,12 @@ $app->get('/inbox', function () {
   $controller = new MailController();
   $controller->inbox();
 });
+$app->get('/inbox/:id', function ($id) {
+  UserHelper::requireProfile();
+  $controller = new MailController();
+  $controller->inbox($id);
+});
+
 
 $app->get('/help', function () {
   //UserHelper::requireProfile();

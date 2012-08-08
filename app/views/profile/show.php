@@ -148,6 +148,11 @@ include(__DIR__ . '/../layout/header.php');
   </div>
   <ul class="unstyled details">
 <?php if ($this->is_allowed): ?>
+<li>
+      用户名：<?php echo $this->profile->getLoginName(); ?>
+      <div class="tools"><a href="<?php echo SITE_BASE; ?>/inbox/<?php echo $this->profile->getLoginName(); ?>" title="给<?php echo $this->profile->getHeOrShe(); ?>发短信息"><img src="<?php echo SITE_BASE; ?>/images/icons/email.png"/></a></div>
+    </li>
+
     <li>
       入学年份：<?php echo $this->profile->getStartYear(); ?>
       <?php if ($this->editable): ?><div class="tools"><a class="edit" href="#edit-info"><img src="<?php echo SITE_BASE; ?>/images/icons/pencil.png"/></a></div><?php endif; ?>
@@ -320,7 +325,7 @@ case 2:
         <div class="field">
           <label for="start_year">入学年份：</label>
           <select id="start_year" name="start_year" class="input-mini">
-            <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
+            <?php for ($i = 1993; $i <= date('Y'); $i++): ?>
               <option value="<?php echo $i; ?>"<?php if ($i == $this->profile->getStartYear()) echo ' selected'; ?>><?php echo $i; ?></option>
             <?php endfor; ?>
           </select>

@@ -8,7 +8,7 @@
         <input class="monofont" type="text" id="realname" name="realname" maxlength="200" value="<?php echo $this->users->getRealname(); ?>"/>
       </div>
       <div class="field">
-        <label for="stuid">本科学号</label>
+        <label for="stuid">学号</label>
         <input class="monofont" type="text" id="stuid" name="stuid" maxlength="200" value="<?php echo $this->users->getStudentNumber(); ?>"/>
       </div>
 

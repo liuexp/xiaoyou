@@ -19,7 +19,7 @@ include(__DIR__ . '/../layout/header.php');
         </select>
       <select id="start_year" name="start_year" style="width:85px;">
           <option value="">入学年份</option>
-          <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
+          <?php for ($i = 1993; $i <= date('Y'); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>

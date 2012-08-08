@@ -20,7 +20,7 @@ include(__DIR__ . '/../layout/header.php');
         <label for="start_year">入学年份：</label>
         <select id="start_year" name="start_year">
           <option></option>
-          <?php for ($i = 1901; $i <= date('Y'); $i++): ?>
+          <?php for ($i = 1993; $i <= date('Y'); $i++): ?>
             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
           <?php endfor; ?>
         </select>
@@ -31,7 +31,7 @@ include(__DIR__ . '/../layout/header.php');
       </div>
 
       <div class="field">
-        <label for="student_number">本科学号：</label>
+        <label for="student_number">学号：</label>
         <input class="textfield monofont" type="text" id="student_number" name="student_number" maxlength="20"/>
       </div>
       <div class="field">

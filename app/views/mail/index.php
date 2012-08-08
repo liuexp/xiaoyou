@@ -27,7 +27,7 @@ include(__DIR__ . '/../layout/header.php');
       <fieldset>
 <div class="field">
 <label for="dest">收件人:</label>
-        <input name="dest" type="text" class="input-xlarge" maxlength="140" placeholder="收件人用户名"/>
+<input name="dest" type="text" class="input-xlarge" maxlength="140" placeholder="收件人用户名" value="<?php echo $this->dest; ?>" />
 </div>
         <div class="field">
 <label for="mail-content">正文:</label>

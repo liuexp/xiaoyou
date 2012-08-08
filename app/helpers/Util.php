@@ -44,7 +44,8 @@ class Util
 		  5=>'企业法务(含国企)',
 		  6=>'学界',
 		  7=>'交大在职',
-		  8=>'其他'
+		  8=>'继续求学',
+		  9=>'其他'
 	  );
 	  if (empty($x))return $x;
 	  if (isset($trans[$x]))return $trans[$x];

@@ -1,11 +1,12 @@
 <?php
 class MailController extends ApplicationController
 {
-  public function inbox()
+  public function inbox($id=null)
   {
     $profileId = UserHelper::getProfileId();
     $this->mail = fRecordSet::build('Mail', array('receiver=|sender=' =>array($profileId,$profileId), 'parent='=>-1), array('timestamp' => 'desc'))->getRecords();
     TweetHelper::sort($this->mail);
+    $this->dest=$id;
     $this->render('mail/index');
   }
  
