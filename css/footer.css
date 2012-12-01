@@ -1,0 +1,22 @@
+﻿#Footer
+{
+	/*background:#E4E4E4; */
+	background:url("../images/bg.png");
+	font-size:12px;
+	width:960px;
+	margin:0px auto;
+	padding-top:12px;
+	padding-bottom:6px;
+	height:70px;
+	text-align:center;
+}
+
+#Footer p,#Footer a, #Footer a:hover
+{
+	color:#000;
+}
+
+#Footer p
+{
+	margin: 6px auto 6px auto;
+}

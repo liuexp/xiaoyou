@@ -1,0 +1,94 @@
+﻿body
+{
+	/*background:#C0C0C0; */
+	background: url("../images/bg.png");
+	margin:0px auto;
+	overflow:auto;
+}
+
+#Header{
+	background:#FFF;
+	font-size:12px;
+	width:960px;
+	margin:0px auto;
+	text-align:left;
+}
+#Header a, #Header a:hover{ color:#000;}
+#Header .link{ height:30px; text-align:right; padding-right:20px; padding-top:10px;margin-left:730px;}
+#Header .link .last_anchor{margin-right: 20px}
+#Header .body{height:85px;border-bottom: solid 1px #C2C2C2; margin-bottom:1px;}
+#Header .logo{ background:url(../images/KoGuan_logo.png) no-repeat left center;width:470px; height:80px; float:left; cursor:pointer; }
+#Header .logo1{width:280px; height:80px; float:left; cursor:pointer;}
+#Header .logo2{width:150px; height:80px; float:left; cursor:pointer;}
+#Header .search{ width:200px; float:right; margin-right:20px; margin-top:40px; }
+#Header .search input.sel{ border:solid 1px #8e3440; width:95px;}
+#Header .search input.btn{ background:url(../images/btn_search.png); width:23px; height:20px; border:solid 1px #8e3440;}
+#Header .position{ height:20px; padding-left:45px; padding-top:8px; color:#000;text-align:left; }
+#Header .position a, #Header .position a:hover{ color:#000;}
+#Header input, #Header textarea, #Header select 
+{
+	padding:2px 2px 1px 2px;
+	border:solid 1px #586F7D;
+	background-color:#FFF;
+	margin:2px;
+}
+
+.icon_eng,.icon_job,.icon_link,.icon_user,.icon_pass,.icon_exit,.icon_log,.icon_find,.icon_rss,.icon_sina,.icon_home{ background:url(../images/links.png); width:16px; height:16px; text-indent:-2000px; margin:2px 4px; float:left;}
+.icon_job{ background-position-y:-20px;}
+.icon_link{ background-position-y:-40px;}
+.icon_rss{ background-position-y:-60px;}
+.icon_sina{ background-position-y:-80px;}
+.icon_user{ background-position-y:-100px;}
+.icon_log{ background-position-y:-120px;}
+.icon_pass{ background-position-y:-140px;}
+.icon_find{ background-position-y:-160px;}
+.icon_exit{ background-position-y:-180px;}
+.icon_home{background-position-y:-220px;}
+
+
+#Header_Menu {	padding:0px 30px; z-index: 100; font-size:12px;background: url(../images/bg_nav1.gif) repeat-x; position: relative; height: 30px; border-bottom: solid 1px #C2C2C2; clear:both;}
+
+#Header_Menu UL {padding: 0px;margin:0px; list-style-type: none; font-size:12px;}
+#Header_Menu UL UL {width: 100px; }
+#Header_Menu LI {float: left;  position: relative;}
+#Header_Menu A {display: block; font-weight: bold; font-size: 12px; text-transform: uppercase; width: 90px; color: #fff;  line-height: 26px; padding-top: 2px; height:26px; text-align: center; text-decoration: none;}
+#Header_Menu A:visited {display: block; font-weight: bold; font-size: 12px; text-transform: uppercase; width: 90px; color: #fff; line-height: 26px; padding-top: 2px; height:26px; text-align: center; text-decoration: none;}
+#Header_Menu UL UL A {	font-weight: normal;  text-transform: none; color: #666;  text-align: left; border-bottom:solid 1px #ccc;}
+#Header_Menu UL UL A:visited {	border-width: 1px 0px 1px 1px; font-weight: normal; text-transform: none; color: #666; text-align: left;}
+#Header_Menu UL UL A.nodrop {background: url(../images/grey-only.gif) #e4e4e4 no-repeat 160px center;}
+#Header_Menu UL UL A.nodrop:visited {background: url(../images/grey-only.gif) #e4e4e4 no-repeat 160px center;}
+#Header_Menu UL UL A.drop {background: url(../images/skin_def/grey-arrow.gif) #e4e4e4 no-repeat 160px center;}
+#Header_Menu UL UL A.drop:visited {background: url(../images/grey-arrow.gif) #e4e4e4 no-repeat 160px center;}
+#Header_Menu UL UL A.drop:hover {background: url(../images/yellow-arrow.gif) #fff no-repeat 160px center;}
+#Header_Menu UL UL A.nodrop:hover {background: url(../images/white-only.gif) #fff no-repeat 160px center;}
+#Header_Menu UL UL A:hover > A.drop {background: url(../images/yellow-arrow.gif) #fff no-repeat 160px center;}
+#Header_Menu UL UL A:hover > A.nodrop {background: url(../images/white-only.gif) #fff no-repeat 160px center;}
+#Header_Menu UL UL UL A {background: #e4e4e4; width: 145px;}
+#Header_Menu UL UL UL A:visited {background: #fff; width: 145px;}
+#Header_Menu UL UL UL A:hover {background: #fff;}
+#Header_Menu UL UL {left: 0px; visibility: hidden; width: 160px; position: absolute; top: 28px; height: 0px;}
+#Header_Menu UL UL UL {left: 170px; width: 160px; top: 0px;}
+#Header_Menu UL UL UL.left {left: -160px;}
+#Header_Menu UL UL A {	background: #e4e4e4; border-width: 0px 1px 1px 1px; padding:5px 10px; width: 150px; color: #000; line-height: 1em; height: auto;}
+#Header_Menu UL UL A:visited {border-width: 0px 1px 1px 1px; padding:5px 10px; background: #e4e4e4; width: 150px; color: #000; line-height: 1em; height: auto;}
+#Header_Menu UL UL A {width: 150px;}
+
+
+#Header_Menu1 {	padding:0px 120px; z-index: 100; background: url(../images/bgnav1.gif) repeat-x; position: relative; height: 30px; border-bottom: solid 1px #C2C2C2}
+#Header_Menu1 UL {padding: 0px;margin:0px; list-style-type: none;}
+#Header_Menu1 LI {float: left;  position: relative;}
+#Header_Menu1 A {display: block; font-weight: bold; font-size: 12px; text-transform: uppercase; width: 140px; color: #fff;  line-height: 26px; padding-top: 2px; height:26px; text-align: center; text-decoration: none;}
+#Header_Menu1 A:hover{background-image: url(../images/bgnav2sel.gif); width:140px; color:#FFF; height:26px;}
+
+* HTML #Header_Menu UL UL A:visited {width: 150px;}
+#Header_Menu A:hover {background: #fff; color: #666;}
+#Header_Menu UL UL A:hover {background: #fff; color: #666;}
+#Header_Menu :hover > A {background: #fff; color: #666;}
+#Header_Menu UL UL :hover > A {background: #fff; color: #666;}
+#Header_Menu :hover > A {background-image: url(../images/main-nav-hover-bg.jpg); color: #666; background-repeat: repeat-x;}
+#Header_Menu UL UL :hover > A {background: #fff; color: #666;}
+#Header_Menu UL LI:hover UL {visibility: visible;}
+#Header_Menu UL A:hover UL {visibility: visible;}
+#Header_Menu UL :hover UL UL {	visibility: hidden;}
+#Header_Menu UL :hover UL :hover UL {visibility: visible;}
+#Header_Menu UL LI A.select{background-image: url(../images/bgnav1sel.gif); width:90px; color:#FFF; height:26px;}

@@ -8,16 +8,20 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/IE9.js"></script>
     <![endif]-->
-    <link href="<?php echo SITE_BASE; ?>/images/icon.ico" rel="shortcut icon"/>
+    <link rel="shortcut icon" href="http://law.sjtu.edu.cn/Images/icon.ico" type="image/x-icon"/>
     <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" name="viewport"/>
     <title>
       <?php echo $title . TITLE_SUFFIX; ?>
     </title>
     <link href="<?php echo SITE_BASE; ?>/css/redis.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo SITE_BASE; ?>/css/message.css" rel="stylesheet" type="text/css"/> 
-    <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
+        <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
       <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
     <?php endforeach; ?>
+    <link href="<?php echo SITE_BASE; ?>/css/skin_def.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo SITE_BASE; ?>/css/header.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo SITE_BASE; ?>/css/footer.css" rel="stylesheet" type="text/css"/>
+
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/jquery.blockui.min.js"></script>
     <script type="text/javascript" src="<?php echo SITE_BASE; ?>/js/bootstrap.min.js"></script>
@@ -80,49 +84,64 @@ $(document).ready(function()	{
 </script>
 
     <?php endif; ?>
-    <header>
-      <div class="container">
-        <span class="userinfo">
-          <?php if (fAuthorization::checkLoggedIn()): ?>
-            <?php
-              if (UserHelper::hasProfile()) {
-                $profile_link = SITE_BASE . '/profile/' . UserHelper::getProfileId();
-              } else {
-                $profile_link = SITE_BASE . '/profiles/new';
-              }
-            ?>
-            Hi, <a href="<?php echo $profile_link; ?>"><?php echo htmlspecialchars(UserHelper::getDisplayName()); ?></a> |
-	<?php if (UserHelper::isEditor()): ?>
-            <a href="<?php echo SITE_BASE; ?>/manage">管理</a> |
-          <?php endif; ?>
-	    <a href="<?php echo SITE_BASE; ?>/inbox">短信息
-<?php $c=UserHelper::hasNewMail(); if ($c>0): ?>
-(<?php echo $c; ?>)
-<?php endif; ?>
-</a> |
 
-          <a href="<?php echo SITE_BASE; ?>/tweets">微博</a> |
-          <a href="<?php echo SITE_BASE; ?>/search">找人</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
-          <?php else: ?>
-            <a href="<?php echo SITE_BASE; ?>/register">注册</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/">登录</a> |
-          <?php endif; ?>
-            <a href="<?php echo SITE_BASE; ?>/help">帮助</a>
-        </span>
-        <a href="<?php echo SITE_BASE; ?>/">
-          <img src="<?php echo SITE_BASE; ?>/images/KoGuan_logo.png" style="width: 110px;"/>
-        </a>
-        <nav>
-          <a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
-          <a href="<?php echo SITE_BASE; ?>/posts">讲座</a>
-          <a href="<?php echo SITE_BASE; ?>/cultures">人才培养</a>
-          <a href="<?php echo SITE_BASE; ?>/infrastructures">法学院建设</a>
-          <a href="<?php echo SITE_BASE; ?>/halloffames">校友风采</a>
-        </nav>
-      </div>
-    </header>
+			<div id="Header">		
+				<div class="link">
+					<div style="height:30px;">
+					<a href="<?php echo SITE_BASE; ?>" class="icon_home" title="首页"></a>
+					<a href="http://law.sjtu.edu.cn/En/" class="icon_eng" title="English"></a>
+					<a href="http://law.sjtu.edu.cn/Article0305.aspx" target="_blank" class="icon_job" title="招聘"></a>
+					<a href="mailto:zhanwangcn@sjtu.edu.cn" class="icon_link" title="联系"></a>
+					<a href="http://law.sjtu.edu.cn/Rss/" target="_blank" class="icon_rss"></a>
+					<a href="http://weibo.com/2415072065" target="_blank" class="icon_sina" title="新浪微博"></a>
+					</div>
+					<div>
+					<a href="<?php echo SITE_BASE; ?>/register" title="注册">注册</a>
+					<a href="<?php echo SITE_BASE; ?>/login/" title="登录">登录</a>
+					<a class="last_anchor" href="<?php echo SITE_BASE; ?>/help" title="帮助">帮助</a>
+					</div>
+				</div>
+				<div class="body">
+					<div class="logo">
+						<div class="logo1" onclick="window.open(&#39;http://www.sjtu.edu.cn/&#39;);" title="上海交通大学"></div>
+						<div class="logo2" onclick="window.open(&#39;/&#39;);" title="凯源法学院"></div>
+					</div>
+					<!--<div class="search">
+						站内搜索 
+						<input type="text" size="10" id="TxtKeyword" class="sel">
+						<input type="button" id="BtnSearch" value=" " class="btn" style="height:21px;width:30px;position:relative; left:-5px;" onclick="doSearch();">
+					</div>
+				</div>-->
+				<div id="Header_Menu">
+					<ul>
+						<li>
+						<a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
+						</li>
+						<ul>
+						</ul>
+						<li>
+						<a href="<?php echo SITE_BASE; ?>/posts">讲座</a>
+						</li>
+						<ul>
+						</ul>
+						<li>
+						<a href="<?php echo SITE_BASE; ?>/cultures">人才培养</a>
+						</li>
+						<ul>
+						</ul>
+						<li>
+						<a href="<?php echo SITE_BASE; ?>/infrastructures">法学院建设</a>
+						</li>
+						<ul>
+						</ul>
+						<li>
+						<a href="<?php echo SITE_BASE; ?>/halloffames">校友风采</a>
+						</li>
+						<ul>
+						</ul>
+					</ul>	
+				</div>
+			</div>		
     <div class="text columns home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">
 <?php $msg=UserHelper::getMessage();if(!empty($msg)&&(!isset($isNewProfile))): ?>
             <div class="alert alert-success fade in">
