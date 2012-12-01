@@ -2,7 +2,7 @@
 			<div id="Footer">
 				<p></p>
 				<p>
-					<a href="<?php echo SITE_BASE; ?>">首页</a>
+					<a href="<?php echo HOST_URL . SITE_BASE; ?>/">首页</a>
 					&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 				        <a href="<?php echo SITE_BASE; ?>/articles">新闻</a>
 					&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

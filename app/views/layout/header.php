@@ -88,7 +88,7 @@ $(document).ready(function()	{
 			<div id="Header">		
 				<div class="link">
 					<div style="height:30px;">
-					<a href="<?php echo SITE_BASE; ?>" class="icon_home" title="首页"></a>
+					<a href="<?php echo HOST_URL . SITE_BASE; ?>/" class="icon_home" title="首页"></a>
 					<a href="http://law.sjtu.edu.cn/En/" class="icon_eng" title="English"></a>
 					<a href="http://law.sjtu.edu.cn/Article0305.aspx" target="_blank" class="icon_job" title="招聘"></a>
 					<a href="mailto:zhanwangcn@sjtu.edu.cn" class="icon_link" title="联系"></a>
