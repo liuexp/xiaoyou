@@ -125,7 +125,7 @@ $(document).ready(function()	{
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
 					<?php else: ?>
 					<a href="<?php echo SITE_BASE; ?>/register" title="注册">注册</a>
-					<a href="<?php echo SITE_BASE; ?>/login/" title="登录">登录</a>
+					<a href="<?php echo SITE_BASE; ?>/login2" title="登录">登录</a>
 					<?php endif; ?>
 					<a class="last_anchor" href="<?php echo SITE_BASE; ?>/help" title="帮助">帮助</a>
 					</div>

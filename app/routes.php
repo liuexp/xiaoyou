@@ -2,12 +2,24 @@
 $app = new Slim();
 
 // The following routes are accessed directly via browser
-
 $app->get('/', function () {
   UserHelper::requireProfile();
   $controller = new HomeController();
   $controller->index();
 });
+
+$app->get('/passwd', function () {
+  UserHelper::requireProfile();
+  $controller = new LoginController();
+  $controller->passwd();
+});
+
+$app->get('/login2', function () {
+  //UserHelper::requireProfile();
+  $controller = new LoginController();
+  $controller->login();
+});
+
 $app->get('/inbox', function () {
   UserHelper::requireProfile();
   $controller = new MailController();

@@ -25,6 +25,7 @@ require_once(__DIR__ . '/controllers/ArticleController.php');
 require_once(__DIR__ . '/controllers/AvatarController.php');
 require_once(__DIR__ . '/controllers/HomeController.php');
 require_once(__DIR__ . '/controllers/HelpController.php');
+require_once(__DIR__ . '/controllers/LoginController.php');
 require_once(__DIR__ . '/controllers/MailController.php');
 require_once(__DIR__ . '/controllers/MsgController.php');
 require_once(__DIR__ . '/controllers/NameController.php');
