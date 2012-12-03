@@ -87,7 +87,7 @@ form label {
 	display: none;
 }
 
-#username, #password, .logintext {
+#username, #password, .logintext, #old-password, #new-password, #confirm-password{
 	padding: 11px 5px 11px 8px;
 	background-color: #FBFBFB;
 	border: 1px solid #191814;

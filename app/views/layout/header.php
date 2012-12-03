@@ -121,7 +121,8 @@ $(document).ready(function()	{
 
           <a href="<?php echo SITE_BASE; ?>/tweets">微博</a> |
           <a href="<?php echo SITE_BASE; ?>/search">找人</a> |
-            <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
+            <!-- <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> | -->
+            <a href="<?php echo SITE_BASE; ?>/passwd">修改密码</a> |
             <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
 					<?php else: ?>
 					<a href="<?php echo SITE_BASE; ?>/register" title="注册">注册</a>
