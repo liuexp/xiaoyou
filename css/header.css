@@ -14,13 +14,13 @@
 	text-align:left;
 }
 #Header a, #Header a:hover{ color:#000;}
-#Header .link{ height:30px; text-align:right; padding-right:20px; padding-top:10px;margin-left:730px;}
+#Header .link{ height:30px; text-align:right; padding-right:20px; padding-top:10px;margin-left:795px;}
 #Header .link .last_anchor{margin-right: 20px}
 #Header .body{height:85px;border-bottom: solid 1px #C2C2C2; margin-bottom:1px;}
 #Header .logo{ background:url(../images/KoGuan_logo.png) no-repeat left center;width:470px; height:80px; float:left; cursor:pointer; }
 #Header .logo1{width:280px; height:80px; float:left; cursor:pointer;}
 #Header .logo2{width:150px; height:80px; float:left; cursor:pointer;}
-#Header .search{ width:200px; float:right; margin-right:20px; margin-top:40px; }
+#Header .search{ width:200px; float:right; margin-right:20px; margin-top:20px; }
 #Header .search input.sel{ border:solid 1px #8e3440; width:95px;}
 #Header .search input.btn{ background:url(../images/btn_search.png); width:23px; height:20px; border:solid 1px #8e3440;}
 #Header .position{ height:20px; padding-left:45px; padding-top:8px; color:#000;text-align:left; }

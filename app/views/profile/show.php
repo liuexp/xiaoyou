@@ -4,7 +4,7 @@ $stylesheets = array('bootstrap.min', 'jquery.fancybox-1.3.4', 'profile');
 $active=$this->active;
 include(__DIR__ . '/../layout/header.php');
 ?>
-<div class="tabbable" id="profile-tab">
+<div class="tabbable" id="profile-tab" style="clear:both">
   <ul class="nav nav-tabs">
 <?php if ($active==0): ?>
     <li class="active">

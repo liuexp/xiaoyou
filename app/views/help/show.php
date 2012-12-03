@@ -1,7 +1,7 @@
 <?php
 $title = '帮助';
 $no_sidebar = true;
-$stylesheets = array('article');
+//$stylesheets = array('article');
 include(__DIR__ . '/../layout/header.php');
 ?>
 <div style="clear:both">

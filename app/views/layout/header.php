@@ -18,7 +18,7 @@
         <?php if (isset($stylesheets)) foreach ($stylesheets as $stylesheet): ?>
       <link href="<?php echo SITE_BASE; ?>/css/<?php echo $stylesheet; ?>.css" rel="stylesheet" type="text/css"/>
     <?php endforeach; ?>
-    <link href="<?php echo SITE_BASE; ?>/css/skin_def.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="<?php echo SITE_BASE; ?>/css/skin_def.css" rel="stylesheet" type="text/css"/> -->
     <link href="<?php echo SITE_BASE; ?>/css/header.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo SITE_BASE; ?>/css/footer.css" rel="stylesheet" type="text/css"/>
 
@@ -84,7 +84,6 @@ $(document).ready(function()	{
 </script>
 
     <?php endif; ?>
-
 			<div id="Header">		
 				<div class="link">
 					<div style="height:30px;">
@@ -95,23 +94,50 @@ $(document).ready(function()	{
 					<a href="http://law.sjtu.edu.cn/Rss/" target="_blank" class="icon_rss"></a>
 					<a href="http://weibo.com/2415072065" target="_blank" class="icon_sina" title="新浪微博"></a>
 					</div>
-					<div>
-					<a href="<?php echo SITE_BASE; ?>/register" title="注册">注册</a>
-					<a href="<?php echo SITE_BASE; ?>/login/" title="登录">登录</a>
-					<a class="last_anchor" href="<?php echo SITE_BASE; ?>/help" title="帮助">帮助</a>
-					</div>
 				</div>
 				<div class="body">
 					<div class="logo">
 						<div class="logo1" onclick="window.open(&#39;http://www.sjtu.edu.cn/&#39;);" title="上海交通大学"></div>
 						<div class="logo2" onclick="window.open(&#39;/&#39;);" title="凯源法学院"></div>
 					</div>
-					<!--<div class="search">
-						站内搜索 
-						<input type="text" size="10" id="TxtKeyword" class="sel">
-						<input type="button" id="BtnSearch" value=" " class="btn" style="height:21px;width:30px;position:relative; left:-5px;" onclick="doSearch();">
+					<div style="text-align:right;padding-right:20px;">
+          <?php if (fAuthorization::checkLoggedIn()): ?>
+            <?php
+              if (UserHelper::hasProfile()) {
+                $profile_link = SITE_BASE . '/profile/' . UserHelper::getProfileId();
+              } else {
+                $profile_link = SITE_BASE . '/profiles/new';
+              }
+            ?>
+            Hi, <a href="<?php echo $profile_link; ?>"><?php echo htmlspecialchars(UserHelper::getDisplayName()); ?></a> |
+  <?php if (UserHelper::isEditor()): ?>
+            <a href="<?php echo SITE_BASE; ?>/manage">管理</a> |
+          <?php endif; ?>
+      <a href="<?php echo SITE_BASE; ?>/inbox">短信息
+<?php $c=UserHelper::hasNewMail(); if ($c>0): ?>
+(<?php echo $c; ?>)
+<?php endif; ?>
+</a> |
+
+          <a href="<?php echo SITE_BASE; ?>/tweets">微博</a> |
+          <a href="<?php echo SITE_BASE; ?>/search">找人</a> |
+            <a href="<?php echo SITE_BASE; ?>/login/change-password.php">修改密码</a> |
+            <a href="<?php echo SITE_BASE; ?>/login/logout.php?back=<?php echo SITE_BASE; ?>">登出</a> |
+					<?php else: ?>
+					<a href="<?php echo SITE_BASE; ?>/register" title="注册">注册</a>
+					<a href="<?php echo SITE_BASE; ?>/login/" title="登录">登录</a>
+					<?php endif; ?>
+					<a class="last_anchor" href="<?php echo SITE_BASE; ?>/help" title="帮助">帮助</a>
 					</div>
-				</div>-->
+					
+					<div class="search">
+    					<form action="<?php echo SITE_BASE; ?>/search" method="post" onsubmit="$.blockUI();">
+						搜索同学 
+						<input type="text" size="10" name="words" id="words" class="sel">
+						<input type="submit" id="BtnSearch" value=" " class="btn" style="height:21px;width:30px;position:relative; left:-5px;" >
+					</form>
+					</div>
+				</div>
 				<div id="Header_Menu">
 					<ul>
 						<li>
@@ -142,7 +168,7 @@ $(document).ready(function()	{
 					</ul>	
 				</div>
 			</div>		
-    <div class="text columns home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">
+    <div class="text <?php echo isset($no_columns) ? '' : 'columns'; ?> home <?php echo isset($no_sidebar) ? 'nosidebar' : 'sidebar'; ?>">
 <?php $msg=UserHelper::getMessage();if(!empty($msg)&&(!isset($isNewProfile))): ?>
             <div class="alert alert-success fade in">
               <a class="close" data-dismiss="alert">&times;</a>
